@@ -21,7 +21,7 @@ O projeto foi construído com foco em componentização e responsividade, utiliz
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/skateboard.git
+git clone https://github.com/leticiadia/skateboard.git
 
 # Acesse a pasta do projeto
 cd skateboard
@@ -41,4 +41,4 @@ Sinta-se à vontade para explorar, aprender e se inspirar com ele.
 
 **⭐ Se este projeto te inspirou, deixe uma estrela no repositório!**
 
-**👩‍💻 Feito por: Leticia Dias 💙**
+**👩‍💻 Feito por Leticia Dias 💙**
