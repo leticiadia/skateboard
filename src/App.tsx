@@ -1,10 +1,14 @@
+import { BrowserRouter } from "react-router-dom";
 import "./App.css";
+import { AppRouter } from "./AppRouter";
 
 function App() {
   return (
-    <>
-      <p className="text-black text-2xl font-bold">Skateboard</p>
-    </>
+    <BrowserRouter>
+      <main>
+        <AppRouter />
+      </main>
+    </BrowserRouter>
   );
 }
 
