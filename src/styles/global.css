@@ -6,6 +6,21 @@
   --color-yellow-300: #ffc857;
   --color-emerald-400: #2ab7ca;
   --color-red-400: #ef4444;
+
+  --breakpoint-xs: 412px;
+
+  @keyframes scaleUp {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  --animate-scale-up: scaleUp 0.25s ease;
 }
 
 body {
