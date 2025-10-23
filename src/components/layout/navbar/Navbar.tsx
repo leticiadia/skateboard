@@ -18,7 +18,7 @@ export function Navbar() {
     <nav>
       <div
         onClick={() => setOpen(!open)}
-        className="absolute right-6 top-9 cursor-pointer md:hidden"
+        className="absolute right-4 top-9 cursor-pointer md:hidden"
       >
         <List size={26} color="#ffffff" />
       </div>

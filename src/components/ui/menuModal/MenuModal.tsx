@@ -29,7 +29,7 @@ export function MenuModal({ isOpen, onClose, routes }: MenuModalProps) {
 
           <button
             onClick={onClose}
-            className="absolute top-9 right-8"
+            className="absolute top-9 right-8 cursor-pointer"
             aria-label="Botão para fechar o menu"
           >
             <X size={26} color="#000000" />

@@ -5,11 +5,13 @@ import { Header } from "./components/layout/header/Header";
 function App() {
   return (
     <BrowserRouter>
-      <Header />
+      <div className="flex flex-col min-h-screen w-full">
+        <Header />
 
-      <main>
-        <AppRouter />
-      </main>
+        <main className="flex-grow flex flex-col items-center">
+          <AppRouter />
+        </main>
+      </div>
     </BrowserRouter>
   );
 }

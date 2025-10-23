@@ -1,7 +1,11 @@
+import { SectionAbout } from "./sections/sectionAbout";
+import { SectionMain } from "./sections/sectionMain";
+
 export function Home() {
   return (
-    <div>
-      <h1 className="text-5xl font-bold text-yellow-300">Página Home</h1>
-    </div>
+    <>
+      <SectionMain />
+      <SectionAbout />
+    </>
   );
 }
