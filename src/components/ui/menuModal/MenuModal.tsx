@@ -49,8 +49,6 @@ export function MenuModal({ isOpen, onClose, routes }: MenuModalProps) {
             </li>
           ))}
         </ul>
-
-        <p>© Todos os direitos reservados ao Skateboard.</p>
       </div>
     </div>
   );
