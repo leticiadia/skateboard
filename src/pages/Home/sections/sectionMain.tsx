@@ -8,7 +8,7 @@ export function SectionMain() {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <section className="bg-black-700 flex flex-col px-4 w-full min-h-[80vh] md:flex-row md:items-center md:justify-between md:min-h-[80vh] md:px-6 lg:px-16 2xl:justify-evenly 2xl:min-h-[40vh] 2xl:px-[500px]">
+    <section className="bg-black-700 flex flex-col px-4 w-full min-h-[80vh] md:flex-row md:items-center md:justify-around md:min-h-[80vh] md:px-6 lg:px-16 2xl:justify-evenly 2xl:min-h-[40vh] 2xl:px-[500px]">
       <div>
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-4">
