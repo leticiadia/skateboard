@@ -4,6 +4,7 @@ import { SectionMain } from "./sections/sectionMain";
 
 import { athletes } from "./mocks/athletes";
 import { SectionPlaylists } from "./sections/sectionPlaylists";
+import { SectionChampionships } from "./sections/sectionChampionships";
 
 export function Home() {
   return (
@@ -12,6 +13,7 @@ export function Home() {
       <SectionAbout />
       <SectionAthletes athletes={athletes} />
       <SectionPlaylists />
+      <SectionChampionships />
     </>
   );
 }
