@@ -1,5 +1,5 @@
-import { ArrowRightIcon } from "@phosphor-icons/react";
 import ImagePeopleWithSkateboard from "../../../assets/images/people-with-skateboard.png";
+import { ButtonLink } from "../../../components/ui/ButtonLink/ButtonLink";
 
 export function SectionPlaylists() {
   return (
@@ -25,20 +25,7 @@ export function SectionPlaylists() {
             </p>
           </div>
 
-          <a
-            href="#"
-            className="group relative p-4 w-full lg:w-[12.5rem] h-12 rounded-full flex items-center justify-center gap-2 font-bold mb-8 bg-black text-white overflow-hidden"
-          >
-            <span className="transition-transform duration-300 group-hover:-translate-x-2">
-              Explore
-            </span>
-
-            <ArrowRightIcon
-              size={18}
-              weight="bold"
-              className="absolute right-10 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"
-            />
-          </a>
+          <ButtonLink href="#" title="Explore" variant="solid" size="default" />
         </div>
       </div>
     </section>

@@ -1,7 +1,8 @@
-import { ArrowCircleUpRightIcon, ArrowRightIcon } from "@phosphor-icons/react";
+import { ArrowCircleUpRightIcon } from "@phosphor-icons/react";
 import { championships } from "../mocks/championships";
 
 import BanerLiveYourDreams from "../../../assets/images/live-your-dreams.png";
+import { ButtonLink } from "../../../components/ui/ButtonLink/ButtonLink";
 
 export function SectionChampionships() {
   return (
@@ -33,20 +34,12 @@ export function SectionChampionships() {
           ))}
         </div>
 
-        <a
+        <ButtonLink
           href="#"
-          className="group relative p-4 w-full lg:w-[16rem] h-12 border-2 border-black rounded-full flex items-center justify-center gap-2 font-bold mb-8 text-black overflow-hidden"
-        >
-          <span className="transition-transform duration-300 group-hover:-translate-x-2">
-            Ver campeonatos
-          </span>
-
-          <ArrowRightIcon
-            size={18}
-            weight="bold"
-            className="absolute right-8 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"
-          />
-        </a>
+          title="Ver campeonatos"
+          variant="outline"
+          size="large"
+        />
       </section>
 
       <section className="mt-10">

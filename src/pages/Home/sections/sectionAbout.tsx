@@ -1,6 +1,7 @@
+import { ButtonLink } from "../../../components/ui/ButtonLink/ButtonLink";
+
 import TonyHawk from "../../../assets/images/tony-hawk.png";
 import BannerLiveYourExperience from "../../../assets/images/banner-live-your-experience.png";
-import { ArrowRightIcon } from "@phosphor-icons/react";
 
 export function SectionAbout() {
   return (
@@ -26,20 +27,12 @@ export function SectionAbout() {
             </p>
           </div>
 
-          <a
+          <ButtonLink
             href="#"
-            className="group relative p-4 w-full lg:w-[12.5rem] h-12 border-2 border-black rounded-full flex items-center justify-center gap-2 font-bold mb-8 text-black overflow-hidden"
-          >
-            <span className="transition-transform duration-300 group-hover:-translate-x-2">
-              Ver história
-            </span>
-
-            <ArrowRightIcon
-              size={18}
-              weight="bold"
-              className="absolute right-8 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"
-            />
-          </a>
+            title="Ver história"
+            variant="outline"
+            size="default"
+          />
         </div>
 
         <img src={TonyHawk} alt="" />

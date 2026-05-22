@@ -1,5 +1,6 @@
-import { ArrowRightIcon } from "@phosphor-icons/react";
+// import { ArrowRightIcon } from "@phosphor-icons/react";
 import SkateboardPhoto from "../../../assets/images/skateboard.png";
+import { ButtonLink } from "../../../components/ui/ButtonLink/ButtonLink";
 
 export function SectionMain() {
   return (
@@ -22,20 +23,7 @@ export function SectionMain() {
           dessa história ao lado dos melhores competidores do mundo.
         </p>
 
-        <a
-          href="#"
-          className="group relative p-4 w-full lg:w-[12.5rem] h-12 border-2 border-yellow-300 rounded-full flex items-center justify-center gap-2 font-bold mb-8 text-yellow-300 overflow-hidden"
-        >
-          <span className="transition-transform duration-300 group-hover:-translate-x-2">
-            Descubra
-          </span>
-
-          <ArrowRightIcon
-            size={18}
-            weight="bold"
-            className="absolute right-8 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"
-          />
-        </a>
+        <ButtonLink href="#" title="Descubra" variant="yellow" size="default" />
       </div>
 
       <img
