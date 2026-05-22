@@ -1,19 +1,14 @@
-import { useState } from "react";
-
 import TonyHawk from "../../../assets/images/tony-hawk.png";
-import BlackRightArrow from "../../../assets/icons/black-right-arrow.svg";
-import WhiteRightArrow from "../../../assets/icons/white-right-arrow.svg";
 import BannerLiveYourExperience from "../../../assets/images/banner-live-your-experience.png";
+import { ArrowRightIcon } from "@phosphor-icons/react";
 
 export function SectionAbout() {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
     <>
       <section className="flex flex-col justify-between px-4 w-full mt-10 lg:flex-row xl:items-center xl:justify-around xl:px-16 2xl:justify-evenly 2xl:px-[560px]">
         <div>
           <h2 className="text-2xl text-black font-bold md:text-4xl">
-            Sobre a história do skate
+            A História do Skate
           </h2>
 
           <div className="my-4 w-full xl:w-[36rem]">
@@ -33,15 +28,16 @@ export function SectionAbout() {
 
           <a
             href="#"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            className="border-2 border-black p-4 w-[12.5rem] h-12 rounded-full flex items-center gap-2 font-bold text-black mb-8 hover:bg-black hover:text-white transition-colors duration-300"
+            className="group relative p-4 w-full lg:w-[12.5rem] h-12 border-2 border-black rounded-full flex items-center justify-center gap-2 font-bold mb-8 text-black overflow-hidden"
           >
-            Ver sobre
-            <img
-              src={isHovered ? WhiteRightArrow : BlackRightArrow}
-              className="transition-transform duration-300"
-              alt=""
+            <span className="transition-transform duration-300 group-hover:-translate-x-2">
+              Ver história
+            </span>
+
+            <ArrowRightIcon
+              size={18}
+              weight="bold"
+              className="absolute right-8 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"
             />
           </a>
         </div>

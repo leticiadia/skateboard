@@ -1,16 +1,10 @@
-import { useState } from "react";
-import { ArrowCircleRightIcon } from "@phosphor-icons/react";
-
-import WhiteRightArrow from "../../../../assets/icons/white-right-arrow.svg";
-import BlackRightArrow from "../../../../assets/icons/black-right-arrow.svg";
+import { ArrowCircleRightIcon, ArrowRightIcon } from "@phosphor-icons/react";
 
 type Props = {
   onNext: () => void;
 };
 
 export function AthleteContent({ onNext }: Props) {
-  const [isHovered, setIsHovered] = useState<boolean>(false);
-
   return (
     <>
       <div className="flex flex-col items-start gap-4 justify-between mt-8 mb-6 lg:flex-row lg:items-center">
@@ -34,15 +28,16 @@ export function AthleteContent({ onNext }: Props) {
       <div className="mt-8">
         <a
           href="#"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          className="border-2 border-black p-4 w-[13rem] h-12 rounded-full flex items-center gap-2 font-bold text-black mb-8 hover:bg-black hover:text-white transition-colors duration-300"
+          className="group relative p-4 w-full lg:w-[12.5rem] h-12 border-2 border-black rounded-full flex items-center justify-center gap-2 font-bold mb-8 text-black overflow-hidden"
         >
-          Ver atletas
-          <img
-            src={isHovered ? WhiteRightArrow : BlackRightArrow}
-            className="transition-transform duration-300"
-            alt=""
+          <span className="transition-transform duration-300 group-hover:-translate-x-2">
+            Ver atletas
+          </span>
+
+          <ArrowRightIcon
+            size={18}
+            weight="bold"
+            className="absolute right-8 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"
           />
         </a>
       </div>

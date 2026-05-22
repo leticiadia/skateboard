@@ -1,12 +1,7 @@
-import { useState } from "react";
-
+import { ArrowRightIcon } from "@phosphor-icons/react";
 import SkateboardPhoto from "../../../assets/images/skateboard.png";
-import YellowRightArrow from "../../../assets/icons/yellow-right-arrow.svg";
-import BlackRightArrow from "../../../assets/icons/black-right-arrow.svg";
 
 export function SectionMain() {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
     <section className="bg-black-700 flex flex-col px-4 w-full min-h-[80vh] md:flex-row md:items-center md:justify-around md:min-h-[80vh] md:px-6 lg:px-16 2xl:justify-evenly 2xl:min-h-[40vh] 2xl:px-[500px]">
       <div>
@@ -29,15 +24,16 @@ export function SectionMain() {
 
         <a
           href="#"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          className="border-2 border-yellow-300 p-4 w-[12.5rem] h-12 rounded-full flex items-center gap-2 font-bold text-yellow-300 hover:bg-yellow-300 hover:text-black transition-colors duration-300"
+          className="group relative p-4 w-full lg:w-[12.5rem] h-12 border-2 border-yellow-300 rounded-full flex items-center justify-center gap-2 font-bold mb-8 text-yellow-300 overflow-hidden"
         >
-          Descubra
-          <img
-            src={isHovered ? BlackRightArrow : YellowRightArrow}
-            className="transition-transform duration-300"
-            alt=""
+          <span className="transition-transform duration-300 group-hover:-translate-x-2">
+            Descubra
+          </span>
+
+          <ArrowRightIcon
+            size={18}
+            weight="bold"
+            className="absolute right-8 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"
           />
         </a>
       </div>
