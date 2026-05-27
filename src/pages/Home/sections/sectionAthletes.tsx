@@ -4,6 +4,7 @@ import { AthleteContent } from "./SectionAthletes/AthleteContent";
 import { AthleteCarousel } from "./SectionAthletes/AthleteCarousel";
 
 import type { Athlete } from "./SectionAthletes/types";
+import { Container } from "../../../components/layout/container/Container";
 
 type SectionAthletesProps = {
   athletes: Athlete[];
@@ -26,21 +27,25 @@ export function SectionAthletes({ athletes }: SectionAthletesProps) {
   }
 
   return (
-    <section className="flex flex-col items-center justify-center gap-8 mt-10 px-4 lg:flex-row lg:items-start lg:justify-between lg:px-0">
-      <CurrentAthlete athlete={currentAthlete} />
+    <section className="w-full mt-10">
+      <Container>
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+          <CurrentAthlete athlete={currentAthlete} />
 
-      <div className="flex flex-col">
-        <div className="flex flex-col items-start gap-4">
-          <h3 className="text-4xl font-bold">Atletas</h3>
+          <div className="flex flex-col">
+            <div className="flex flex-col items-start gap-4">
+              <h3 className="text-4xl font-bold">Atletas</h3>
 
-          <p className="text-base font-semibold">
-            Vem conhecer os atletas que têm feito história no skate.
-          </p>
+              <p className="text-base font-semibold">
+                Vem conhecer os atletas que têm feito história no skate.
+              </p>
+            </div>
+
+            <AthleteCarousel athletes={rotatedAthletes} />
+            <AthleteContent onNext={handleNextAthlete} />
+          </div>
         </div>
-
-        <AthleteCarousel athletes={rotatedAthletes} />
-        <AthleteContent onNext={handleNextAthlete} />
-      </div>
+      </Container>
     </section>
   );
 }
