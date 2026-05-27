@@ -1,12 +1,31 @@
 import { Navbar } from "../navbar/Navbar";
 
 import SkateboardLogo from "../../../assets/images/skateboard-logo.svg";
+import { useEffect, useState } from "react";
 
 export function Header() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    function handleScroll() {
+      setScrolled(window.scrollY > 20);
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="bg-black-700 w-full py-8 px-4 flex items-center justify-between md:py-6 lg:px-16 2xl:justify-evenly">
+    <header
+      className={`fixed top-0 z-50 w-full py-8 px-4 flex items-center justify-between backdrop-blur-xl transition-shadow duration-300 md:py-4 lg:px-4 lg:justify-around lg:gap-36 2xl:justify-evenly ${
+        scrolled ? "bg-black-700/80 backdrop-blur-xl shadow-lg" : "bg-black-700"
+      }`}
+    >
       <div>
-        <img src={SkateboardLogo} className="h-8 object-cover lg:h-14" alt="" />
+        <img src={SkateboardLogo} className="h-8 object-cover lg:h-12" alt="" />
       </div>
 
       <Navbar />
