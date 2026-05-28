@@ -17,7 +17,7 @@ export function SectionChampionships() {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-4 gap-8 w-full">
               {championships.map((championship) => (
-                <div key={championship.id} className="relative w-full max-w-md">
+                <div key={championship.id} className="relative w-full">
                   <div className="overflow-hidden rounded-2xl">
                     <img
                       src={championship.image}

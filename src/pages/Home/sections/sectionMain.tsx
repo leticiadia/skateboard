@@ -4,9 +4,9 @@ import { ButtonLink } from "../../../components/ui/ButtonLink/ButtonLink";
 
 export function SectionMain() {
   return (
-    <section className="bg-black-700 w-full min-h-[80vh] pt-28">
+    <section className="bg-black-700 w-full min-h-[80vh] pt-18">
       <Container>
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex flex-col gap-8 my-8 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-4">
@@ -20,7 +20,7 @@ export function SectionMain() {
               </p>
             </div>
 
-            <p className="text-base text-white w-full my-8 md:w-[20rem] lg:w-[30.688rem]">
+            <p className="text-base text-white w-full my-8">
               Descubra como é viver uma vida sobre as rodas e venha fazer parte
               dessa história ao lado dos melhores competidores do mundo.
             </p>
@@ -35,7 +35,7 @@ export function SectionMain() {
 
           <img
             src={SkateboardPhoto}
-            className="mt-8 md:h-[320px] lg:h-[400px] xl:h-[520px] md:mt-0"
+            className="lg:h-[400px] xl:h-full"
             alt=""
           />
         </div>

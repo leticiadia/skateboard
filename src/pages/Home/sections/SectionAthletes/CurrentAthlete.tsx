@@ -23,7 +23,10 @@ export function CurrentAthlete({ athlete }: AthleteProps) {
         />
       </AnimatePresence>
 
-      <div className="flex items-center justify-center gap-2 absolute bottom-0 bg-yellow-300 w-full h-24 rounded-b-lg">
+      <div
+        className="flex items-center justify-center gap-2 absolute bottom-0 
+      bg-yellow-300 w-full h-24 rounded-b-lg"
+      >
         <h2 className="text-2xl font-bold">{athlete.name}</h2>
 
         <ArrowCircleUpRightIcon size={28} weight="fill" />

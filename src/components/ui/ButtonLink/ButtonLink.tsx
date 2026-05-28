@@ -27,7 +27,7 @@ export function ButtonLink({
   return (
     <a
       href={href}
-      className={`group relative p-4 w-full lg:w-[12.5rem] h-12 rounded-full flex items-center justify-center gap-2 font-bold mb-8 overflow-hidden transition-all duration-300 ${variants[variant]} ${sizes[size]}`}
+      className={`group relative p-4 w-full lg:w-[12.5rem] h-12 rounded-full flex items-center justify-center gap-2 font-bold overflow-hidden transition-all duration-300 ${variants[variant]} ${sizes[size]}`}
     >
       <span className="transition-transform duration-300 group-hover:-translate-x-2">
         {title}

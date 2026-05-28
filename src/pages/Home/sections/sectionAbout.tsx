@@ -9,7 +9,7 @@ export function SectionAbout() {
     <>
       <section className="w-full mt-10">
         <Container>
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
             <div>
               <h2 className="text-2xl text-black font-bold md:text-4xl">
                 A História do Skate

@@ -8,7 +8,10 @@ type Props = {
 export function AthleteContent({ onNext }: Props) {
   return (
     <>
-      <div className="flex flex-col items-start gap-4 justify-between mt-8 mb-6 lg:flex-row lg:items-center">
+      <div
+        className="flex flex-col items-start gap-4 justify-between mt-4 
+      lg:flex-row lg:items-center"
+      >
         <p className="w-full lg:w-[34rem]">
           Conheça a trajetória dos atletas que vêm deixando sua marca no skate,
           com talento, atitude e evolução constante. Descubra suas conquistas,
@@ -26,7 +29,7 @@ export function AthleteContent({ onNext }: Props) {
         </button>
       </div>
 
-      <div className="mt-8">
+      <div className="mt-4">
         <ButtonLink
           href="#"
           title="Ver atletas"

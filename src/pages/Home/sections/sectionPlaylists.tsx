@@ -4,9 +4,9 @@ import { ButtonLink } from "../../../components/ui/ButtonLink/ButtonLink";
 
 export function SectionPlaylists() {
   return (
-    <section className="bg-yellow-300 w-full">
+    <section className="bg-yellow-300 w-full mt-10">
       <Container>
-        <div className="flex flex-col items-center justify-evenly gap-4 lg:flex-row lg:justify-between">
+        <div className="flex flex-col items-center justify-evenly gap-8 mb-8 lg:flex-row lg:justify-between">
           <img
             src={ImagePeopleWithSkateboard}
             className="h-[600px] mb-8 object-cover lg:mb-0"
@@ -15,7 +15,7 @@ export function SectionPlaylists() {
 
           <div className="flex flex-col gap-4">
             <h2 className="text-5xl font-bold">Playlists</h2>
-            <div className="w-full lg:w-[544px]">
+            <div className="w-full">
               <p className="text-2xl font-semibold">
                 Playlists selecionadas para acompanhar suas sessions, treinos e
                 rolês no skate.

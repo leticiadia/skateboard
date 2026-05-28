@@ -21,7 +21,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 z-50 w-full py-8 md:py-4 lg:px-4 lg:justify-around lg:gap-36 2xl:justify-evenly ${
+      className={`fixed top-0 z-50 w-full py-8 md:py-4 lg:justify-around lg:gap-36 2xl:justify-evenly ${
         scrolled ? "bg-black-700/80 backdrop-blur-xl shadow-lg" : "bg-black-700"
       }`}
     >

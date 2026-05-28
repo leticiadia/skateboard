@@ -7,17 +7,15 @@ type AthletesProps = {
 
 export function AthleteCarousel({ athletes }: AthletesProps) {
   return (
-    <motion.div
-      layout
-      className="flex items-center justify-between gap-2 lg:gap-6 mt-8 lg:justify-start"
-    >
+    <motion.div layout className="flex items-center justify-between gap-4 mt-4">
       {athletes.map((athlete) => (
         <motion.img
           key={athlete.id}
           src={athlete.image}
           alt={athlete.name}
           loading="lazy"
-          className="h-28 w-28 object-cover opacity-70 rounded-lg sm:w-full lg:h-40 lg:w-48"
+          className="h-28 w-28 object-cover opacity-70 rounded-lg sm:w-full 
+          lg:h-40 lg:w-48"
           layout
           transition={{ duration: 0.4 }}
         />
