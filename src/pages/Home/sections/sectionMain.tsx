@@ -1,19 +1,33 @@
-import SkateboardPhoto from "../../../assets/images/skateboard.png";
+import { useTranslation } from "react-i18next";
+
 import { Container } from "../../../components/layout/container/Container";
 import { ButtonLink } from "../../../components/ui/ButtonLink/ButtonLink";
 
+import SkateboardPhoto from "../../../assets/images/skateboard.png";
+
 export function SectionMain() {
+  const { t } = useTranslation();
+
   return (
-    <section className="bg-black-700 w-full min-h-[80vh] pt-18">
+    <section className="bg-black-700 w-full min-h-[80vh] pt-16">
       <Container>
-        <div className="flex flex-col gap-8 my-8 lg:flex-row lg:items-center lg:justify-between">
+        <div
+          className="flex flex-col gap-8 my-8 lg:flex-row lg:items-center 
+        lg:justify-between"
+        >
           <div>
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-4">
-                <p className="text-5xl text-white font-bold md:text-6xl lg:text-8xl">
+                <p
+                  className="text-5xl text-white font-bold md:text-6xl 
+                lg:text-8xl"
+                >
                   Skate
                 </p>
-                <span className="border-b-4 border-b-white w-[7rem] rounded-full"></span>
+                <span
+                  className="border-b-4 border-b-white w-[7rem] 
+                rounded-full"
+                ></span>
               </div>
               <p className="text-5xl text-white font-bold md:text-6xl lg:text-8xl">
                 boarding
@@ -21,13 +35,12 @@ export function SectionMain() {
             </div>
 
             <p className="text-base text-white w-full my-8">
-              Descubra como é viver uma vida sobre as rodas e venha fazer parte
-              dessa história ao lado dos melhores competidores do mundo.
+              {t("home.main.description")}
             </p>
 
             <ButtonLink
               href="#"
-              title="Descubra"
+              title={t("home.main.button")}
               variant="yellow"
               size="default"
             />

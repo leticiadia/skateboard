@@ -3,11 +3,15 @@ import {
   LinkedinLogoIcon,
   XLogoIcon,
 } from "@phosphor-icons/react";
+import { useTranslation } from "react-i18next";
 
-import SkateboardLogo from "../../../assets/images/skateboard-logo.svg";
 import { Container } from "../container/Container";
 
+import SkateboardLogo from "../../../assets/images/skateboard-logo.svg";
+
 export function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="mt-10 border-t border-zinc-200 bg-black-700">
       <Container>
@@ -23,8 +27,7 @@ export function Footer() {
             />
 
             <p className="text-sm leading-relaxed text-zinc-400">
-              Mais do que um esporte, o skateboard representa liberdade,
-              criatividade e expressão em cada detalhe.
+              {t("footer.description")}
             </p>
 
             <div className="flex items-center gap-3 pt-2">
@@ -69,19 +72,19 @@ export function Footer() {
               <ul className="space-y-3 text-sm text-zinc-400">
                 <li>
                   <a className="transition-colors hover:text-zinc-200" href="#">
-                    Home
+                    {t("footer.navigation.home")}
                   </a>
                 </li>
 
                 <li>
                   <a className="transition-colors hover:text-zinc-200" href="#">
-                    Projetos
+                    {t("footer.navigation.about")}
                   </a>
                 </li>
 
                 <li>
                   <a className="transition-colors hover:text-zinc-200" href="#">
-                    Sobre
+                    {t("footer.navigation.athletes")}
                   </a>
                 </li>
               </ul>
@@ -155,7 +158,7 @@ export function Footer() {
             className="mx-auto flex max-w-7xl flex-col gap-3 py-5 text-sm 
         text-white sm:flex-row sm:items-center sm:justify-between"
           >
-            <p>© 2026 Skateboard. Todos os direitos reservados.</p>
+            <p>{t("footer.copyright")}</p>
           </div>
         </div>
       </Container>

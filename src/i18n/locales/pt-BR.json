@@ -1,0 +1,52 @@
+{
+  "navbar": {
+    "about": "Sobre",
+    "athletes": "Atletas",
+    "playlists": "Playlists",
+    "championships": "Campeonatos"
+  },
+  "home": {
+    "main": {
+      "description": "Descubra como é viver uma vida sobre as rodas e venha fazer parte dessa história ao lado dos melhores competidores do mundo.",
+      "button": "Descubra"
+    },
+    "about": {
+        "title": "A História do Skate",
+        "description": {
+          "paragraph1": "O skate nasceu como uma alternativa criativa para os surfistas que buscavam novas formas de liberdade sobre rodas. Cada manobra, cada rua e cada geração ajudou a escrever a história desse universo em constante evolução.",
+          "paragraph2": "Descubra como o skate surgiu, evoluiu e se tornou um movimento cultural. Clique e conheça a trajetória completa que transformou o skate em um ícone mundial."
+        },
+        "button": "Ler História"
+    },
+    "athletes": {
+        "title": "Atletas",
+        "description": {
+          "subtitle": "Vem conhecer os atletas que têm feito história no skate.",
+          "paragraph": "Conheça a trajetória dos atletas que vêm deixando sua marca no skate, com talento, atitude e evolução constante. Descubra suas conquistas, estilos únicos e o impacto dentro e fora das pistas."
+        },
+        "button": "Ver Atletas"
+    },
+    "playlists": {
+        "title": "Playlists",
+        "description": {
+          "paragraph1": "Playlists selecionadas para acompanhar suas sessions, treinos e rolês no skate.",
+          "paragraph2": "Uma seleção de músicas para entrar no ritmo do skate com batidas intensas e muita energia, tudo feito para quem vive o skate."
+        },
+        "button": "Explore"
+    },
+    "championships": {
+      "title": "Campeonatos",
+      "button": "Ver Campeonatos"
+    }
+  },
+  "footer": {
+    "description": "Mais do que um esporte, o skateboard representa liberdade, criatividade e expressão em cada detalhe.",
+    "copyright": "© 2026 Skateboard. Todos os direitos reservados.",
+     "navigation": {
+      "home": "Home",
+      "about": "Sobre",
+      "athletes": "Atletas"
+    }
+    
+  }
+}

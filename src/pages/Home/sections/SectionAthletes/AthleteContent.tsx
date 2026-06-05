@@ -1,11 +1,14 @@
 import { ArrowCircleRightIcon } from "@phosphor-icons/react";
 import { ButtonLink } from "../../../../components/ui/ButtonLink/ButtonLink";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   onNext: () => void;
 };
 
 export function AthleteContent({ onNext }: Props) {
+  const { t } = useTranslation();
+
   return (
     <>
       <div
@@ -13,9 +16,7 @@ export function AthleteContent({ onNext }: Props) {
       lg:flex-row lg:items-center"
       >
         <p className="w-full lg:w-[34rem]">
-          Conheça a trajetória dos atletas que vêm deixando sua marca no skate,
-          com talento, atitude e evolução constante. Descubra suas conquistas,
-          estilos únicos e o impacto dentro e fora das pistas.
+          {t("home.athletes.description.paragraph")}
         </p>
 
         <button
@@ -32,7 +33,7 @@ export function AthleteContent({ onNext }: Props) {
       <div className="mt-4">
         <ButtonLink
           href="#"
-          title="Ver atletas"
+          title={t("home.athletes.button")}
           variant="outline"
           size="default"
         />

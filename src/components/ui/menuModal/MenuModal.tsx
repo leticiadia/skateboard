@@ -10,12 +10,25 @@ interface RouteProps {
 
 interface MenuModalProps {
   isOpen: boolean;
-  onClose: () => void;
   routes: RouteProps[];
+  currentLanguage: string;
+  onClose: () => void;
+  onChangeLanguage: (lang: "pt" | "en") => void;
 }
 
-export function MenuModal({ isOpen, onClose, routes }: MenuModalProps) {
+export function MenuModal({
+  isOpen,
+  onClose,
+  routes,
+  currentLanguage,
+  onChangeLanguage,
+}: MenuModalProps) {
   if (!isOpen) return null;
+
+  function handleLanguageToggle() {
+    const nextLanguage = currentLanguage === "pt" ? "en" : "pt";
+    onChangeLanguage(nextLanguage);
+  }
 
   return (
     <div className="fixed top-0 left-0 w-full bg-black/30 z-40 min-h-[100vh] flex items-center justify-center md:hidden">
@@ -52,6 +65,7 @@ export function MenuModal({ isOpen, onClose, routes }: MenuModalProps) {
 
         <div className="mt-8">
           <button
+            onClick={handleLanguageToggle}
             className="flex items-center gap-2 px-4 h-11 rounded-full border 
             border-black/20 text-black transition-all duration-300
             hover:bg-black hover:text-white"
@@ -59,7 +73,9 @@ export function MenuModal({ isOpen, onClose, routes }: MenuModalProps) {
           >
             <Translate size={20} weight="bold" />
 
-            <span className="text-sm font-medium">PT-BR</span>
+            <span className="text-sm font-medium uppercase">
+              {currentLanguage === "pt" ? "PT" : "EN"}
+            </span>
           </button>
         </div>
       </div>

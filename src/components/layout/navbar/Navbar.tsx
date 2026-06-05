@@ -1,16 +1,29 @@
 import { useState } from "react";
-import { List, Translate } from "phosphor-react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { List, Translate } from "phosphor-react";
+
 import { MenuModal } from "../../ui/menuModal/MenuModal";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
+
+  const { t, i18n } = useTranslation();
+
+  function changeLanguage(lang: "pt" | "en") {
+    localStorage.setItem("language", lang);
+
+    i18n.changeLanguage(lang);
+
+    setIsLanguageMenuOpen(false);
+  }
 
   const routes = [
-    { path: "/sobre", label: "Sobre" },
-    { path: "/atletas", label: "Atletas" },
-    { path: "/playlists", label: "Playlists" },
-    { path: "/campeonatos", label: "Campeonatos" },
+    { path: "/sobre", label: t("navbar.about") },
+    { path: "/atletas", label: t("navbar.athletes") },
+    { path: "/playlists", label: t("navbar.playlists") },
+    { path: "/campeonatos", label: t("navbar.championships") },
   ];
 
   return (
@@ -39,18 +52,50 @@ export function Navbar() {
           ))}
         </ul>
 
-        <button
-          className="flex items-center gap-2 px-3 h-10 rounded-full border 
-          border-white/20 text-white transition-all duration-300 hover:bg-white 
-          hover:text-black cursor-pointer"
-          aria-label="Trocar idioma"
-        >
-          <Translate size={18} weight="bold" />
-          <span className="text-sm font-medium">PT</span>
-        </button>
+        <div className="relative">
+          <button
+            onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
+            className="flex items-center gap-2 px-3 h-10 rounded-full border 
+            border-white/20 text-white transition-all duration-300 
+            hover:bg-white hover:text-black cursor-pointer"
+          >
+            <Translate size={18} weight="bold" />
+          </button>
+
+          {isLanguageMenuOpen && (
+            <div
+              className="absolute top-12 right-0 min-w-[120px] rounded-lg 
+              bg-white shadow-lg overflow-hidden"
+            >
+              <button
+                onClick={() => {
+                  changeLanguage("pt");
+                }}
+                className="w-full px-4 py-2 text-left hover:bg-gray-100"
+              >
+                Português
+              </button>
+
+              <button
+                onClick={() => {
+                  changeLanguage("en");
+                }}
+                className="w-full px-4 py-2 text-left hover:bg-gray-100"
+              >
+                English
+              </button>
+            </div>
+          )}
+        </div>
       </div>
 
-      <MenuModal isOpen={open} onClose={() => setOpen(false)} routes={routes} />
+      <MenuModal
+        isOpen={open}
+        onClose={() => setOpen(false)}
+        routes={routes}
+        currentLanguage={i18n.language}
+        onChangeLanguage={changeLanguage}
+      />
     </nav>
   );
 }

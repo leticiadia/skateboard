@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+
+import type { Athlete } from "./SectionAthletes/types";
+
 import { CurrentAthlete } from "./SectionAthletes/CurrentAthlete";
 import { AthleteContent } from "./SectionAthletes/AthleteContent";
 import { AthleteCarousel } from "./SectionAthletes/AthleteCarousel";
-
-import type { Athlete } from "./SectionAthletes/types";
 import { Container } from "../../../components/layout/container/Container";
 
 type SectionAthletesProps = {
@@ -12,6 +14,8 @@ type SectionAthletesProps = {
 
 export function SectionAthletes({ athletes }: SectionAthletesProps) {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+
+  const { t } = useTranslation();
 
   const rotatedAthletes = [
     ...athletes.slice(currentIndex + 1),
@@ -29,15 +33,18 @@ export function SectionAthletes({ athletes }: SectionAthletesProps) {
   return (
     <section className="w-full mt-10">
       <Container>
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+        <div
+          className="flex flex-col gap-8 lg:flex-row lg:items-center 
+        lg:justify-between"
+        >
           <CurrentAthlete athlete={currentAthlete} />
 
           <div className="flex flex-col">
             <div className="flex flex-col items-start gap-4">
-              <h3 className="text-4xl font-bold">Atletas</h3>
+              <h3 className="text-4xl font-bold">{t("home.athletes.title")}</h3>
 
               <p className="text-base font-semibold">
-                Vem conhecer os atletas que têm feito história no skate.
+                {t("home.athletes.description.subtitle")}
               </p>
             </div>
 

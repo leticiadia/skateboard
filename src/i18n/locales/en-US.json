@@ -1,0 +1,51 @@
+{
+  "navbar": {
+    "about": "About",
+    "athletes": "Athletes",
+    "playlists": "Playlists",
+    "championships": "Championships"
+  },
+  "home": {
+    "main": {
+      "description": "Discover what it's like to live life on wheels and become part of this story alongside the best competitors in the world.",
+      "button": "Discover"
+    },
+    "about": {
+        "title": "The History of Skateboarding",
+        "description": {
+          "paragraph1": "Skateboarding was born as a creative alternative for surfers looking for new ways to experience freedom on wheels. Every trick, every street, and every generation has helped shape the story of this ever-evolving culture.",
+          "paragraph2": "Discover how skateboarding began, evolved, and became a global cultural movement. Click to explore the complete journey that transformed skateboarding into a worldwide icon."
+        },
+        "button": "Read Story" 
+    },
+    "athletes": {
+        "title": "Athletes",
+        "description": {
+          "subtitle": "Meet the athletes who have been making history in skateboarding.",
+          "paragraph": "Discover the journeys of the athletes who are leaving their mark on the sport through talent, attitude, and constant growth. Explore their achievements, unique styles, and the impact they have both on and off the skatepark."
+        },
+        "button": "See Athletes"
+    },
+    "playlists": {
+        "title": "Playlists",
+        "description": {
+          "paragraph1": "Curated playlists to accompany your skate sessions, training, and everyday rides.",
+          "paragraph2": "A selection of tracks designed to get you into the skateboarding mindset with powerful beats and plenty of energy made for those who live and breathe skateboarding."
+        },
+        "button": "Explore"
+    },
+    "championships": {
+      "title": "Championships",
+      "button": "See Championships"
+    }
+  },
+  "footer": {
+    "description": "More than a sport, skateboarding represents freedom, creativity, and self-expression in every detail.",
+    "copyright": "© 2026 Skateboard. All rights reserved.",
+    "navigation": {
+      "home": "Home",
+      "about": "About",
+      "athletes": "Athletes"
+    }
+  }
+}
