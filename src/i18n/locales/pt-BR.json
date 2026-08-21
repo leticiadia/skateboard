@@ -5,6 +5,7 @@
     "playlists": "Playlists",
     "championships": "Campeonatos"
   },
+  
   "home": {
     "main": {
       "description": "Descubra como é viver uma vida sobre as rodas e venha fazer parte dessa história ao lado dos melhores competidores do mundo.",
@@ -39,6 +40,34 @@
       "button": "Ver Campeonatos"
     }
   },
+
+  "about": {
+    "title": "Sobre",
+    "description": "Descubra a história do skate, sua evolução e como se tornou um movimento cultural que inspira gerações.",
+
+    "history": {
+      "origin": {
+        "paragraph1": "O skate surgiu na Califórnia, Estados Unidos, nos anos 60. Foi inventado por alguns surfistas, como uma brincadeira para um dia no qual não havia ondas no mar.",
+        "paragraph2": "Eles utilizaram rodinhas de patins.",
+        "paragraph3": "Já em 1965 foram fabricados os primeiros skates e realizados os primeiros campeonatos."
+      },
+
+      "tonyHawk": {
+        "paragraph1": "Mas o esporte só ganhou o mundo nos anos 90, quando o norte-americano Tony Hawk realizou uma revolução com seus aéreos e flips.",
+        "paragraph2": "Tony Hawk é considerado, até hoje, o maior skatista de todos os tempos."
+      },
+
+      "culture": {
+        "paragraph1": "O skate é praticado pelas ruas do mundo todo, ou em lugares específicos, como os skate parks."
+      },
+
+      "competition": {
+        "paragraph1": "Nas competições, só existem duas categorias: a Street (circuito com obstáculos) e a Half Pipe (rampa em formato de U).",
+        "paragraph2": "As manobras são avaliadas por juízes que atribuem notas considerando a dificuldade e a desenvoltura das manobras realizadas."
+      }
+    }
+  },
+
   "footer": {
     "description": "Mais do que um esporte, o skateboard representa liberdade, criatividade e expressão em cada detalhe.",
     "copyright": "© 2026 Skateboard. Todos os direitos reservados.",

@@ -5,6 +5,7 @@
     "playlists": "Playlists",
     "championships": "Championships"
   },
+
   "home": {
     "main": {
       "description": "Discover what it's like to live life on wheels and become part of this story alongside the best competitors in the world.",
@@ -39,6 +40,34 @@
       "button": "See Championships"
     }
   },
+  
+  "about": {
+    "title": "About",
+    "description": "Discover the history of skateboarding, its evolution, and how it became a cultural movement that inspires generations.",
+
+    "history": {
+      "origin": {
+        "paragraph1": "Skateboarding originated in California, United States, during the 1960s. It was invented by surfers as a way to have fun on days when there were no waves.",
+        "paragraph2": "They used roller skate wheels.",
+        "paragraph3": "By 1965, the first skateboards were manufactured and the first competitions were held."
+      },
+
+      "tonyHawk": {
+        "paragraph1": "The sport gained worldwide popularity in the 1990s when Tony Hawk revolutionized skateboarding with his aerials and flips.",
+        "paragraph2": "Tony Hawk is still considered the greatest skateboarder of all time."
+      },
+
+      "culture": {
+        "paragraph1": "Skateboarding is practiced on streets all around the world and in dedicated places such as skate parks."
+      },
+
+      "competition": {
+        "paragraph1": "In competitions, there are two main categories: Street and Half Pipe.",
+        "paragraph2": "Tricks are judged based on difficulty, execution, and overall performance."
+      }
+    }
+  },
+
   "footer": {
     "description": "More than a sport, skateboarding represents freedom, creativity, and self-expression in every detail.",
     "copyright": "© 2026 Skateboard. All rights reserved.",
