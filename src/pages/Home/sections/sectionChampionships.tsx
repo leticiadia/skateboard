@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
-import { ArrowCircleUpRightIcon } from "@phosphor-icons/react";
 
 import { championships } from "../../../mocks/championships";
 
-import { ButtonLink } from "../../../components/ui/ButtonLink/ButtonLink";
 import { Container } from "../../../components/layout/container/Container";
+import { EntityCard } from "../../../components/layout/EntityCard/EntityCard";
+import { ButtonLink } from "../../../components/ui/ButtonLink/ButtonLink";
 
 import BannerLiveYourDreamsPT from "../../../assets/images/banner-live-your-dreams.png";
 import BannerLiveYourDreamsEN from "../../../assets/images/banner-live-your-dreams-en.png";
@@ -26,31 +26,15 @@ export function SectionChampionships() {
 
             <div
               className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 
-            xl:grid-cols-4 gap-8 w-full"
+              xl:grid-cols-4 gap-8 w-full"
             >
               {championships.map((championship) => (
-                <div key={championship.id} className="relative w-full">
-                  <div className="overflow-hidden rounded-2xl">
-                    <img
-                      src={championship.image}
-                      className="w-full h-80 object-cover rounded-2xl lg:h-full 
-                      transition-transform duration-500 ease-out 
-                      hover:scale-105 opacity-90"
-                      alt=""
-                    />
-                  </div>
-
-                  <div
-                    className="flex items-center justify-center gap-2 
-                  absolute bottom-0 bg-emerald-400 w-full h-24 rounded-b-2xl"
-                  >
-                    <a href="" className="text-2xl font-bold hover:underline">
-                      {championship.name}
-                    </a>
-
-                    <ArrowCircleUpRightIcon size={28} weight="fill" />
-                  </div>
-                </div>
+                <EntityCard
+                  href="null"
+                  name={championship.name}
+                  image={championship.image}
+                  color="blue"
+                />
               ))}
             </div>
 
