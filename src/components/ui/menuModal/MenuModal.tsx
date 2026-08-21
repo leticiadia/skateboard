@@ -1,7 +1,7 @@
 import { Translate, X } from "phosphor-react";
 import { Link } from "react-router-dom";
 
-import SkateboardLogo from "../../../assets/images/skateboard-logo-black.svg";
+import SkateboardLogo from "../../../assets/brand/skateboard-logo-black.svg";
 
 interface RouteProps {
   path: string;

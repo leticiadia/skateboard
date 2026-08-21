@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 
 import { Container } from "../container/Container";
 
-import SkateboardLogo from "../../../assets/images/skateboard-logo.svg";
+import SkateboardLogo from "../../../assets/brand/skateboard-logo.svg";
 
 export function Footer() {
   const { t } = useTranslation();

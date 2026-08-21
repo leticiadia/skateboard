@@ -1,8 +1,9 @@
 import { Navbar } from "../navbar/Navbar";
 
-import SkateboardLogo from "../../../assets/images/skateboard-logo.svg";
+import SkateboardLogo from "../../../assets/brand/skateboard-logo.svg";
 import { useEffect, useState } from "react";
 import { Container } from "../container/Container";
+import { Link } from "react-router-dom";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,11 +29,13 @@ export function Header() {
       <Container>
         <div className="flex items-center justify-between">
           <div>
-            <img
-              src={SkateboardLogo}
-              className="h-8 object-cover lg:h-12"
-              alt=""
-            />
+            <Link to="/" className="text-2xl font-bold hover:underline">
+              <img
+                src={SkateboardLogo}
+                className="h-8 object-cover lg:h-12"
+                alt=""
+              />
+            </Link>
           </div>
 
           <Navbar />

@@ -22,7 +22,6 @@ export function Navbar() {
   const routes = [
     { path: "/sobre", label: t("navbar.about") },
     { path: "/atletas", label: t("navbar.athletes") },
-    { path: "/playlists", label: t("navbar.playlists") },
     { path: "/campeonatos", label: t("navbar.championships") },
   ];
 
