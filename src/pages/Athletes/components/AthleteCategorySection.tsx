@@ -26,7 +26,7 @@ export function AthleteCategorySection({
         {athletes.map((athlete) => (
           <EntityCard
             key={athlete.id}
-            href={`/athletes/${athlete.slug}`}
+            href={`/atletas/${athlete.slug}`}
             name={athlete.name}
             image={athlete.image}
             color={color}

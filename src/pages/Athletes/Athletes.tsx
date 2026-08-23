@@ -45,7 +45,7 @@ export function Athletes() {
         </Container>
       </section>
 
-      <section className="mt-10 w-full">
+      <section className="my-10 w-full">
         <Container>
           <div className="flex flex-col gap-16">
             <AthleteCategorySection

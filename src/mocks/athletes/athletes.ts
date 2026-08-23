@@ -129,34 +129,6 @@ export const athletes: Athlete[] = [
     ],
   },
 
-  // {
-  //   id: "gabriel-souza",
-  //   name: "Gabriel Souza",
-  //   slug: "gabriel-souza",
-  //   category: "male",
-  //   image: "/images/athletes/gabriel-souza.webp",
-  //   description:
-  //     "Gabriel Souza é conhecido pelo seu estilo agressivo e pela criatividade nas linhas. Participa de campeonatos nacionais e vem construindo uma trajetória de destaque no skate brasileiro.",
-  //   championships: [
-  //     {
-  //       name: "Campeonato Brasileiro de Skate Street",
-  //       year: 2025,
-  //       placement: 1,
-  //     },
-  //     {
-  //       name: "Circuito Nacional de Skate",
-  //       year: 2024,
-  //       placement: 2,
-  //     },
-  //   ],
-  //   awards: [
-  //     {
-  //       name: "Skatista do Ano",
-  //       year: 2025,
-  //     },
-  //   ],
-  // },
-
   {
     id: "lucas-martins",
     name: "Lucas Martins",
