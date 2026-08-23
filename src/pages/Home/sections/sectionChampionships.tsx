@@ -1,13 +1,12 @@
 import { useTranslation } from "react-i18next";
 
-import { championships } from "../../../mocks/championships";
-
 import { Container } from "../../../components/layout/container/Container";
 import { EntityCard } from "../../../components/layout/EntityCard/EntityCard";
 import { ButtonLink } from "../../../components/ui/ButtonLink/ButtonLink";
 
 import BannerLiveYourDreamsPT from "../../../assets/images/banner-live-your-dreams.png";
 import BannerLiveYourDreamsEN from "../../../assets/images/banner-live-your-dreams-en.png";
+import { championships } from "../../../mocks/championships/championships";
 
 export function SectionChampionships() {
   const { t, i18n } = useTranslation();
@@ -30,8 +29,9 @@ export function SectionChampionships() {
             >
               {championships.map((championship) => (
                 <EntityCard
+                  key={championship.id}
                   href="null"
-                  name={championship.name}
+                  name={championship.abbreviation}
                   image={championship.image}
                   color="blue"
                 />
@@ -48,7 +48,7 @@ export function SectionChampionships() {
         </Container>
       </section>
 
-      <section className="mt-10">
+      <section className="my-10">
         <Container>
           <img src={bannerImage} className="h-full object-cover" alt="" />
         </Container>

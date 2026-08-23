@@ -13,7 +13,7 @@ export function Footer() {
   const { t } = useTranslation();
 
   return (
-    <footer className="mt-10 border-t border-zinc-200 bg-black-700">
+    <footer className="border-t border-zinc-200 bg-black-700">
       <Container>
         <div
           className="mx-auto flex w-full max-w-7xl flex-col gap-12

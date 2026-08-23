@@ -9,7 +9,10 @@ export function About() {
 
   return (
     <>
-      <section className="bg-black-700 flex min-h-[80vh] w-full items-center justify-center">
+      <section
+        className="bg-black-700 flex min-h-[80vh] w-full items-center 
+        justify-center"
+      >
         <Container>
           <div className="flex flex-col items-center justify-center gap-5">
             <div>
@@ -33,11 +36,13 @@ export function About() {
             {aboutHistory.map((item, index) => (
               <div
                 key={index}
-                className={`flex flex-col items-center gap-8 lg:justify-between ${
-                  item.reverse ? "lg:flex-row-reverse" : "lg:flex-row"
-                }`}
+                className={`flex flex-col items-center gap-8 lg:justify-between 
+                ${item.reverse ? "lg:flex-row-reverse" : "lg:flex-row"}`}
               >
-                <div className="flex w-full flex-col gap-2 text-base font-medium text-slate-300">
+                <div
+                  className="flex w-full flex-col gap-2 text-base font-medium 
+                text-slate-300"
+                >
                   {item.paragraphs.map((paragraph) => (
                     <p key={paragraph}>{t(paragraph)}</p>
                   ))}
@@ -60,13 +65,6 @@ export function About() {
                     duration: 0.8,
                   }}
                 />
-
-                {/* <img
-                  src={item.image}
-                  alt=""
-                  className="w-full max-w-md object-cover transition-transform 
-                  duration-500 hover:scale-105"
-                /> */}
               </div>
             ))}
           </div>
