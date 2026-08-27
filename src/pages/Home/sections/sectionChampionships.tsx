@@ -30,16 +30,16 @@ export function SectionChampionships() {
               {championships.map((championship) => (
                 <EntityCard
                   key={championship.id}
-                  href="null"
+                  href={`/campeonatos/${championship.slug}`}
                   name={championship.abbreviation}
-                  image={championship.image}
+                  image={championship.imageThumbnail}
                   color="blue"
                 />
               ))}
             </div>
 
             <ButtonLink
-              href="#"
+              href="/campeonatos"
               title={t("home.championships.button")}
               variant="outline"
               size="large"
