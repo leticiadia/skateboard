@@ -23,7 +23,7 @@ export function EntityCard({ name, image, href, color }: EntityCardProps) {
         <img
           src={image}
           className="h-80 w-full rounded-2xl object-cover opacity-90 
-          transition-transform duration-500 ease-out hover:scale-105 lg:h-full"
+          transition-transform duration-500 ease-out hover:scale-105 lg:min-h-[60vh]"
           alt=""
         />
       </div>
