@@ -1,39 +1,26 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 
+import { about } from "../mocks/about";
+
 import { Container } from "../components/layout/container/Container";
-import { aboutHistory } from "../mocks/about";
+import { PageHero } from "../components/layout/PageHero/PageHero";
 
 export function About() {
   const { t } = useTranslation();
 
   return (
     <>
-      <section
-        className="bg-black-700 flex min-h-[80vh] w-full items-center 
-        justify-center"
-      >
-        <Container>
-          <div className="flex flex-col items-center justify-center gap-5">
-            <div>
-              <h2 className="text-5xl font-bold text-white">
-                {t("about.title")}
-              </h2>
-
-              <div className="mt-2 border-b-4 border-yellow-300" />
-            </div>
-
-            <p className="max-w-lg text-center text-base font-medium text-white">
-              {t("about.description")}
-            </p>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        title={t("about.title")}
+        subtitle={t("about.description")}
+        backgroundColor="#101828"
+      />
 
       <section>
         <Container>
           <div className="my-10 flex flex-col gap-10">
-            {aboutHistory.map((item, index) => (
+            {about.map((item, index) => (
               <div
                 key={index}
                 className={`flex flex-col items-center gap-8 lg:justify-between 

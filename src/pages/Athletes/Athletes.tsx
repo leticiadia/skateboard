@@ -1,9 +1,15 @@
+import { useTranslation } from "react-i18next";
+
 import { athletes } from "../../mocks/athletes/athletes";
 
 import { Container } from "../../components/layout/container/Container";
+import { PageHero } from "../../components/layout/PageHero/PageHero";
+
 import { AthleteCategorySection } from "./components/AthleteCategorySection";
 
 export function Athletes() {
+  const { t } = useTranslation();
+
   const femaleAthletes = athletes.filter(
     (athlete) => athlete.category === "female",
   );
@@ -18,32 +24,11 @@ export function Athletes() {
 
   return (
     <>
-      <section
-        className="
-          flex min-h-[80vh] w-full items-center justify-center
-          bg-black-700
-        "
-      >
-        <Container>
-          <div className="flex flex-col items-center justify-center gap-5">
-            <div>
-              <h2 className="text-5xl font-bold text-white">Atletas</h2>
-
-              <div className="mt-2 border-b-4 border-yellow-300" />
-            </div>
-
-            <p
-              className="
-                max-w-lg text-center text-base font-medium
-                text-white
-              "
-            >
-              Conheça os skatistas que marcaram a cena, das lendas às novas
-              gerações que transformam o esporte.
-            </p>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        title={t("athletes.title")}
+        subtitle={t("athletes.description")}
+        backgroundColor="#101828"
+      />
 
       <section className="my-10 w-full">
         <Container>
