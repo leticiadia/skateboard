@@ -67,6 +67,46 @@
     }
   },
 
+  "athletes": {
+    "title": "Athletes",
+    "description": "Meet the skaters who shaped the scene, from the legends to the new generation transforming the sport."
+
+  },
+
+
+  "championships": {
+    "title": "Championships",
+    "description": "Explore major skate championships and follow the athletes making history in the park and on the street."
+
+  },
+
+   "championship-profile": {
+    "LegacyStreetTour": {
+      "title": "Legacy Street Tour",
+      "subtitle": "Where the world's best skaters go head-to-head.",
+      "description": "Discover the Legacy Street Tour, the championship bringing together skill, style, and raw adrenaline. Click to learn more about past editions and the athletes making history."
+    },
+
+    "BoardwalkClash": {
+      "title": "Boardwalk Clash",
+      "subtitle": "Where adrenaline meets the street and the park.",
+      "description": "Explore the Boardwalk Clash, one of the most exciting events in global skateboarding, featuring high-impact tricks and elite athletes. Click to discover previous editions and key highlights."
+    },
+
+    "StreetWomensPro": {
+      "title": "Street Women's Pro",
+      "subtitle": "Where the impossible becomes reality.",
+      "description": "Discover the Street Women's Pro, the event pushing limits and celebrating the boldest skaters on the planet. Click to watch legendary moments and historic achievements."
+    },
+
+     "OldSchoolStreetPro": {
+      "title": "Old School Street Pro",
+      "subtitle": "The park is the stage for creativity.",
+      "description": "Check out the Old School Street Pro, the championship showcasing technique, style, and innovation on every course. Click to follow the athletes and trendsetting performances."
+    }
+
+  },
+
   "footer": {
     "description": "More than a sport, skateboarding represents freedom, creativity, and self-expression in every detail.",
     "copyright": "© 2026 Skateboard. All rights reserved.",

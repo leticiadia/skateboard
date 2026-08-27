@@ -3,7 +3,7 @@ import ImageTonyHawk from "../assets/images/tony-hawk-story.png";
 import ImageSkatersFriendsVan from "../assets/images/skaters-friends-van.png";
 import ImageSkatersGroupPark from "../assets/images/skaters-group-park.png";
 
-export const aboutHistory = [
+export const about = [
   {
     image: ImageSkaterYoungRiding,
     reverse: false,

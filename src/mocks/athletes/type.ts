@@ -12,6 +12,20 @@ export interface AthleteAward {
   championship?: string;
 }
 
+export type AthleteRanking = {
+  championshipSlug: string;
+  season: number;
+  position: number;
+  points: number;
+  wins: number;
+  losses: number;
+  podiums: {
+    gold: number;
+    silver: number;
+    bronze: number;
+  };
+};
+
 export interface Athlete {
   id: string;
   name: string;
@@ -21,4 +35,5 @@ export interface Athlete {
   description: string;
   championships: AthleteChampionship[];
   awards: AthleteAward[];
+  rankings: AthleteRanking[];
 }
