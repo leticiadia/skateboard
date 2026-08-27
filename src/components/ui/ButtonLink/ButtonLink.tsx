@@ -1,4 +1,5 @@
 import { ArrowRightIcon } from "@phosphor-icons/react";
+import { Link } from "react-router-dom";
 
 type ButtonLinkProps = {
   title: string;
@@ -25,8 +26,8 @@ export function ButtonLink({
   size = "default",
 }: ButtonLinkProps) {
   return (
-    <a
-      href={href}
+    <Link
+      to={href}
       className={`group relative p-4 w-full lg:w-[12.5rem] h-12 rounded-full flex items-center justify-center gap-2 font-bold overflow-hidden transition-all duration-300 ${variants[variant]} ${sizes[size]}`}
     >
       <span className="transition-transform duration-300 group-hover:-translate-x-2">
@@ -38,6 +39,6 @@ export function ButtonLink({
         weight="bold"
         className="absolute right-8 opacity-0 -translate-x-2 transition-all duration-400 group-hover:opacity-100 group-hover:translate-x-0"
       />
-    </a>
+    </Link>
   );
 }
