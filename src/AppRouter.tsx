@@ -4,6 +4,7 @@ import { About } from "./pages/About";
 import { Athletes } from "./pages/Athletes/Athletes";
 import { Championships } from "./pages/Championships/Championships";
 import { AthleteProfile } from "./pages/Athletes/AthleteProfile";
+import { ChampionshipProfile } from "./pages/Championships/ChampionshipProfile";
 
 export function AppRouter() {
   return (
@@ -13,6 +14,10 @@ export function AppRouter() {
       <Route path="/atletas" element={<Athletes />}></Route>
       <Route path="/atletas/:slug" element={<AthleteProfile />}></Route>
       <Route path="/campeonatos" element={<Championships />}></Route>
+      <Route
+        path="/campeonatos/:slug"
+        element={<ChampionshipProfile />}
+      ></Route>
     </Routes>
   );
 }
