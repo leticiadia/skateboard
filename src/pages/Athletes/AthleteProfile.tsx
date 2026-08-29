@@ -6,7 +6,7 @@ import { FaTrophy } from "react-icons/fa6";
 import { athletes } from "../../mocks/athletes/athletes";
 import type { AthleteCategory } from "../../mocks/athletes/type";
 import { Container } from "../../components/layout/container/Container";
-import { AthleteProfileImage } from "./components/AthleteProfileImage";
+import { ProfileImage } from "../../components/layout/ProfileImage/ProfileImage";
 
 const categoryColors: Record<AthleteCategory, string> = {
   female: "#2ab7ca",
@@ -35,7 +35,7 @@ export function AthleteProfile() {
         <Container>
           <div
             className="flex flex-col items-center justify-between gap-8 
-            lg:flex-row"
+              lg:flex-row"
           >
             <div className="flex flex-col gap-6">
               <div>
@@ -53,16 +53,16 @@ export function AthleteProfile() {
 
               <p
                 className="max-w-xl text-base leading-7 text-gray-600 
-                lg:text-lg"
+                  lg:text-lg"
               >
                 {athlete.description}
               </p>
             </div>
 
-            <AthleteProfileImage
+            <ProfileImage
               image={athlete.image}
-              name={athlete.name}
-              category={athlete.category}
+              altText={`Foto do atleta ${athlete.name}`}
+              accentColor={color}
             />
           </div>
         </Container>
@@ -95,7 +95,7 @@ export function AthleteProfile() {
 
                     <div
                       className="flex flex-1 items-center justify-between 
-                      gap-4"
+                        gap-4"
                     >
                       <h3 className="text-base font-medium text-zinc-500">
                         {championship.name}
@@ -134,7 +134,7 @@ export function AthleteProfile() {
 
                         <div
                           className="mt-2 flex flex-wrap items-center gap-x-4 
-                          gap-y-1"
+                            gap-y-1"
                         >
                           <p className="text-base font-medium text-zinc-500">
                             {award.year}
