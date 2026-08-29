@@ -6,6 +6,9 @@ import ImageStreetWomensProChampionship from "../../assets/images/championships/
 import ImageOldSchoolStreetProChampionship from "../../assets/images/championships/old-school-street-pro.jpg";
 
 import ImageSectionLegacyStreetTour from "../../assets/images/legacy-street-tour.png";
+import ImageSectionBoardwalkClash from "../../assets/images/boardwalk-clash.png";
+import ImageSectionStreetWomensPro from "../../assets/images/street-womens-pro.png";
+import ImageSectionOldSchoolStreetPro from "../../assets/images/old-school-street-pro.png";
 
 export const championships: Championships[] = [
   {
@@ -27,9 +30,9 @@ export const championships: Championships[] = [
     description: "championship-profile.BoardwalkClash.description",
     abbreviation: "BC",
     imageThumbnail: ImageBoardwalkClashChampionship,
-    imageSection: ImageSectionLegacyStreetTour,
+    imageSection: ImageSectionBoardwalkClash,
     slug: "boardwalk-clash",
-    backgroundColor: "zinc800",
+    backgroundColor: "emerald400",
   },
 
   {
@@ -39,7 +42,7 @@ export const championships: Championships[] = [
     description: "championship-profile.StreetWomensPro.description",
     abbreviation: "SWP",
     imageThumbnail: ImageStreetWomensProChampionship,
-    imageSection: ImageSectionLegacyStreetTour,
+    imageSection: ImageSectionStreetWomensPro,
     slug: "street-womens-pro",
     backgroundColor: "zinc300",
   },
@@ -51,8 +54,8 @@ export const championships: Championships[] = [
     description: "championship-profile.OldSchoolStreetPro.description",
     abbreviation: "OSSP",
     imageThumbnail: ImageOldSchoolStreetProChampionship,
-    imageSection: ImageSectionLegacyStreetTour,
+    imageSection: ImageSectionOldSchoolStreetPro,
     slug: "old-school-street-pro",
-    backgroundColor: "zinc800",
+    backgroundColor: "yellow300",
   },
 ];
