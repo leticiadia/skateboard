@@ -34,7 +34,7 @@ export function SectionPlaylists() {
             </div>
 
             <ButtonLink
-              href="#"
+              href="/playlists"
               title={t("home.playlists.button")}
               variant="solid"
               size="default"
