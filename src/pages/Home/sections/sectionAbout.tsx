@@ -35,7 +35,7 @@ export function SectionAbout() {
               </div>
 
               <ButtonLink
-                href="#"
+                href="/sobre"
                 title={t("home.about.button")}
                 variant="outline"
                 size="default"

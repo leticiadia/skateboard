@@ -21,25 +21,25 @@ export const athletes: Athlete[] = [
     slug: "carol-alves",
     category: "female",
     image: ImageCarolMendes,
-    description:
-      "Carol Alves é uma skatista brasileira apaixonada pelo street skate. Com uma trajetória marcada por dedicação, criatividade e evolução constante, vem conquistando espaço nas competições nacionais.",
+    description: "athletes.profiles.carol-alves.description",
     championships: [
       {
-        name: "Campeonato Brasileiro de Skate Street",
+        name: "athletes.profiles.carol-alves.championships.brazilian-street-skate-championship",
         year: 2025,
         placement: 2,
       },
       {
-        name: "Circuito Nacional de Skate",
+        name: "athletes.profiles.carol-alves.championships.national-skate-circuit",
         year: 2024,
         placement: 3,
       },
     ],
     awards: [
       {
-        name: "Revelação do Ano",
+        name: "athletes.profiles.carol-alves.awards.rookie-of-the-year",
         year: 2024,
-        championship: "Circuito Nacional de Skate",
+        championship:
+          "athletes.profiles.carol-alves.championships.national-skate-circuit",
       },
     ],
     rankings: [
@@ -104,25 +104,25 @@ export const athletes: Athlete[] = [
     slug: "marina-silva",
     category: "female",
     image: ImageMarinaSilva,
-    description:
-      "Marina Silva começou a andar de skate ainda criança e encontrou no esporte uma forma de expressar sua criatividade. Atualmente participa de competições nacionais e busca evoluir a cada campeonato.",
+    description: "athletes.profiles.marina-silva.description",
     championships: [
       {
-        name: "Open Nacional de Skate",
+        name: "athletes.profiles.marina-silva.championships.national-skate-open",
         year: 2025,
         placement: 1,
       },
       {
-        name: "Circuito Brasileiro",
+        name: "athletes.profiles.marina-silva.championships.brazilian-skate-circuit",
         year: 2024,
         placement: 4,
       },
     ],
     awards: [
       {
-        name: "Melhor Manobra",
+        name: "athletes.profiles.marina-silva.awards.best-trick",
         year: 2025,
-        championship: "Open Nacional de Skate",
+        championship:
+          "athletes.profiles.marina-silva.championships.national-skate-open",
       },
     ],
     rankings: [
@@ -187,23 +187,22 @@ export const athletes: Athlete[] = [
     slug: "ashley-oliver",
     category: "female",
     image: ImageAshleyOliver,
-    description:
-      "Ashley Oliver começou a andar de skate ainda criança e encontrou no esporte uma forma de expressar sua criatividade. Atualmente participa de competições nacionais e busca evoluir a cada campeonato.",
+    description: "athletes.profiles.ashley-oliver.description",
     championships: [
       {
-        name: "Open Nacional de Skate",
+        name: "athletes.profiles.ashley-oliver.championships.national-skate-open",
         year: 2025,
         placement: 1,
       },
       {
-        name: "Circuito Australiano",
+        name: "athletes.profiles.ashley-oliver.championships.australian-circuit",
         year: 2024,
         placement: 4,
       },
     ],
     awards: [
       {
-        name: "Skatista do Ano",
+        name: "athletes.profiles.ashley-oliver.awards.skater-of-the-year",
         year: 2025,
       },
     ],
@@ -269,23 +268,22 @@ export const athletes: Athlete[] = [
     slug: "luiza-silva",
     category: "female",
     image: ImageLuizaSilva,
-    description:
-      "Luiza Silva começou a andar de skate ainda criança e encontrou no esporte uma forma de expressar sua criatividade. Atualmente participa de competições nacionais e busca evoluir a cada campeonato.",
+    description: "athletes.profiles.luiza-silva.description",
     championships: [
       {
-        name: "Open Nacional de Skate",
+        name: "athletes.profiles.luiza-silva.championships.national-skate-open",
         year: 2025,
         placement: 1,
       },
       {
-        name: "Circuito Australiano",
+        name: "athletes.profiles.luiza-silva.championships.australian-circuit",
         year: 2024,
         placement: 4,
       },
     ],
     awards: [
       {
-        name: "Skatista do Ano",
+        name: "athletes.profiles.luiza-silva.awards.skater-of-the-year",
         year: 2025,
       },
     ],
@@ -351,11 +349,10 @@ export const athletes: Athlete[] = [
     slug: "lucas-martins",
     category: "male",
     image: ImageLucasMartins,
-    description:
-      "Lucas Martins vem ganhando destaque nas competições nacionais graças ao seu estilo técnico e consistência. O skatista busca representar sua geração nas principais competições do país.",
+    description: "athletes.profiles.lucas-martins.description",
     championships: [
       {
-        name: "Open Nacional de Skate",
+        name: "athletes.profiles.lucas-martins.championships.national-skate-open",
         year: 2025,
         placement: 3,
       },
@@ -423,25 +420,26 @@ export const athletes: Athlete[] = [
     slug: "pedro-alves",
     category: "new-talent",
     image: ImagePedroAlves,
-    description:
-      "Pedro Alves é um dos novos talentos que vêm chamando atenção no cenário do skate. Ainda no início de sua trajetória competitiva, já demonstra grande potencial e muita criatividade sobre o skate.",
+    description: "athletes.profiles.pedro-alves.description",
     championships: [
       {
-        name: "Campeonato Estadual de Skate",
+        name: "athletes.profiles.pedro-alves.championships.state-skate-championship",
         year: 2025,
         placement: 1,
       },
     ],
     awards: [
       {
-        name: "Highlight of the Year",
+        name: "athletes.profiles.pedro-alves.awards.highlight-of-the-year",
         year: 2026,
-        championship: "Street Circuit Europe",
+        championship:
+          "athletes.profiles.pedro-alves.championships.street-circuit-europe",
       },
       {
-        name: "Melhor Manobra",
+        name: "athletes.profiles.pedro-alves.awards.best-trick",
         year: 2025,
-        championship: "Open Nacional de Skate",
+        championship:
+          "athletes.profiles.pedro-alves.championships.national-skate-open",
       },
     ],
     rankings: [
@@ -506,25 +504,25 @@ export const athletes: Athlete[] = [
     slug: "joao-campos",
     category: "male",
     image: ImageJoaoCampos,
-    description:
-      "João Campos é conhecido por seu estilo técnico e pela consistência em suas linhas. Com experiência em diferentes campeonatos nacionais, vem se consolidando como um dos nomes de destaque da nova geração do skate.",
+    description: "athletes.profiles.joao-campos.description",
     championships: [
       {
-        name: "Circuito Brasileiro de Skate",
+        name: "athletes.profiles.joao-campos.championships.brazilian-skate-circuit",
         year: 2025,
         placement: 2,
       },
       {
-        name: "Open Nacional de Skate",
+        name: "athletes.profiles.joao-campos.championships.national-skate-open",
         year: 2024,
         placement: 1,
       },
     ],
     awards: [
       {
-        name: "Melhor Linha",
+        name: "athletes.profiles.joao-campos.awards.best-run",
         year: 2024,
-        championship: "Open Nacional de Skate",
+        championship:
+          "athletes.profiles.joao-campos.championships.national-skate-open",
       },
     ],
     rankings: [
@@ -589,16 +587,15 @@ export const athletes: Athlete[] = [
     slug: "gabriel-ribeiro",
     category: "male",
     image: ImageGabrielRibeiro,
-    description:
-      "Gabriel Ribeiro começou a andar de skate ainda jovem e rapidamente se destacou pela criatividade e pela variedade de suas manobras. Atualmente participa de importantes competições do cenário nacional.",
+    description: "athletes.profiles.gabriel-ribeiro.description",
     championships: [
       {
-        name: "Campeonato Brasileiro de Skate Street",
+        name: "athletes.profiles.gabriel-ribeiro.championships.brazilian-street-skate-championship",
         year: 2025,
         placement: 4,
       },
       {
-        name: "Circuito Estadual de Skate",
+        name: "athletes.profiles.gabriel-ribeiro.championships.state-skate-circuit",
         year: 2024,
         placement: 1,
       },
@@ -666,25 +663,25 @@ export const athletes: Athlete[] = [
     slug: "leo-cardoso",
     category: "male",
     image: ImageLeoCardoso,
-    description:
-      "Leo Cardoso vem construindo sua carreira com um skate marcado por velocidade, técnica e muita personalidade. Entre competições e sessões, busca constantemente novas formas de evoluir sobre o skate.",
+    description: "athletes.profiles.leo-cardoso.description",
     championships: [
       {
-        name: "Open Nacional de Skate",
+        name: "athletes.profiles.leo-cardoso.championships.national-skate-open",
         year: 2025,
         placement: 2,
       },
       {
-        name: "Circuito Nacional de Skate",
+        name: "athletes.profiles.leo-cardoso.championships.national-skate-circuit",
         year: 2023,
         placement: 3,
       },
     ],
     awards: [
       {
-        name: "Destaque da Competição",
+        name: "athletes.profiles.leo-cardoso.awards.standout-skater",
         year: 2025,
-        championship: "Open Nacional de Skate",
+        championship:
+          "athletes.profiles.leo-cardoso.championships.national-skate-open",
       },
     ],
     rankings: [
@@ -749,16 +746,15 @@ export const athletes: Athlete[] = [
     slug: "caio-silva",
     category: "new-talent",
     image: ImageCaioSilva,
-    description:
-      "Caio Silva representa uma geração de skatistas que vem renovando o cenário nacional. Seu estilo criativo e sua dedicação aos treinos têm garantido bons resultados nas competições que disputa.",
+    description: "athletes.profiles.caio-silva.description",
     championships: [
       {
-        name: "Campeonato Estadual de Skate",
+        name: "athletes.profiles.caio-silva.championships.state-skate-championship",
         year: 2025,
         placement: 1,
       },
       {
-        name: "Circuito Brasileiro de Skate",
+        name: "athletes.profiles.caio-silva.championships.brazilian-skate-circuit",
         year: 2024,
         placement: 5,
       },
@@ -826,25 +822,25 @@ export const athletes: Athlete[] = [
     slug: "nina-chaves",
     category: "new-talent",
     image: ImageNinaChaves,
-    description:
-      "Nina Chaves encontrou no skate uma forma de expressão e vem se destacando pela criatividade e determinação. Com participação em competições nacionais, busca conquistar cada vez mais espaço no cenário feminino.",
+    description: "athletes.profiles.nina-chaves.description",
     championships: [
       {
-        name: "Circuito Nacional de Skate",
+        name: "athletes.profiles.nina-chaves.championships.national-skate-circuit",
         year: 2025,
         placement: 2,
       },
       {
-        name: "Open Nacional de Skate",
+        name: "athletes.profiles.nina-chaves.championships.national-skate-open",
         year: 2024,
         placement: 3,
       },
     ],
     awards: [
       {
-        name: "Destaque Feminino",
+        name: "athletes.profiles.nina-chaves.awards.female-highlight",
         year: 2025,
-        championship: "Circuito Nacional de Skate",
+        championship:
+          "athletes.profiles.nina-chaves.championships.national-skate-circuit",
       },
     ],
     rankings: [
@@ -909,16 +905,15 @@ export const athletes: Athlete[] = [
     slug: "ana-lima",
     category: "new-talent",
     image: ImageAnaLima,
-    description:
-      "Ana Lima é uma skatista brasileira que vem ganhando espaço nas competições nacionais. Seu estilo combina técnica e criatividade, características que fazem parte da sua evolução dentro do esporte.",
+    description: "athletes.profiles.ana-lima.description",
     championships: [
       {
-        name: "Campeonato Brasileiro de Skate Street",
+        name: "athletes.profiles.ana-lima.championships.brazilian-street-skate-championship",
         year: 2025,
         placement: 3,
       },
       {
-        name: "Circuito Estadual de Skate",
+        name: "athletes.profiles.ana-lima.championships.state-skate-circuit",
         year: 2024,
         placement: 1,
       },

@@ -70,9 +70,146 @@
 
   "athletes": {
     "title": "Atletas",
-    "description": "Conheça os skatistas que moldaram a cena, das lendas à nova geração que está transformando o esporte."
+    "description": "Conheça os skatistas que moldaram a cena, das lendas à nova geração que está transformando o esporte.",
 
+    "category": {
+      "female": "Feminino",
+      "male": "Masculino",
+      "new-talent": "Novos Talentos"
+    },
+    
+    "profiles": {
+      "carol-alves": {
+        "description": "Carol Alves é uma skatista brasileira apaixonada pelo street skate. Com uma trajetória marcada por dedicação, criatividade e evolução constante, vem conquistando espaço nas competições nacionais.",
+
+        "championships": {
+          "brazilian-street-skate-championship": "Campeonato Brasileiro de Skate Street",
+          "national-skate-circuit": "Circuito Nacional de Skate"
+        },
+
+        "awards": {
+          "rookie-of-the-year": "Revelação do Ano"
+        }
+      },
+
+      "marina-silva": {
+        "description": "Marina Silva começou a andar de skate ainda criança e encontrou no esporte uma forma de expressar sua criatividade. Atualmente participa de competições nacionais e busca evoluir a cada campeonato.",
+
+        "championships": {
+          "national-skate-open": "Open Nacional de Skate",
+          "brazilian-skate-circuit": "Circuito Brasileiro de Skate"
+        },
+
+        "awards": {
+          "best-trick": "Melhor Manobra"
+        }
+      },
+
+      "ashley-oliver": {
+        "description": "Ashley Oliver começou a andar de skate ainda criança e encontrou no esporte uma forma de expressar sua criatividade. Atualmente participa de competições nacionais e busca evoluir a cada campeonato.",
+        "championships": {
+          "national-skate-open": "Open Nacional de Skate",
+          "australian-circuit": "Circuito Australiano"
+        },
+
+        "awards": {
+          "skater-of-the-year": "Skatista do Ano"
+        }
+      },
+
+      "luiza-silva": {
+        "description": "Luiza Silva começou a andar de skate ainda criança e encontrou no esporte uma forma de expressar sua criatividade. Atualmente participa de competições nacionais e busca evoluir a cada campeonato.",
+        "championships": {
+          "national-skate-open": "Open Nacional de Skate",
+          "australian-circuit": "Circuito Australiano"
+        },
+
+        "awards": {
+          "skater-of-the-year": "Skatista do Ano"
+        }
+      },
+
+      "lucas-martins": {
+        "description": "Lucas Martins vem ganhando destaque nas competições nacionais graças ao seu estilo técnico e consistência. O skatista busca representar sua geração nas principais competições do país.",
+        "championships": {
+          "national-skate-open": "Open Nacional de Skate"
+        }
+      },
+
+      "joao-campos": {
+        "description": "João Campos é conhecido por seu estilo técnico e pela consistência em suas linhas. Com experiência em diferentes campeonatos nacionais, vem se consolidando como um dos nomes de destaque da nova geração do skate.",
+        "championships": {
+          "brazilian-skate-circuit": "Circuito Brasileiro de Skate",
+          "national-skate-open": "Open Nacional de Skate"
+        },
+
+        "awards": {
+          "best-run": "Melhor Linha"
+        }
+      },
+
+      "gabriel-ribeiro": {
+        "description": "Gabriel Ribeiro começou a andar de skate ainda jovem e rapidamente se destacou pela criatividade e pela variedade de suas manobras. Atualmente participa de importantes competições do cenário nacional.",
+        "championships": {
+          "brazilian-street-skate-championship": "Campeonato Brasileiro de Skate Street",
+          "state-skate-circuit": "Circuito Estadual de Skate"
+        }
+      },
+
+      "leo-cardoso": {
+        "description": "Leo Cardoso vem construindo sua carreira com um skate marcado por velocidade, técnica e muita personalidade. Entre competições e sessões, busca constantemente novas formas de evoluir sobre o skate.",
+        "championships": {
+          "national-skate-open": "Open Nacional de Skate",
+          "national-skate-circuit": "Circuito Nacional de Skate"
+        },
+
+        "awards": {
+          "standout-skater": "Destaque da Competição"
+        }
+      },
+
+      "caio-silva": {
+        "description": "Caio Silva representa uma geração de skatistas que vem renovando o cenário nacional. Seu estilo criativo e sua dedicação aos treinos têm garantido bons resultados nas competições que disputa.",
+        "championships": {
+          "state-skate-championship": "Campeonato Estadual de Skate",
+          "brazilian-skate-circuit": "Circuito Brasileiro de Skate"
+        }
+      },
+
+      "nina-chaves": {
+        "description": "Nina Chaves encontrou no skate uma forma de expressão e vem se destacando pela criatividade e determinação. Com participação em competições nacionais, busca conquistar cada vez mais espaço no cenário feminino.",
+        "championships": {
+          "national-skate-circuit": "Circuito Nacional de Skate",
+          "national-skate-open": "Open Nacional de Skate"
+        },
+        "awards": {
+          "female-highlight": "Destaque Feminino"
+        }
+      },
+
+      "ana-lima": {
+        "description": "Ana Lima é uma skatista brasileira que vem ganhando espaço nas competições nacionais. Seu estilo combina técnica e criatividade, características que fazem parte da sua evolução dentro do esporte.",
+        "championships": {
+          "brazilian-street-skate-championship": "Campeonato Brasileiro de Skate Street",
+          "state-skate-circuit": "Circuito Estadual de Skate"
+        }
+      },
+
+      "pedro-alves": {
+        "description": "Pedro Alves é um dos novos talentos que vêm chamando atenção no cenário do skate. Ainda no início de sua trajetória competitiva, já demonstra grande potencial e muita criatividade sobre o skate.",
+        "championships": {
+          "state-skate-championship": "Campeonato Estadual de Skate",
+          "national-skate-open": "Open Nacional de Skate",
+          "street-circuit-europe": "Street Circuit Europe"
+        },
+        "awards": {
+          "highlight-of-the-year": "Destaque do Ano",
+          "best-trick": "Melhor Manobra"
+        }
+      }
+    }
   },
+
 
   "championships": {
     "title": "Campeonatos",

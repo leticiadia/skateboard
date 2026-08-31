@@ -32,7 +32,7 @@ export function AthleteContent({ onNext }: Props) {
 
       <div className="mt-4">
         <ButtonLink
-          href="#"
+          href="/atletas"
           title={t("home.athletes.button")}
           variant="outline"
           size="default"

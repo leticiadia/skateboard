@@ -34,19 +34,19 @@ export function Athletes() {
         <Container>
           <div className="flex flex-col gap-16">
             <AthleteCategorySection
-              title="Feminino"
+              title={t("athletes.category.female")}
               athletes={femaleAthletes}
               color="blue"
             />
 
             <AthleteCategorySection
-              title="Masculino"
+              title={t("athletes.category.male")}
               athletes={maleAthletes}
               color="yellow"
             />
 
             <AthleteCategorySection
-              title="Novos talentos"
+              title={t("athletes.category.new-talent")}
               athletes={newTalents}
               color="red"
             />

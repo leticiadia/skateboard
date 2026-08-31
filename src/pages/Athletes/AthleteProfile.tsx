@@ -7,6 +7,7 @@ import { athletes } from "../../mocks/athletes/athletes";
 import type { AthleteCategory } from "../../mocks/athletes/type";
 import { Container } from "../../components/layout/container/Container";
 import { ProfileImage } from "../../components/layout/ProfileImage/ProfileImage";
+import { useTranslation } from "react-i18next";
 
 const categoryColors: Record<AthleteCategory, string> = {
   female: "#2ab7ca",
@@ -16,6 +17,7 @@ const categoryColors: Record<AthleteCategory, string> = {
 
 export function AthleteProfile() {
   const { slug } = useParams();
+  const { t } = useTranslation();
 
   const athlete = athletes.find((athlete) => athlete.slug === slug);
 
@@ -43,11 +45,11 @@ export function AthleteProfile() {
                   className="text-sm font-bold uppercase tracking-widest"
                   style={{ color }}
                 >
-                  Atleta
+                  {t("athletes.title")}
                 </span>
 
                 <h1 className="mt-2 text-4xl font-bold lg:text-6xl">
-                  {athlete.name}
+                  {t(athlete.name)}
                 </h1>
               </div>
 
@@ -55,13 +57,13 @@ export function AthleteProfile() {
                 className="max-w-xl text-base leading-7 text-gray-600 
                   lg:text-lg"
               >
-                {athlete.description}
+                {t(athlete.description)}
               </p>
             </div>
 
             <ProfileImage
               image={athlete.image}
-              altText={`Foto do atleta ${athlete.name}`}
+              altText={`Foto do atleta ${t(athlete.name)}`}
               accentColor={color}
             />
           </div>
@@ -84,7 +86,7 @@ export function AthleteProfile() {
               <div className="mt-8 flex flex-col gap-6">
                 {athlete.championships.map((championship) => (
                   <div
-                    key={`${championship.name}-${championship.year}`}
+                    key={`${t(championship.name)}-${championship.year}`}
                     className="flex items-center gap-4"
                   >
                     {championship.placement && (
@@ -98,7 +100,7 @@ export function AthleteProfile() {
                         gap-4"
                     >
                       <h3 className="text-base font-medium text-zinc-500">
-                        {championship.name}
+                        {t(championship.name)}
                       </h3>
 
                       <p className="font-semibold" style={{ color }}>
@@ -130,7 +132,7 @@ export function AthleteProfile() {
                       <TbSkateboarding size={20} style={{ color }} />
 
                       <div>
-                        <h3 className="text-xl font-bold">{award.name}</h3>
+                        <h3 className="text-xl font-bold">{t(award.name)}</h3>
 
                         <div
                           className="mt-2 flex flex-wrap items-center gap-x-4 
@@ -142,7 +144,7 @@ export function AthleteProfile() {
 
                           {award.championship && (
                             <p className="text-base font-medium text-zinc-500">
-                              {award.championship}
+                              {t(award.championship)}
                             </p>
                           )}
                         </div>
