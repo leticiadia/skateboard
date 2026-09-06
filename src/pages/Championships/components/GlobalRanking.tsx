@@ -1,6 +1,11 @@
-import { TrophyIcon } from "@phosphor-icons/react";
+import { useState } from "react";
+import { CalendarBlankIcon, CaretDownIcon } from "@phosphor-icons/react";
 
 import type { Athlete } from "../../../mocks/athletes/type";
+import {
+  getAvailableSeasons,
+  getChampionshipRanking,
+} from "../utils/globalRanking";
 
 interface GlobalRankingProps {
   athletes: Athlete[];
@@ -8,203 +13,261 @@ interface GlobalRankingProps {
   title?: string;
   subtitle?: string;
   seasonYear?: number;
-}
-
-type AthleteRanking = NonNullable<Athlete["rankings"][number]>;
-
-interface RankingEntry {
-  athlete: Athlete;
-  ranking: AthleteRanking;
-}
-
-interface RankingEntryWithOptionalRanking {
-  athlete: Athlete;
-  ranking: AthleteRanking | undefined;
+  limit?: number;
 }
 
 export function GlobalRanking({
   athletes,
   championshipSlug,
-  title = "Global Ranking",
-  subtitle = "Top 5 atletas e retrospecto da temporada atual",
   seasonYear = 2026,
+  limit,
 }: GlobalRankingProps) {
-  const ranking: RankingEntry[] = athletes
-    .map((athlete): RankingEntryWithOptionalRanking => {
-      const athleteRanking = athlete.rankings.find(
-        (ranking) =>
-          ranking.championshipSlug === championshipSlug &&
-          ranking.season === seasonYear,
-      );
+  const availableSeasons = getAvailableSeasons(
+    athletes,
+    championshipSlug,
+    seasonYear,
+  );
 
-      return {
-        athlete,
-        ranking: athleteRanking,
-      };
-    })
-    .filter((rankingEntry): rankingEntry is RankingEntry =>
-      Boolean(rankingEntry.ranking),
-    )
-    .sort(
-      (firstEntry, secondEntry) =>
-        firstEntry.ranking.position - secondEntry.ranking.position,
-    )
-    .slice(0, 5);
+  const [selectedSeason, setSelectedSeason] = useState<number>(
+    availableSeasons.includes(seasonYear) ? seasonYear : availableSeasons[0],
+  );
+
+  const displayedRanking = getChampionshipRanking(
+    athletes,
+    championshipSlug,
+    selectedSeason,
+    limit,
+  );
 
   return (
-    <section className="mt-8">
-      <header className="flex flex-col gap-3 sm:gap-4">
-        <h2
-          className="flex items-center gap-2 text-2xl font-bold text-black
-          sm:text-3xl lg:text-4xl"
-        >
-          <TrophyIcon
-            size={32}
-            className="shrink-0 sm:size-9 lg:size-10"
-            color="#101828"
-          />
-
-          <span>{title}</span>
-        </h2>
-
-        <p className="text-sm text-zinc-600 sm:text-base">{subtitle}</p>
-      </header>
-
+    <section className="w-full">
       <div
-        className="mt-4 max-w-full overflow-x-auto rounded-xl border 
-        border-zinc-900 bg-zinc-100"
+        className="overflow-hidden rounded-2xl border-2 border-zinc-900 
+        bg-zinc-950"
       >
-        <table
-          className="w-full min-w-[700px] text-left text-sm"
-          aria-label={`${title} - temporada ${seasonYear}`}
+        <header
+          className="flex flex-col gap-4 border-b-2 border-zinc-900
+          bg-zinc-900/90 p-5 sm:flex-row sm:items-center sm:justify-between 
+          sm:p-6"
         >
-          <thead
-            className="
-              border-b border-zinc-800
-              bg-zinc-900
-              text-xs uppercase
-              tracking-wider text-zinc-400
-            "
+          <div className="flex items-center gap-3">
+            <span
+              aria-hidden="true"
+              className="h-3 w-3 shrink-0 rounded-full bg-emerald-400 
+              animate-pulse"
+            />
+
+            <span
+              className="text-xs font-black uppercase tracking-widest 
+              text-zinc-400"
+            >
+              Temporada exibida:
+            </span>
+
+            <span
+              className="rounded-lg border border-zinc-700 bg-zinc-950 px-3 
+              py-1 font-mono text-sm font-black text-white"
+            >
+              {selectedSeason}
+            </span>
+          </div>
+
+          <div className="relative flex items-center">
+            <CalendarBlankIcon
+              aria-hidden="true"
+              className="pointer-events-none absolute left-3.5 h-4 w-4 
+              text-zinc-400"
+            />
+
+            <label htmlFor="global-ranking-season" className="sr-only">
+              Selecionar temporada
+            </label>
+
+            <select
+              id="global-ranking-season"
+              value={selectedSeason}
+              onChange={(event) =>
+                setSelectedSeason(Number(event.target.value))
+              }
+              className="w-full appearance-none rounded-xl border-2 
+              border-zinc-800 bg-zinc-950 py-2 pl-10 pr-10 text-xs 
+              font-bold uppercase tracking-wider text-zinc-200 transition-colors
+              hover:border-zinc-700 focus:outline-none focus:ring-2 
+              focus:ring-white sm:w-auto"
+            >
+              {availableSeasons.map((season) => (
+                <option key={season} value={season}>
+                  Temporada {season}
+                </option>
+              ))}
+            </select>
+
+            <CaretDownIcon
+              aria-hidden="true"
+              className="pointer-events-none absolute right-3 h-4 w-4 
+              text-zinc-400"
+            />
+          </div>
+        </header>
+
+        <div className="max-w-full overflow-x-auto">
+          <table
+            className="w-full min-w-[700px] text-left text-sm"
+            aria-label={`Ranking do campeonato - temporada ${selectedSeason}`}
           >
-            <tr>
-              <th scope="col" className="px-3 py-3 text-center sm:px-4 sm:py-4">
-                Posição
-              </th>
+            <thead
+              className="border-b-2 border-zinc-900 bg-zinc-800 text-xs 
+              uppercase tracking-wider text-white"
+            >
+              <tr>
+                <th scope="col" className="px-6 py-4 text-center">
+                  Posição
+                </th>
 
-              <th scope="col" className="px-3 py-3 sm:px-4 sm:py-4">
-                Atleta
-              </th>
+                <th scope="col" className="px-6 py-4">
+                  Atleta
+                </th>
 
-              <th scope="col" className="px-3 py-3 text-center sm:px-4 sm:py-4">
-                Pontos
-              </th>
+                <th scope="col" className="px-6 py-4 text-center">
+                  Pontos
+                </th>
 
-              <th scope="col" className="px-3 py-3 text-center sm:px-4 sm:py-4">
-                V / D
-              </th>
+                <th scope="col" className="px-6 py-4 text-center">
+                  V / D
+                </th>
 
-              <th scope="col" className="px-3 py-3 text-center sm:px-4 sm:py-4">
-                Pódios ({seasonYear})
-              </th>
-            </tr>
-          </thead>
-
-          <tbody className="divide-y divide-zinc-800/60">
-            {ranking.map(({ athlete, ranking }) => (
-              <tr
-                key={athlete.id}
-                className="transition-colors hover:bg-zinc-500/40"
-              >
-                <td className="px-3 py-3 text-center font-bold sm:px-4 sm:py-4">
-                  {ranking.position === 1 && (
-                    <span className="text-base text-yellow-600">🥇 1º</span>
-                  )}
-
-                  {ranking.position === 2 && (
-                    <span className="text-base text-zinc-600">🥈 2º</span>
-                  )}
-
-                  {ranking.position === 3 && (
-                    <span className="text-base text-amber-700">🥉 3º</span>
-                  )}
-
-                  {ranking.position > 3 && (
-                    <span className="text-zinc-500">{ranking.position}º</span>
-                  )}
-                </td>
-
-                <td className="px-3 py-3 sm:px-4 sm:py-4">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src={athlete.image}
-                      alt={`Foto de ${athlete.name}`}
-                      className="
-                        size-10 shrink-0
-                        rounded-full border-2
-                        border-black-700
-                        object-cover
-                      "
-                    />
-
-                    <span className="font-semibold text-black">
-                      {athlete.name}
-                    </span>
-                  </div>
-                </td>
-
-                <td
-                  className="px-3 py-3 text-center font-bold text-black 
-                  sm:px-4 sm:py-4"
-                >
-                  {ranking.points.toLocaleString()} pts
-                </td>
-
-                <td
-                  className="px-3 py-3 text-center text-zinc-800 sm:px-4 
-                  sm:py-4"
-                >
-                  <span className="font-medium text-green-600">
-                    {ranking.wins}W
-                  </span>
-
-                  {" / "}
-
-                  <span className="font-medium text-rose-400">
-                    {ranking.losses}L
-                  </span>
-                </td>
-
-                <td className="px-3 py-3 text-center sm:px-4 sm:py-4">
-                  <div className="flex items-center justify-center gap-2">
-                    <span
-                      className="rounded-md border border-yellow-600/80 
-                      bg-yellow-600/60 px-2 py-1 text-sm font-semibold
-                      text-yellow-700"
-                    >
-                      🥇 {ranking.podiums.gold}
-                    </span>
-
-                    <span
-                      className="rounded-md border border-zinc-600/20 
-                      bg-zinc-600/20 px-2 py-1 text-sm font-semibold 
-                      text-zinc-500"
-                    >
-                      🥈 {ranking.podiums.silver}
-                    </span>
-
-                    <span
-                      className="rounded-md border border-amber-800/20
-                      bg-amber-800/20 px-2 py-1 text-sm font-semibold 
-                      text-amber-600"
-                    >
-                      🥉 {ranking.podiums.bronze}
-                    </span>
-                  </div>
-                </td>
+                <th scope="col" className="px-6 py-4 text-center">
+                  Pódios ({selectedSeason})
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+
+            <tbody className="divide-y divide-zinc-400 bg-zinc-100">
+              {displayedRanking.length === 0 ? (
+                <tr>
+                  <td
+                    colSpan={5}
+                    className="px-6 py-12 text-center font-medium text-zinc-500"
+                  >
+                    Nenhum dado encontrado para a temporada {selectedSeason}.
+                  </td>
+                </tr>
+              ) : (
+                displayedRanking.map(({ athlete, ranking }) => (
+                  <tr
+                    key={athlete.id}
+                    className="transition-colors hover:bg-zinc-200"
+                  >
+                    <td className="px-6 py-4 text-center font-bold">
+                      {ranking.position === 1 && (
+                        <span
+                          className="inline-flex items-center gap-1 rounded-md
+                          border border-zinc-700 bg-zinc-900 px-2 py-1 text-sm 
+                          font-bold text-amber-400"
+                        >
+                          🥇 1º
+                        </span>
+                      )}
+
+                      {ranking.position === 2 && (
+                        <span
+                          className="inline-flex items-center gap-1 rounded-md
+                          border border-zinc-700 bg-zinc-900 px-2 py-1 
+                          text-sm font-bold text-zinc-300"
+                        >
+                          🥈 2º
+                        </span>
+                      )}
+
+                      {ranking.position === 3 && (
+                        <span
+                          className="inline-flex items-center gap-1 rounded-md 
+                          border border-zinc-700 bg-zinc-900 px-2 py-1 text-sm 
+                          font-bold text-amber-600"
+                        >
+                          🥉 3º
+                        </span>
+                      )}
+
+                      {ranking.position > 3 && (
+                        <span className="font-mono text-base text-zinc-500">
+                          {ranking.position}º
+                        </span>
+                      )}
+                    </td>
+
+                    <td className="px-6 py-4">
+                      <div className="flex items-center gap-3">
+                        <img
+                          src={athlete.image}
+                          alt={`Foto de ${athlete.name}`}
+                          className="size-10 shrink-0 rounded-full border-2 
+                          border-zinc-800 object-cover"
+                        />
+
+                        <span className="text-sm font-bold text-black">
+                          {athlete.name}
+                        </span>
+                      </div>
+                    </td>
+
+                    <td
+                      className="px-6 py-4 text-center text-sm font-mono 
+                      font-black text-black"
+                    >
+                      {ranking.points.toLocaleString()}{" "}
+                      <span className="text-xs font-bold text-zinc-500">
+                        PTS
+                      </span>
+                    </td>
+
+                    <td className="px-6 py-4 text-center">
+                      <div
+                        className="inline-flex items-center gap-1 rounded-md
+                        border border-zinc-700 bg-zinc-900 px-2.5 py-1 font-mono 
+                        text-xs font-bold"
+                      >
+                        <span className="text-green-400">{ranking.wins}W</span>
+
+                        <span className="text-zinc-500">/</span>
+
+                        <span className="text-rose-400">{ranking.losses}L</span>
+                      </div>
+                    </td>
+
+                    <td className="px-6 py-4 text-center">
+                      <div
+                        className="flex items-center justify-center gap-1.5 
+                        font-mono text-xs font-bold"
+                      >
+                        <span
+                          className="rounded-md border border-zinc-700 
+                          bg-zinc-900 px-2 py-1 text-amber-400"
+                        >
+                          🥇 {ranking.podiums.gold}
+                        </span>
+
+                        <span
+                          className="rounded-md border border-zinc-700
+                          bg-zinc-900 px-2 py-1 text-zinc-300"
+                        >
+                          🥈 {ranking.podiums.silver}
+                        </span>
+
+                        <span
+                          className="rounded-md border border-zinc-700 
+                          bg-zinc-900 px-2 py-1 text-amber-600"
+                        >
+                          🥉 {ranking.podiums.bronze}
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                ))
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   );

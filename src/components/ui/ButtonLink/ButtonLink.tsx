@@ -10,9 +10,11 @@ type ButtonLinkProps = {
 };
 
 const variants = {
-  outline: "border-2 border-black text-black bg-transparent",
-  yellow: "border-2 border-yellow-300 text-yellow-300 bg-transparent",
-  solid: "bg-black text-white border-2 border-black",
+  outline:
+    "border-2 border-black text-black bg-transparent hover:bg-black hover:text-white",
+  yellow:
+    "border-2 border-yellow-300 text-yellow-300 bg-transparent hover:bg-yellow-300 hover:text-black",
+  solid: "bg-black text-white hover:bg-zinc-950",
 };
 
 const sizes = {
@@ -32,7 +34,7 @@ export function ButtonLink({
     <Link
       to={href}
       className={`group relative p-4 h-12 
-      rounded-full flex items-center justify-center gap-2 font-bold 
+      rounded-full flex items-center justify-center font-bold 
       overflow-hidden transition-all 
       duration-300 ${variant ? variants[variant] : ""} ${sizes[size]}`}
       style={backgroundColor ? { backgroundColor } : undefined}
@@ -47,7 +49,7 @@ export function ButtonLink({
       <ArrowRightIcon
         size={18}
         weight="bold"
-        className="absolute right-8 opacity-0 -translate-x-2 transition-all 
+        className="absolute right-6 opacity-0 -translate-x-2 transition-all 
         duration-400 group-hover:opacity-100 group-hover:translate-x-0"
       />
     </Link>

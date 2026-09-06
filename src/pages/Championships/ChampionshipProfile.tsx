@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
+import { TrophyIcon } from "@phosphor-icons/react";
 
 import { Container } from "../../components/layout/container/Container";
 import { PageHero } from "../../components/layout/PageHero/PageHero";
@@ -11,6 +12,7 @@ import { upcomingEvents } from "../../mocks/championships/upcoming-events";
 import { ChampionshipRegistration } from "./components/ChampionshipRegistration";
 import { GlobalRanking } from "./components/GlobalRanking";
 import { UpcomingEvents } from "./components/UpcomingEvents";
+import { ButtonLink } from "../../components/ui/ButtonLink/ButtonLink";
 
 export function ChampionshipProfile() {
   const { slug } = useParams();
@@ -58,10 +60,41 @@ export function ChampionshipProfile() {
           </p>
         </section>
 
-        <GlobalRanking
-          athletes={athletes}
-          championshipSlug={championship.slug}
-        />
+        <section className="flex flex-col gap-8 mt-8">
+          <div className="flex flex-col gap-8">
+            <header className="flex flex-col gap-3 sm:gap-4">
+              <h2
+                className="flex items-center gap-2 text-2xl font-bold 
+                text-black sm:text-3xl lg:text-4xl"
+              >
+                <TrophyIcon
+                  size={32}
+                  className="shrink-0 sm:size-9 lg:size-10"
+                  color="#101828"
+                />
+
+                <span>Global Ranking</span>
+              </h2>
+
+              <p className="text-sm text-zinc-600 sm:text-base">
+                Top 5 atletas e retrospecto da temporada atual
+              </p>
+            </header>
+
+            <GlobalRanking
+              athletes={athletes}
+              championshipSlug={championship.slug}
+              limit={5}
+            />
+          </div>
+
+          <ButtonLink
+            title="Ver ranking completo"
+            href={`/campeonatos/${championship.slug}/ranking`}
+            variant="outline"
+            size="large"
+          />
+        </section>
 
         {championshipEvents && (
           <UpcomingEvents events={championshipEvents.events} />
