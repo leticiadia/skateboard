@@ -7,6 +7,7 @@ import { AthleteProfile } from "./pages/Athletes/AthleteProfile";
 import { ChampionshipProfile } from "./pages/Championships/ChampionshipProfile";
 import { Playlists } from "./pages/Playlists/Playlists";
 import { PlaylistProfile } from "./pages/Playlists/PlaylistProfile";
+import { ChampionshipRanking } from "./pages/Championships/ChampionshipRanking";
 
 export function AppRouter() {
   return (
@@ -19,6 +20,10 @@ export function AppRouter() {
       <Route
         path="/campeonatos/:slug"
         element={<ChampionshipProfile />}
+      ></Route>
+      <Route
+        path="/campeonatos/:slug/ranking"
+        element={<ChampionshipRanking />}
       ></Route>
       <Route path="/playlists" element={<Playlists />}></Route>
       <Route path="/playlists/:slug" element={<PlaylistProfile />}></Route>
