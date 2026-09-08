@@ -71,6 +71,8 @@
     "title": "Athletes",
     "description": "Meet the skaters who shaped the scene, from the legends to the new generation transforming the sport.",
 
+    "athlete-title": "Athlete",
+
     "category": {
       "female": "Female",
       "male": "Male",
@@ -87,7 +89,9 @@
         },
 
         "awards": {
-          "rookie-of-the-year": "Rookie of the Year"
+          "rookie-of-the-year": "Rookie Of The Year",
+          "best-trick": "Best Trick",
+          "skater-of-the-year":"Skater of the Year"
         }
       },
 

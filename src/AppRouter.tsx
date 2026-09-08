@@ -3,7 +3,7 @@ import { Home } from "./pages/Home/Home";
 import { About } from "./pages/About";
 import { Athletes } from "./pages/Athletes/Athletes";
 import { Championships } from "./pages/Championships/Championships";
-import { AthleteProfile } from "./pages/Athletes/AthleteProfile";
+import { AthleteProfile } from "./pages/Athletes/AthleteProfile/AthleteProfile";
 import { ChampionshipProfile } from "./pages/Championships/ChampionshipProfile";
 import { Playlists } from "./pages/Playlists/Playlists";
 import { PlaylistProfile } from "./pages/Playlists/PlaylistProfile";

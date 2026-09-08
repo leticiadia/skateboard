@@ -1,7 +1,7 @@
 export type AthleteCategory = "female" | "male" | "new-talent";
 
 export interface AthleteChampionship {
-  name: string;
+  championshipSlug: string;
   year: number;
   placement?: number;
 }
@@ -9,10 +9,10 @@ export interface AthleteChampionship {
 export interface AthleteAward {
   name: string;
   year: number;
-  championship?: string;
+  championshipSlug?: string;
 }
 
-export type AthleteRanking = {
+export interface AthleteRanking {
   championshipSlug: string;
   season: number;
   position: number;
@@ -24,7 +24,19 @@ export type AthleteRanking = {
     silver: number;
     bronze: number;
   };
-};
+}
+
+export interface AthleteNextEvent {
+  championshipSlug: string;
+  eventId: number;
+}
+
+export interface AthleteGalleryItem {
+  image: string;
+  championshipSlug?: string;
+  year?: number;
+  caption?: string;
+}
 
 export interface Athlete {
   id: string;
@@ -33,7 +45,11 @@ export interface Athlete {
   category: AthleteCategory;
   image: string;
   description: string;
+
   championships: AthleteChampionship[];
   awards: AthleteAward[];
   rankings: AthleteRanking[];
+
+  nextEvent?: AthleteNextEvent;
+  gallery: AthleteGalleryItem[];
 }

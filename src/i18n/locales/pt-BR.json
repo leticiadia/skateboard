@@ -72,6 +72,8 @@
     "title": "Atletas",
     "description": "Conheça os skatistas que moldaram a cena, das lendas à nova geração que está transformando o esporte.",
 
+    "athlete-title": "Atleta",
+
     "category": {
       "female": "Feminino",
       "male": "Masculino",
@@ -88,7 +90,9 @@
         },
 
         "awards": {
-          "rookie-of-the-year": "Revelação do Ano"
+          "rookie-of-the-year": "Revelação do Ano",
+          "best-trick": "Melhor Manobra",
+          "skater-of-the-year":" Melhor Skatista do Ano"
         }
       },
 
