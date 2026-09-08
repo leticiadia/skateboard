@@ -1,15 +1,24 @@
 import { motion } from "motion/react";
+import { Link } from "react-router-dom";
+import { ArrowRightIcon } from "@phosphor-icons/react";
+
 import type { AthleteProfileData } from "../../../../mocks/athletes/profile.types";
+
 import { StatItem } from "../../../../components/layout/StatItem/StatItem";
 import { PodiumItem } from "../../../../components/layout/PodiumItem/PodiumItem";
 import { Container } from "../../../../components/layout/container/Container";
 
 type AthleteStatsProps = {
   stats: AthleteProfileData["stats"];
+  athleteSlug: string;
   accentColor: string;
 };
 
-export function AthleteStats({ stats, accentColor }: AthleteStatsProps) {
+export function AthleteStats({
+  stats,
+  accentColor,
+  athleteSlug,
+}: AthleteStatsProps) {
   return (
     <section className="w-full my-10">
       <Container>
@@ -149,6 +158,20 @@ export function AthleteStats({ stats, accentColor }: AthleteStatsProps) {
               label="Bronze"
               type="bronze"
             />
+          </div>
+
+          <div className="mt-8">
+            <Link
+              to={`/atletas/${athleteSlug}/podio`}
+              className="group flex items-center gap-2 text-sm font-bold text-zinc-700"
+            >
+              <span>Ver histórico de pódios</span>
+
+              <ArrowRightIcon
+                size={14}
+                className="transition-transform duration-200 group-hover:translate-x-1"
+              />
+            </Link>
           </div>
 
           <div

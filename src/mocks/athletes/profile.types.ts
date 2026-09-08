@@ -41,6 +41,20 @@ export type AthleteCurrentData = {
   nextEventChampionship?: Championships;
 };
 
+export type AthletePodium = {
+  year: number;
+  championship: Championships;
+  medal: "gold" | "silver" | "bronze";
+};
+
+export type AthletePodiumsData = {
+  athlete: {
+    name: string;
+    image: string;
+  };
+  podiums: AthletePodium[];
+};
+
 export type AthleteProfileData = {
   athlete: {
     name: string;

@@ -36,7 +36,11 @@ export function AthleteProfile() {
     <main>
       <AthleteHero athlete={profile.athlete} />
 
-      <AthleteStats stats={profile.stats} accentColor={color} />
+      <AthleteStats
+        stats={profile.stats}
+        athleteSlug={athlete.slug}
+        accentColor={color}
+      />
 
       <AthleteAchievements
         achievements={profile.achievements}
