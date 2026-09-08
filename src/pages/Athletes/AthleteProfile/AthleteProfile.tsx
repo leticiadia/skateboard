@@ -30,8 +30,6 @@ export function AthleteProfile() {
 
   const profile = getAthleteProfileData(athlete, championships, upcomingEvents);
 
-  console.log(profile);
-
   const color = categoryColors[athlete.category];
 
   return (

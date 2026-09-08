@@ -20,10 +20,7 @@ export function AthleteCurrent({ current, accentColor }: AthleteCurrentProps) {
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{
-            duration: 0.6,
-            ease: "easeOut",
-          }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <span
             className="text-sm font-bold uppercase tracking-widest"
@@ -36,7 +33,7 @@ export function AthleteCurrent({ current, accentColor }: AthleteCurrentProps) {
             className="mt-4 text-3xl font-bold leading-tight sm:text-4xl 
             lg:text-5xl"
           >
-            Onde ela está agora?
+            Onde está agora?
           </h2>
         </motion.div>
 
@@ -45,41 +42,55 @@ export function AthleteCurrent({ current, accentColor }: AthleteCurrentProps) {
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
-          transition={{
-            duration: 0.6,
-            ease: "easeOut",
-          }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <span className="text-sm font-bold uppercase tracking-widest">
-            Ranking atual
-          </span>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-sm font-bold uppercase tracking-widest">
+              Ranking atual
+            </span>
 
-          <div className="mt-8 border-t border-gray-200">
-            {current.rankings.map((ranking) => (
-              <div
-                key={`${ranking.championship.slug}-${ranking.season}`}
-                className="grid grid-cols-[1fr_auto] items-center gap-6 
-                border-b border-gray-200 py-6"
-              >
-                <div>
-                  <h3 className="text-lg font-bold sm:text-xl">
-                    {t(ranking.championship.title)}
-                  </h3>
-
-                  <span className="mt-1 block text-sm text-gray-500">
-                    {ranking.points} pontos
-                  </span>
-                </div>
-
-                <strong
-                  className="text-4xl font-black leading-none sm:text-5xl"
-                  style={{ color: accentColor }}
-                >
-                  #{ranking.position}
-                </strong>
-              </div>
-            ))}
+            <span
+              className="text-sm font-bold uppercase tracking-widest"
+              style={{ color: accentColor }}
+            >
+              · Temporada {current.season}
+            </span>
           </div>
+
+          {current.rankings.length > 0 ? (
+            <div className="mt-8 border-t border-gray-200">
+              {current.rankings.map((ranking) => (
+                <div
+                  key={`${ranking.championship.slug}-${ranking.season}`}
+                  className="grid grid-cols-[1fr_auto] items-center gap-6 
+                  border-b border-gray-200 py-6"
+                >
+                  <div>
+                    <h3 className="text-lg font-bold sm:text-xl">
+                      {t(ranking.championship.title)}
+                    </h3>
+
+                    <span className="mt-1 block text-sm text-gray-500">
+                      {ranking.points} pontos
+                    </span>
+                  </div>
+
+                  <strong
+                    className="text-4xl font-black leading-none sm:text-5xl"
+                    style={{ color: accentColor }}
+                  >
+                    #{ranking.position}
+                  </strong>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="mt-8 border-y border-gray-200 py-10">
+              <p className="max-w-xl text-lg leading-7 text-gray-500">
+                Ainda não há resultados registrados nesta temporada.
+              </p>
+            </div>
+          )}
         </motion.div>
 
         {current.nextEvent && current.nextEventChampionship && (
@@ -89,10 +100,7 @@ export function AthleteCurrent({ current, accentColor }: AthleteCurrentProps) {
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{
-              duration: 0.6,
-              ease: "easeOut",
-            }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <div className="p-6 sm:p-8 lg:p-12">
               <span
@@ -103,8 +111,8 @@ export function AthleteCurrent({ current, accentColor }: AthleteCurrentProps) {
               </span>
 
               <div
-                className="mt-8 flex flex-col gap-8 lg:flex-row lg:items-end 
-                lg:justify-between"
+                className="mt-8 flex flex-col gap-8 lg:flex-row 
+                lg:items-end lg:justify-between"
               >
                 <div>
                   <h3 className="text-3xl font-bold sm:text-4xl lg:text-5xl">
@@ -122,7 +130,7 @@ export function AthleteCurrent({ current, accentColor }: AthleteCurrentProps) {
                   </span>
 
                   <span className="text-sm text-gray-500">
-                    {current.nextEvent.location}
+                    {t(current.nextEvent.location)}
                   </span>
                 </div>
               </div>

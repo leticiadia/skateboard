@@ -35,6 +35,7 @@ export type AthleteCurrentRanking = AthleteRanking & {
 };
 
 export type AthleteCurrentData = {
+  season: number;
   rankings: AthleteCurrentRanking[];
   nextEvent?: UpcomingEvent;
   nextEventChampionship?: Championships;

@@ -13,7 +13,10 @@ export function getAthleteCurrentData(
   championships: Championships[],
   upcomingEvents: ChampionshipEvents[],
 ): AthleteCurrentData {
+  const currentSeason = new Date().getFullYear();
+
   const rankings = athlete.rankings
+    .filter((ranking) => ranking.season === currentSeason)
     .map((ranking) => {
       const championship = championships.find(
         ({ slug }) => slug === ranking.championshipSlug,
@@ -34,6 +37,7 @@ export function getAthleteCurrentData(
 
   if (!nextEventData) {
     return {
+      season: currentSeason,
       rankings,
     };
   }
@@ -52,6 +56,7 @@ export function getAthleteCurrentData(
   );
 
   return {
+    season: currentSeason,
     rankings,
     nextEvent,
     nextEventChampionship,
