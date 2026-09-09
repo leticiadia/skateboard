@@ -105,7 +105,9 @@
         },
 
         "awards": {
-          "best-trick": "Melhor Manobra"
+          "best-trick": "Melhor Manobra",
+          "skater-of-the-year":" Melhor Skatista do Ano",
+          "mvs": "Skatista Mais Valioso"
         }
       },
 

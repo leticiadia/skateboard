@@ -104,7 +104,9 @@
         },
 
         "awards": {
-          "best-trick": "Best Trick"
+          "best-trick": "Best Trick",
+          "skater-of-the-year":"Skater Of The Year",
+          "mvs": "Most Valuable Skater"
         }
       },
 

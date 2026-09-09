@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import type { Athlete } from "./SectionAthletes/types";
+import type { Athlete } from "../../../mocks/athletes/type";
+
+import { Container } from "../../../components/layout/container/Container";
 
 import { CurrentAthlete } from "./SectionAthletes/CurrentAthlete";
 import { AthleteContent } from "./SectionAthletes/AthleteContent";
 import { AthleteCarousel } from "./SectionAthletes/AthleteCarousel";
-import { Container } from "../../../components/layout/container/Container";
 
 type SectionAthletesProps = {
   athletes: Athlete[];
@@ -17,28 +18,31 @@ export function SectionAthletes({ athletes }: SectionAthletesProps) {
 
   const { t } = useTranslation();
 
+  const displayedAthletes = athletes.slice(0, 4);
+
   const rotatedAthletes = [
-    ...athletes.slice(currentIndex + 1),
-    ...athletes.slice(0, currentIndex),
+    ...displayedAthletes.slice(currentIndex + 1),
+    ...displayedAthletes.slice(0, currentIndex),
   ];
 
-  if (!athletes.length) return null;
+  if (!displayedAthletes.length) return null;
 
-  const currentAthlete = athletes[currentIndex];
+  const currentAthlete = displayedAthletes[currentIndex];
 
   function handleNextAthlete() {
-    setCurrentIndex((prev) => (prev === athletes.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) =>
+      prev === displayedAthletes.length - 1 ? 0 : prev + 1,
+    );
   }
 
   return (
     <section className="w-full mt-10">
       <Container>
         <div
-          className="flex flex-col gap-8 lg:flex-row lg:items-center 
-        lg:justify-between"
+          className="flex flex-col gap-8 lg:flex-row lg:items-center
+          lg:justify-between"
         >
           <CurrentAthlete athlete={currentAthlete} />
-
           <div className="flex flex-col">
             <div className="flex flex-col items-start gap-4">
               <h3 className="text-4xl font-bold">{t("home.athletes.title")}</h3>
@@ -49,6 +53,7 @@ export function SectionAthletes({ athletes }: SectionAthletesProps) {
             </div>
 
             <AthleteCarousel athletes={rotatedAthletes} />
+
             <AthleteContent onNext={handleNextAthlete} />
           </div>
         </div>

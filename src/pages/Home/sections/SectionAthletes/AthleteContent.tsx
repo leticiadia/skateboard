@@ -1,6 +1,7 @@
-import { ArrowCircleRightIcon } from "@phosphor-icons/react";
-import { ButtonLink } from "../../../../components/ui/ButtonLink/ButtonLink";
 import { useTranslation } from "react-i18next";
+import { ArrowCircleRightIcon } from "@phosphor-icons/react";
+
+import { ButtonLink } from "../../../../components/ui/ButtonLink/ButtonLink";
 
 type Props = {
   onNext: () => void;
