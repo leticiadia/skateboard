@@ -14,6 +14,9 @@ export function AthleteAchievements({
 }: AthleteAchievementsProps) {
   const { t } = useTranslation();
 
+  const sortedTitles = [...achievements.titles].sort((a, b) => b.year - a.year);
+  const sortedAwards = [...achievements.awards].sort((a, b) => b.year - a.year);
+
   return (
     <section className="w-full my-10">
       <Container>
@@ -58,41 +61,50 @@ export function AthleteAchievements({
           </motion.div>
 
           <div className="mt-8 border-t border-gray-200">
-            {achievements.titles.map((achievement, index) => (
-              <motion.div
-                key={`${achievement.championship.slug}-${achievement.year}`}
-                className="flex flex-col gap-4 border-b border-gray-200 py-8 
-                sm:flex-row sm:items-center sm:justify-between"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.1,
-                  ease: "easeOut",
-                }}
-              >
-                <div className="flex items-center gap-5">
-                  <span
-                    className="text-sm font-bold"
-                    style={{ color: accentColor }}
-                  >
-                    {achievement.year}
-                  </span>
-
-                  <h3 className="text-xl font-bold sm:text-2xl">
-                    {t(achievement.championship.title)}
-                  </h3>
-                </div>
-
-                <span
-                  className="text-sm font-bold uppercase tracking-widest"
-                  style={{ color: accentColor }}
+            {sortedTitles.length > 0 ? (
+              sortedTitles.map((achievement, index) => (
+                <motion.div
+                  key={`${achievement.championship.slug}-${achievement.year}`}
+                  className="flex flex-col gap-4 border-b border-gray-200 
+                  py-8 sm:flex-row sm:items-center sm:justify-between"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.1,
+                    ease: "easeOut",
+                  }}
                 >
-                  Campeã
-                </span>
-              </motion.div>
-            ))}
+                  <div className="flex items-center gap-5">
+                    <span
+                      className="text-sm font-bold"
+                      style={{ color: accentColor }}
+                    >
+                      {achievement.year}
+                    </span>
+
+                    <h3 className="text-xl font-bold sm:text-2xl">
+                      {t(achievement.championship.title)}
+                    </h3>
+                  </div>
+
+                  <span
+                    className="text-xs font-bold text-black text-center uppercase 
+                    tracking-widest py-1 px-2 w-24 rounded-full"
+                    style={{ backgroundColor: accentColor }}
+                  >
+                    Campeão
+                  </span>
+                </motion.div>
+              ))
+            ) : (
+              <div className="border-b border-gray-200 py-10">
+                <p className="max-w-xl text-lg leading-7 text-gray-500">
+                  Ainda não há títulos registrados para esse atleta.
+                </p>
+              </div>
+            )}
           </div>
         </div>
 
@@ -101,10 +113,7 @@ export function AthleteAchievements({
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{
-              duration: 0.6,
-              ease: "easeOut",
-            }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <span className="text-sm font-bold uppercase tracking-widest">
               Reconhecimentos
@@ -112,34 +121,42 @@ export function AthleteAchievements({
           </motion.div>
 
           <div className="mt-8 border-t border-gray-200">
-            {achievements.awards.map((award, index) => (
-              <motion.div
-                key={`${award.name}-${award.year}`}
-                className="grid grid-cols-[80px_1fr] gap-4 border-b 
-                border-gray-200 py-8 sm:grid-cols-[100px_1fr]"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.5 }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.1,
-                  ease: "easeOut",
-                }}
-              >
-                <span
-                  className="text-sm font-bold"
-                  style={{ color: accentColor }}
+            {sortedAwards.length > 0 ? (
+              sortedAwards.map((award, index) => (
+                <motion.div
+                  key={`${award.name}-${award.year}`}
+                  className="flex flex-col items-start  gap-4 border-b 
+                  border-gray-200 py-8 sm:flex-row sm:items-center"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.5 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.1,
+                    ease: "easeOut",
+                  }}
                 >
-                  {award.year}
-                </span>
+                  <span
+                    className="text-sm font-bold"
+                    style={{ color: accentColor }}
+                  >
+                    {award.year}
+                  </span>
 
-                <div>
-                  <h3 className="text-xl font-bold sm:text-2xl">
-                    {t(award.name)}
-                  </h3>
-                </div>
-              </motion.div>
-            ))}
+                  <div>
+                    <h3 className="text-xl font-bold sm:text-2xl">
+                      {t(award.name)}
+                    </h3>
+                  </div>
+                </motion.div>
+              ))
+            ) : (
+              <div className="border-b border-gray-200 py-10">
+                <p className="max-w-xl text-lg leading-7 text-gray-500">
+                  Ainda não há reconhecimentos registrados para esse atleta.
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </Container>
