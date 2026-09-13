@@ -19,6 +19,9 @@ export function AthleteStats({
   accentColor,
   athleteSlug,
 }: AthleteStatsProps) {
+  const totalPodiums =
+    stats.podiums.gold + stats.podiums.silver + stats.podiums.bronze;
+
   return (
     <section className="w-full my-10">
       <Container>
@@ -67,7 +70,7 @@ export function AthleteStats({
               lg:text-[16rem]"
               style={{ color: accentColor }}
             >
-              {stats.totalWins}
+              {stats.totalTitles}
             </strong>
 
             <span className="text-base font-bold uppercase tracking-widest">
@@ -141,38 +144,54 @@ export function AthleteStats({
             </span>
           </div>
 
-          <div className="relative z-10 grid grid-cols-3 gap-3 sm:gap-6 items-end">
-            <PodiumItem
-              value={stats.podiums.silver}
-              label="Prata"
-              type="silver"
-            />
-            <PodiumItem
-              value={stats.podiums.gold}
-              label="Ouro"
-              type="gold"
-              isMain
-            />
-            <PodiumItem
-              value={stats.podiums.bronze}
-              label="Bronze"
-              type="bronze"
-            />
-          </div>
+          {totalPodiums > 0 ? (
+            <>
+              <div className="relative z-10 grid grid-cols-3 gap-3 sm:gap-6 items-end">
+                <PodiumItem
+                  value={stats.podiums.silver}
+                  label="Prata"
+                  type="silver"
+                />
+                <PodiumItem
+                  value={stats.podiums.gold}
+                  label="Ouro"
+                  type="gold"
+                  isMain
+                />
+                <PodiumItem
+                  value={stats.podiums.bronze}
+                  label="Bronze"
+                  type="bronze"
+                />
+              </div>
 
-          <div className="mt-8">
-            <Link
-              to={`/atletas/${athleteSlug}/podio`}
-              className="group flex items-center gap-2 text-sm font-bold text-zinc-700"
-            >
-              <span>Ver histórico de pódios</span>
+              <div className="mt-8">
+                <Link
+                  to={`/atletas/${athleteSlug}/podio`}
+                  className="group flex items-center gap-2 text-sm font-bold 
+              text-zinc-700"
+                >
+                  <span>Ver histórico de pódios</span>
 
-              <ArrowRightIcon
-                size={14}
-                className="transition-transform duration-200 group-hover:translate-x-1"
-              />
-            </Link>
-          </div>
+                  <ArrowRightIcon
+                    size={14}
+                    className="transition-transform duration-200 
+                group-hover:translate-x-1"
+                  />
+                </Link>
+              </div>
+            </>
+          ) : (
+            <div className="mt-8 border-y border-gray-200 py-4">
+              <p
+                className="w-full text-base text-center font-semibold leading-7 
+              text-gray-500"
+              >
+                Este atleta ainda não conquistou medalhas. Continue acompanhando
+                sua trajetória nos campeonatos.
+              </p>
+            </div>
+          )}
 
           <div
             className="pointer-events-none absolute -bottom-12 -right-50 

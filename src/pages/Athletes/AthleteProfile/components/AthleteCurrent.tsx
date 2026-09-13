@@ -1,5 +1,4 @@
 import { motion } from "motion/react";
-
 import type { AthleteProfileData } from "../../../../mocks/athletes/profile.types";
 import { useTranslation } from "react-i18next";
 import { Container } from "../../../../components/layout/container/Container";
@@ -61,7 +60,7 @@ export function AthleteCurrent({ current, accentColor }: AthleteCurrentProps) {
             <div className="mt-8 border-t border-gray-200">
               {current.rankings.map((ranking) => (
                 <div
-                  key={`${ranking.championship.slug}-${ranking.season}`}
+                  key={ranking.championship.slug}
                   className="grid grid-cols-[1fr_auto] items-center gap-6 
                   border-b border-gray-200 py-6"
                 >

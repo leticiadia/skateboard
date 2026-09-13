@@ -28,7 +28,12 @@ export function AthleteProfile() {
     return <div>Atleta não encontrado.</div>;
   }
 
-  const profile = getAthleteProfileData(athlete, championships, upcomingEvents);
+  const profile = getAthleteProfileData(
+    athlete,
+    athletes,
+    championships,
+    upcomingEvents,
+  );
 
   const color = categoryColors[athlete.category];
 

@@ -2,10 +2,9 @@ import { Link, useParams } from "react-router-dom";
 import { motion } from "motion/react";
 import { ArrowLeftIcon } from "@phosphor-icons/react";
 
-import { athletes } from "../../../mocks/athletes/athletes";
-import { championships } from "../../../mocks/championships/championships";
-import { getAthletePodiums } from "../../../mocks/athletes/helpers/getAthletePodiums";
 import type { AthleteCategory } from "../../../mocks/athletes/type";
+import { athletes } from "../../../mocks/athletes/athletes";
+import { getAthletePodiums } from "../../../mocks/athletes/helpers/getAthletePodiums";
 
 import { AthletePodiumsTable } from "./components/AthletePodiumsTable";
 import { Container } from "../../../components/layout/container/Container";
@@ -27,7 +26,7 @@ export function AthletePodiums() {
 
   const color = athleteColors[athlete.category];
 
-  const podiums = getAthletePodiums(athlete, championships);
+  const podiums = getAthletePodiums(athlete);
 
   return (
     <section className="w-full pt-28 pb-10 lg:pt-28">

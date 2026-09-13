@@ -23,6 +23,13 @@ const medalData = {
   },
 } as const;
 
+function getPodiumStage(podium: AthletePodium) {
+  const season = podium.championship.seasons.find(
+    ({ year }) => year === podium.year,
+  );
+  return season?.stages.find(({ id }) => id === podium.stageId);
+}
+
 export function AthletePodiumsTable({
   podiums,
   accentColor,
@@ -80,6 +87,7 @@ export function AthletePodiumsTable({
         <tbody className="divide-y divide-gray-200 border-b border-gray-200">
           {podiums.map((podium, index) => {
             const medal = medalData[podium.medal];
+            const stage = getPodiumStage(podium);
 
             return (
               <motion.tr
@@ -109,27 +117,22 @@ export function AthletePodiumsTable({
                 </td>
 
                 <td className="px-2 py-6 align-middle">
-                  <div>
+                  <div className="flex flex-col gap-2">
                     <span className="text-lg font-bold sm:text-xl block">
                       {t(podium.championship.title)}
                     </span>
-                    <span
-                      className="mt-1 block text-xs font-bold uppercase 
-                      tracking-widest text-gray-400"
-                    >
-                      Campeonato
-                    </span>
+                    {stage && (
+                      <span
+                        className="mt-1 block text-xs font-bold uppercase 
+                        tracking-widest text-gray-400"
+                      >
+                        {`Etapa ${stage.number} - ${stage.name}`}
+                      </span>
+                    )}
                   </div>
                 </td>
-
                 <td className="px-2 py-6 text-right align-middle">
                   <div className="flex items-center justify-end gap-3">
-                    <span
-                      className="text-3xl font-black leading-none"
-                      style={{ color: accentColor }}
-                    >
-                      {medal.number}
-                    </span>
                     <span className="text-xs font-bold uppercase tracking-widest">
                       {medal.label}
                     </span>
