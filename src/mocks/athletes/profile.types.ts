@@ -1,16 +1,22 @@
 import type { Championships, UpcomingEvent } from "../championships/types";
-import type {
-  AthleteAward,
-  AthleteCategory,
-  AthleteGalleryItem,
-  AthleteRanking,
-} from "./type";
+
+import type { AthleteAward, AthleteCategory, AthleteGalleryItem } from "./type";
 
 export type AthleteStats = {
-  totalWins: number;
-  totalLosses: number;
   totalChampionships: number;
+  totalTitles: number;
   totalAwards: number;
+  podiums: {
+    gold: number;
+    silver: number;
+    bronze: number;
+    total: number;
+  };
+};
+
+export type AthleteSeasonStats = {
+  points: number;
+  wins: number;
   podiums: {
     gold: number;
     silver: number;
@@ -30,8 +36,10 @@ export type AthleteAchievements = {
   awards: AthleteAward[];
 };
 
-export type AthleteCurrentRanking = AthleteRanking & {
+export type AthleteCurrentRanking = {
   championship: Championships;
+  position: number;
+  points: number;
 };
 
 export type AthleteCurrentData = {
@@ -43,6 +51,7 @@ export type AthleteCurrentData = {
 
 export type AthletePodium = {
   year: number;
+  stageId: string;
   championship: Championships;
   medal: "gold" | "silver" | "bronze";
 };

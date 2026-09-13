@@ -12,6 +12,20 @@ export type ChampionshipEvents = {
   championshipSlug: string;
   events: UpcomingEvent[];
 };
+
+export type ChampionshipStage = {
+  id: string;
+  number: number;
+  name: string;
+  location: string;
+  date: string;
+};
+
+export type ChampionshipSeason = {
+  year: number;
+  stages: ChampionshipStage[];
+};
+
 export interface Championships {
   id: number;
   title: string;
@@ -22,4 +36,5 @@ export interface Championships {
   imageSection: string;
   slug: string;
   backgroundColor: BackgroundColor;
+  seasons: ChampionshipSeason[];
 }
