@@ -65,12 +65,11 @@ export function ChampionshipProfile() {
             <header className="flex flex-col gap-3 sm:gap-4">
               <h2
                 className="flex items-center gap-2 text-2xl font-bold 
-                text-black sm:text-3xl lg:text-4xl"
+                text-black sm:text-3xl lg:text-4xl bg-y"
               >
                 <TrophyIcon
-                  size={32}
+                  color="#ffc857"
                   className="shrink-0 sm:size-9 lg:size-10"
-                  color="#101828"
                 />
 
                 <span>Global Ranking</span>

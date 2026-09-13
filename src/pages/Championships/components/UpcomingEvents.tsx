@@ -31,7 +31,7 @@ export function UpcomingEvents({
           sm:text-3xl lg:text-4xl"
         >
           <CalendarDotsIcon
-            size={32}
+            color="#ffc857"
             className="shrink-0 sm:size-9 lg:size-10"
           />
 
@@ -49,11 +49,11 @@ export function UpcomingEvents({
           <article
             key={event.id}
             className="group flex flex-col justify-between rounded-xl border-2
-            border-black-700 p-4 transition-colors hover:bg-black-700 sm:p-5"
+            border-yellow-300 p-4 transition-colors hover:bg-yellow-300 sm:p-5"
           >
             <h3
               className="mb-3 text-base font-semibold text-black 
-              transition-colors group-hover:text-white sm:text-lg"
+              transition-colors group-hover:text-black sm:text-lg"
             >
               {event.title}
             </h3>
@@ -61,24 +61,18 @@ export function UpcomingEvents({
             <div className="space-y-2 text-sm">
               <div
                 className="flex items-center gap-2 font-medium text-black 
-                transition-colors group-hover:text-white"
+                transition-colors group-hover:text-black"
               >
-                <CalendarDotsIcon
-                  className="size-4 shrink-0 transition-colors 
-                  group-hover:text-white"
-                />
+                <CalendarDotsIcon className="size-4 shrink-0" />
 
                 <span>{formatEventDate(event.date)}</span>
               </div>
 
               <div
                 className="flex items-center gap-2 text-black 
-                transition-colors group-hover:text-white"
+                transition-colors group-hover:text-black"
               >
-                <MapPinAreaIcon
-                  className="size-4 shrink-0 transition-colors 
-                  group-hover:text-white"
-                />
+                <MapPinAreaIcon className="size-4 shrink-0" />
 
                 <span>{event.location}</span>
               </div>

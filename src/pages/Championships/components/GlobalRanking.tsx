@@ -71,7 +71,7 @@ export function GlobalRanking({
             <span
               aria-hidden="true"
               className="h-3 w-3 shrink-0 animate-pulse rounded-full 
-              bg-emerald-400"
+              bg-yellow-300"
             />
             <span
               className="text-xs font-black uppercase tracking-widest 
