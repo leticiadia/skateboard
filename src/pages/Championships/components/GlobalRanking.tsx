@@ -6,6 +6,7 @@ import {
   getAvailableSeasons,
   getChampionshipRanking,
 } from "../utils/globalRanking";
+import { championships } from "../../../mocks/championships/championships";
 
 interface GlobalRankingProps {
   athletes: Athlete[];
@@ -22,11 +23,7 @@ export function GlobalRanking({
   seasonYear = 2026,
   limit,
 }: GlobalRankingProps) {
-  const availableSeasons = getAvailableSeasons(
-    athletes,
-    championshipSlug,
-    seasonYear,
-  );
+  const availableSeasons = getAvailableSeasons(athletes, championshipSlug);
 
   const [selectedSeason, setSelectedSeason] = useState<number>(
     availableSeasons.includes(seasonYear) ? seasonYear : availableSeasons[0],
@@ -39,34 +36,52 @@ export function GlobalRanking({
     limit,
   );
 
+  const championship = championships.find(
+    (championship) => championship.slug === championshipSlug,
+  );
+
+  const season = championship?.seasons.find(
+    (season) => season.year === selectedSeason,
+  );
+
+  const stages = season?.stages ?? [];
+
+  function getStagePlacement(athlete: Athlete, stageId: string) {
+    const result = athlete.results.find(
+      (result) =>
+        result.championshipSlug === championshipSlug &&
+        result.season === selectedSeason &&
+        result.stageId === stageId,
+    );
+    return result?.placement;
+  }
+
   return (
     <section className="w-full">
       <div
         className="overflow-hidden rounded-2xl border-2 border-zinc-900 
-        bg-zinc-950"
+      bg-zinc-950"
       >
         <header
-          className="flex flex-col gap-4 border-b-2 border-zinc-900
-          bg-zinc-900/90 p-5 sm:flex-row sm:items-center sm:justify-between 
-          sm:p-6"
+          className="flex flex-col gap-4 border-b-2 border-zinc-900 
+        bg-zinc-900/90 p-5 sm:flex-row sm:items-center sm:justify-between 
+        sm:p-6"
         >
           <div className="flex items-center gap-3">
             <span
               aria-hidden="true"
-              className="h-3 w-3 shrink-0 rounded-full bg-emerald-400 
-              animate-pulse"
+              className="h-3 w-3 shrink-0 animate-pulse rounded-full 
+              bg-emerald-400"
             />
-
             <span
               className="text-xs font-black uppercase tracking-widest 
-              text-zinc-400"
+            text-zinc-400"
             >
               Temporada exibida:
             </span>
-
             <span
-              className="rounded-lg border border-zinc-700 bg-zinc-950 px-3 
-              py-1 font-mono text-sm font-black text-white"
+              className="rounded-lg border border-zinc-700 bg-zinc-950 
+              px-3 py-1 font-mono text-sm font-black text-white"
             >
               {selectedSeason}
             </span>
@@ -90,8 +105,8 @@ export function GlobalRanking({
                 setSelectedSeason(Number(event.target.value))
               }
               className="w-full appearance-none rounded-xl border-2 
-              border-zinc-800 bg-zinc-950 py-2 pl-10 pr-10 text-xs 
-              font-bold uppercase tracking-wider text-zinc-200 transition-colors
+              border-zinc-800 bg-zinc-950 py-2 pl-10 pr-10 text-xs font-bold 
+              uppercase tracking-wider text-zinc-200 transition-colors 
               hover:border-zinc-700 focus:outline-none focus:ring-2 
               focus:ring-white sm:w-auto"
             >
@@ -112,7 +127,7 @@ export function GlobalRanking({
 
         <div className="max-w-full overflow-x-auto">
           <table
-            className="w-full min-w-[700px] text-left text-sm"
+            className="w-full min-w-[800px] text-left text-sm"
             aria-label={`Ranking do campeonato - temporada ${selectedSeason}`}
           >
             <thead
@@ -120,25 +135,37 @@ export function GlobalRanking({
               uppercase tracking-wider text-white"
             >
               <tr>
-                <th scope="col" className="px-6 py-4 text-center">
+                <th scope="col" rowSpan={2} className="px-6 py-4 text-center">
                   Posição
                 </th>
 
-                <th scope="col" className="px-6 py-4">
+                <th scope="col" rowSpan={2} className="px-6 py-4">
                   Atleta
                 </th>
 
-                <th scope="col" className="px-6 py-4 text-center">
+                <th
+                  scope="colgroup"
+                  colSpan={stages.length}
+                  className="px-6 py-3 text-center"
+                >
+                  Desempenho nas etapas
+                </th>
+
+                <th scope="col" rowSpan={2} className="px-6 py-4 text-center">
                   Pontos
                 </th>
+              </tr>
 
-                <th scope="col" className="px-6 py-4 text-center">
-                  V / D
-                </th>
-
-                <th scope="col" className="px-6 py-4 text-center">
-                  Pódios ({selectedSeason})
-                </th>
+              <tr>
+                {stages.map((stage) => (
+                  <th
+                    key={stage.id}
+                    scope="col"
+                    className="px-6 py-3 text-center"
+                  >
+                    E{stage.number}
+                  </th>
+                ))}
               </tr>
             </thead>
 
@@ -146,7 +173,7 @@ export function GlobalRanking({
               {displayedRanking.length === 0 ? (
                 <tr>
                   <td
-                    colSpan={5}
+                    colSpan={stages.length + 3}
                     className="px-6 py-12 text-center font-medium text-zinc-500"
                   >
                     Nenhum dado encontrado para a temporada {selectedSeason}.
@@ -161,9 +188,9 @@ export function GlobalRanking({
                     <td className="px-6 py-4 text-center font-bold">
                       {ranking.position === 1 && (
                         <span
-                          className="inline-flex items-center gap-1 rounded-md
-                          border border-zinc-700 bg-zinc-900 px-2 py-1 text-sm 
-                          font-bold text-amber-400"
+                          className="inline-flex items-center gap-1 
+                          rounded-md border border-zinc-700 bg-zinc-900 
+                          px-2 py-1 text-sm font-bold text-amber-400"
                         >
                           🥇 1º
                         </span>
@@ -171,9 +198,9 @@ export function GlobalRanking({
 
                       {ranking.position === 2 && (
                         <span
-                          className="inline-flex items-center gap-1 rounded-md
-                          border border-zinc-700 bg-zinc-900 px-2 py-1 
-                          text-sm font-bold text-zinc-300"
+                          className="inline-flex items-center gap-1 
+                          rounded-md border border-zinc-700 bg-zinc-900 
+                          px-2 py-1 text-sm font-bold text-zinc-300"
                         >
                           🥈 2º
                         </span>
@@ -181,9 +208,9 @@ export function GlobalRanking({
 
                       {ranking.position === 3 && (
                         <span
-                          className="inline-flex items-center gap-1 rounded-md 
-                          border border-zinc-700 bg-zinc-900 px-2 py-1 text-sm 
-                          font-bold text-amber-600"
+                          className="inline-flex items-center gap-1 
+                          rounded-md border border-zinc-700 bg-zinc-900 
+                          px-2 py-1 text-sm font-bold text-amber-600"
                         >
                           🥉 3º
                         </span>
@@ -211,56 +238,37 @@ export function GlobalRanking({
                       </div>
                     </td>
 
+                    {stages.map((stage) => {
+                      const placement = getStagePlacement(athlete, stage.id);
+                      return (
+                        <td key={stage.id} className="px-6 py-4 text-center">
+                          {placement ? (
+                            <span
+                              className="font-mono text-sm font-bold 
+                            text-black"
+                            >
+                              {placement}º
+                            </span>
+                          ) : (
+                            <span
+                              className="font-mono text-sm text-zinc-400"
+                              aria-label="Sem resultado"
+                            >
+                              —
+                            </span>
+                          )}
+                        </td>
+                      );
+                    })}
+
                     <td
                       className="px-6 py-4 text-center text-sm font-mono 
                       font-black text-black"
                     >
-                      {ranking.points.toLocaleString()}{" "}
+                      {ranking.points.toLocaleString()}
                       <span className="text-xs font-bold text-zinc-500">
                         PTS
                       </span>
-                    </td>
-
-                    <td className="px-6 py-4 text-center">
-                      <div
-                        className="inline-flex items-center gap-1 rounded-md
-                        border border-zinc-700 bg-zinc-900 px-2.5 py-1 font-mono 
-                        text-xs font-bold"
-                      >
-                        <span className="text-green-400">{ranking.wins}W</span>
-
-                        <span className="text-zinc-500">/</span>
-
-                        <span className="text-rose-400">{ranking.losses}L</span>
-                      </div>
-                    </td>
-
-                    <td className="px-6 py-4 text-center">
-                      <div
-                        className="flex items-center justify-center gap-1.5 
-                        font-mono text-xs font-bold"
-                      >
-                        <span
-                          className="rounded-md border border-zinc-700 
-                          bg-zinc-900 px-2 py-1 text-amber-400"
-                        >
-                          🥇 {ranking.podiums.gold}
-                        </span>
-
-                        <span
-                          className="rounded-md border border-zinc-700
-                          bg-zinc-900 px-2 py-1 text-zinc-300"
-                        >
-                          🥈 {ranking.podiums.silver}
-                        </span>
-
-                        <span
-                          className="rounded-md border border-zinc-700 
-                          bg-zinc-900 px-2 py-1 text-amber-600"
-                        >
-                          🥉 {ranking.podiums.bronze}
-                        </span>
-                      </div>
                     </td>
                   </tr>
                 ))

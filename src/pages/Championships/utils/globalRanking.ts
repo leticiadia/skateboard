@@ -1,50 +1,67 @@
-import type { Athlete } from "../../../mocks/athletes/type";
+import type { Athlete, AthleteStageResult } from "../../../mocks/athletes/type";
+import { getPointsByPlacement } from "../../../mocks/championships/scoring";
 
-export type AthleteRanking = NonNullable<Athlete["rankings"][number]>;
+export interface ChampionshipRanking {
+  position: number;
+  points: number;
+  results: AthleteStageResult[];
+}
 
-export interface RankingEntry {
+export interface ChampionshipRankingEntry {
   athlete: Athlete;
-  ranking: AthleteRanking;
+  ranking: ChampionshipRanking;
 }
-
-export function getAvailableSeasons(
-  athletes: Athlete[],
-  championshipSlug: string,
-  defaultSeason = 2026,
-): number[] {
-  const seasonsSet = new Set<number>();
-
-  athletes.forEach((athlete) => {
-    athlete.rankings.forEach((r) => {
-      if (r.championshipSlug === championshipSlug) {
-        seasonsSet.add(r.season);
-      }
-    });
-  });
-
-  const seasons = Array.from(seasonsSet).sort((a, b) => b - a);
-  return seasons.length > 0 ? seasons : [defaultSeason];
-}
-
 export function getChampionshipRanking(
   athletes: Athlete[],
   championshipSlug: string,
   season: number,
   limit?: number,
-): RankingEntry[] {
+): ChampionshipRankingEntry[] {
   const ranking = athletes
     .map((athlete) => {
-      const athleteRanking = athlete.rankings.find(
-        (r) => r.championshipSlug === championshipSlug && r.season === season,
+      const results = athlete.results.filter(
+        (result) =>
+          result.championshipSlug === championshipSlug &&
+          result.season === season,
+      );
+
+      const points = results.reduce(
+        (total, result) => total + getPointsByPlacement(result.placement),
+        0,
       );
 
       return {
         athlete,
-        ranking: athleteRanking,
+        ranking: {
+          position: 0,
+          points,
+          results,
+        },
       };
     })
-    .filter((entry): entry is RankingEntry => Boolean(entry.ranking))
-    .sort((a, b) => a.ranking.position - b.ranking.position);
+    .filter((entry) => entry.ranking.points > 0)
+    .sort((a, b) => b.ranking.points - a.ranking.points);
 
-  return limit ? ranking.slice(0, limit) : ranking;
+  const ranked = ranking.map((entry, index) => ({
+    ...entry,
+    ranking: {
+      ...entry.ranking,
+      position: index + 1,
+    },
+  }));
+
+  return limit ? ranked.slice(0, limit) : ranked;
+}
+
+export function getAvailableSeasons(
+  athletes: Athlete[],
+  championshipSlug: string,
+): number[] {
+  const seasons = athletes.flatMap((athlete) =>
+    athlete.results
+      .filter((result) => result.championshipSlug === championshipSlug)
+      .map((result) => result.season),
+  );
+
+  return [...new Set(seasons)].sort((a, b) => b - a);
 }

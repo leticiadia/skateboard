@@ -8,27 +8,52 @@ import type {
   AthleteCurrentRanking,
 } from "../profile.types";
 
+import { getChampionshipRanking } from "./getChampionshipRanking";
+
 export function getAthleteCurrentData(
   athlete: Athlete,
+  athletes: Athlete[],
   championships: Championships[],
   upcomingEvents: ChampionshipEvents[],
 ): AthleteCurrentData {
   const currentSeason = new Date().getFullYear();
 
-  const rankings = athlete.rankings
-    .filter((ranking) => ranking.season === currentSeason)
-    .map((ranking) => {
+  const currentResults = athlete.results.filter(
+    (result) => result.season === currentSeason,
+  );
+
+  const championshipSlugs = [
+    ...new Set(currentResults.map((result) => result.championshipSlug)),
+  ];
+
+  const rankings = championshipSlugs
+    .map((championshipSlug) => {
       const championship = championships.find(
-        ({ slug }) => slug === ranking.championshipSlug,
+        ({ slug }) => slug === championshipSlug,
       );
 
       if (!championship) {
         return null;
       }
 
+      const ranking = getChampionshipRanking(
+        athletes,
+        championshipSlug,
+        currentSeason,
+      );
+
+      const athleteRanking = ranking.find(
+        ({ athlete: rankedAthlete }) => rankedAthlete.id === athlete.id,
+      );
+
+      if (!athleteRanking) {
+        return null;
+      }
+
       return {
-        ...ranking,
         championship,
+        position: athleteRanking.position,
+        points: athleteRanking.points,
       };
     })
     .filter((ranking): ranking is AthleteCurrentRanking => ranking !== null);

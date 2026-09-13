@@ -1,46 +1,66 @@
 import type { Athlete } from "../type";
 import type { AthleteStats } from "../profile.types";
 
-export function getAthleteStats(athlete: Athlete): AthleteStats {
-  const totalWins = athlete.rankings.reduce(
-    (total, ranking) => total + ranking.wins,
-    0,
+import { getChampionshipRanking } from "./getChampionshipRanking";
+
+export function getAthleteStats(
+  athlete: Athlete,
+  athletes: Athlete[],
+): AthleteStats {
+  const championships = new Set(
+    athlete.results.map((result) => result.championshipSlug),
   );
 
-  const totalLosses = athlete.rankings.reduce(
-    (total, ranking) => total + ranking.losses,
-    0,
-  );
+  const seasons = athlete.results.reduce<
+    { championshipSlug: string; season: number }[]
+  >((accumulator, result) => {
+    const alreadyExists = accumulator.some(
+      (item) =>
+        item.championshipSlug === result.championshipSlug &&
+        item.season === result.season,
+    );
 
-  const podiums = athlete.rankings.reduce(
-    (total, ranking) => ({
-      gold: total.gold + ranking.podiums.gold,
-      silver: total.silver + ranking.podiums.silver,
-      bronze: total.bronze + ranking.podiums.bronze,
-    }),
-    {
-      gold: 0,
-      silver: 0,
-      bronze: 0,
-    },
-  );
+    if (!alreadyExists) {
+      accumulator.push({
+        championshipSlug: result.championshipSlug,
+        season: result.season,
+      });
+    }
 
-  const totalPodiums = podiums.gold + podiums.silver + podiums.bronze;
+    return accumulator;
+  }, []);
 
-  const totalChampionships = new Set(
-    athlete.championships.map((championship) => championship.championshipSlug),
-  ).size;
+  const totalTitles = seasons.filter(({ championshipSlug, season }) => {
+    const ranking = getChampionshipRanking(athletes, championshipSlug, season);
 
-  const totalAwards = athlete.awards.length;
+    const athleteRanking = ranking.find(
+      ({ athlete: rankedAthlete }) => rankedAthlete.id === athlete.id,
+    );
+
+    return athleteRanking?.position === 1;
+  }).length;
+
+  const gold = athlete.results.filter(
+    (result) => result.placement === 1,
+  ).length;
+
+  const silver = athlete.results.filter(
+    (result) => result.placement === 2,
+  ).length;
+
+  const bronze = athlete.results.filter(
+    (result) => result.placement === 3,
+  ).length;
 
   return {
-    totalWins,
-    totalLosses,
-    totalChampionships,
-    totalAwards,
+    totalChampionships: championships.size,
+    totalTitles,
+    totalAwards: athlete.awards.length,
     podiums: {
-      ...podiums,
-      total: totalPodiums,
+      gold,
+      silver,
+      bronze,
+      total: gold + silver + bronze,
     },
   };
 }
