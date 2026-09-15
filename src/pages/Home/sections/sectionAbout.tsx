@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { motion } from "motion/react";
 
 import { Container } from "../../../components/layout/container/Container";
 import { ButtonLink } from "../../../components/ui/ButtonLink/ButtonLink";
@@ -21,9 +22,17 @@ export function SectionAbout() {
         <Container>
           <div
             className="flex flex-col gap-8 lg:flex-row lg:items-center 
-          lg:justify-between"
+            lg:justify-between"
           >
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+              }}
+            >
               <h2 className="text-2xl text-black font-bold md:text-4xl">
                 {t("home.about.title")}
               </h2>
@@ -40,16 +49,37 @@ export function SectionAbout() {
                 variant="outline"
                 size="default"
               />
-            </div>
+            </motion.div>
 
-            <img src={TonyHawk} alt="" />
+            <motion.img
+              src={TonyHawk}
+              alt=""
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{
+                duration: 0.8,
+                ease: "easeOut",
+              }}
+            />
           </div>
         </Container>
       </section>
 
       <section className="mt-10">
         <Container>
-          <img src={bannerImage} className="h-full object-cover" alt="" />
+          <motion.img
+            src={bannerImage}
+            className="h-full object-cover"
+            alt=""
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              duration: 0.8,
+              ease: "easeOut",
+            }}
+          />
         </Container>
       </section>
     </>

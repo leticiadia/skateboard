@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { motion } from "motion/react";
 
 import type { Athlete } from "../../../mocks/athletes/type";
 
@@ -39,11 +40,31 @@ export function SectionAthletes({ athletes }: SectionAthletesProps) {
     <section className="w-full mt-10">
       <Container>
         <div
-          className="flex flex-col gap-8 lg:flex-row lg:items-center
+          className="flex flex-col gap-8 lg:flex-row lg:items-center 
           lg:justify-between"
         >
-          <CurrentAthlete athlete={currentAthlete} />
-          <div className="flex flex-col">
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              duration: 0.8,
+              ease: "easeOut",
+            }}
+          >
+            <CurrentAthlete athlete={currentAthlete} />
+          </motion.div>
+
+          <motion.div
+            className="flex flex-col"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut",
+            }}
+          >
             <div className="flex flex-col items-start gap-4">
               <h3 className="text-4xl font-bold">{t("home.athletes.title")}</h3>
 
@@ -55,7 +76,7 @@ export function SectionAthletes({ athletes }: SectionAthletesProps) {
             <AthleteCarousel athletes={rotatedAthletes} />
 
             <AthleteContent onNext={handleNextAthlete} />
-          </div>
+          </motion.div>
         </div>
       </Container>
     </section>

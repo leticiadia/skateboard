@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { motion } from "motion/react";
 
 import { athletes } from "../../mocks/athletes/athletes";
 
@@ -33,23 +34,53 @@ export function Athletes() {
       <section className="my-10 w-full">
         <Container>
           <div className="flex flex-col gap-16">
-            <AthleteCategorySection
-              title={t("athletes.category.female")}
-              athletes={femaleAthletes}
-              color="blue"
-            />
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{
+                duration: 0.8,
+                ease: "easeOut",
+              }}
+            >
+              <AthleteCategorySection
+                title={t("athletes.category.female")}
+                athletes={femaleAthletes}
+                color="blue"
+              />
+            </motion.div>
 
-            <AthleteCategorySection
-              title={t("athletes.category.male")}
-              athletes={maleAthletes}
-              color="yellow"
-            />
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{
+                duration: 0.8,
+                ease: "easeOut",
+              }}
+            >
+              <AthleteCategorySection
+                title={t("athletes.category.male")}
+                athletes={maleAthletes}
+                color="yellow"
+              />
+            </motion.div>
 
-            <AthleteCategorySection
-              title={t("athletes.category.new-talent")}
-              athletes={newTalents}
-              color="red"
-            />
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{
+                duration: 0.8,
+                ease: "easeOut",
+              }}
+            >
+              <AthleteCategorySection
+                title={t("athletes.category.new-talent")}
+                athletes={newTalents}
+                color="red"
+              />
+            </motion.div>
           </div>
         </Container>
       </section>
