@@ -1,28 +1,18 @@
+import { useTranslation } from "react-i18next";
+import i18n from "../../../i18n";
 import { CalendarDotsIcon, MapPinAreaIcon } from "@phosphor-icons/react";
 
 import type { UpcomingEvent } from "../../../mocks/championships/types";
 
+import { formatEventDate } from "../../../utils/formatEventDate";
+
 interface UpcomingEventsProps {
   events: UpcomingEvent[];
-  title?: string;
-  subtitle?: string;
 }
 
-const eventDateFormatter = new Intl.DateTimeFormat("pt-BR", {
-  day: "2-digit",
-  month: "long",
-  year: "numeric",
-});
+export function UpcomingEvents({ events }: UpcomingEventsProps) {
+  const { t } = useTranslation();
 
-function formatEventDate(date: string) {
-  return eventDateFormatter.format(new Date(`${date}T00:00:00`));
-}
-
-export function UpcomingEvents({
-  events,
-  title = "Próximos Eventos",
-  subtitle = "Fique por dentro das datas e etapas confirmadas",
-}: UpcomingEventsProps) {
   return (
     <section className="mt-10">
       <header className="flex flex-col gap-3 sm:gap-4">
@@ -35,16 +25,17 @@ export function UpcomingEvents({
             className="shrink-0 sm:size-9 lg:size-10"
           />
 
-          <span>{title}</span>
+          <span>
+            {t("championship-profile.sections.upcoming-events.title")}
+          </span>
         </h2>
 
-        <p className="text-sm text-zinc-600 sm:text-base">{subtitle}</p>
+        <p className="text-sm text-zinc-600 sm:text-base">
+          {t("championship-profile.sections.upcoming-events.subtitle")}
+        </p>
       </header>
 
-      <div
-        className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 
-        lg:mt-8 lg:grid-cols-3"
-      >
+      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {events.map((event) => (
           <article
             key={event.id}
@@ -55,7 +46,7 @@ export function UpcomingEvents({
               className="mb-3 text-base font-semibold text-black 
               transition-colors group-hover:text-black sm:text-lg"
             >
-              {event.title}
+              {t(event.title)}
             </h3>
 
             <div className="space-y-2 text-sm">
@@ -65,7 +56,7 @@ export function UpcomingEvents({
               >
                 <CalendarDotsIcon className="size-4 shrink-0" />
 
-                <span>{formatEventDate(event.date)}</span>
+                <span>{formatEventDate(t(event.date), i18n.language)}</span>
               </div>
 
               <div
@@ -74,7 +65,7 @@ export function UpcomingEvents({
               >
                 <MapPinAreaIcon className="size-4 shrink-0" />
 
-                <span>{event.location}</span>
+                <span>{t(event.location)}</span>
               </div>
             </div>
           </article>

@@ -1,7 +1,12 @@
 import { motion } from "motion/react";
-import type { AthleteProfileData } from "../../../../mocks/athletes/profile.types";
 import { useTranslation } from "react-i18next";
+import i18n from "../../../../i18n";
+
+import type { AthleteProfileData } from "../../../../mocks/athletes/profile.types";
+
 import { Container } from "../../../../components/layout/container/Container";
+
+import { formatEventDate } from "../../../../utils/formatEventDate";
 
 type AthleteCurrentProps = {
   current: AthleteProfileData["current"];
@@ -125,7 +130,7 @@ export function AthleteCurrent({ current, accentColor }: AthleteCurrentProps) {
 
                 <div className="flex flex-col gap-2 lg:text-right">
                   <span className="text-sm font-bold uppercase tracking-widest">
-                    {current.nextEvent.formattedDate}
+                    {formatEventDate(t(current.nextEvent.date), i18n.language)}
                   </span>
 
                   <span className="text-sm text-gray-500">

@@ -55,13 +55,18 @@ export function ChampionshipProfile() {
             Sobre
           </h2>
 
-          <p className="text-base leading-relaxed text-zinc-600">
-            {t(championship.description)}
-          </p>
+          {championship.about.map((paragraph) => (
+            <p
+              key={paragraph}
+              className="text-base leading-relaxed text-zinc-600"
+            >
+              {t(paragraph)}
+            </p>
+          ))}
         </section>
 
         <section className="flex flex-col gap-8 mt-8">
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-4">
             <header className="flex flex-col gap-3 sm:gap-4">
               <h2
                 className="flex items-center gap-2 text-2xl font-bold 
@@ -72,11 +77,13 @@ export function ChampionshipProfile() {
                   className="shrink-0 sm:size-9 lg:size-10"
                 />
 
-                <span>Global Ranking</span>
+                <span>
+                  {t("championship-profile.sections.global-ranking.title")}
+                </span>
               </h2>
 
               <p className="text-sm text-zinc-600 sm:text-base">
-                Top 5 atletas e retrospecto da temporada atual
+                {t("championship-profile.sections.global-ranking.subtitle")}
               </p>
             </header>
 

@@ -4,7 +4,6 @@ export type UpcomingEvent = {
   id: number;
   title: string;
   date: string;
-  formattedDate: string;
   location: string;
 };
 
@@ -30,6 +29,7 @@ export interface Championships {
   id: number;
   title: string;
   subtitle: string;
+  about: string[];
   description: string;
   abbreviation: string;
   imageThumbnail: string;

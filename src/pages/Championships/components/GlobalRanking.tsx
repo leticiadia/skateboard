@@ -1,12 +1,14 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { CalendarBlankIcon, CaretDownIcon } from "@phosphor-icons/react";
 
 import type { Athlete } from "../../../mocks/athletes/type";
+import { championships } from "../../../mocks/championships/championships";
+
 import {
   getAvailableSeasons,
   getChampionshipRanking,
 } from "../utils/globalRanking";
-import { championships } from "../../../mocks/championships/championships";
 
 interface GlobalRankingProps {
   athletes: Athlete[];
@@ -23,6 +25,8 @@ export function GlobalRanking({
   seasonYear = 2026,
   limit,
 }: GlobalRankingProps) {
+  const { t } = useTranslation();
+
   const availableSeasons = getAvailableSeasons(athletes, championshipSlug);
 
   const [selectedSeason, setSelectedSeason] = useState<number>(
@@ -77,7 +81,7 @@ export function GlobalRanking({
               className="text-xs font-black uppercase tracking-widest 
             text-zinc-400"
             >
-              Temporada exibida:
+              {t("global-ranking.displayedSeason")}:
             </span>
             <span
               className="rounded-lg border border-zinc-700 bg-zinc-950 
@@ -95,7 +99,7 @@ export function GlobalRanking({
             />
 
             <label htmlFor="global-ranking-season" className="sr-only">
-              Selecionar temporada
+              {t("global-ranking.selectSeason")}
             </label>
 
             <select
@@ -112,7 +116,7 @@ export function GlobalRanking({
             >
               {availableSeasons.map((season) => (
                 <option key={season} value={season}>
-                  Temporada {season}
+                  {t("global-ranking.season")} {season}
                 </option>
               ))}
             </select>
@@ -136,11 +140,11 @@ export function GlobalRanking({
             >
               <tr>
                 <th scope="col" rowSpan={2} className="px-6 py-4 text-center">
-                  Posição
+                  {t("global-ranking.position")}
                 </th>
 
                 <th scope="col" rowSpan={2} className="px-6 py-4">
-                  Atleta
+                  {t("global-ranking.athlete")}
                 </th>
 
                 <th
@@ -148,11 +152,11 @@ export function GlobalRanking({
                   colSpan={stages.length}
                   className="px-6 py-3 text-center"
                 >
-                  Desempenho nas etapas
+                  {t("global-ranking.stagePerformance")}
                 </th>
 
                 <th scope="col" rowSpan={2} className="px-6 py-4 text-center">
-                  Pontos
+                  {t("global-ranking.points")}
                 </th>
               </tr>
 
@@ -176,7 +180,7 @@ export function GlobalRanking({
                     colSpan={stages.length + 3}
                     className="px-6 py-12 text-center font-medium text-zinc-500"
                   >
-                    Nenhum dado encontrado para a temporada {selectedSeason}.
+                    {t("global-ranking.noData")} {selectedSeason}.
                   </td>
                 </tr>
               ) : (
@@ -252,7 +256,7 @@ export function GlobalRanking({
                           ) : (
                             <span
                               className="font-mono text-sm text-zinc-400"
-                              aria-label="Sem resultado"
+                              aria-label={t("global-ranking.noResult")}
                             >
                               —
                             </span>

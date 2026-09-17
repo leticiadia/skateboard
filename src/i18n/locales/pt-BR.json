@@ -203,34 +203,175 @@
   "championships": {
     "title": "Campeonatos",
     "description": "Explore os principais campeonatos de skate e acompanhe os atletas que estão fazendo história no park e no street."
-
   },
 
   "championship-profile": {
+    "sections": {
+      "global-ranking": {
+        "title": "Ranking Global",
+        "subtitle": "Top 5 atletas e retrospecto da temporada atual"
+      },
+
+      "upcoming-events": {
+        "title": "Próximos Eventos",
+        "subtitle": "Fique por dentro das datas e etapas confirmadas"
+      }
+    },
+
     "LegacyStreetTour": {
       "title": "Legacy Street Tour",
       "subtitle": "Onde os melhores skatistas do mundo se enfrentam.",
-      "description": "Conheça o Legacy Street Tour, o campeonato que reúne habilidade, estilo e muita adrenalina. Clique para descobrir mais sobre as edições e os atletas que fazem história."
+      "description": "Conheça o Legacy Street Tour, o campeonato que reúne habilidade, estilo e muita adrenalina. Clique para descobrir mais sobre as edições e os atletas que fazem história.",
+      "about": {
+        "paragraph-1": "O Legacy Street Tour nasceu do desejo de celebrar a cultura urbana e transformar a paixão pelo skate em um palco de alta performance e visibilidade.",
+        "paragraph-2": "O que começou como um encontro entre amigos apaixonados pela cena hoje se consolida como um dos campeonatos mais aguardados do circuito, reunindo talentos que desafiam os próprios limites e elevam o nível a cada manobra.",
+        "paragraph-3": "Mais do que disputar o pódio, cada edição é um marco de união, estilo e evolução constante para o esporte."
+      }
     },
 
     "BoardwalkClash": {
       "title": "Boardwalk Clash",
       "subtitle": "A adrenalina encontra a rua e o parque.",
-      "description": "Explore o Boardwalk Clash, um dos campeonatos mais emocionantes do skate mundial, reunindo manobras radicais e atletas de elite. Clique e conheça as edições e os destaques."
+      "description": "Explore o Boardwalk Clash, um dos campeonatos mais emocionantes do skate mundial, reunindo manobras radicais e atletas de elite. Clique e conheça as edições e os destaques.",
+      "about": {
+        "paragraph-1": "O Boardwalk Clash nasceu da energia contagiante e da brisa do litoral, transformando o calçadão no cenário perfeito para a celebração máxima do skate mundial.",
+        "paragraph-2": "O que teve início como uma competição à beira-mar rapidamente ganhou proporções gigantescas, atraindo a atenção de fãs e praticantes do mundo todo.",
+        "paragraph-3": "Com uma atmosfera única que mistura a essência da cultura urbana ao visual praiano, o evento se estabeleceu como um dos pontos mais altos e aguardados do calendário esportivo."
+      }
     },
 
     "StreetWomensPro": {
       "title": "Street Women's Pro",
       "subtitle": "Onde o impossível se torna realidade.",
-      "description": "Descubra o Street Women's Pro, o evento que desafia limites e celebra os skatistas mais ousados do planeta. Clique para ver os grandes momentos e conquistas históricas."
+      "description": "Descubra o Street Women's Pro, o evento que desafia limites e celebra os skatistas mais ousados do planeta. Clique para ver os grandes momentos e conquistas históricas.",
+      "about": {
+        "paragraph-1": "O StreetWomensPro nasceu para dar o protagonismo merecido às grandes skatistas da cena urbana, transformando a garra e o talento em um espetáculo de visibilidade global.",
+        "paragraph-2": "O evento surgiu com a missão de desafiar limites e quebrar barreiras, construindo uma plataforma sólida para que a força feminina no skate mostrasse toda a sua autenticidade e potência técnico-tática.",
+        "paragraph-3": "A cada manobra executada com precisão, o campeonato reafirma seu papel fundamental na evolução e no fortalecimento do esporte."
+      }
     },
 
      "OldSchoolStreetPro": {
       "title": "Old School Street Pro",
       "subtitle": "O parque é o palco da criatividade.",
-      "description": "Conheça a Old School Street Pro, o campeonato que valoriza técnica, estilo e inovação em cada pista. Clique para acompanhar os atletas e performances que definem tendências."
+      "description": "Conheça a Old School Street Pro, o campeonato que valoriza técnica, estilo e inovação em cada pista. Clique para acompanhar os atletas e performances que definem tendências.",
+      "about": {
+        "paragraph-1": "O Old School Street Pro nasceu com o propósito de honrar as raízes do skate urbano enquanto impulsiona a constante evolução do esporte nas pistas.",
+        "paragraph-2": "O evento surgiu como uma verdadeira exaltação ao estilo clássico e à essência da rua, criando um espaço onde a precisão técnica e a criatividade se encontram para redefinir os limites de cada linha.",
+        "paragraph-3": "Com uma identidade marcante, o campeonato rapidamente se tornou uma referência indispensável para quem respira e valoriza a cultura original do skate."
+      }
     }
+  },
 
+  "upcoming-events": {
+    "LegacyStreetTour": {
+      "events": {
+        "stages": {
+          "stage-01":{
+            "title": "Etapa 1 - São Paulo",
+            "date": "2026-09-15",
+            "location": "Pista do Choro - São Paulo, SP"
+          },
+          "stage-02":{
+            "title": "Etapa 2 - Belo Horizonte",
+            "date": "2026-10-10",
+            "location": "Pista do Mineirão - Belo Horizonte, MG"
+          },
+          "stage-03":{
+            "title": "Etapa Final - Curitiba",
+            "date": "2026-11-21",
+            "location": "Praça do Skate - Curitiba, PR"
+          }
+        }
+      }
+    },
+
+    "BoardwalkClash": {
+      "events": {
+        "stages": {
+          "stage-01":{
+            "title": "Etapa 1 - Rio de Janeiro",
+            "date": "2026-09-28",
+            "location": "Praça Duó - Rio de Janeiro, RJ"
+          },
+          "stage-02":{
+            "title": "Etapa 2 - Santos",
+            "date": "2026-10-25",
+            "location": "Pista do Quebra-Mar - Santos, SP"
+          },
+          "stage-03":{
+            "title": "Etapa Final - Recife",
+            "date": "2026-11-28",
+            "location": "Skatepark da Jaqueira - Recife, PE"
+          }
+        }
+      }
+    },
+
+    "StreetWomensPro": {
+      "events": {
+        "stages": {
+          "stage-01":{
+            "title": "Etapa 1 - São Paulo",
+            "date": "2026-09-20",
+            "location": "Pista do Choro - São Paulo, SP"
+          },
+          "stage-02":{
+            "title": "Etapa 2 - Porto Alegre",
+            "date": "2026-10-18",
+            "location": "IAPI Skatepark - Porto Alegre, RS"
+          },
+          "stage-03":{
+            "title": "Etapa Final - Florianópolis",
+            "date": "2026-11-15",
+            "location": "Skatepark Costeira - Florianópolis, SCE"
+          }
+        }
+      }
+    },
+
+    "OldSchoolStreetPro": {
+      "events": {
+        "stages": {
+          "stage-01":{
+            "title": "Etapa 1 - Curitiba",
+            "date": "2026-09-12",
+            "location": "Praça do Skate - Curitiba, PR"
+          },
+          "stage-02":{
+            "title": "Etapa 2 - São Paulo",
+            "date": "2026-10-17",
+            "location": "Pista do Choro - São Paulo, SP"
+          },
+          "stage-03":{
+            "title": "Etapa Final - Rio de Janeiro",
+            "date": "2026-11-22",
+            "location": "Praça Duó - Rio de Janeiro, RJ"
+          }
+        }
+      }
+    }
+  },
+
+  "global-ranking": {
+    "displayedSeason": "Temporada exibida",
+    "selectSeason": "Selecionar temporada",
+    "season": "Temporada",
+    "position": "Posição",
+    "athlete": "Atleta",
+    "stagePerformance": "Desempenho nas etapas",
+    "points": "Pontos",
+    "noData": "Nenhum dado encontrado para a temporada",
+    "noResult": "Sem resultado",
+    "rankingAriaLabel": "Ranking do campeonato - temporada"
+  },
+
+  "championship-registration": {
+    "title": "Inscreva-se para o Campeonato",
+    "description": "Garanta sua vaga nas próximas etapas do {{championshipTitle}} e receba a confirmação de elegibilidade no seu e-mail.",
+    "emailLabel": "E-mail do atleta ou participante",
+    "emailPlaceholder": "Seu e-mail de atleta ou participante",
+    "submit": "Garantir vaga"
   },
 
   "footer": {
