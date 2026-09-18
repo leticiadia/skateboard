@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 
 interface PodiumItemProps {
   value: number;
@@ -34,6 +35,8 @@ export function PodiumItem({
   type,
   isMain = false,
 }: PodiumItemProps) {
+  const { t } = useTranslation();
+
   const style = medalStyles[type];
 
   return (
@@ -51,7 +54,7 @@ export function PodiumItem({
           px-3 py-0.5 text-[10px] font-black uppercase tracking-wider 
           text-black shadow-md"
         >
-          Campeão
+          {t("podium-item.champion")}
         </span>
       )}
 

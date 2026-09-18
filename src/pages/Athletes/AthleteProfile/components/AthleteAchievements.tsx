@@ -34,14 +34,14 @@ export function AthleteAchievements({
             className="text-sm font-bold uppercase tracking-widest"
             style={{ color: accentColor }}
           >
-            Conquistas
+            {t("athlete-achievements.label")}
           </span>
 
           <h2
             className="mt-4 text-3xl font-bold leading-tight sm:text-4xl 
             lg:text-5xl"
           >
-            Mais do que números, uma carreira marcada por conquistas.
+            {t("athlete-achievements.headline")}
           </h2>
         </motion.div>
 
@@ -56,7 +56,7 @@ export function AthleteAchievements({
             }}
           >
             <span className="text-sm font-bold uppercase tracking-widest">
-              Títulos
+              {t("athlete-achievements.titles")}
             </span>
           </motion.div>
 
@@ -94,14 +94,14 @@ export function AthleteAchievements({
                     tracking-widest py-1 px-2 w-24 rounded-full"
                     style={{ backgroundColor: accentColor }}
                   >
-                    Campeão
+                    {t("athlete-achievements.champion")}
                   </span>
                 </motion.div>
               ))
             ) : (
               <div className="border-b border-gray-200 py-10">
                 <p className="max-w-xl text-lg leading-7 text-gray-500">
-                  Ainda não há títulos registrados para esse atleta.
+                  {t("athlete-achievements.noTitles")}
                 </p>
               </div>
             )}
@@ -116,7 +116,7 @@ export function AthleteAchievements({
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <span className="text-sm font-bold uppercase tracking-widest">
-              Reconhecimentos
+              {t("athlete-achievements.awards")}
             </span>
           </motion.div>
 
@@ -153,7 +153,7 @@ export function AthleteAchievements({
             ) : (
               <div className="border-b border-gray-200 py-10">
                 <p className="max-w-xl text-lg leading-7 text-gray-500">
-                  Ainda não há reconhecimentos registrados para esse atleta.
+                  {t("athlete-achievements.noAwards")}
                 </p>
               </div>
             )}

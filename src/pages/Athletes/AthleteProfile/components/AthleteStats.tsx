@@ -7,6 +7,7 @@ import type { AthleteProfileData } from "../../../../mocks/athletes/profile.type
 import { StatItem } from "../../../../components/layout/StatItem/StatItem";
 import { PodiumItem } from "../../../../components/layout/PodiumItem/PodiumItem";
 import { Container } from "../../../../components/layout/container/Container";
+import { useTranslation } from "react-i18next";
 
 type AthleteStatsProps = {
   stats: AthleteProfileData["stats"];
@@ -19,8 +20,9 @@ export function AthleteStats({
   accentColor,
   athleteSlug,
 }: AthleteStatsProps) {
-  const totalPodiums =
-    stats.podiums.gold + stats.podiums.silver + stats.podiums.bronze;
+  const { t } = useTranslation();
+
+  const totalPodiums = stats.podiums.total;
 
   return (
     <section className="w-full my-10">
@@ -43,14 +45,14 @@ export function AthleteStats({
               className="text-sm font-bold uppercase tracking-widest"
               style={{ color: accentColor }}
             >
-              Carreira
+              {t("athlete-stats.career")}
             </span>
 
             <h2
               className="mt-4 text-3xl font-bold leading-tight sm:text-4xl 
               lg:text-5xl"
             >
-              Uma carreira construída sobre vitórias, pódios e consistência.
+              {t("athlete-stats.headline")}
             </h2>
           </motion.div>
 
@@ -74,7 +76,7 @@ export function AthleteStats({
             </strong>
 
             <span className="text-base font-bold uppercase tracking-widest">
-              Vitórias
+              {t("athlete-stats.titles")}
             </span>
           </motion.div>
         </div>
@@ -83,14 +85,14 @@ export function AthleteStats({
           <div className="grid grid-cols-1 md:grid-cols-3">
             <StatItem
               value={stats.totalChampionships}
-              label="Campeonatos"
+              label={t("athlete-stats.championships")}
               accentColor={accentColor}
               delay={0.1}
             />
 
             <StatItem
               value={stats.totalAwards}
-              label="Prêmios"
+              label={t("athlete-stats.awards")}
               accentColor={accentColor}
               delay={0.2}
               bordered
@@ -98,7 +100,7 @@ export function AthleteStats({
 
             <StatItem
               value={stats.podiums.total}
-              label="Pódios"
+              label={t("athlete-stats.podiums")}
               accentColor={accentColor}
               delay={0.3}
               bordered
@@ -133,14 +135,13 @@ export function AthleteStats({
                 className="h-2 w-2 rounded-full"
                 style={{ backgroundColor: accentColor }}
               />
-              Pódios Conquistados
+              {t("athlete-stats.podiumsWon")}
             </span>
             <span
               className="text-xs font-semibold text-zinc-400 uppercase 
               tracking-wider"
             >
-              Total:{" "}
-              {stats.podiums.gold + stats.podiums.silver + stats.podiums.bronze}
+              {t("athlete-stats.total")}: {stats.podiums.total}
             </span>
           </div>
 
@@ -149,18 +150,18 @@ export function AthleteStats({
               <div className="relative z-10 grid grid-cols-3 gap-3 sm:gap-6 items-end">
                 <PodiumItem
                   value={stats.podiums.silver}
-                  label="Prata"
+                  label={t("athlete-stats.silver")}
                   type="silver"
                 />
                 <PodiumItem
                   value={stats.podiums.gold}
-                  label="Ouro"
+                  label={t("athlete-stats.gold")}
                   type="gold"
                   isMain
                 />
                 <PodiumItem
                   value={stats.podiums.bronze}
-                  label="Bronze"
+                  label={t("athlete-stats.bronze")}
                   type="bronze"
                 />
               </div>
@@ -171,7 +172,7 @@ export function AthleteStats({
                   className="group flex items-center gap-2 text-sm font-bold 
               text-zinc-700"
                 >
-                  <span>Ver histórico de pódios</span>
+                  <span>{t("athlete-stats.podiumHistory")}</span>
 
                   <ArrowRightIcon
                     size={14}
@@ -187,8 +188,7 @@ export function AthleteStats({
                 className="w-full text-base text-center font-semibold leading-7 
               text-gray-500"
               >
-                Este atleta ainda não conquistou medalhas. Continue acompanhando
-                sua trajetória nos campeonatos.
+                {t("athlete-stats.noMedals")}
               </p>
             </div>
           )}

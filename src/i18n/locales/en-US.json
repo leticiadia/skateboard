@@ -198,6 +198,146 @@
     }
   },
 
+  "athlete-stats": {
+    "career": "Career",
+    "headline": "A career built on wins, podiums, and consistency.",
+    "titles": "Wins",
+    "championships": "Championships",
+    "awards": "Awards",
+    "podiums": "Podiums",
+    "podiumsWon": "Podiums won",
+    "total": "Total",
+    "gold": "Gold",
+    "silver": "Silver",
+    "bronze": "Bronze",
+    "podiumHistory": "View podium history",
+    "noMedals": "This athlete has not won any medals yet. Keep following their journey through the championships."
+  },
+
+  "podium-item": {
+    "champion": "Champion"
+  },
+
+  "athlete-achievements": {
+    "label": "Achievements",
+    "headline": "More than numbers, a career defined by achievements.",
+    "titles": "Titles",
+    "champion": "Champion",
+    "noTitles": "There are no titles recorded for this athlete yet.",
+    "awards": "Recognition",
+    "noAwards": "There are no recognitions recorded for this athlete yet."
+  },
+
+  "athlete-current": {
+    "label": "Current moment",
+    "headline": "Where are they now?",
+    "currentRanking": "Current ranking",
+    "season": "Season",
+    "points": "points",
+    "noResults": "There are no results recorded for this season yet.",
+    "nextChallenge": "Next challenge"
+  },
+
+  "athlete-gallery": {
+    "label": "Moments",
+    "headline": "Moments that shaped this journey.",
+    "carol-alves": {
+      "captions": {
+        "carolFirstPodium": "Carol's first podium at the Legacy Street Tour",
+        "carolFirstTitle": "Carol wins her first title at the Street Women's Pro",
+        "carolBoardwalkFinal": "Second place in the Boardwalk Clash final",
+        "carol2026Season": "2026 season: Carol among the circuit's top athletes"
+      }
+    },
+    "marina-silva": {
+      "captions": {
+        "marinaBoardwalkSilver": "Marina secures the silver medal at Boardwalk Clash",
+        "marinaLegacyVictory": "Marina celebrates victory at Legacy Street Tour",
+        "marinaWomensPodium": "Marina's podium finish in the Street Women's Pro circuit",
+        "marinaOldSchoolLead": "Marina leading the qualifiers at Old School Street Pro"
+      }
+    },
+    "ashley-oliver": {
+      "captions": {
+        "ashleyOldSchoolGold": "Ashley dominates the course and takes gold at Old School Street Pro",
+        "ashleyBoardwalkTitle": "Ashley's title win and celebration at Boardwalk Clash",
+        "ashleyWomensFinalRun": "Ashley during her final run at Street Women's Pro",
+        "ashleyLegacyPhotoshoot": "Official photoshoot for Legacy Street Tour 2026"
+      }
+    },
+    "luiza-silva": {
+      "captions": {
+        "luizaWomensDebut": "Luiza's debut in the Street Women's Pro finals",
+        "luizaBoardwalkVictory": "Luiza celebrates first place at Boardwalk Clash",
+        "luizaOldSchoolSilver": "Luiza's decisive trick to secure the silver medal",
+        "luizaLegacyPodium": "Luiza on the podium at the Legacy Street Tour 2026 opener"
+      }
+    },
+    "lucas-martins": {
+      "captions": {
+        "lucasLegacyDebutSilver": "Lucas takes silver in his Legacy Street Tour debut",
+        "lucasBoardwalkTitle": "Lucas celebrates the championship trophy at Boardwalk Clash",
+        "lucasOldSchoolFinal": "Lucas's heavy session in the Old School Street Pro final",
+        "lucasLegacyLeader2026": "Lucas leading the 2026 season rankings"
+      }
+    },
+    "pedro-alves": {
+      "captions": {
+        "pedroBoardwalkBronze": "Pedro on the podium with the bronze medal at Boardwalk Clash",
+        "pedroOldSchoolVictory": "Pedro celebrates victory at Old School Street Pro",
+        "pedroLegacyFinalRun": "Perfect execution of the final run at Legacy Street Tour",
+        "pedroBoardwalkQualifiers2026": "Pedro during the 2026 Boardwalk Clash qualifiers"
+      }
+    },
+    "joao-campos": {
+      "captions": {
+        "joaoOldSchoolSilver": "Joao secures second place at Old School Street Pro",
+        "joaoLegacyPodium": "Joao on the podium during the Legacy Street Tour stage",
+        "joaoBoardwalkTitle": "Title celebration at Boardwalk Clash",
+        "joaoOldSchoolAction2026": "Joao in action during the first stage of the 2026 season"
+      }
+    },
+    "gabriel-ribeiro": {
+      "captions": {
+        "gabrielLegacyFinals": "Gabriel surprises and makes it to the Legacy Street Tour finals",
+        "gabrielBoardwalkRunnerUp": "Gabriel celebrates runner-up finish at Boardwalk Clash",
+        "gabrielOldSchoolTrophy": "Gabriel's flawless run to lift the trophy",
+        "gabrielLegacyHeat2026": "Gabriel during the decisive heat of the 2026 season"
+      }
+    },
+    "leo-cardoso": {
+      "captions": {
+        "leoBoardwalkVictory": "Leo takes first place at Boardwalk Clash",
+        "leoOldSchoolPodium": "Leo on the podium at Old School Street Pro",
+        "leoLegacyTitleTrick": "Leo's decisive trick to secure the Legacy Street Tour title",
+        "leoBoardwalkWarmup2026": "Leo during warm-ups for the 2026 season"
+      }
+    },
+    "caio-silva": {
+      "captions": {
+        "caioOldSchoolBronze": "Caio celebrates third place at Old School Street Pro",
+        "caioLegacyPodium": "Caio on the podium at the Legacy Street Tour final stage",
+        "caioBoardwalkTrophy": "Caio celebrating with the trophy at Boardwalk Clash",
+        "caioOldSchoolDecisiveRun2026": "Caio landing the decisive run in the 2026 circuit"
+      }
+    },
+    "nina-chaves": {
+      "captions": {
+        "ninaWomensDebutSilver": "Nina takes silver in her Street Women's Pro debut",
+        "ninaBoardwalkTitle": "Nina celebrates the title at Boardwalk Clash",
+        "ninaOldSchoolPodium": "Nina on the podium at Old School Street Pro",
+        "ninaWomensLeader2026": "Nina in the absolute lead of Street Women's Pro 2026"
+      }
+    },
+    "ana-lima": {
+      "captions": {
+        "anaWomensVictory": "Ana celebrates victory at Street Women's Pro",
+        "anaBoardwalkFinal2025": "Ana during the Boardwalk Clash final",
+        "anaBoardwalkFinal2026": "Ana during the Boardwalk Clash final",
+        "anaWomensDominating2026": "Ana dominating the course in the 2026 season"
+      }
+    }
+  },
 
   "championships": {
     "title": "Championships",

@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
-import i18n from "../../../../i18n";
 
 import type { AthleteProfileData } from "../../../../mocks/athletes/profile.types";
 
@@ -14,7 +13,7 @@ type AthleteCurrentProps = {
 };
 
 export function AthleteCurrent({ current, accentColor }: AthleteCurrentProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <section className="w-full my-10">
@@ -30,14 +29,14 @@ export function AthleteCurrent({ current, accentColor }: AthleteCurrentProps) {
             className="text-sm font-bold uppercase tracking-widest"
             style={{ color: accentColor }}
           >
-            Momento atual
+            {t("athlete-current.label")}
           </span>
 
           <h2
             className="mt-4 text-3xl font-bold leading-tight sm:text-4xl 
             lg:text-5xl"
           >
-            Onde está agora?
+            {t("athlete-current.headline")}
           </h2>
         </motion.div>
 
@@ -50,14 +49,14 @@ export function AthleteCurrent({ current, accentColor }: AthleteCurrentProps) {
         >
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-sm font-bold uppercase tracking-widest">
-              Ranking atual
+              {t("athlete-current.currentRanking")}
             </span>
 
             <span
               className="text-sm font-bold uppercase tracking-widest"
               style={{ color: accentColor }}
             >
-              · Temporada {current.season}
+              · {t("athlete-current.season")} {current.season}
             </span>
           </div>
 
@@ -75,7 +74,7 @@ export function AthleteCurrent({ current, accentColor }: AthleteCurrentProps) {
                     </h3>
 
                     <span className="mt-1 block text-sm text-gray-500">
-                      {ranking.points} pontos
+                      {ranking.points} {t("athlete-current.points")}
                     </span>
                   </div>
 
@@ -91,7 +90,7 @@ export function AthleteCurrent({ current, accentColor }: AthleteCurrentProps) {
           ) : (
             <div className="mt-8 border-y border-gray-200 py-10">
               <p className="max-w-xl text-lg leading-7 text-gray-500">
-                Ainda não há resultados registrados nesta temporada.
+                {t("athlete-current.noResults")}
               </p>
             </div>
           )}
@@ -111,7 +110,7 @@ export function AthleteCurrent({ current, accentColor }: AthleteCurrentProps) {
                 className="text-sm font-bold uppercase tracking-widest"
                 style={{ color: accentColor }}
               >
-                Próximo desafio
+                {t("athlete-current.nextChallenge")}
               </span>
 
               <div
@@ -130,7 +129,7 @@ export function AthleteCurrent({ current, accentColor }: AthleteCurrentProps) {
 
                 <div className="flex flex-col gap-2 lg:text-right">
                   <span className="text-sm font-bold uppercase tracking-widest">
-                    {formatEventDate(t(current.nextEvent.date), i18n.language)}
+                    {formatEventDate(current.nextEvent.date, i18n.language)}
                   </span>
 
                   <span className="text-sm text-gray-500">

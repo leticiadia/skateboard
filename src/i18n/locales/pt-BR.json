@@ -199,6 +199,146 @@
     }
   },
 
+  "athlete-stats": {
+    "career": "Carreira",
+    "headline": "Uma carreira construída sobre vitórias, pódios e consistência.",
+    "titles": "Vitórias",
+    "championships": "Campeonatos",
+    "awards": "Prêmios",
+    "podiums": "Pódios",
+    "podiumsWon": "Pódios conquistados",
+    "total": "Total",
+    "gold": "Ouro",
+    "silver": "Prata",
+    "bronze": "Bronze",
+    "podiumHistory": "Ver histórico de pódios",
+    "noMedals": "Este atleta ainda não conquistou medalhas. Continue acompanhando sua trajetória nos campeonatos."
+  },
+
+  "podium-item": {
+    "champion": "Campeão"
+  },
+
+  "athlete-achievements": {
+    "label": "Conquistas",
+    "headline": "Mais do que números, uma carreira marcada por conquistas.",
+    "titles": "Títulos",
+    "champion": "Campeão",
+    "noTitles": "Ainda não há títulos registrados para esse atleta.",
+    "awards": "Reconhecimentos",
+    "noAwards": "Ainda não há reconhecimentos registrados para esse atleta."
+  },
+
+  "athlete-current": {
+    "label": "Momento atual",
+    "headline": "Onde está agora?",
+    "currentRanking": "Ranking atual",
+    "season": "Temporada",
+    "points": "pontos",
+    "noResults": "Ainda não há resultados registrados nesta temporada.",
+    "nextChallenge": "Próximo desafio"
+  },
+
+  "athlete-gallery": {
+    "label": "Momentos",
+    "headline": "Momentos que marcaram essa trajetória.",
+    "carol-alves":{
+      "captions": {
+        "carolFirstPodium": "Primeiro pódio de Carol no Legacy Street Tour",
+        "carolFirstTitle": "Carol conquista seu primeiro título no Street Women's Pro",
+        "carolBoardwalkFinal": "Segundo lugar na final do Boardwalk Clash",
+        "carol2026Season": "Temporada 2026: Carol entre as principais atletas do circuito"
+      }  
+    },
+    "marina-silva": {
+      "captions": {
+        "marinaBoardwalkSilver": "Marina garante a medalha de prata no Boardwalk Clash",
+        "marinaLegacyVictory": "Marina comemora a vitória no Legacy Street Tour",
+        "marinaWomensPodium": "Pódio de Marina no circuito Street Women's Pro",
+        "marinaOldSchoolLead": "Marina liderando as eliminatórias do Old School Street Pro"
+      }
+    },
+    "ashley-oliver": {
+      "captions": {
+        "ashleyOldSchoolGold": "Ashley domina a pista e leva o ouro no Old School Street Pro",
+        "ashleyBoardwalkTitle": "Título e comemoração de Ashley no Boardwalk Clash",
+        "ashleyWomensFinalRun": "Ashley durante a volta final no Street Women's Pro",
+        "ashleyLegacyPhotoshoot": "Sessão de fotos oficial do Legacy Street Tour 2026"
+      }
+    },
+    "luiza-silva": {
+      "captions": {
+        "luizaWomensDebut": "Estreia de Luiza nas finais do Street Women's Pro",
+        "luizaBoardwalkVictory": "Luiza comemora o primeiro lugar no Boardwalk Clash",
+        "luizaOldSchoolSilver": "Manobra decisiva de Luiza para garantir a prata",
+        "luizaLegacyPodium": "Luiza no pódio da abertura do Legacy Street Tour 2026"
+      }
+    },
+    "lucas-martins": {
+      "captions": {
+        "lucasLegacyDebutSilver": "Lucas conquista a prata no Legacy Street Tour em sua estreia",
+        "lucasBoardwalkTitle": "Lucas comemora o troféu de campeão no Boardwalk Clash",
+        "lucasOldSchoolFinal": "Sessão pesada de Lucas na final do Old School Street Pro",
+        "lucasLegacyLeader2026": "Lucas liderando o ranking da temporada 2026"
+      }
+    },
+    "pedro-alves": {
+      "captions": {
+        "pedroBoardwalkBronze": "Pedro no pódio com a medalha de bronze no Boardwalk Clash",
+        "pedroOldSchoolVictory": "Pedro celebra a vitória no Old School Street Pro",
+        "pedroLegacyFinalRun": "Execução perfeita da linha final no Legacy Street Tour",
+        "pedroBoardwalkQualifiers2026": "Pedro durante as eliminatórias do Boardwalk Clash 2026"
+      }
+    },
+    "joao-campos": {
+      "captions": {
+        "joaoOldSchoolSilver": "Joao garante a segunda colocação no Old School Street Pro",
+        "joaoLegacyPodium": "Joao no pódio durante a etapa do Legacy Street Tour",
+        "joaoBoardwalkTitle": "Comemoração do título no Boardwalk Clash",
+        "joaoOldSchoolAction2026": "Joao em ação na primeira etapa da temporada 2026"
+      }
+    },
+    "gabriel-ribeiro": {
+      "captions": {
+        "gabrielLegacyFinals": "Gabriel surpreende e chega até as finais do Legacy Street Tour",
+        "gabrielBoardwalkRunnerUp": "Gabriel comemora o vice-campeonato no Boardwalk Clash",
+        "gabrielOldSchoolTrophy": "Volta perfeita de Gabriel para levantar o troféu",
+        "gabrielLegacyHeat2026": "Gabriel durante a bateria decisiva na temporada 2026"
+      }
+    },
+    "leo-cardoso": {
+      "captions": {
+        "leoBoardwalkVictory": "Leo conquista o primeiro lugar no Boardwalk Clash",
+        "leoOldSchoolPodium": "Leo no pódio do Old School Street Pro",
+        "leoLegacyTitleTrick": "Manobra decisiva de Leo para garantir o título no Legacy Street Tour",
+        "leoBoardwalkWarmup2026": "Leo durante o aquecimento para a temporada 2026"
+      }
+    },
+    "caio-silva": {
+      "captions": {
+        "caioOldSchoolBronze": "Caio celebra o terceiro lugar no Old School Street Pro",
+        "caioLegacyPodium": "Caio no pódio da etapa final do Legacy Street Tour",
+        "caioBoardwalkTrophy": "Comemoração de Caio com o troféu no Boardwalk Clash",
+        "caioOldSchoolDecisiveRun2026": "Caio acertando a volta decisiva no circuito 2026"
+      }
+    },
+    "nina-chaves": {
+      "captions": {
+        "ninaWomensDebutSilver": "Nina conquista a prata em sua estreia no Street Women's Pro",
+        "ninaBoardwalkTitle": "Nina celebra o título no Boardwalk Clash",
+        "ninaOldSchoolPodium": "Nina no pódio do Old School Street Pro",
+        "ninaWomensLeader2026": "Nina na liderança absoluta do Street Women's Pro 2026"
+      }
+    },
+    "ana-lima": {
+      "captions": {
+        "anaWomensVictory": "Ana comemora a vitória no Street Women's Pro",
+        "anaBoardwalkFinal2025": "Ana durante a final do Boardwalk Clash",
+        "anaBoardwalkFinal2026": "Ana durante a final do Boardwalk Clash",
+        "anaWomensDominating2026": "Ana dominando a pista na temporada 2026"
+      }
+    }
+  },
 
   "championships": {
     "title": "Campeonatos",
@@ -269,17 +409,14 @@
         "stages": {
           "stage-01":{
             "title": "Etapa 1 - São Paulo",
-            "date": "2026-09-15",
             "location": "Pista do Choro - São Paulo, SP"
           },
           "stage-02":{
             "title": "Etapa 2 - Belo Horizonte",
-            "date": "2026-10-10",
             "location": "Pista do Mineirão - Belo Horizonte, MG"
           },
           "stage-03":{
             "title": "Etapa Final - Curitiba",
-            "date": "2026-11-21",
             "location": "Praça do Skate - Curitiba, PR"
           }
         }
@@ -291,17 +428,14 @@
         "stages": {
           "stage-01":{
             "title": "Etapa 1 - Rio de Janeiro",
-            "date": "2026-09-28",
             "location": "Praça Duó - Rio de Janeiro, RJ"
           },
           "stage-02":{
             "title": "Etapa 2 - Santos",
-            "date": "2026-10-25",
             "location": "Pista do Quebra-Mar - Santos, SP"
           },
           "stage-03":{
             "title": "Etapa Final - Recife",
-            "date": "2026-11-28",
             "location": "Skatepark da Jaqueira - Recife, PE"
           }
         }
@@ -313,17 +447,14 @@
         "stages": {
           "stage-01":{
             "title": "Etapa 1 - São Paulo",
-            "date": "2026-09-20",
             "location": "Pista do Choro - São Paulo, SP"
           },
           "stage-02":{
             "title": "Etapa 2 - Porto Alegre",
-            "date": "2026-10-18",
             "location": "IAPI Skatepark - Porto Alegre, RS"
           },
           "stage-03":{
             "title": "Etapa Final - Florianópolis",
-            "date": "2026-11-15",
             "location": "Skatepark Costeira - Florianópolis, SCE"
           }
         }
@@ -335,17 +466,14 @@
         "stages": {
           "stage-01":{
             "title": "Etapa 1 - Curitiba",
-            "date": "2026-09-12",
             "location": "Praça do Skate - Curitiba, PR"
           },
           "stage-02":{
             "title": "Etapa 2 - São Paulo",
-            "date": "2026-10-17",
             "location": "Pista do Choro - São Paulo, SP"
           },
           "stage-03":{
             "title": "Etapa Final - Rio de Janeiro",
-            "date": "2026-11-22",
             "location": "Praça Duó - Rio de Janeiro, RJ"
           }
         }

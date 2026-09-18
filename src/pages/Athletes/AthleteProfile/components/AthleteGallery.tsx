@@ -4,6 +4,7 @@ import type { AthleteProfileData } from "../../../../mocks/athletes/profile.type
 
 import { GalleryItem } from "../../../../components/layout/GalleryItem/GalleryItem";
 import { Container } from "../../../../components/layout/container/Container";
+import { useTranslation } from "react-i18next";
 
 type AthleteGalleryProps = {
   gallery: AthleteProfileData["gallery"];
@@ -11,6 +12,8 @@ type AthleteGalleryProps = {
 };
 
 export function AthleteGallery({ gallery, accentColor }: AthleteGalleryProps) {
+  const { t } = useTranslation();
+
   return (
     <section className="w-full my-10">
       <Container>
@@ -28,14 +31,14 @@ export function AthleteGallery({ gallery, accentColor }: AthleteGalleryProps) {
             className="text-sm font-bold uppercase tracking-widest"
             style={{ color: accentColor }}
           >
-            Momentos
+            {t("athlete-gallery.label")}
           </span>
 
           <h2
             className="mt-4 text-3xl font-bold leading-tight sm:text-4xl 
             lg:text-5xl"
           >
-            Momentos que marcaram essa trajetória.
+            {t("athlete-gallery.headline")}
           </h2>
         </motion.div>
 

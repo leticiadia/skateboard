@@ -7,21 +7,21 @@ export const upcomingEvents: ChampionshipEvents[] = [
       {
         id: 1,
         title: "upcoming-events.LegacyStreetTour.events.stages.stage-01.title",
-        date: "upcoming-events.LegacyStreetTour.events.stages.stage-01.date",
+        date: "2026-09-15",
         location:
           "upcoming-events.LegacyStreetTour.events.stages.stage-01.location",
       },
       {
         id: 2,
         title: "upcoming-events.LegacyStreetTour.events.stages.stage-02.title",
-        date: "upcoming-events.LegacyStreetTour.events.stages.stage-02.date",
+        date: "2026-10-10",
         location:
           "upcoming-events.LegacyStreetTour.events.stages.stage-02.location",
       },
       {
         id: 3,
         title: "upcoming-events.LegacyStreetTour.events.stages.stage-03.title",
-        date: "upcoming-events.LegacyStreetTour.events.stages.stage-03.date",
+        date: "2026-11-21",
         location:
           "upcoming-events.LegacyStreetTour.events.stages.stage-03.location",
       },
@@ -34,21 +34,21 @@ export const upcomingEvents: ChampionshipEvents[] = [
       {
         id: 4,
         title: "upcoming-events.BoardwalkClash.events.stages.stage-01.title",
-        date: "upcoming-events.BoardwalkClash.events.stages.stage-01.date",
+        date: "2026-09-28",
         location:
           "upcoming-events.BoardwalkClash.events.stages.stage-01.location",
       },
       {
         id: 5,
         title: "upcoming-events.BoardwalkClash.events.stages.stage-02.title",
-        date: "upcoming-events.BoardwalkClash.events.stages.stage-02.date",
+        date: "2026-10-25",
         location:
           "upcoming-events.BoardwalkClash.events.stages.stage-02.location",
       },
       {
         id: 6,
         title: "upcoming-events.BoardwalkClash.events.stages.stage-03.title",
-        date: "upcoming-events.BoardwalkClash.events.stages.stage-03.date",
+        date: "2026-11-28",
         location:
           "upcoming-events.BoardwalkClash.events.stages.stage-03.location",
       },
@@ -61,21 +61,21 @@ export const upcomingEvents: ChampionshipEvents[] = [
       {
         id: 7,
         title: "upcoming-events.StreetWomensPro.events.stages.stage-01.title",
-        date: "upcoming-events.StreetWomensPro.events.stages.stage-01.date",
+        date: "2026-09-20",
         location:
           "upcoming-events.StreetWomensPro.events.stages.stage-01.location",
       },
       {
         id: 8,
         title: "upcoming-events.StreetWomensPro.events.stages.stage-02.title",
-        date: "upcoming-events.StreetWomensPro.events.stages.stage-02.date",
+        date: "2026-10-18",
         location:
           "upcoming-events.StreetWomensPro.events.stages.stage-02.location",
       },
       {
         id: 9,
         title: "upcoming-events.StreetWomensPro.events.stages.stage-03.title",
-        date: "upcoming-events.StreetWomensPro.events.stages.stage-03.date",
+        date: "2026-11-15",
         location:
           "upcoming-events.StreetWomensPro.events.stages.stage-03.location",
       },
@@ -89,7 +89,7 @@ export const upcomingEvents: ChampionshipEvents[] = [
         id: 10,
         title:
           "upcoming-events.OldSchoolStreetPro.events.stages.stage-01.title",
-        date: "upcoming-events.OldSchoolStreetPro.events.stages.stage-01.date",
+        date: "2026-09-12",
         location:
           "upcoming-events.OldSchoolStreetPro.events.stages.stage-01.location",
       },
@@ -97,7 +97,7 @@ export const upcomingEvents: ChampionshipEvents[] = [
         id: 11,
         title:
           "upcoming-events.OldSchoolStreetPro.events.stages.stage-02.title",
-        date: "upcoming-events.OldSchoolStreetPro.events.stages.stage-02.date",
+        date: "2026-10-17",
         location:
           "upcoming-events.OldSchoolStreetPro.events.stages.stage-02.location",
       },
@@ -105,7 +105,7 @@ export const upcomingEvents: ChampionshipEvents[] = [
         id: 12,
         title:
           "upcoming-events.OldSchoolStreetPro.events.stages.stage-03.title",
-        date: "upcoming-events.OldSchoolStreetPro.events.stages.stage-03.date",
+        date: "2026-11-22",
         location:
           "upcoming-events.OldSchoolStreetPro.events.stages.stage-03.location",
       },
