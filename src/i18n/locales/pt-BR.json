@@ -423,6 +423,14 @@
     }
   },
 
+  "championship-ranking": {
+    "championship": "Campeonato",
+    "ranking": "ranking",
+    "complete": "Completo",
+    "championshipNotFound": "Campeonato não encontrado.",
+    "subtitle":"Classificação completa dos atletas participantes."
+  },
+
   "upcoming-events": {
     "LegacyStreetTour": {
       "events": {

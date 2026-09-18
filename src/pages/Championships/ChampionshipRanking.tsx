@@ -25,7 +25,7 @@ export function ChampionshipRanking() {
     return (
       <main className="flex min-h-screen items-center justify-center px-6">
         <p className="text-center text-xl font-medium">
-          Campeonato não encontrado.
+          {t("championship-ranking.championshipNotFound")}
         </p>
       </main>
     );
@@ -65,7 +65,7 @@ export function ChampionshipRanking() {
               sm:text-sm sm:tracking-[0.3em]"
               style={{ color }}
             >
-              Campeonato
+              {t("championship-ranking.championship")}
             </span>
 
             <h1
@@ -88,14 +88,14 @@ export function ChampionshipRanking() {
                 className="text-xs font-bold uppercase tracking-[0.2em] 
                 text-zinc-400 sm:text-sm sm:tracking-[0.25em]"
               >
-                Ranking
+                {t("championship-ranking.ranking")}
               </p>
 
               <p
                 className="mt-1 text-2xl font-black uppercase text-white 
                 sm:mt-2 sm:text-4xl"
               >
-                Completo
+                {t("championship-ranking.complete")}
               </p>
             </div>
           </div>
@@ -107,15 +107,11 @@ export function ChampionshipRanking() {
         className="py-8 sm:py-10"
       >
         <Container>
-          <h2 id="ranking-section-title" className="sr-only">
-            Ranking completo do {championshipTitle}
-          </h2>
-
           <GlobalRanking
             athletes={athletes}
             championshipSlug={championship.slug}
             title={`Ranking ${championshipTitle}`}
-            subtitle="Classificação completa dos atletas participantes."
+            subtitle={t("championship-ranking.subtitle")}
           />
         </Container>
       </section>

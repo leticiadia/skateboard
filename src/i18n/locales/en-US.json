@@ -423,7 +423,15 @@
 
   },
 
-   "upcoming-events": {
+  "championship-ranking": {
+    "championship": "Championship",
+    "ranking": "Ranking",
+    "complete": "Complete",
+    "championshipNotFound": "Championship not found.",
+    "subtitle": "Complete standings of participating athletes."
+  },
+
+  "upcoming-events": {
     "LegacyStreetTour": {
       "events": {
         "stages": {
