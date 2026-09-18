@@ -8,6 +8,7 @@ import { getAthletePodiums } from "../../../mocks/athletes/helpers/getAthletePod
 
 import { AthletePodiumsTable } from "./components/AthletePodiumsTable";
 import { Container } from "../../../components/layout/container/Container";
+import { Trans, useTranslation } from "react-i18next";
 
 const athleteColors: Record<AthleteCategory, string> = {
   female: "#2ab7ca",
@@ -17,11 +18,12 @@ const athleteColors: Record<AthleteCategory, string> = {
 
 export function AthletePodiums() {
   const { slug } = useParams();
+  const { t } = useTranslation();
 
   const athlete = athletes.find((athlete) => athlete.slug === slug);
 
   if (!athlete) {
-    return <div>Atleta não encontrado.</div>;
+    return <div>{t("athlete-podiums.athleteNotFound")}</div>;
   }
 
   const color = athleteColors[athlete.category];
@@ -44,22 +46,29 @@ export function AthletePodiums() {
             className="text-sm font-bold uppercase tracking-widest"
             style={{ color }}
           >
-            Pódios
+            {t("athlete-podiums.label")}
           </span>
 
           <h1
             className="mt-4 text-4xl font-bold leading-tight sm:text-5xl 
               lg:text-6xl"
           >
-            Histórico de pódios
+            {t("athlete-podiums.headline")}
           </h1>
 
           <p
             className="mt-6 max-w-2xl text-base leading-7 text-gray-600 
-              lg:text-lg"
+            lg:text-lg"
           >
-            Todas as conquistas que colocaram <strong>{athlete.name}</strong> no
-            pódio.
+            <Trans
+              i18nKey="athlete-podiums.description"
+              values={{
+                athleteName: athlete.name,
+              }}
+              components={{
+                strong: <strong />,
+              }}
+            />
           </p>
         </motion.div>
 
@@ -75,7 +84,7 @@ export function AthletePodiums() {
                 group-hover:-translate-x-1"
             />
 
-            <span>Voltar para o perfil</span>
+            <span>{t("athlete-podiums.backToProfile")}</span>
           </Link>
         </div>
 

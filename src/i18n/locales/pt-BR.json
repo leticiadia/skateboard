@@ -219,6 +219,26 @@
     "champion": "Campeão"
   },
 
+  "athlete-podiums": {
+    "label": "Pódios",
+    "headline": "Histórico de pódios",
+    "description": "Todas as conquistas que colocaram <strong>{{athleteName}}</strong> no pódio.",
+    "backToProfile": "Voltar para o perfil",
+    "athleteNotFound": "Atleta não encontrado.",
+    "table": {
+      "year": "Ano",
+      "championship": "Campeonato",
+      "result": "Resultado",
+      "noPodiums": "Ainda não há pódios registrados para este atleta.",
+      "stage": "Etapa"
+    },
+    "medals": {
+      "gold": "Ouro",
+      "silver": "Prata",
+      "bronze": "Bronze"
+    }
+  },
+
   "athlete-achievements": {
     "label": "Conquistas",
     "headline": "Mais do que números, uma carreira marcada por conquistas.",

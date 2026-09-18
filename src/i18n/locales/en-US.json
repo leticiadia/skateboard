@@ -218,6 +218,26 @@
     "champion": "Champion"
   },
 
+  "athlete-podiums": {
+    "label": "Podiums",
+    "headline": "Podium history",
+    "description": "Every achievement that put <strong>{{athleteName}}</strong> on the podium.",
+    "backToProfile": "Back to profile",
+    "athleteNotFound": "Athlete not found.",
+    "table": {
+      "year": "Year",
+      "championship": "Championship",
+      "result": "Result",
+      "noPodiums": "There are no podium finishes recorded for this athlete yet.",
+      "stage": "Stage"
+    },
+    "medals": {
+      "gold": "Gold",
+      "silver": "Silver",
+      "bronze": "Bronze"
+    }
+  },
+
   "athlete-achievements": {
     "label": "Achievements",
     "headline": "More than numbers, a career defined by achievements.",

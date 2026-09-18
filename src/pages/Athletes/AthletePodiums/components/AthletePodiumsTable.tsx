@@ -11,15 +11,15 @@ type AthletePodiumsTableProps = {
 const medalData = {
   gold: {
     number: "01",
-    label: "Ouro",
+    label: "athlete-podiums.medals.gold",
   },
   silver: {
     number: "02",
-    label: "Prata",
+    label: "athlete-podiums.medals.silver",
   },
   bronze: {
     number: "03",
-    label: "Bronze",
+    label: "athlete-podiums.medals.bronze",
   },
 } as const;
 
@@ -40,7 +40,7 @@ export function AthletePodiumsTable({
     return (
       <div className="mt-8 border-y border-gray-200 py-10">
         <p className="max-w-xl text-lg leading-7 text-gray-500">
-          Ainda não há pódios registrados para este atleta.
+          {t("athlete-podiums.table.noPodiums")}
         </p>
       </div>
     );
@@ -65,21 +65,21 @@ export function AthletePodiumsTable({
               className="pb-4 text-xs font-bold uppercase tracking-widest 
               text-gray-400 w-28"
             >
-              Ano
+              {t("athlete-podiums.table.year")}
             </th>
             <th
               scope="col"
               className="pb-4 text-xs font-bold uppercase tracking-widest 
               text-gray-400"
             >
-              Campeonato
+              {t("athlete-podiums.table.championship")}
             </th>
             <th
               scope="col"
               className="pb-4 text-right text-xs font-bold uppercase 
               tracking-widest text-gray-400 w-40"
             >
-              Resultado
+              {t("athlete-podiums.table.result")}
             </th>
           </tr>
         </thead>
@@ -126,7 +126,8 @@ export function AthletePodiumsTable({
                         className="mt-1 block text-xs font-bold uppercase 
                         tracking-widest text-gray-400"
                       >
-                        {`Etapa ${stage.number} - ${stage.name}`}
+                        {t("athlete-podiums.table.stage")} {stage.number} -{" "}
+                        {stage.name}
                       </span>
                     )}
                   </div>
@@ -134,7 +135,7 @@ export function AthletePodiumsTable({
                 <td className="px-2 py-6 text-right align-middle">
                   <div className="flex items-center justify-end gap-3">
                     <span className="text-xs font-bold uppercase tracking-widest">
-                      {medal.label}
+                      {t(medal.label)}
                     </span>
                   </div>
                 </td>
