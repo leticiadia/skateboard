@@ -1,15 +1,9 @@
 import type { BackgroundColor } from "../../pages/Championships/components/ChampionshipSection";
-
-export type UpcomingEvent = {
-  id: number;
-  title: string;
-  date: string;
-  location: string;
-};
+import type { Event } from "../events/types";
 
 export type ChampionshipEvents = {
   championshipSlug: string;
-  events: UpcomingEvent[];
+  events: Event[];
 };
 
 export type ChampionshipStage = {

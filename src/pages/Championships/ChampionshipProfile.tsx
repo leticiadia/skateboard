@@ -7,11 +7,11 @@ import { PageHero } from "../../components/layout/PageHero/PageHero";
 
 import { athletes } from "../../mocks/athletes/athletes";
 import { championships } from "../../mocks/championships/championships";
-import { upcomingEvents } from "../../mocks/championships/upcoming-events";
+import { events } from "../../mocks/events/events";
 
 import { ChampionshipRegistration } from "./components/ChampionshipRegistration";
 import { GlobalRanking } from "./components/GlobalRanking";
-import { UpcomingEvents } from "./components/UpcomingEvents";
+import { ChampionshipEvents } from "./components/ChampionshipEvents";
 import { ButtonLink } from "../../components/ui/ButtonLink/ButtonLink";
 
 export function ChampionshipProfile() {
@@ -23,9 +23,11 @@ export function ChampionshipProfile() {
     (championship) => championship.slug === slug,
   );
 
-  const championshipEvents = upcomingEvents.find(
-    (eventGroup) => eventGroup.championshipSlug === slug,
+  const championshipEvents = events.filter(
+    (event) => event.championshipSlug === slug,
   );
+
+  const upcomingChampionshipEvents = championshipEvents.slice(0, 2);
 
   if (!championship) {
     return (
@@ -102,9 +104,20 @@ export function ChampionshipProfile() {
           />
         </section>
 
-        {championshipEvents && (
-          <UpcomingEvents events={championshipEvents.events} />
-        )}
+        <section>
+          {championshipEvents && (
+            <div className="flex flex-col gap-8">
+              <ChampionshipEvents events={upcomingChampionshipEvents} />
+
+              <ButtonLink
+                title="Ver programação completa"
+                href={`/campeonatos/${championship.slug}/eventos`}
+                variant="outline"
+                size="large"
+              />
+            </div>
+          )}
+        </section>
 
         <ChampionshipRegistration championshipTitle={t(championship.title)} />
       </Container>

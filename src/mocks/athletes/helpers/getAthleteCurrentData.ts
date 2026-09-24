@@ -1,7 +1,4 @@
-import type {
-  ChampionshipEvents,
-  Championships,
-} from "../../championships/types";
+import type { Championships } from "../../championships/types";
 import type { Athlete } from "../type";
 import type {
   AthleteCurrentData,
@@ -9,12 +6,13 @@ import type {
 } from "../profile.types";
 
 import { getChampionshipRanking } from "./getChampionshipRanking";
+import type { Event } from "../../events/types";
 
 export function getAthleteCurrentData(
   athlete: Athlete,
   athletes: Athlete[],
   championships: Championships[],
-  upcomingEvents: ChampionshipEvents[],
+  events: Event[],
 ): AthleteCurrentData {
   const currentSeason = new Date().getFullYear();
 
@@ -71,13 +69,10 @@ export function getAthleteCurrentData(
     ({ slug }) => slug === nextEventData.championshipSlug,
   );
 
-  const championshipEvents = upcomingEvents.find(
-    ({ championshipSlug }) =>
-      championshipSlug === nextEventData.championshipSlug,
-  );
-
-  const nextEvent = championshipEvents?.events.find(
-    ({ id }) => id === nextEventData.eventId,
+  const nextEvent = events.find(
+    (event) =>
+      event.championshipSlug === athlete.nextEvent?.championshipSlug &&
+      event.id === athlete.nextEvent?.eventId,
   );
 
   return {

@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 
 import { athletes } from "../../../mocks/athletes/athletes";
 import { championships } from "../../../mocks/championships/championships";
-import { upcomingEvents } from "../../../mocks/championships/upcoming-events";
 import type { AthleteCategory } from "../../../mocks/athletes/type";
 
 import { getAthleteProfileData } from "../../../mocks/athletes/helpers/getAthleteProfileData";
@@ -12,6 +11,7 @@ import { AthleteStats } from "./components/AthleteStats";
 import { AthleteAchievements } from "./components/AthleteAchievements";
 import { AthleteCurrent } from "./components/AthleteCurrent";
 import { AthleteGallery } from "./components/AthleteGallery";
+import { events } from "../../../mocks/events/events";
 
 const categoryColors: Record<AthleteCategory, string> = {
   female: "#2ab7ca",
@@ -32,7 +32,7 @@ export function AthleteProfile() {
     athlete,
     athletes,
     championships,
-    upcomingEvents,
+    events,
   );
 
   const color = categoryColors[athlete.category];
