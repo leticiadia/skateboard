@@ -20,7 +20,7 @@ const variants = {
 const sizes = {
   default: "w-full lg:w-[12.5rem]",
   medium: "w-full lg:w-[14rem]",
-  large: "w-full lg:w-[16rem]",
+  large: "w-full lg:w-[18rem]",
 };
 
 export function ButtonLink({
@@ -49,7 +49,7 @@ export function ButtonLink({
       <ArrowRightIcon
         size={18}
         weight="bold"
-        className="absolute right-6 opacity-0 -translate-x-2 transition-all 
+        className="absolute right-3 opacity-0 -translate-x-2 transition-all 
         duration-400 group-hover:opacity-100 group-hover:translate-x-0"
       />
     </Link>
