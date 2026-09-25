@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import { Trans, useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 import { ArrowLeftIcon } from "@phosphor-icons/react";
 
@@ -8,7 +9,7 @@ import { getAthletePodiums } from "../../../mocks/athletes/helpers/getAthletePod
 
 import { AthletePodiumsTable } from "./components/AthletePodiumsTable";
 import { Container } from "../../../components/layout/container/Container";
-import { Trans, useTranslation } from "react-i18next";
+import { DetailHero } from "../../../components/layout/DetailHero/DetailHero";
 
 const athleteColors: Record<AthleteCategory, string> = {
   female: "#2ab7ca",
@@ -34,7 +35,7 @@ export function AthletePodiums() {
     <section className="w-full pt-28 pb-10 lg:pt-28">
       <Container>
         <motion.div
-          className="max-w-3xl"
+          className="w-full flex flex-col gap-8"
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -42,41 +43,10 @@ export function AthletePodiums() {
             ease: "easeOut",
           }}
         >
-          <span
-            className="text-sm font-bold uppercase tracking-widest"
-            style={{ color }}
-          >
-            {t("athlete-podiums.label")}
-          </span>
-
-          <h1
-            className="mt-4 text-4xl font-bold leading-tight sm:text-5xl 
-              lg:text-6xl"
-          >
-            {t("athlete-podiums.headline")}
-          </h1>
-
-          <p
-            className="mt-6 max-w-2xl text-base leading-7 text-gray-600 
-            lg:text-lg"
-          >
-            <Trans
-              i18nKey="athlete-podiums.description"
-              values={{
-                athleteName: athlete.name,
-              }}
-              components={{
-                strong: <strong />,
-              }}
-            />
-          </p>
-        </motion.div>
-
-        <div className="mt-8">
           <Link
             to={`/atletas/${athlete.slug}`}
             className="group flex items-center gap-2 text-sm font-bold 
-              text-zinc-700"
+              text-zinc-700 transition-colors hover:text-black"
           >
             <ArrowLeftIcon
               size={14}
@@ -86,7 +56,20 @@ export function AthletePodiums() {
 
             <span>{t("athlete-podiums.backToProfile")}</span>
           </Link>
-        </div>
+
+          <DetailHero
+            label={t("athlete-podiums.label")}
+            title={t("athlete-podiums.headline")}
+            description={
+              <Trans
+                i18nKey="athlete-podiums.description"
+                values={{ athleteName: athlete.name }}
+                components={{ strong: <strong /> }}
+              />
+            }
+            accentColor={color}
+          />
+        </motion.div>
 
         <AthletePodiumsTable podiums={podiums} accentColor={color} />
       </Container>

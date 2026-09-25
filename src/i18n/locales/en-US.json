@@ -431,9 +431,11 @@
   "championship-ranking": {
     "championship": "Championship",
     "ranking": "Ranking",
-    "complete": "Complete",
-    "championshipNotFound": "Championship not found.",
-    "subtitle": "Complete standings of participating athletes."
+    "complete": "Complete standings",
+    "season": "2026 Season",
+    "subtitle": "Follow the athletes' standings throughout the season.",
+    "backToChampionship": "Back to championship",
+    "championshipNotFound": "Championship not found."
   },
 
   "championship-events": {

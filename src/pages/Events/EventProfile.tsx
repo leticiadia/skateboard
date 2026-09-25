@@ -9,6 +9,14 @@ import { championships } from "../../mocks/championships/championships";
 import { Container } from "../../components/layout/container/Container";
 
 import { formatEventDate } from "../../utils/formatEventDate";
+import { DetailHero } from "../../components/layout/DetailHero/DetailHero";
+import type { BackgroundColor } from "../Championships/components/ChampionshipSection";
+
+const colorClasses = {
+  zinc300: "#e4e4e7",
+  emerald400: "#2ab7ca",
+  yellow300: "#ffc857",
+} satisfies Record<BackgroundColor, string>;
 
 export function EventProfile() {
   const { slug, eventSlug } = useParams();
@@ -26,6 +34,18 @@ export function EventProfile() {
     (championship) => championship.slug === event.championshipSlug,
   );
 
+  if (!championship) {
+    return (
+      <main className="flex min-h-screen items-center justify-center px-6">
+        <p className="text-center text-xl font-medium">
+          {t("championship-ranking.championshipNotFound")}
+        </p>
+      </main>
+    );
+  }
+
+  const accentColor = colorClasses[championship.backgroundColor];
+
   const participants = athletes.filter((athlete) =>
     event.participantAthleteSlugs.includes(athlete.slug),
   );
@@ -33,12 +53,12 @@ export function EventProfile() {
   return (
     <main className="w-full pt-28 pb-10">
       <Container>
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-8">
           <div>
             <Link
               to={`/campeonatos/${event.championshipSlug}/eventos`}
               className="group flex items-center gap-2 text-sm font-bold 
-              text-zinc-700"
+              text-zinc-700 transition-colors hover:text-black"
             >
               <ArrowLeftIcon
                 size={14}
@@ -50,30 +70,14 @@ export function EventProfile() {
             </Link>
           </div>
 
-          <header className="max-w-3xl">
-            {championship && (
-              <span
-                className="text-sm font-bold uppercase tracking-widest 
-              text-yellow-500"
-              >
-                {t(championship.title)}
-              </span>
-            )}
-
-            <h1
-              className="mt-4 text-4xl font-bold leading-tight sm:text-5xl 
-              lg:text-6xl"
-            >
-              {t(event.title)}
-            </h1>
-
-            <p
-              className="mt-6 max-w-2xl text-base leading-7 text-gray-600
-              lg:text-lg"
-            >
-              {t(event.description)}
-            </p>
-          </header>
+          {championship && (
+            <DetailHero
+              label={t(championship.title)}
+              title={t(event.title)}
+              description={t(event.description)}
+              accentColor={accentColor}
+            />
+          )}
 
           <section
             className="grid gap-4 border-y border-gray-200 py-8 

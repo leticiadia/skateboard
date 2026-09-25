@@ -12,6 +12,14 @@ import { championships } from "../../mocks/championships/championships";
 
 import { Container } from "../../components/layout/container/Container";
 import { EventCard } from "../../components/layout/EventCard/EventCard";
+import { DetailHero } from "../../components/layout/DetailHero/DetailHero";
+import type { BackgroundColor } from "../Championships/components/ChampionshipSection";
+
+const colorClasses = {
+  zinc300: "#e4e4e7",
+  emerald400: "#2ab7ca",
+  yellow300: "#ffc857",
+} satisfies Record<BackgroundColor, string>;
 
 export function Events() {
   const { slug: championshipSlug } = useParams();
@@ -20,6 +28,18 @@ export function Events() {
   const championship = championships.find(
     (championship) => championship.slug === championshipSlug,
   );
+
+  if (!championship) {
+    return (
+      <main className="flex min-h-screen items-center justify-center px-6">
+        <p className="text-center text-xl font-medium">
+          {t("championship-ranking.championshipNotFound")}
+        </p>
+      </main>
+    );
+  }
+
+  const accentColor = colorClasses[championship.backgroundColor];
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -51,7 +71,7 @@ export function Events() {
               <Link
                 to={`/campeonatos/${championship.slug}`}
                 className="group flex w-fit items-center gap-2 text-sm font-bold 
-                text-zinc-700"
+                text-zinc-700 transition-colors hover:text-black"
               >
                 <ArrowLeftIcon
                   size={14}
@@ -63,32 +83,18 @@ export function Events() {
               </Link>
             )}
 
-            <div>
-              {championship && (
-                <span
-                  className="text-sm font-bold uppercase tracking-widest 
-                text-yellow-300"
-                >
-                  {t("events.schedule-prefix", {
-                    title: t(championship.title),
-                  })}
-                </span>
-              )}
+            {championship && (
+              <div>
+                <DetailHero
+                  label={t("events.schedule-prefix")}
+                  title={t(championship.title)}
+                  description={t("events.subtitle")}
+                  accentColor={accentColor}
+                />
 
-              <h1
-                className="mt-4 text-4xl font-black text-black sm:text-5xl 
-                lg:text-6xl"
-              >
-                {t("events.title")}
-              </h1>
-
-              <p
-                className="mt-4 max-w-2xl text-base leading-7 text-zinc-500
-                lg:text-lg"
-              >
-                {t("events.subtitle")}
-              </p>
-            </div>
+                <div className="border-b border-zinc-200"></div>
+              </div>
+            )}
           </div>
 
           {championshipEvents.length > 0 ? (

@@ -430,10 +430,12 @@
 
   "championship-ranking": {
     "championship": "Campeonato",
-    "ranking": "ranking",
-    "complete": "Completo",
-    "championshipNotFound": "Campeonato não encontrado.",
-    "subtitle":"Classificação completa dos atletas participantes."
+    "ranking": "Ranking",
+    "complete": "Classificação completa",
+    "season": "Temporada 2026",
+    "subtitle": "Acompanhe a classificação dos atletas nesta temporada.",
+    "backToChampionship": "Voltar para o campeonato",
+    "championshipNotFound": "Campeonato não encontrado."
   },
 
   "championship-events": {
@@ -452,7 +454,7 @@
 
   "events": {
     "back-to-championship": "Voltar para o campeonato",
-    "schedule-prefix": "Programação do campeonato | {{title}}",
+    "schedule-prefix": "Programação do campeonato",
     "title": "Programação completa",
     "subtitle": "Acompanhe o calendário oficial do campeonato, as próximas etapas e os resultados anteriores.",
     "sections": {
