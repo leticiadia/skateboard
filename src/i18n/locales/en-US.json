@@ -365,15 +365,20 @@
   },
 
    "championship-profile": {
+    "not-found": "Championship not found.",
     "sections": {
+      "about": {
+        "title": "About"
+      },
       "global-ranking": {
         "title": "Global Ranking",
-        "subtitle": "Top 5 Athletes and Current Season Recap"
+        "subtitle": "Top 5 Athletes and Current Season Recap",
+        "view-full": "View full ranking"
       },
-      
       "upcoming-events": {
         "title": "Upcoming Events",
-        "subtitle": "Stay up to date with confirmed dates and stages"
+        "subtitle": "Stay up to date with confirmed dates and stages",
+        "view-full": "View full schedule"
       }
     },
 
@@ -429,6 +434,109 @@
     "complete": "Complete",
     "championshipNotFound": "Championship not found.",
     "subtitle": "Complete standings of participating athletes."
+  },
+
+  "championship-events": {
+    "sections": {
+      "upcoming-events": {
+        "title": "Next Event",
+        "subtitle": "Check out the next stage of the championship.",
+        "next-stage": "Next Stage",
+        "season": "Season {{year}}",
+        "event-location-time": "Event location and time",
+        "view-event": "View event details",
+        "empty": "There are no upcoming events scheduled at the moment."
+      }
+    }
+  },
+
+  "events": {
+    "back-to-championship": "Back to championship",
+    "schedule-prefix": "Championship schedule | {{title}}",
+    "title": "Full schedule",
+    "subtitle": "Follow the official championship calendar, upcoming stages, and past results.",
+    "sections": {
+      "next-stage": "Next stage",
+      "upcoming-stages": "Upcoming Stages",
+      "completed-stages": "Completed Stages",
+      "stage-finalized_one": "{{count}} stage completed",
+      "stage-finalized_other": "{{count}} stages completed"
+    },
+    "empty-state": "No events scheduled for this championship."
+  },
+
+  "event-card": {
+    "official-stage": "Official Stage"
+  },
+
+  "event-profile": {
+    "not-found": "Event not found.",
+    "back-to-schedule": "Back to schedule",
+    "details": {
+      "date": "Date",
+      "time": "Time",
+      "location": "Location"
+    },
+    "participants": {
+      "tag": "Participants",
+      "title": "Registered athletes",
+      "view-profile": "View profile",
+      "photo-alt": "Photo of {{name}}",
+      "empty-state": "No participants registered for this event."
+    },
+    "stages": {
+      "legacy-street-tour-etapa-1-sao-paulo": {
+        "title": "Stage 1 - São Paulo",
+        "description": "Official opening of the Legacy Street Tour circuit at the legendary Pista do Choro in São Paulo. Top national street skaters gather in the capital to kick off the title race with technical tricks and high energy."
+      },
+      "legacy-street-tour-etapa-2-belo-horizonte": {
+        "title": "Stage 2 - Belo Horizonte",
+        "description": "The circuit lands in Belo Horizonte for stage two at the iconic Pista do Mineirão. The heat turns up as skaters battle for key ranking points on a fast, smooth-flowing course."
+      },
+      "legacy-street-tour-etapa-final-curitiba": {
+        "title": "Final Stage - Curitiba",
+        "description": "The grand season finale comes to the historic Praça do Skate in Curitiba. The circuit's top skaters drop in to crown the Legacy Street Tour champions in a thrilling final showdown."
+      },
+
+      "boardwalk-clash-etapa-1-rio-de-janeiro": {
+        "title": "Stage 1 - Rio de Janeiro",
+        "description": "Boardwalk Clash kickoff at the iconic Praça Duó in Rio de Janeiro. Skaters drop in for a high-tech session on the beachfront, setting off the title race with heavy tricks."
+      },
+      "boardwalk-clash-etapa-2-santos": {
+        "title": "Stage 2 - Santos",
+        "description": "The tour heads to the coast of São Paulo for stage two at the legendary Pista do Quebra-Mar in Santos. A pivotal seaside showdown where speed and style shine across street obstacles."
+      },
+      "boardwalk-clash-etapa-final-recife": {
+        "title": "Final Stage - Recife",
+        "description": "The grand finale of Boardwalk Clash lands at Skatepark da Jaqueira in Recife. Finalists leave it all on the course to secure the last points of the season and lift the championship trophy."
+      },
+
+      "street-womens-pro-etapa-1-sao-paulo": {
+        "title": "Stage 1 - São Paulo",
+        "description": "Official opening of the Street Women's Pro at the iconic Pista do Choro in São Paulo. Top female skaters kick off the season with technical tricks and intense street obstacle battles."
+      },
+      "street-womens-pro-etapa-2-porto-alegre": {
+        "title": "Stage 2 - Porto Alegre",
+        "description": "Stage two arrives at the legendary IAPI Skatepark in Porto Alegre, home ground to skateboarding icons. A round packed with speed, creative lines, and crucial ranking points."
+      },
+      "street-womens-pro-etapa-final-florianopolis": {
+        "title": "Final Stage - Florianópolis",
+        "description": "The grand finale takes place at Skatepark Costeira in Florianópolis. The finalists throw down their best runs on the course to determine who takes home the Street Women's Pro championship trophy."
+      },
+
+      "old-school-street-pro-etapa-1-curitiba": {
+        "title": "Stage 1 - Curitiba",
+        "description": "Season opener at the traditional Praça do Skate in Curitiba. Skaters showcase the raw power of classic street style with fluid lines and heavy tricks at one of the country's most iconic spots."
+      },
+      "old-school-street-pro-etapa-2-sao-paulo": {
+        "title": "Stage 2 - São Paulo",
+        "description": "The tour lands at the legendary Pista do Choro in São Paulo. A round where old-school flow and precision meet on ledges and rails in a tight trick-for-trick battle."
+      },
+      "old-school-street-pro-etapa-final-rio-de-janeiro": {
+        "title": "Final Stage - Rio de Janeiro",
+        "description": "The grand finale of the Old School Street Pro takes place at the historic Praça Duó in Rio de Janeiro. Tour veterans and legends go all out to crown the ultimate season champion."
+      }
+    }
   },
 
   "upcoming-events": {

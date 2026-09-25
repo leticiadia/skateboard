@@ -33,7 +33,7 @@ export function ChampionshipProfile() {
     return (
       <main className="flex min-h-screen items-center justify-center">
         <p className="text-xl font-medium text-zinc-400">
-          Campeonato não encontrado.
+          {t("championship-profile.not-found")}
         </p>
       </main>
     );
@@ -54,7 +54,7 @@ export function ChampionshipProfile() {
           className="mt-8 flex flex-col gap-4"
         >
           <h2 id="about-championship" className="text-4xl font-bold text-black">
-            Sobre
+            {t("championship-profile.sections.about.title")}
           </h2>
 
           {championship.about.map((paragraph) => (
@@ -97,7 +97,7 @@ export function ChampionshipProfile() {
           </div>
 
           <ButtonLink
-            title="Ver ranking completo"
+            title={t("championship-profile.sections.global-ranking.view-full")}
             href={`/campeonatos/${championship.slug}/ranking`}
             variant="outline"
             size="large"
@@ -110,7 +110,9 @@ export function ChampionshipProfile() {
               <ChampionshipEvents events={upcomingChampionshipEvents} />
 
               <ButtonLink
-                title="Ver programação completa"
+                title={t(
+                  "championship-profile.sections.upcoming-events.view-full",
+                )}
                 href={`/campeonatos/${championship.slug}/eventos`}
                 variant="outline"
                 size="large"

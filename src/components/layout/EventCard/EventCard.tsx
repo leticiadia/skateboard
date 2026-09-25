@@ -41,7 +41,7 @@ export function EventCard({ event }: EventCardProps) {
           uppercase tracking-widest opacity-80"
         >
           <TicketIcon size={16} weight="bold" />
-          Etapa Oficial
+          {t("event-card.official-stage")}
         </span>
 
         <p
@@ -64,7 +64,7 @@ export function EventCard({ event }: EventCardProps) {
           )}
 
           <h3 className="text-2xl font-black text-white sm:text-3xl">
-            {event.title}
+            {t(event.title)}
           </h3>
 
           <div
@@ -96,7 +96,9 @@ export function EventCard({ event }: EventCardProps) {
           border-zinc-300/20 pt-4"
         >
           <span className="text-xs font-bold text-zinc-500">
-            local e horário do evento
+            {t(
+              "championship-events.sections.upcoming-events.event-location-time",
+            )}
           </span>
 
           <Link
@@ -105,7 +107,9 @@ export function EventCard({ event }: EventCardProps) {
             text-yellow-300 transition-all 
             group-hover:translate-x-1 hover:underline"
           >
-            <span>Ver detalhes do evento</span>
+            <span>
+              {t("championship-events.sections.upcoming-events.view-event")}
+            </span>
             <ArrowRightIcon className="size-4" weight="bold" />
           </Link>
         </div>

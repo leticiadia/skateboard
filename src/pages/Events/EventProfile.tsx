@@ -19,7 +19,7 @@ export function EventProfile() {
   );
 
   if (!event) {
-    return <div>Evento não encontrado.</div>;
+    return <div>{t("event-profile.not-found")}</div>;
   }
 
   const championship = championships.find(
@@ -46,7 +46,7 @@ export function EventProfile() {
                 group-hover:-translate-x-1"
               />
 
-              <span>Voltar para a programação</span>
+              <span>{t("event-profile.back-to-schedule")}</span>
             </Link>
           </div>
 
@@ -64,14 +64,14 @@ export function EventProfile() {
               className="mt-4 text-4xl font-bold leading-tight sm:text-5xl 
               lg:text-6xl"
             >
-              {event.title}
+              {t(event.title)}
             </h1>
 
             <p
               className="mt-6 max-w-2xl text-base leading-7 text-gray-600
               lg:text-lg"
             >
-              {event.description}
+              {t(event.description)}
             </p>
           </header>
 
@@ -84,7 +84,7 @@ export function EventProfile() {
                 className="text-xs font-bold uppercase tracking-widest 
               text-gray-400"
               >
-                Data
+                {t("event-profile.details.date")}
               </span>
 
               <p className="mt-2 text-lg font-bold">
@@ -97,7 +97,7 @@ export function EventProfile() {
                 className="text-xs font-bold uppercase tracking-widest 
               text-gray-400"
               >
-                Horário
+                {t("event-profile.details.time")}
               </span>
 
               <p className="mt-2 text-lg font-bold">{event.time}</p>
@@ -108,7 +108,7 @@ export function EventProfile() {
                 className="text-xs font-bold uppercase tracking-widest 
               text-gray-400"
               >
-                Local
+                {t("event-profile.details.location")}
               </span>
 
               <p className="mt-2 text-lg font-bold">{event.location}</p>
@@ -121,11 +121,11 @@ export function EventProfile() {
                 className="text-sm font-bold uppercase tracking-widest 
               text-yellow-500"
               >
-                Participantes
+                {t("event-profile.participants.tag")}
               </span>
 
               <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
-                Atletas inscritos
+                {t("event-profile.participants.title")}
               </h2>
             </header>
 
@@ -141,7 +141,9 @@ export function EventProfile() {
                   >
                     <img
                       src={athlete.image}
-                      alt={`Foto de ${athlete.name}`}
+                      alt={t("event-profile.participants.photo-alt", {
+                        name: athlete.name,
+                      })}
                       className="size-16 shrink-0 rounded-full object-cover"
                     />
 
@@ -157,7 +159,7 @@ export function EventProfile() {
                         className="mt-1 block text-xs font-bold uppercase 
                         tracking-widest text-gray-400"
                       >
-                        Ver perfil
+                        {t("event-profile.participants.view-profile")}
                       </span>
                     </div>
                   </Link>
@@ -168,7 +170,7 @@ export function EventProfile() {
                 className="mt-8 border-y border-gray-200 py-10 
               text-gray-500"
               >
-                Nenhum participante registrado para este evento.
+                {t("event-profile.participants.empty-state")}
               </p>
             )}
           </section>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import {
   ArrowRightIcon,
@@ -9,7 +10,6 @@ import {
 import type { Event } from "../../../mocks/events/types";
 
 import { formatEventDate } from "../../../utils/formatEventDate";
-import { Link } from "react-router-dom";
 
 interface ChampionshipEventsProps {
   events: Event[];
@@ -43,11 +43,11 @@ export function ChampionshipEvents({ events }: ChampionshipEventsProps) {
             className="shrink-0 text-yellow-300 size-7 sm:size-9 lg:size-10"
             weight="fill"
           />
-          <span>Próximo Evento</span>
+          <span>{t("championship-events.sections.upcoming-events.title")}</span>
         </h2>
 
         <p className="text-sm text-zinc-600 sm:text-base">
-          {t("championship-profile.sections.upcoming-events.subtitle")}
+          {t("championship-events.sections.upcoming-events.subtitle")}
         </p>
       </header>
 
@@ -68,7 +68,7 @@ export function ChampionshipEvents({ events }: ChampionshipEventsProps) {
                 uppercase tracking-widest opacity-80"
               >
                 <TicketIcon size={16} weight="bold" />
-                Próxima Etapa
+                {t("championship-events.sections.upcoming-events.next-stage")}
               </span>
 
               <p
@@ -85,7 +85,9 @@ export function ChampionshipEvents({ events }: ChampionshipEventsProps) {
                   className="text-xs font-extrabold uppercase tracking-widest 
                 text-yellow-300"
                 >
-                  Temporada 2026
+                  {t("championship-events.sections.upcoming-events.season", {
+                    year: new Date(`${nextEvent.date}T00:00:00`).getFullYear(),
+                  })}
                 </span>
 
                 <h3 className="text-2xl font-black text-white sm:text-3xl">
@@ -109,7 +111,9 @@ export function ChampionshipEvents({ events }: ChampionshipEventsProps) {
               border-zinc-300/20 pt-4"
               >
                 <span className="text-xs font-bold text-zinc-500">
-                  local e horário do evento
+                  {t(
+                    "championship-events.sections.upcoming-events.event-location-time",
+                  )}
                 </span>
 
                 <Link
@@ -118,7 +122,11 @@ export function ChampionshipEvents({ events }: ChampionshipEventsProps) {
                   text-yellow-300 transition-all 
                   group-hover:translate-x-1 hover:underline"
                 >
-                  <span>Ver detalhes do evento</span>
+                  <span>
+                    {t(
+                      "championship-events.sections.upcoming-events.view-event",
+                    )}
+                  </span>
                   <ArrowRightIcon className="size-4" weight="bold" />
                 </Link>
               </div>
@@ -130,7 +138,7 @@ export function ChampionshipEvents({ events }: ChampionshipEventsProps) {
             p-8 text-center"
           >
             <p className="text-sm font-medium text-zinc-300">
-              Não há próximos eventos programados no momento.
+              {t("championship-events.sections.upcoming-events.empty")}
             </p>
           </div>
         )}

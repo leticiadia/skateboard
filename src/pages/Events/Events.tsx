@@ -1,4 +1,5 @@
 import { Link, useParams } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import {
   ArrowLeftIcon,
   CalendarDotsIcon,
@@ -7,10 +8,10 @@ import {
 } from "@phosphor-icons/react";
 
 import { events } from "../../mocks/events/events";
+import { championships } from "../../mocks/championships/championships";
+
 import { Container } from "../../components/layout/container/Container";
 import { EventCard } from "../../components/layout/EventCard/EventCard";
-import { championships } from "../../mocks/championships/championships";
-import { useTranslation } from "react-i18next";
 
 export function Events() {
   const { slug: championshipSlug } = useParams();
@@ -58,7 +59,7 @@ export function Events() {
                   group-hover:-translate-x-1"
                 />
 
-                <span>Voltar para o campeonato</span>
+                <span>{t("events.back-to-championship")}</span>
               </Link>
             )}
 
@@ -66,9 +67,11 @@ export function Events() {
               {championship && (
                 <span
                   className="text-sm font-bold uppercase tracking-widest 
-              text-yellow-300"
+                text-yellow-300"
                 >
-                  {`Programação do campeonato | ${t(championship.title)}`}
+                  {t("events.schedule-prefix", {
+                    title: t(championship.title),
+                  })}
                 </span>
               )}
 
@@ -76,15 +79,14 @@ export function Events() {
                 className="mt-4 text-4xl font-black text-black sm:text-5xl 
                 lg:text-6xl"
               >
-                Programação completa
+                {t("events.title")}
               </h1>
 
               <p
                 className="mt-4 max-w-2xl text-base leading-7 text-zinc-500
                 lg:text-lg"
               >
-                Acompanhe o calendário oficial do campeonato, as próximas etapas
-                e os resultados anteriores.
+                {t("events.subtitle")}
               </p>
             </div>
           </div>
@@ -103,7 +105,7 @@ export function Events() {
                       className="text-sm font-black uppercase 
                       tracking-widest text-black"
                     >
-                      Próxima etapa
+                      {t("events.sections.next-stage")}
                     </span>
                   </div>
 
@@ -126,7 +128,7 @@ export function Events() {
                       weight="bold"
                     />
 
-                    <span>Etapas Seguintes</span>
+                    <span>{t("events.sections.upcoming-stages")}</span>
                   </h2>
 
                   <div className="flex flex-col gap-4">
@@ -153,14 +155,13 @@ export function Events() {
                         weight="bold"
                       />
 
-                      <span>Etapas Concluídas</span>
+                      <span>{t("events.sections.completed-stages")}</span>
                     </h2>
 
                     <span className="text-xs font-bold text-zinc-400">
-                      {completedEvents.length}{" "}
-                      {completedEvents.length === 1
-                        ? "etapa finalizada"
-                        : "etapas finalizadas"}
+                      {t("events.sections.stage-finalized", {
+                        count: completedEvents.length,
+                      })}
                     </span>
                   </div>
 
@@ -176,9 +177,7 @@ export function Events() {
               )}
             </div>
           ) : (
-            <p className="py-10 text-zinc-400">
-              Não há eventos cadastrados para este campeonato.
-            </p>
+            <p className="py-10 text-zinc-400">{t("events.empty-state")}</p>
           )}
         </div>
       </Container>
