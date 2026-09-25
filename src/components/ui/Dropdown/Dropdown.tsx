@@ -1,5 +1,4 @@
 import { useEffect, useId, useRef, useState } from "react";
-
 import { CaretDownIcon, TranslateIcon } from "@phosphor-icons/react";
 
 import type { DropdownProps } from "./types";

@@ -454,7 +454,7 @@
 
   "events": {
     "back-to-championship": "Back to championship",
-    "schedule-prefix": "Championship schedule | {{title}}",
+    "schedule-prefix": "Championship schedule",
     "title": "Full schedule",
     "subtitle": "Follow the official championship calendar, upcoming stages, and past results.",
     "sections": {

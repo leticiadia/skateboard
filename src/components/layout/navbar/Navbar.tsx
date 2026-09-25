@@ -24,6 +24,7 @@ export function Navbar() {
 
   const handleLanguageChange = (language: string) => {
     i18n.changeLanguage(language);
+    localStorage.setItem("language", language);
   };
 
   const routes = [
