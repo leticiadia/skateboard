@@ -1,19 +1,35 @@
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 
+import type { Athlete } from "../../../../mocks/athletes/type";
 import type { AthleteProfileData } from "../../../../mocks/athletes/profile.types";
 
 import { Container } from "../../../../components/layout/container/Container";
 
 import { formatEventDate } from "../../../../utils/formatEventDate";
+import { getAthleteNextEvent } from "../../../../mocks/athletes/helpers/getAthleteNextEvent";
+import { championships } from "../../../../mocks/championships/championships";
+import { Link } from "react-router-dom";
+import { ArrowRightIcon } from "@phosphor-icons/react";
 
 type AthleteCurrentProps = {
+  athlete: Athlete;
   current: AthleteProfileData["current"];
   accentColor: string;
 };
 
-export function AthleteCurrent({ current, accentColor }: AthleteCurrentProps) {
+export function AthleteCurrent({
+  athlete,
+  current,
+  accentColor,
+}: AthleteCurrentProps) {
   const { t, i18n } = useTranslation();
+
+  const nextEvent = getAthleteNextEvent(athlete);
+
+  const nextEventChampionship = championships.find(
+    (championship) => championship.slug === nextEvent?.championshipSlug,
+  );
 
   return (
     <section className="w-full my-10">
@@ -96,45 +112,96 @@ export function AthleteCurrent({ current, accentColor }: AthleteCurrentProps) {
           )}
         </motion.div>
 
-        {current.nextEvent && current.nextEventChampionship && (
+        {nextEvent && nextEventChampionship && (
           <motion.div
-            className="mt-8 overflow-hidden rounded-sm border-2"
-            style={{ borderColor: accentColor }}
+            className="mt-8 overflow-hidden rounded-2xl border border-gray-200 
+            bg-white"
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <div className="p-6 sm:p-8 lg:p-12">
-              <span
-                className="text-sm font-bold uppercase tracking-widest"
-                style={{ color: accentColor }}
-              >
-                {t("athlete-current.nextChallenge")}
-              </span>
-
+            <div className="flex flex-col lg:flex-row">
               <div
-                className="mt-8 flex flex-col gap-8 lg:flex-row 
-                lg:items-end lg:justify-between"
+                className="flex shrink-0 flex-col justify-center p-6 sm:p-8 
+                lg:w-48"
+                style={{ backgroundColor: accentColor }}
               >
-                <div>
-                  <h3 className="text-3xl font-bold sm:text-4xl lg:text-5xl">
-                    {t(current.nextEventChampionship.title)}
-                  </h3>
+                <span className="text-xs font-black uppercase tracking-widest">
+                  {t("athlete-current.nextEvent")}
+                </span>
 
-                  <p className="mt-3 text-lg text-gray-600">
-                    {t(current.nextEvent.title)}
-                  </p>
+                <strong
+                  className="mt-2 text-5xl font-black leading-none 
+                  sm:text-6xl"
+                >
+                  {new Date(`${nextEvent.date}T00:00:00`).getDate()}
+                </strong>
+
+                <span className="mt-1 text-sm font-black uppercase tracking-widest">
+                  {new Date(`${nextEvent.date}T00:00:00`).toLocaleDateString(
+                    i18n.language,
+                    {
+                      month: "short",
+                    },
+                  )}
+                </span>
+              </div>
+
+              <div className="flex flex-1 flex-col p-6 sm:p-8">
+                <div>
+                  <span
+                    className="text-xs font-black uppercase tracking-widest"
+                    style={{ color: accentColor }}
+                  >
+                    {t(nextEventChampionship.title)}
+                  </span>
+
+                  <h3
+                    className="mt-2 text-2xl font-black leading-tight 
+                  text-black sm:text-3xl"
+                  >
+                    {t(nextEvent.title)}
+                  </h3>
                 </div>
 
-                <div className="flex flex-col gap-2 lg:text-right">
-                  <span className="text-sm font-bold uppercase tracking-widest">
-                    {formatEventDate(current.nextEvent.date, i18n.language)}
+                <div
+                  className="mt-6 flex flex-col gap-3 border-t 
+                border-gray-200 pt-5 sm:flex-row sm:flex-wrap sm:items-center 
+                  sm:gap-x-6 sm:gap-y-3"
+                >
+                  <span className="text-sm font-bold text-gray-700">
+                    {formatEventDate(nextEvent.date, i18n.language)}
                   </span>
 
                   <span className="text-sm text-gray-500">
-                    {t(current.nextEvent.location)}
+                    {nextEvent.time}
                   </span>
+
+                  <span className="text-sm text-gray-500">
+                    {t(nextEvent.location)}
+                  </span>
+                </div>
+
+                <div
+                  className="mt-6 flex justify-start border-t border-gray-200 
+                  pt-5 sm:justify-end"
+                >
+                  <Link
+                    to={`/campeonatos/${nextEvent.championshipSlug}/eventos/${nextEvent.slug}`}
+                    className="group flex items-center gap-2 text-sm font-bold 
+                    hover:underline"
+                    style={{ color: accentColor }}
+                  >
+                    <span>{t("athlete-current.viewEvent")}</span>
+
+                    <ArrowRightIcon
+                      size={16}
+                      className="transition-transform duration-200 
+                      group-hover:translate-x-1"
+                      weight="bold"
+                    />
+                  </Link>
                 </div>
               </div>
             </div>

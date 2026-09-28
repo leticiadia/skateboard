@@ -256,7 +256,8 @@
     "season": "Temporada",
     "points": "pontos",
     "noResults": "Ainda não há resultados registrados nesta temporada.",
-    "nextChallenge": "Próximo desafio"
+    "nextEvent": "Próximo Evento",
+    "viewEvent": "Ver detalhes do evento"
   },
 
   "athlete-gallery": {

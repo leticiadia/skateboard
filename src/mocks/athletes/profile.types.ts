@@ -1,6 +1,4 @@
 import type { Championships } from "../championships/types";
-import type { Event } from "../events/types";
-
 import type { AthleteAward, AthleteCategory, AthleteGalleryItem } from "./type";
 
 export type AthleteStats = {
@@ -46,8 +44,6 @@ export type AthleteCurrentRanking = {
 export type AthleteCurrentData = {
   season: number;
   rankings: AthleteCurrentRanking[];
-  nextEvent?: Event;
-  nextEventChampionship?: Championships;
 };
 
 export type AthletePodium = {

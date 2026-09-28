@@ -52,7 +52,11 @@ export function AthleteProfile() {
         accentColor={color}
       />
 
-      <AthleteCurrent current={profile.current} accentColor={color} />
+      <AthleteCurrent
+        athlete={athlete}
+        current={profile.current}
+        accentColor={color}
+      />
 
       <AthleteGallery gallery={profile.gallery} accentColor={color} />
     </main>

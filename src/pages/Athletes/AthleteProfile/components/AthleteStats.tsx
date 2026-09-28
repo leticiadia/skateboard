@@ -147,7 +147,10 @@ export function AthleteStats({
 
           {totalPodiums > 0 ? (
             <>
-              <div className="relative z-10 grid grid-cols-3 gap-3 sm:gap-6 items-end">
+              <div
+                className="relative z-10 grid grid-cols-3 gap-3 sm:gap-6 
+                items-end"
+              >
                 <PodiumItem
                   value={stats.podiums.silver}
                   label={t("athlete-stats.silver")}
@@ -170,14 +173,14 @@ export function AthleteStats({
                 <Link
                   to={`/atletas/${athleteSlug}/podio`}
                   className="group flex items-center gap-2 text-sm font-bold 
-              text-zinc-700"
+                text-zinc-700"
                 >
                   <span>{t("athlete-stats.podiumHistory")}</span>
 
                   <ArrowRightIcon
-                    size={14}
+                    size={16}
                     className="transition-transform duration-200 
-                group-hover:translate-x-1"
+                    group-hover:translate-x-1"
                   />
                 </Link>
               </div>
