@@ -8,8 +8,8 @@ import { athletes } from "../../../mocks/athletes/athletes";
 import { getAthletePodiums } from "../../../mocks/athletes/helpers/getAthletePodiums";
 
 import { AthletePodiumsTable } from "./components/AthletePodiumsTable";
-import { Container } from "../../../components/layout/container/Container";
-import { DetailHero } from "../../../components/layout/DetailHero/DetailHero";
+import { Container } from "../../../components/layout/Container";
+import { DetailHero } from "../../../components/ui/DetailHero";
 
 const athleteColors: Record<AthleteCategory, string> = {
   female: "#2ab7ca",

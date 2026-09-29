@@ -4,9 +4,9 @@ import { ArrowRightIcon } from "@phosphor-icons/react";
 
 import type { AthleteProfileData } from "../../../../mocks/athletes/profile.types";
 
-import { StatItem } from "../../../../components/layout/StatItem/StatItem";
-import { PodiumItem } from "../../../../components/layout/PodiumItem/PodiumItem";
-import { Container } from "../../../../components/layout/container/Container";
+import { StatItem } from "../../../../components/ui/StatItem";
+import { PodiumItem } from "../../../../components/ui/PodiumItem";
+import { Container } from "../../../../components/layout/Container";
 import { useTranslation } from "react-i18next";
 
 type AthleteStatsProps = {

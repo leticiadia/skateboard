@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import type { AthleteProfileData } from "../../../../mocks/athletes/profile.types";
 import { useTranslation } from "react-i18next";
-import { Container } from "../../../../components/layout/container/Container";
+import { Container } from "../../../../components/layout/Container";
 
 type AthleteAchievementsProps = {
   achievements: AthleteProfileData["achievements"];

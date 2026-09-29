@@ -10,9 +10,9 @@ import {
 import { events } from "../../mocks/events/events";
 import { championships } from "../../mocks/championships/championships";
 
-import { Container } from "../../components/layout/container/Container";
-import { EventCard } from "../../components/layout/EventCard/EventCard";
-import { DetailHero } from "../../components/layout/DetailHero/DetailHero";
+import { Container } from "../../components/layout/Container";
+import { DetailHero } from "../../components/ui/DetailHero";
+import { EventCard } from "../../components/ui/EventCard";
 import type { BackgroundColor } from "../Championships/components/ChampionshipSection";
 
 const colorClasses = {

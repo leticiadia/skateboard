@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 import type { Athlete } from "../../../mocks/athletes/type";
 
-import { Container } from "../../../components/layout/container/Container";
+import { Container } from "../../../components/layout/Container";
 
 import { CurrentAthlete } from "./SectionAthletes/CurrentAthlete";
 import { AthleteContent } from "./SectionAthletes/AthleteContent";

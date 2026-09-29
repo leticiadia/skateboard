@@ -3,10 +3,10 @@ import { useParams } from "react-router-dom";
 import { playlists } from "../../mocks/playlists/playlists";
 import type { BackgroundColor } from "./components/PlaylistCard";
 
-import { Container } from "../../components/layout/container/Container";
-import { ProfileImage } from "../../components/layout/ProfileImage/ProfileImage";
+import { Container } from "../../components/layout/Container";
+import { ProfileImage } from "../../components/ui/ProfileImage";
 
-import { ButtonLink } from "../../components/ui/ButtonLink/ButtonLink";
+import { ButtonLink } from "../../components/ui/ButtonLink";
 
 const colorClasses: Record<BackgroundColor, string> = {
   zinc300: "#e4e4e7",

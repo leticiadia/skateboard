@@ -6,13 +6,11 @@ import type {
 } from "../profile.types";
 
 import { getChampionshipRanking } from "./getChampionshipRanking";
-import type { Event } from "../../events/types";
 
 export function getAthleteCurrentData(
   athlete: Athlete,
   athletes: Athlete[],
   championships: Championships[],
-  events: Event[],
 ): AthleteCurrentData {
   const currentSeason = new Date().getFullYear();
 
@@ -65,20 +63,8 @@ export function getAthleteCurrentData(
     };
   }
 
-  const nextEventChampionship = championships.find(
-    ({ slug }) => slug === nextEventData.championshipSlug,
-  );
-
-  const nextEvent = events.find(
-    (event) =>
-      event.championshipSlug === athlete.nextEvent?.championshipSlug &&
-      event.id === athlete.nextEvent?.eventId,
-  );
-
   return {
     season: currentSeason,
     rankings,
-    nextEvent,
-    nextEventChampionship,
   };
 }

@@ -5,8 +5,8 @@ import { ArrowLeftIcon } from "@phosphor-icons/react";
 import { athletes } from "../../mocks/athletes/athletes";
 import { championships } from "../../mocks/championships/championships";
 
-import { Container } from "../../components/layout/container/Container";
-import { DetailHero } from "../../components/layout/DetailHero/DetailHero";
+import { Container } from "../../components/layout/Container";
+import { DetailHero } from "../../components/ui/DetailHero";
 import { GlobalRanking } from "./components/GlobalRanking";
 import type { BackgroundColor } from "./components/ChampionshipSection";
 

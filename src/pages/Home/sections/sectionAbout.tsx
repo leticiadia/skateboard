@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 
-import { Container } from "../../../components/layout/container/Container";
-import { ButtonLink } from "../../../components/ui/ButtonLink/ButtonLink";
+import { Container } from "../../../components/layout/Container";
+import { ButtonLink } from "../../../components/ui/ButtonLink";
 
 import TonyHawk from "../../../assets/images/tony-hawk.png";
 import BannerLiveYourExperiencePT from "../../../assets/images/banner-live-your-experience.png";

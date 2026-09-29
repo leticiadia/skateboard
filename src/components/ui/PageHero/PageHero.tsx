@@ -1,4 +1,5 @@
-import { Container } from "../container/Container";
+import { Container } from "../../layout/Container";
+
 import type { PageHeroProps } from "./types";
 
 export function PageHero({

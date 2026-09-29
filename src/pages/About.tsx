@@ -3,8 +3,8 @@ import { motion } from "motion/react";
 
 import { about } from "../mocks/about";
 
-import { Container } from "../components/layout/container/Container";
-import { PageHero } from "../components/layout/PageHero/PageHero";
+import { Container } from "../components/layout/Container";
+import { PageHero } from "../components/ui/PageHero/PageHero";
 
 export function About() {
   const { t } = useTranslation();

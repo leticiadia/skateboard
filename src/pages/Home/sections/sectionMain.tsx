@@ -1,8 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 
-import { Container } from "../../../components/layout/container/Container";
-import { ButtonLink } from "../../../components/ui/ButtonLink/ButtonLink";
+import { Container } from "../../../components/layout/Container";
+import { ButtonLink } from "../../../components/ui/ButtonLink";
 
 import SkateboardPhoto from "../../../assets/images/skateboard.png";
 

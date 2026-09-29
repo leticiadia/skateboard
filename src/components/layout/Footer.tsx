@@ -5,9 +5,9 @@ import {
 } from "@phosphor-icons/react";
 import { useTranslation } from "react-i18next";
 
-import { Container } from "../container/Container";
+import { Container } from "./Container";
 
-import SkateboardLogo from "../../../assets/brand/skateboard-logo.svg";
+import SkateboardLogo from "../../assets/brand/skateboard-logo.svg";
 
 export function Footer() {
   const { t } = useTranslation();

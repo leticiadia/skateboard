@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import type { Athlete } from "../../../../mocks/athletes/type";
 import type { AthleteProfileData } from "../../../../mocks/athletes/profile.types";
 
-import { Container } from "../../../../components/layout/container/Container";
+import { Container } from "../../../../components/layout/Container";
 
 import { formatEventDate } from "../../../../utils/formatEventDate";
 import { getAthleteNextEvent } from "../../../../mocks/athletes/helpers/getAthleteNextEvent";

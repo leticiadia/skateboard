@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRightIcon } from "@phosphor-icons/react";
 
-import { Container } from "../../../components/layout/container/Container";
+import { Container } from "../../../components/layout/Container";
 
 import type { Playlist } from "../../../mocks/playlists/types";
 

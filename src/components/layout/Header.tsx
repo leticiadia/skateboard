@@ -1,9 +1,10 @@
-import { Navbar } from "../navbar/Navbar";
-
-import SkateboardLogo from "../../../assets/brand/skateboard-logo.svg";
-import { useEffect, useState } from "react";
-import { Container } from "../container/Container";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+
+import { Container } from "./Container";
+import { Navbar } from "./Navbar";
+
+import SkateboardLogo from "../../assets/brand/skateboard-logo.svg";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);

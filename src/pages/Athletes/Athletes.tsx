@@ -3,9 +3,8 @@ import { motion } from "motion/react";
 
 import { athletes } from "../../mocks/athletes/athletes";
 
-import { Container } from "../../components/layout/container/Container";
-import { PageHero } from "../../components/layout/PageHero/PageHero";
-
+import { Container } from "../../components/layout/Container";
+import { PageHero } from "../../components/ui/PageHero/PageHero";
 import { AthleteCategorySection } from "./components/AthleteCategorySection";
 
 export function Athletes() {

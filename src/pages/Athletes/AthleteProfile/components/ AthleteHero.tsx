@@ -4,8 +4,8 @@ import { motion } from "motion/react";
 import type { AthleteProfileData } from "../../../../mocks/athletes/profile.types";
 import type { AthleteCategory } from "../../../../mocks/athletes/type";
 
-import { Container } from "../../../../components/layout/container/Container";
-import { ProfileImage } from "../../../../components/layout/ProfileImage/ProfileImage";
+import { Container } from "../../../../components/layout/Container";
+import { ProfileImage } from "../../../../components/ui/ProfileImage";
 
 type AthleteHeroProps = {
   athlete: AthleteProfileData["athlete"];

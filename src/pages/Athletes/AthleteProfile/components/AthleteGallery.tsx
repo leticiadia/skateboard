@@ -1,10 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 
 import type { AthleteProfileData } from "../../../../mocks/athletes/profile.types";
 
-import { GalleryItem } from "../../../../components/layout/GalleryItem/GalleryItem";
-import { Container } from "../../../../components/layout/container/Container";
-import { useTranslation } from "react-i18next";
+import { Container } from "../../../../components/layout/Container";
+import { GalleryItem } from "../../../../components/ui/GalleryItem";
 
 type AthleteGalleryProps = {
   gallery: AthleteProfileData["gallery"];

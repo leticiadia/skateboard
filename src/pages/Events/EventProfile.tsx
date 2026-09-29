@@ -6,10 +6,10 @@ import { events } from "../../mocks/events/events";
 import { athletes } from "../../mocks/athletes/athletes";
 import { championships } from "../../mocks/championships/championships";
 
-import { Container } from "../../components/layout/container/Container";
+import { Container } from "../../components/layout/Container";
 
 import { formatEventDate } from "../../utils/formatEventDate";
-import { DetailHero } from "../../components/layout/DetailHero/DetailHero";
+import { DetailHero } from "../../components/ui/DetailHero";
 import type { BackgroundColor } from "../Championships/components/ChampionshipSection";
 
 const colorClasses = {

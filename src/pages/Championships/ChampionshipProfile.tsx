@@ -2,17 +2,16 @@ import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { TrophyIcon } from "@phosphor-icons/react";
 
-import { Container } from "../../components/layout/container/Container";
-import { PageHero } from "../../components/layout/PageHero/PageHero";
-
 import { athletes } from "../../mocks/athletes/athletes";
 import { championships } from "../../mocks/championships/championships";
 import { events } from "../../mocks/events/events";
 
+import { PageHero } from "../../components/ui/PageHero/PageHero";
+import { Container } from "../../components/layout/Container";
 import { ChampionshipRegistration } from "./components/ChampionshipRegistration";
 import { GlobalRanking } from "./components/GlobalRanking";
 import { ChampionshipEvents } from "./components/ChampionshipEvents";
-import { ButtonLink } from "../../components/ui/ButtonLink/ButtonLink";
+import { ButtonLink } from "../../components/ui/ButtonLink";
 
 export function ChampionshipProfile() {
   const { slug } = useParams();

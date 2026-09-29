@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { List } from "phosphor-react";
 
-import { MenuModal } from "../../ui/menuModal/MenuModal";
-import { Dropdown } from "../../ui/Dropdown/Dropdown";
+import { Dropdown } from "../ui/Dropdown/Dropdown";
+import { MenuModal } from "../ui/MenuModal";
 
 const languageOptions = [
   {

@@ -1,7 +1,7 @@
 import {
   EntityCard,
   type EntityCardColor,
-} from "../../../components/layout/EntityCard/EntityCard";
+} from "../../../components/ui/EntityCard";
 import type { Athlete } from "../../../mocks/athletes/type";
 
 interface AthleteCategorySectionProps {

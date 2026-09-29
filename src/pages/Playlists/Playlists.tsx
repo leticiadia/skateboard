@@ -1,5 +1,6 @@
-import { PageHero } from "../../components/layout/PageHero/PageHero";
 import { playlists } from "../../mocks/playlists/playlists";
+
+import { PageHero } from "../../components/ui/PageHero/PageHero";
 import { PlaylistCard } from "./components/PlaylistCard";
 
 export function Playlists() {

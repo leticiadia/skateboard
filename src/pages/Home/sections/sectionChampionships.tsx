@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 
-import { Container } from "../../../components/layout/container/Container";
-import { EntityCard } from "../../../components/layout/EntityCard/EntityCard";
-import { ButtonLink } from "../../../components/ui/ButtonLink/ButtonLink";
+import { Container } from "../../../components/layout/Container";
+import { EntityCard } from "../../../components/ui/EntityCard";
+import { ButtonLink } from "../../../components/ui/ButtonLink";
 
 import BannerLiveYourDreamsPT from "../../../assets/images/banner-live-your-dreams.png";
 import BannerLiveYourDreamsEN from "../../../assets/images/banner-live-your-dreams-en.png";

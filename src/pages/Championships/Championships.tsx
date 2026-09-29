@@ -2,8 +2,8 @@ import { useTranslation } from "react-i18next";
 
 import { championships } from "../../mocks/championships/championships";
 
+import { PageHero } from "../../components/ui/PageHero/PageHero";
 import { ChampionshipSection } from "./components/ChampionshipSection";
-import { PageHero } from "../../components/layout/PageHero/PageHero";
 
 export function Championships() {
   const { t } = useTranslation();
