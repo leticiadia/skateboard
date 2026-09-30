@@ -1,13 +1,13 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { ArrowRightIcon } from "@phosphor-icons/react";
 
-import type { AthleteProfileData } from "../../../../mocks/athletes/profile.types";
+import type { AthleteProfileData } from "../types/profile.types";
 
-import { StatItem } from "../../../../components/ui/StatItem";
-import { PodiumItem } from "../../../../components/ui/PodiumItem";
-import { Container } from "../../../../components/layout/Container";
-import { useTranslation } from "react-i18next";
+import { Container } from "../../../components/layout/Container";
+import { StatItem } from "../../../components/ui/StatItem";
+import { PodiumItem } from "../../../components/ui/PodiumItem";
 
 type AthleteStatsProps = {
   stats: AthleteProfileData["stats"];

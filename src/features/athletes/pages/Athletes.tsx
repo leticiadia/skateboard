@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 
-import { athletes } from "../../mocks/athletes/athletes";
+import { athletes } from "../data/athletes";
 
-import { Container } from "../../components/layout/Container";
-import { PageHero } from "../../components/ui/PageHero/PageHero";
-import { AthleteCategorySection } from "./components/AthleteCategorySection";
+import { Container } from "../../../components/layout/Container";
+import { PageHero } from "../../../components/ui/PageHero/PageHero";
+import { AthleteCategorySection } from "../components/AthleteCategorySection";
 
 export function Athletes() {
   const { t } = useTranslation();

@@ -1,11 +1,11 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 
-import type { AthleteProfileData } from "../../../../mocks/athletes/profile.types";
-import type { AthleteCategory } from "../../../../mocks/athletes/type";
+import type { AthleteProfileData } from "../types/profile.types";
+import type { AthleteCategory } from "../types/type";
 
-import { Container } from "../../../../components/layout/Container";
-import { ProfileImage } from "../../../../components/ui/ProfileImage";
+import { Container } from "../../../components/layout/Container";
+import { ProfileImage } from "../../../components/ui/ProfileImage";
 
 type AthleteHeroProps = {
   athlete: AthleteProfileData["athlete"];

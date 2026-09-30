@@ -1,76 +1,76 @@
-import type { Athlete } from "./type";
+import ImageCarolMendes from "../../../assets/images/athletes/carol-alves/carol-alves.jpg";
+import ImageCarolChampionship2024 from "../../../assets/images/athletes/carol-alves/carol-championship-2024.jpg";
+import ImageCarolChampionship2025 from "../../../assets/images/athletes/carol-alves/carol-championship-2025.jpg";
+import ImageCarolOpen2025 from "../../../assets/images/athletes/carol-alves/carol-open-2025.jpg";
+import ImageCarolStreet2026 from "../../../assets/images/athletes/carol-alves/carol-street-2026.jpg";
 
-import ImageCarolMendes from "../../assets/images/athletes/carol-alves/carol-alves.jpg";
-import ImageCarolChampionship2024 from "../../assets/images/athletes/carol-alves/carol-championship-2024.jpg";
-import ImageCarolChampionship2025 from "../../assets/images/athletes/carol-alves/carol-championship-2025.jpg";
-import ImageCarolOpen2025 from "../../assets/images/athletes/carol-alves/carol-open-2025.jpg";
-import ImageCarolStreet2026 from "../../assets/images/athletes/carol-alves/carol-street-2026.jpg";
+import ImageMarinaSilva from "../../../assets/images/athletes/marina-silva/marina-silva.jpg";
+import ImageMarinaChampionship2024 from "../../../assets/images/athletes/marina-silva/marina-silva-championship-2024.jpg";
+import ImageMarinaChampionship2025 from "../../../assets/images/athletes/marina-silva/marina-silva-championship-2025.jpg";
+import ImageMarinaOpen2025 from "../../../assets/images/athletes/marina-silva/marina-silva-open-2025.jpg";
+import ImageMarinaStreet2026 from "../../../assets/images/athletes/marina-silva/marina-silva-street-2026.jpg";
 
-import ImageMarinaSilva from "../../assets/images/athletes/marina-silva/marina-silva.jpg";
-import ImageMarinaChampionship2024 from "../../assets/images/athletes/marina-silva/marina-silva-championship-2024.jpg";
-import ImageMarinaChampionship2025 from "../../assets/images/athletes/marina-silva/marina-silva-championship-2025.jpg";
-import ImageMarinaOpen2025 from "../../assets/images/athletes/marina-silva/marina-silva-open-2025.jpg";
-import ImageMarinaStreet2026 from "../../assets/images/athletes/marina-silva/marina-silva-street-2026.jpg";
+import ImageAshleyOliver from "../../../assets/images/athletes/ashley-oliver/ashley-oliver.jpg";
+import ImageAshleyChampionship2024 from "../../../assets/images/athletes/ashley-oliver/ashley-oliver-champioship-2024.jpg";
+import ImageAshleyChampionship2025 from "../../../assets/images/athletes/ashley-oliver/ashley-oliver-champioship-2025.jpg";
+import ImageAshleyOpen2025 from "../../../assets/images/athletes/ashley-oliver/ashley-oliver-open-2025.jpg";
+import ImageAshleyStreet2026 from "../../../assets/images/athletes/ashley-oliver/ashley-oliver-street-2026.jpg";
 
-import ImageAshleyOliver from "../../assets/images/athletes/ashley-oliver/ashley-oliver.jpg";
-import ImageAshleyChampionship2024 from "../../assets/images/athletes/ashley-oliver/ashley-oliver-champioship-2024.jpg";
-import ImageAshleyChampionship2025 from "../../assets/images/athletes/ashley-oliver/ashley-oliver-champioship-2025.jpg";
-import ImageAshleyOpen2025 from "../../assets/images/athletes/ashley-oliver/ashley-oliver-open-2025.jpg";
-import ImageAshleyStreet2026 from "../../assets/images/athletes/ashley-oliver/ashley-oliver-street-2026.jpg";
+import ImageLuizaSilva from "../../../assets/images/athletes/luiza-silva/luiza-silva.jpg";
+import ImageLuizaChampionship2024 from "../../../assets/images/athletes/luiza-silva/luiza-silva-championship-2024.jpg";
+import ImageLuizaChampionship2025 from "../../../assets/images/athletes/luiza-silva/luiza-silva-championship-2025.jpg";
+import ImageLuizaOpen2025 from "../../../assets/images/athletes/luiza-silva/luiza-silva-open-2025.jpg";
+import ImageLuizaStreet2026 from "../../../assets/images/athletes/luiza-silva/luiza-silva-street-2026.jpg";
 
-import ImageLuizaSilva from "../../assets/images/athletes/luiza-silva/luiza-silva.jpg";
-import ImageLuizaChampionship2024 from "../../assets/images/athletes/luiza-silva/luiza-silva-championship-2024.jpg";
-import ImageLuizaChampionship2025 from "../../assets/images/athletes/luiza-silva/luiza-silva-championship-2025.jpg";
-import ImageLuizaOpen2025 from "../../assets/images/athletes/luiza-silva/luiza-silva-open-2025.jpg";
-import ImageLuizaStreet2026 from "../../assets/images/athletes/luiza-silva/luiza-silva-street-2026.jpg";
+import ImageLucasMartins from "../../../assets/images/athletes/lucas-martins/lucas-martins.jpg";
+import ImageLucasChampionship2024 from "../../../assets/images/athletes/lucas-martins/lucas-martins-championship-2024.jpg";
+import ImageLucasChampionship2025 from "../../../assets/images/athletes/lucas-martins/lucas-martins-championship-2025.jpg";
+import ImageLucasOpen2025 from "../../../assets/images/athletes/lucas-martins/lucas-martins-open-2025.jpg";
+import ImageLucasStreet2026 from "../../../assets/images/athletes/lucas-martins/lucas-martins-street-2026.jpg";
 
-import ImageLucasMartins from "../../assets/images/athletes/lucas-martins/lucas-martins.jpg";
-import ImageLucasChampionship2024 from "../../assets/images/athletes/lucas-martins/lucas-martins-championship-2024.jpg";
-import ImageLucasChampionship2025 from "../../assets/images/athletes/lucas-martins/lucas-martins-championship-2025.jpg";
-import ImageLucasOpen2025 from "../../assets/images/athletes/lucas-martins/lucas-martins-open-2025.jpg";
-import ImageLucasStreet2026 from "../../assets/images/athletes/lucas-martins/lucas-martins-street-2026.jpg";
+import ImagePedroAlves from "../../../assets/images/athletes/pedro-alves/pedro-alves.jpg";
+import ImagePedroChampionship2024 from "../../../assets/images/athletes/pedro-alves/pedro-alves-championship-2024.jpg";
+import ImagePedroChampionship2025 from "../../../assets/images/athletes/pedro-alves/pedro-alves-championship-2025.jpg";
+import ImagePedroOpen2025 from "../../../assets/images/athletes/pedro-alves/pedro-alves-open-2025.jpg";
+import ImagePedroStreet2026 from "../../../assets/images/athletes/pedro-alves/pedro-alves-street-2026.jpg";
 
-import ImagePedroAlves from "../../assets/images/athletes/pedro-alves/pedro-alves.jpg";
-import ImagePedroChampionship2024 from "../../assets/images/athletes/pedro-alves/pedro-alves-championship-2024.jpg";
-import ImagePedroChampionship2025 from "../../assets/images/athletes/pedro-alves/pedro-alves-championship-2025.jpg";
-import ImagePedroOpen2025 from "../../assets/images/athletes/pedro-alves/pedro-alves-open-2025.jpg";
-import ImagePedroStreet2026 from "../../assets/images/athletes/pedro-alves/pedro-alves-street-2026.jpg";
+import ImageJoaoCampos from "../../../assets/images/athletes/joao-campos/joao-campos.jpg";
+import ImageJoaoChampionship2024 from "../../../assets/images/athletes/joao-campos/joao-campos-championship-2024.jpg";
+import ImageJoaoChampionship2025 from "../../../assets/images/athletes/joao-campos/joao-campos-championship-2025.jpg";
+import ImageJoaoOpen2025 from "../../../assets/images/athletes/joao-campos/joao-campos-open-2025.jpg";
+import ImageJoaoStreet2026 from "../../../assets/images/athletes/joao-campos/joao-campos-street-2026.jpg";
 
-import ImageJoaoCampos from "../../assets/images/athletes/joao-campos/joao-campos.jpg";
-import ImageJoaoChampionship2024 from "../../assets/images/athletes/joao-campos/joao-campos-championship-2024.jpg";
-import ImageJoaoChampionship2025 from "../../assets/images/athletes/joao-campos/joao-campos-championship-2025.jpg";
-import ImageJoaoOpen2025 from "../../assets/images/athletes/joao-campos/joao-campos-open-2025.jpg";
-import ImageJoaoStreet2026 from "../../assets/images/athletes/joao-campos/joao-campos-street-2026.jpg";
+import ImageGabrielRibeiro from "../../../assets/images/athletes/gabriel-ribeiro/gabriel-ribeiro.jpg";
+import ImageGabrielChampionship2024 from "../../../assets/images/athletes/gabriel-ribeiro/gabriel-ribeiro-championship-2024.jpg";
+import ImageGabrielChampionship2025 from "../../../assets/images/athletes/gabriel-ribeiro/gabriel-ribeiro-championship-2025.jpg";
+import ImageGabrielOpen2025 from "../../../assets/images/athletes/gabriel-ribeiro/gabriel-ribeiro-open-2025.jpg";
+import ImageGabrielStreet2026 from "../../../assets/images/athletes/gabriel-ribeiro/gabriel-ribeiro-street-2026.jpg";
 
-import ImageGabrielRibeiro from "../../assets/images/athletes/gabriel-ribeiro/gabriel-ribeiro.jpg";
-import ImageGabrielChampionship2024 from "../../assets/images/athletes/gabriel-ribeiro/gabriel-ribeiro-championship-2024.jpg";
-import ImageGabrielChampionship2025 from "../../assets/images/athletes/gabriel-ribeiro/gabriel-ribeiro-championship-2025.jpg";
-import ImageGabrielOpen2025 from "../../assets/images/athletes/gabriel-ribeiro/gabriel-ribeiro-open-2025.jpg";
-import ImageGabrielStreet2026 from "../../assets/images/athletes/gabriel-ribeiro/gabriel-ribeiro-street-2026.jpg";
+import ImageLeoCardoso from "../../../assets/images/athletes/leo-cardoso/leo-cardoso.jpg";
+import ImageLeoChampionship2024 from "../../../assets/images/athletes/leo-cardoso/leo-cardoso-championship-2024.jpg";
+import ImageLeoChampionship2025 from "../../../assets/images/athletes/leo-cardoso/leo-cardoso-championship-2025.jpg";
+import ImageLeoOpen2025 from "../../../assets/images/athletes/leo-cardoso/leo-cardoso-open-2025.jpg";
+import ImageLeoStreet2026 from "../../../assets/images/athletes/leo-cardoso/leo-cardoso-street-2026.jpg";
 
-import ImageLeoCardoso from "../../assets/images/athletes/leo-cardoso/leo-cardoso.jpg";
-import ImageLeoChampionship2024 from "../../assets/images/athletes/leo-cardoso/leo-cardoso-championship-2024.jpg";
-import ImageLeoChampionship2025 from "../../assets/images/athletes/leo-cardoso/leo-cardoso-championship-2025.jpg";
-import ImageLeoOpen2025 from "../../assets/images/athletes/leo-cardoso/leo-cardoso-open-2025.jpg";
-import ImageLeoStreet2026 from "../../assets/images/athletes/leo-cardoso/leo-cardoso-street-2026.jpg";
+import ImageCaioSilva from "../../../assets/images/athletes/caio-silva/caio-silva.jpg";
+import ImageCaioChampionship2024 from "../../../assets/images/athletes/caio-silva/caio-silva-championship-2024.jpg";
+import ImageCaioChampionship2025 from "../../../assets/images/athletes/caio-silva/caio-silva-championship-2025.jpg";
+import ImageCaioOpen2025 from "../../../assets/images/athletes/caio-silva/caio-silva-open-2025.jpg";
+import ImageCaioStreet2026 from "../../../assets/images/athletes/caio-silva/caio-silva-street-2026.jpg";
 
-import ImageCaioSilva from "../../assets/images/athletes/caio-silva/caio-silva.jpg";
-import ImageCaioChampionship2024 from "../../assets/images/athletes/caio-silva/caio-silva-championship-2024.jpg";
-import ImageCaioChampionship2025 from "../../assets/images/athletes/caio-silva/caio-silva-championship-2025.jpg";
-import ImageCaioOpen2025 from "../../assets/images/athletes/caio-silva/caio-silva-open-2025.jpg";
-import ImageCaioStreet2026 from "../../assets/images/athletes/caio-silva/caio-silva-street-2026.jpg";
+import ImageNinaChaves from "../../../assets/images/athletes/nina-chaves/nina-chaves.jpg";
+import ImageNinaChampionship2024 from "../../../assets/images/athletes/nina-chaves/nina-chaves-championship-2024.jpg";
+import ImageNinaChampionship2025 from "../../../assets/images/athletes/nina-chaves/nina-chaves-championship-2025.jpg";
+import ImageNinaOpen2025 from "../../../assets/images/athletes/nina-chaves/nina-chaves-open-2025.jpg";
+import ImageNinaStreet2026 from "../../../assets/images/athletes/nina-chaves/nina-chaves-street-2026.jpg";
 
-import ImageNinaChaves from "../../assets/images/athletes/nina-chaves/nina-chaves.jpg";
-import ImageNinaChampionship2024 from "../../assets/images/athletes/nina-chaves/nina-chaves-championship-2024.jpg";
-import ImageNinaChampionship2025 from "../../assets/images/athletes/nina-chaves/nina-chaves-championship-2025.jpg";
-import ImageNinaOpen2025 from "../../assets/images/athletes/nina-chaves/nina-chaves-open-2025.jpg";
-import ImageNinaStreet2026 from "../../assets/images/athletes/nina-chaves/nina-chaves-street-2026.jpg";
+import ImageAnaLima from "../../../assets/images/athletes/ana-lima/ana-lima.jpg";
+import ImageAnaChampionship2025 from "../../../assets/images/athletes/ana-lima/ana-lima-championship-2025.jpg";
+import ImageAnaOpen2025 from "../../../assets/images/athletes/ana-lima/ana-lima-open-2025.jpg";
+import ImageAnaOpen2026 from "../../../assets/images/athletes/ana-lima/ana-lima-open-2026.jpg";
+import ImageAnaStreet2026 from "../../../assets/images/athletes/ana-lima/ana-lima-street-2026.jpg";
 
-import ImageAnaLima from "../../assets/images/athletes/ana-lima/ana-lima.jpg";
-import ImageAnaChampionship2025 from "../../assets/images/athletes/ana-lima/ana-lima-championship-2025.jpg";
-import ImageAnaOpen2025 from "../../assets/images/athletes/ana-lima/ana-lima-open-2025.jpg";
-import ImageAnaOpen2026 from "../../assets/images/athletes/ana-lima/ana-lima-open-2026.jpg";
-import ImageAnaStreet2026 from "../../assets/images/athletes/ana-lima/ana-lima-street-2026.jpg";
+import type { Athlete } from "../types/type";
 
 export const athletes: Athlete[] = [
   {

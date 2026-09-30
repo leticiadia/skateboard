@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 
-import type { Athlete } from "../../../../mocks/athletes/type";
+import type { Athlete } from "../../../../features/athletes/types/type";
 
 type AthletesProps = {
   athletes: Athlete[];

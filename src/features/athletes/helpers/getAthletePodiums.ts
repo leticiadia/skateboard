@@ -1,7 +1,7 @@
-import type { Athlete } from "../type";
-import type { AthletePodium } from "../profile.types";
+import type { Athlete } from "../types/type";
+import type { AthletePodium } from "../types/profile.types";
 
-import { championships } from "../../championships/championships";
+import { championships } from "../../../mocks/championships/championships";
 
 export function getAthletePodiums(athlete: Athlete): AthletePodium[] {
   return athlete.results

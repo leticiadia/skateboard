@@ -3,13 +3,14 @@ import { Trans, useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 import { ArrowLeftIcon } from "@phosphor-icons/react";
 
-import type { AthleteCategory } from "../../../mocks/athletes/type";
-import { athletes } from "../../../mocks/athletes/athletes";
-import { getAthletePodiums } from "../../../mocks/athletes/helpers/getAthletePodiums";
+import { athletes } from "../data/athletes";
+import type { AthleteCategory } from "../types/type";
 
-import { AthletePodiumsTable } from "./components/AthletePodiumsTable";
 import { Container } from "../../../components/layout/Container";
 import { DetailHero } from "../../../components/ui/DetailHero";
+import { AthletePodiumsTable } from "../components/AthletePodiumsTable";
+
+import { getAthletePodiums } from "../helpers/getAthletePodiums";
 
 const athleteColors: Record<AthleteCategory, string> = {
   female: "#2ab7ca",

@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { TrophyIcon } from "@phosphor-icons/react";
 
-import { athletes } from "../../mocks/athletes/athletes";
+import { athletes } from "../../features/athletes/data/athletes";
 import { championships } from "../../mocks/championships/championships";
 import { events } from "../../mocks/events/events";
 

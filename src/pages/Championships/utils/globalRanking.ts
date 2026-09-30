@@ -1,4 +1,7 @@
-import type { Athlete, AthleteStageResult } from "../../../mocks/athletes/type";
+import type {
+  Athlete,
+  AthleteStageResult,
+} from "../../../features/athletes/types/type";
 import { getPointsByPlacement } from "../../../mocks/championships/scoring";
 
 export interface ChampionshipRanking {

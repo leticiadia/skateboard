@@ -1,4 +1,4 @@
-import type { Championships } from "../championships/types";
+import type { Championships } from "../../../mocks/championships/types";
 import type { AthleteAward, AthleteCategory, AthleteGalleryItem } from "./type";
 
 export type AthleteStats = {

@@ -1,6 +1,6 @@
-import type { Athlete } from "../type";
-import type { AthleteProfileData } from "../profile.types";
-import type { Championships } from "../../championships/types";
+import type { Athlete } from "../types/type";
+import type { AthleteProfileData } from "../types/profile.types";
+import type { Championships } from "../../../mocks/championships/types";
 
 import { getAthleteAchievements } from "./getAthleteAchievements";
 import { getAthleteCurrentData } from "./getAthleteCurrentData";

@@ -1,16 +1,17 @@
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
-
-import type { Athlete } from "../../../../mocks/athletes/type";
-import type { AthleteProfileData } from "../../../../mocks/athletes/profile.types";
-
-import { Container } from "../../../../components/layout/Container";
-
-import { formatEventDate } from "../../../../utils/formatEventDate";
-import { getAthleteNextEvent } from "../../../../mocks/athletes/helpers/getAthleteNextEvent";
-import { championships } from "../../../../mocks/championships/championships";
 import { Link } from "react-router-dom";
 import { ArrowRightIcon } from "@phosphor-icons/react";
+
+import type { Athlete } from "../types/type";
+import type { AthleteProfileData } from "../types/profile.types";
+
+import { championships } from "../../../mocks/championships/championships";
+
+import { getAthleteNextEvent } from "../helpers/getAthleteNextEvent";
+import { formatEventDate } from "../../../utils/formatEventDate";
+
+import { Container } from "../../../components/layout/Container";
 
 type AthleteCurrentProps = {
   athlete: Athlete;

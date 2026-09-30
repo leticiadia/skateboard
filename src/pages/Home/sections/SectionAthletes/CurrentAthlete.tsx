@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import { ArrowCircleUpRightIcon } from "@phosphor-icons/react";
 
-import type { Athlete } from "../../../../mocks/athletes/type";
+import type { Athlete } from "../../../../features/athletes/types/type";
 
 type AthleteProps = {
   athlete: Athlete;

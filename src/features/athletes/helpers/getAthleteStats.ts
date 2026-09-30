@@ -1,5 +1,5 @@
-import type { Athlete } from "../type";
-import type { AthleteStats } from "../profile.types";
+import type { AthleteStats } from "../types/profile.types";
+import type { Athlete } from "../types/type";
 
 import { getChampionshipRanking } from "./getChampionshipRanking";
 

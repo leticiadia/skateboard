@@ -1,9 +1,11 @@
-import type { Athlete } from "../../../mocks/athletes/type";
+import type { Athlete } from "../types/type";
+
+import type { Championships } from "../../../mocks/championships/types";
+
 import type {
   AthleteAchievement,
   AthleteAchievements,
-} from "../../../mocks/athletes/profile.types";
-import type { Championships } from "../../../mocks/championships/types";
+} from "../types/profile.types";
 
 import { getChampionshipRanking } from "./getChampionshipRanking";
 

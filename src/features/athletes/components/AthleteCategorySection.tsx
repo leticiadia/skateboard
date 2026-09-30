@@ -1,8 +1,9 @@
+import type { Athlete } from "../types/type";
+
 import {
   EntityCard,
   type EntityCardColor,
 } from "../../../components/ui/EntityCard";
-import type { Athlete } from "../../../mocks/athletes/type";
 
 interface AthleteCategorySectionProps {
   title: string;

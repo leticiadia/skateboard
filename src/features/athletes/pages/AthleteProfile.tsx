@@ -1,17 +1,17 @@
 import { useParams } from "react-router-dom";
 
-import { athletes } from "../../../mocks/athletes/athletes";
+import type { AthleteCategory } from "../types/type";
+
+import { athletes } from "../data/athletes";
 import { championships } from "../../../mocks/championships/championships";
-import type { AthleteCategory } from "../../../mocks/athletes/type";
 
-import { getAthleteProfileData } from "../../../mocks/athletes/helpers/getAthleteProfileData";
+import { AthleteHero } from "../components/ AthleteHero";
+import { AthleteGallery } from "../components/AthleteGallery";
+import { AthleteStats } from "../components/AthleteStats";
+import { AthleteCurrent } from "../components/AthleteCurrent";
+import { AthleteAchievements } from "../components/AthleteAchievements";
 
-import { AthleteHero } from "./components/ AthleteHero";
-import { AthleteStats } from "./components/AthleteStats";
-import { AthleteAchievements } from "./components/AthleteAchievements";
-import { AthleteCurrent } from "./components/AthleteCurrent";
-import { AthleteGallery } from "./components/AthleteGallery";
-import { events } from "../../../mocks/events/events";
+import { getAthleteProfileData } from "../helpers/getAthleteProfileData";
 
 const categoryColors: Record<AthleteCategory, string> = {
   female: "#2ab7ca",
@@ -28,12 +28,7 @@ export function AthleteProfile() {
     return <div>Atleta não encontrado.</div>;
   }
 
-  const profile = getAthleteProfileData(
-    athlete,
-    athletes,
-    championships,
-    events,
-  );
+  const profile = getAthleteProfileData(athlete, athletes, championships);
 
   const color = categoryColors[athlete.category];
 

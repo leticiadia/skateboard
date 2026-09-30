@@ -2,8 +2,8 @@ import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ArrowLeftIcon } from "@phosphor-icons/react";
 
+import { athletes } from "../../features/athletes/data/athletes";
 import { events } from "../../mocks/events/events";
-import { athletes } from "../../mocks/athletes/athletes";
 import { championships } from "../../mocks/championships/championships";
 
 import { Container } from "../../components/layout/Container";
