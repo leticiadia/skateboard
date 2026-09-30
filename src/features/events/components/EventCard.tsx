@@ -7,10 +7,10 @@ import {
   TicketIcon,
 } from "@phosphor-icons/react";
 
-import type { Event } from "../../features/events/types/event";
-import { championships } from "../../features/championships/data/championships";
+import type { Event } from "../types/event";
+import { championships } from "../../championships/data/championships";
 
-import { formatEventDate } from "../../utils/formatEventDate";
+import { formatEventDate } from "../../../utils/formatEventDate";
 
 export interface EventCardProps {
   event: Event;

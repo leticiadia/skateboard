@@ -1,8 +1,8 @@
-import { SectionMain } from "./sections/sectionMain";
-import { SectionAbout } from "./sections/sectionAbout";
-import { SectionAthletes } from "./sections/sectionAthletes";
-import { SectionPlaylists } from "./sections/sectionPlaylists";
-import { SectionChampionships } from "./sections/sectionChampionships";
+import { SectionMain } from "./sections/SectionMain";
+import { SectionAbout } from "./sections/SectionAbout";
+import { SectionAthletes } from "./sections/SectionAthletes";
+import { SectionPlaylists } from "./sections/SectionPlaylists";
+import { SectionChampionships } from "./sections/SectionChampionships";
 
 import { athletes } from "../../features/athletes/data/athletes";
 

@@ -14,7 +14,7 @@ import { events } from "../data/events";
 
 import { Container } from "../../../components/layout/Container";
 import { DetailHero } from "../../../components/ui/DetailHero";
-import { EventCard } from "../../../components/ui/EventCard";
+import { EventCard } from "../components/EventCard";
 
 const colorClasses = {
   zinc300: "#e4e4e7",

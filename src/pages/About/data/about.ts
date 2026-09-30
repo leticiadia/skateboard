@@ -1,7 +1,7 @@
-import ImageSkaterYoungRiding from "../assets/images/skater-young-riding.png";
-import ImageTonyHawk from "../assets/images/tony-hawk-story.png";
-import ImageSkatersFriendsVan from "../assets/images/skaters-friends-van.png";
-import ImageSkatersGroupPark from "../assets/images/skaters-group-park.png";
+import ImageSkaterYoungRiding from "../../../assets/images/skater-young-riding.png";
+import ImageTonyHawk from "../../../assets/images/tony-hawk-story.png";
+import ImageSkatersFriendsVan from "../../../assets/images/skaters-friends-van.png";
+import ImageSkatersGroupPark from "../../../assets/images/skaters-group-park.png";
 
 export const about = [
   {

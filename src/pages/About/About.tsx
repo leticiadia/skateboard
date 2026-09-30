@@ -1,10 +1,10 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 
-import { about } from "../mocks/about";
+import { PageHero } from "../../components/ui/PageHero/PageHero";
+import { Container } from "../../components/layout/Container";
 
-import { Container } from "../components/layout/Container";
-import { PageHero } from "../components/ui/PageHero/PageHero";
+import { about } from "./data/about";
 
 export function About() {
   const { t } = useTranslation();
