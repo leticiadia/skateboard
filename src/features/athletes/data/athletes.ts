@@ -70,7 +70,7 @@ import ImageAnaOpen2025 from "../../../assets/images/athletes/ana-lima/ana-lima-
 import ImageAnaOpen2026 from "../../../assets/images/athletes/ana-lima/ana-lima-open-2026.jpg";
 import ImageAnaStreet2026 from "../../../assets/images/athletes/ana-lima/ana-lima-street-2026.jpg";
 
-import type { Athlete } from "../types/type";
+import type { Athlete } from "../types/athlete";
 
 export const athletes: Athlete[] = [
   {

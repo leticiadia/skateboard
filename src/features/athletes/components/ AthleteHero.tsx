@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 
 import type { AthleteProfileData } from "../types/athlete-profile";
-import type { AthleteCategory } from "../types/type";
+import type { AthleteCategory } from "../types/athlete";
 
 import { Container } from "../../../components/layout/Container";
 import { ProfileImage } from "../../../components/ui/ProfileImage";

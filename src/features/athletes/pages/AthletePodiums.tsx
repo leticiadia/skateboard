@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import { ArrowLeftIcon } from "@phosphor-icons/react";
 
 import { athletes } from "../data/athletes";
-import type { AthleteCategory } from "../types/type";
+import type { AthleteCategory } from "../types/athlete";
 
 import { Container } from "../../../components/layout/Container";
 import { DetailHero } from "../../../components/ui/DetailHero";

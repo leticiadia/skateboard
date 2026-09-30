@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 
-import type { Athlete } from "../../../features/athletes/types/type";
+import type { Athlete } from "../../../features/athletes/types/athlete";
 
 import { Container } from "../../../components/layout/Container";
 

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-import type { AthleteCategory } from "../types/type";
+import type { AthleteCategory } from "../types/athlete";
 
 import { athletes } from "../data/athletes";
 import { championships } from "../../../mocks/championships/championships";

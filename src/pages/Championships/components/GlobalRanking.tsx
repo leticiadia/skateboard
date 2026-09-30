@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { CalendarBlankIcon, CaretDownIcon } from "@phosphor-icons/react";
 
-import type { Athlete } from "../../../features/athletes/types/type";
+import type { Athlete } from "../../../features/athletes/types/athlete";
 import { championships } from "../../../mocks/championships/championships";
 
 import {

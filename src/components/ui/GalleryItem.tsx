@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 
-import type { AthleteGalleryItem } from "../../features/athletes/types/type";
+import type { AthleteGalleryItem } from "../../features/athletes/types/athlete";
 import { championships } from "../../mocks/championships/championships";
 
 type GalleryItemProps = {

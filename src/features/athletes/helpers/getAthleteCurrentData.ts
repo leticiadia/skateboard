@@ -3,7 +3,7 @@ import type {
   AthleteCurrentData,
   AthleteCurrentRanking,
 } from "../types/athlete-profile";
-import type { Athlete } from "../types/type";
+import type { Athlete } from "../types/athlete";
 
 import { getChampionshipRanking } from "./getChampionshipRanking";
 
