@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
-import type { AthletePodium } from "../types/profile.types";
+
+import type { AthletePodium } from "../types/athlete-profile";
 
 type AthletePodiumsTableProps = {
   podiums: AthletePodium[];

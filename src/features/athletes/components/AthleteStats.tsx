@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ArrowRightIcon } from "@phosphor-icons/react";
 
-import type { AthleteProfileData } from "../types/profile.types";
+import type { AthleteProfileData } from "../types/athlete-profile";
 
 import { Container } from "../../../components/layout/Container";
 import { StatItem } from "../../../components/ui/StatItem";

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowRightIcon } from "@phosphor-icons/react";
 
 import type { Athlete } from "../types/type";
-import type { AthleteProfileData } from "../types/profile.types";
+import type { AthleteProfileData } from "../types/athlete-profile";
 
 import { championships } from "../../../mocks/championships/championships";
 

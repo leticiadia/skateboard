@@ -2,7 +2,7 @@ import type { Championships } from "../../../mocks/championships/types";
 import type {
   AthleteCurrentData,
   AthleteCurrentRanking,
-} from "../types/profile.types";
+} from "../types/athlete-profile";
 import type { Athlete } from "../types/type";
 
 import { getChampionshipRanking } from "./getChampionshipRanking";

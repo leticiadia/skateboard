@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 
-import type { AthleteProfileData } from "../types/profile.types";
+import type { AthleteProfileData } from "../types/athlete-profile";
 
 import { Container } from "../../../components/layout/Container";
 import { GalleryItem } from "../../../components/ui/GalleryItem";

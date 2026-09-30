@@ -1,5 +1,5 @@
 import type { Athlete } from "../types/type";
-import type { AthletePodium } from "../types/profile.types";
+import type { AthletePodium } from "../types/athlete-profile";
 
 import { championships } from "../../../mocks/championships/championships";
 

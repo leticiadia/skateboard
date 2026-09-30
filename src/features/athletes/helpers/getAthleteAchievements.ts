@@ -5,7 +5,7 @@ import type { Championships } from "../../../mocks/championships/types";
 import type {
   AthleteAchievement,
   AthleteAchievements,
-} from "../types/profile.types";
+} from "../types/athlete-profile";
 
 import { getChampionshipRanking } from "./getChampionshipRanking";
 
