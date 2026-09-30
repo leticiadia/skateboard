@@ -7,14 +7,14 @@ import {
   ClockIcon,
 } from "@phosphor-icons/react";
 
-import type { BackgroundColor } from "../../features/championships/components/ChampionshipSection";
+import type { BackgroundColor } from "../../championships/components/ChampionshipSection";
 
-import { events } from "../../mocks/events/events";
-import { championships } from "../../features/championships/data/championships";
+import { championships } from "../../championships/data/championships";
+import { events } from "../data/events";
 
-import { Container } from "../../components/layout/Container";
-import { DetailHero } from "../../components/ui/DetailHero";
-import { EventCard } from "../../components/ui/EventCard";
+import { Container } from "../../../components/layout/Container";
+import { DetailHero } from "../../../components/ui/DetailHero";
+import { EventCard } from "../../../components/ui/EventCard";
 
 const colorClasses = {
   zinc300: "#e4e4e7",

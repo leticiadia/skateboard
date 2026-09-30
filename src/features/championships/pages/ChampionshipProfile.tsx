@@ -4,7 +4,7 @@ import { TrophyIcon } from "@phosphor-icons/react";
 
 import { athletes } from "../../athletes/data/athletes";
 import { championships } from "../data/championships";
-import { events } from "../../../mocks/events/events";
+import { events } from "../../events/data/events";
 
 import { PageHero } from "../../../components/ui/PageHero/PageHero";
 import { ButtonLink } from "../../../components/ui/ButtonLink";

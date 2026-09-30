@@ -7,7 +7,7 @@ import {
   TicketIcon,
 } from "@phosphor-icons/react";
 
-import type { Event } from "../../mocks/events/types";
+import type { Event } from "../../features/events/types/event";
 import { championships } from "../../features/championships/data/championships";
 
 import { formatEventDate } from "../../utils/formatEventDate";

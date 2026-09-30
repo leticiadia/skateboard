@@ -1,4 +1,4 @@
-import type { Event } from "../../../mocks/events/types";
+import type { Event } from "../../events/types/event";
 import type { BackgroundColor } from "../components/ChampionshipSection";
 
 export type ChampionshipEvents = {

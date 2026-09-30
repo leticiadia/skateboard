@@ -1,7 +1,7 @@
 import type { Athlete } from "../types/athlete";
-import type { Event } from "../../../mocks/events/types";
+import type { Event } from "../../events/types/event";
 
-import { events } from "../../../mocks/events/events";
+import { events } from "../../events/data/events";
 
 export function getAthleteNextEvent(athlete: Athlete): Event | undefined {
   const today = new Date();

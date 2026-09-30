@@ -14,8 +14,8 @@ import { ChampionshipRanking } from "./features/championships/pages/Championship
 import { Playlists } from "./pages/Playlists/Playlists";
 import { PlaylistProfile } from "./pages/Playlists/PlaylistProfile";
 
-import { Events } from "./pages/Events/Events";
-import { EventProfile } from "./pages/Events/EventProfile";
+import { Events } from "./features/events/pages/Events";
+import { EventProfile } from "./features/events/pages/EventProfile";
 
 export function AppRouter() {
   return (
