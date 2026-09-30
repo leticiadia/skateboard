@@ -6,7 +6,7 @@ import { ArrowRightIcon } from "@phosphor-icons/react";
 import type { Athlete } from "../types/athlete";
 import type { AthleteProfileData } from "../types/athlete-profile";
 
-import { championships } from "../../../mocks/championships/championships";
+import { championships } from "../../championships/data/championships";
 
 import { getAthleteNextEvent } from "../helpers/getAthleteNextEvent";
 import { formatEventDate } from "../../../utils/formatEventDate";

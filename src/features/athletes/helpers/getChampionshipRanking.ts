@@ -1,5 +1,6 @@
-import { getPointsByPlacement } from "../../../mocks/championships/scoring";
 import type { Athlete, AthleteStageResult } from "../types/athlete";
+
+import { getPointsByPlacement } from "../../championships/data/scoring";
 
 export interface ChampionshipRankingEntry {
   athlete: Athlete;

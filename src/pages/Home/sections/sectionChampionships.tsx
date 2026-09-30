@@ -1,13 +1,14 @@
 import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
 
+import { championships } from "../../../features/championships/data/championships";
+
 import { Container } from "../../../components/layout/Container";
 import { EntityCard } from "../../../components/ui/EntityCard";
 import { ButtonLink } from "../../../components/ui/ButtonLink";
 
 import BannerLiveYourDreamsPT from "../../../assets/images/banner-live-your-dreams.png";
 import BannerLiveYourDreamsEN from "../../../assets/images/banner-live-your-dreams-en.png";
-import { championships } from "../../../mocks/championships/championships";
 
 export function SectionChampionships() {
   const { t, i18n } = useTranslation();

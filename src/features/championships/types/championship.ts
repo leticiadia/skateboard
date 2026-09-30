@@ -1,5 +1,5 @@
-import type { BackgroundColor } from "../../pages/Championships/components/ChampionshipSection";
-import type { Event } from "../events/types";
+import type { Event } from "../../../mocks/events/types";
+import type { BackgroundColor } from "../components/ChampionshipSection";
 
 export type ChampionshipEvents = {
   championshipSlug: string;

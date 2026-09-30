@@ -1,14 +1,14 @@
-import type { Championships } from "./types";
+import ImageLegacyStreetTourChampionship from "../../../assets/images/championships/legacy-street-tour.jpg";
+import ImageBoardwalkClashChampionship from "../../../assets/images/championships/boardwalk-clash.jpg";
+import ImageStreetWomensProChampionship from "../../../assets/images/championships/street-womens-pro.jpg";
+import ImageOldSchoolStreetProChampionship from "../../../assets/images/championships/old-school-street-pro.jpg";
 
-import ImageLegacyStreetTourChampionship from "../../assets/images/championships/legacy-street-tour.jpg";
-import ImageBoardwalkClashChampionship from "../../assets/images/championships/boardwalk-clash.jpg";
-import ImageStreetWomensProChampionship from "../../assets/images/championships/street-womens-pro.jpg";
-import ImageOldSchoolStreetProChampionship from "../../assets/images/championships/old-school-street-pro.jpg";
+import ImageSectionLegacyStreetTour from "../../../assets/images/legacy-street-tour.png";
+import ImageSectionBoardwalkClash from "../../../assets/images/boardwalk-clash.png";
+import ImageSectionStreetWomensPro from "../../../assets/images/street-womens-pro.png";
+import ImageSectionOldSchoolStreetPro from "../../../assets/images/old-school-street-pro.png";
 
-import ImageSectionLegacyStreetTour from "../../assets/images/legacy-street-tour.png";
-import ImageSectionBoardwalkClash from "../../assets/images/boardwalk-clash.png";
-import ImageSectionStreetWomensPro from "../../assets/images/street-womens-pro.png";
-import ImageSectionOldSchoolStreetPro from "../../assets/images/old-school-street-pro.png";
+import type { Championships } from "../types/championship";
 
 export const championships: Championships[] = [
   {

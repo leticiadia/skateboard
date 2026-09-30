@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import type { AthleteCategory } from "../types/athlete";
 
 import { athletes } from "../data/athletes";
-import { championships } from "../../../mocks/championships/championships";
+import { championships } from "../../championships/data/championships";
 
 import { AthleteHero } from "../components/ AthleteHero";
 import { AthleteGallery } from "../components/AthleteGallery";

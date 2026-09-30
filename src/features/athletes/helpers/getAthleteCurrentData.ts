@@ -1,4 +1,4 @@
-import type { Championships } from "../../../mocks/championships/types";
+import type { Championships } from "../../championships/types/championship";
 import type {
   AthleteCurrentData,
   AthleteCurrentRanking,

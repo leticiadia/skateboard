@@ -3,12 +3,13 @@ import { useTranslation } from "react-i18next";
 import { CalendarBlankIcon, CaretDownIcon } from "@phosphor-icons/react";
 
 import type { Athlete } from "../../../features/athletes/types/athlete";
-import { championships } from "../../../mocks/championships/championships";
+
+import { championships } from "../data/championships";
 
 import {
   getAvailableSeasons,
   getChampionshipRanking,
-} from "../utils/globalRanking";
+} from "../helpers/globalRanking";
 
 interface GlobalRankingProps {
   athletes: Athlete[];

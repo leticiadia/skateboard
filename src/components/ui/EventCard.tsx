@@ -8,7 +8,7 @@ import {
 } from "@phosphor-icons/react";
 
 import type { Event } from "../../mocks/events/types";
-import { championships } from "../../mocks/championships/championships";
+import { championships } from "../../features/championships/data/championships";
 
 import { formatEventDate } from "../../utils/formatEventDate";
 

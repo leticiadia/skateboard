@@ -2,13 +2,14 @@ import { Link, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { ArrowLeftIcon } from "@phosphor-icons/react";
 
-import { championships } from "../../mocks/championships/championships";
-import { athletes } from "../../features/athletes/data/athletes";
+import type { BackgroundColor } from "../components/ChampionshipSection";
 
-import { Container } from "../../components/layout/Container";
-import { DetailHero } from "../../components/ui/DetailHero";
-import { GlobalRanking } from "./components/GlobalRanking";
-import type { BackgroundColor } from "./components/ChampionshipSection";
+import { athletes } from "../../athletes/data/athletes";
+import { championships } from "../data/championships";
+
+import { Container } from "../../../components/layout/Container";
+import { DetailHero } from "../../../components/ui/DetailHero";
+import { GlobalRanking } from "../components/GlobalRanking";
 
 const colorClasses = {
   zinc300: "#e4e4e7",

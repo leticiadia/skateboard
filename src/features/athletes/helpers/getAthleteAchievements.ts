@@ -1,7 +1,5 @@
+import type { Championships } from "../../championships/types/championship";
 import type { Athlete } from "../types/athlete";
-
-import type { Championships } from "../../../mocks/championships/types";
-
 import type {
   AthleteAchievement,
   AthleteAchievements,

@@ -2,14 +2,18 @@ import { Route, Routes } from "react-router-dom";
 
 import { Home } from "./pages/Home/Home";
 import { About } from "./pages/About";
+
 import { Athletes } from "./features/athletes/pages/Athletes";
 import { AthleteProfile } from "./features/athletes/pages/AthleteProfile";
 import { AthletePodiums } from "./features/athletes/pages/AthletePodiums";
-import { Championships } from "./pages/Championships/Championships";
-import { ChampionshipProfile } from "./pages/Championships/ChampionshipProfile";
-import { ChampionshipRanking } from "./pages/Championships/ChampionshipRanking";
+
+import { Championships } from "./features/championships/pages/Championships";
+import { ChampionshipProfile } from "./features/championships/pages/ChampionshipProfile";
+import { ChampionshipRanking } from "./features/championships/pages/ChampionshipRanking";
+
 import { Playlists } from "./pages/Playlists/Playlists";
 import { PlaylistProfile } from "./pages/Playlists/PlaylistProfile";
+
 import { Events } from "./pages/Events/Events";
 import { EventProfile } from "./pages/Events/EventProfile";
 

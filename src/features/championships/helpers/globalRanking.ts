@@ -2,7 +2,8 @@ import type {
   Athlete,
   AthleteStageResult,
 } from "../../../features/athletes/types/athlete";
-import { getPointsByPlacement } from "../../../mocks/championships/scoring";
+
+import { getPointsByPlacement } from "../../../features/championships/data/scoring";
 
 export interface ChampionshipRanking {
   position: number;
