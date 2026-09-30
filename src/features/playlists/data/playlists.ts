@@ -1,10 +1,10 @@
-import type { Playlist } from "./types";
+import ImageSaturdaySkateSession from "../../../assets/images/playlists/saturday-skate-session.jpg";
+import ImageSunsetRide from "../../../assets/images/playlists/sunset-ride.jpg";
+import ImageCompetitionMode from "../../../assets/images/playlists/competition-mode.jpg";
+import ImageRetroRide from "../../../assets/images/playlists/retro-ride.jpg";
+import ImageSoloSession from "../../../assets/images/playlists/solo-session.jpg";
 
-import ImageSaturdaySkateSession from "../../assets/images/playlists/saturday-skate-session.jpg";
-import ImageSunsetRide from "../../assets/images/playlists/sunset-ride.jpg";
-import ImageCompetitionMode from "../../assets/images/playlists/competition-mode.jpg";
-import ImageRetroRide from "../../assets/images/playlists/retro-ride.jpg";
-import ImageSoloSession from "../../assets/images/playlists/solo-session.jpg";
+import type { Playlist } from "../types/playlist";
 
 export const playlists: Playlist[] = [
   {

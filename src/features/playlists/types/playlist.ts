@@ -1,4 +1,4 @@
-import type { BackgroundColor } from "../../pages/Playlists/components/PlaylistCard";
+import type { BackgroundColor } from "../components/PlaylistCard";
 
 export type Playlist = {
   id: number;

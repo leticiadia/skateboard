@@ -11,8 +11,8 @@ import { Championships } from "./features/championships/pages/Championships";
 import { ChampionshipProfile } from "./features/championships/pages/ChampionshipProfile";
 import { ChampionshipRanking } from "./features/championships/pages/ChampionshipRanking";
 
-import { Playlists } from "./pages/Playlists/Playlists";
-import { PlaylistProfile } from "./pages/Playlists/PlaylistProfile";
+import { Playlists } from "./features/playlists/pages/Playlists";
+import { PlaylistProfile } from "./features/playlists/pages/PlaylistProfile";
 
 import { Events } from "./features/events/pages/Events";
 import { EventProfile } from "./features/events/pages/EventProfile";
