@@ -6,8 +6,8 @@ import { ArrowRightIcon } from "@phosphor-icons/react";
 import type { AthleteProfileData } from "../types/athlete-profile";
 
 import { Container } from "../../../components/layout/Container";
-import { StatItem } from "../../../components/ui/StatItem";
-import { PodiumItem } from "../../../components/ui/PodiumItem";
+import { StatItem } from "./StatItem";
+import { PodiumItem } from "./PodiumItem";
 
 type AthleteStatsProps = {
   stats: AthleteProfileData["stats"];

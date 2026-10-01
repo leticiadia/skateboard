@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 import type { AthleteProfileData } from "../types/athlete-profile";
 
 import { Container } from "../../../components/layout/Container";
-import { GalleryItem } from "../../../components/ui/GalleryItem";
+import { GalleryItem } from "./GalleryItem";
 
 type AthleteGalleryProps = {
   gallery: AthleteProfileData["gallery"];
