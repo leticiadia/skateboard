@@ -1,10 +1,10 @@
 import { BrowserRouter } from "react-router-dom";
 
-import { AppRouter } from "./AppRouter";
+import { AppRouter } from "./router";
 
-import { ScrollToTop } from "./components/layout/ScrollToTop";
-import { Header } from "./components/layout/Header";
-import { Footer } from "./components/layout/Footer";
+import { ScrollToTop } from "../components/layout/ScrollToTop";
+import { Header } from "../components/layout/Header";
+import { Footer } from "../components/layout/Footer";
 
 function App() {
   return (
