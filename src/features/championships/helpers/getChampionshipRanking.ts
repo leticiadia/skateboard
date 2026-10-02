@@ -1,4 +1,4 @@
-import type { Athlete, AthleteStageResult } from "../types/athlete";
+import type { Athlete, AthleteStageResult } from "../../athletes/types/athlete";
 
 import { getPointsByPlacement } from "../../championships/data/scoring";
 
@@ -9,13 +9,24 @@ export interface ChampionshipRankingEntry {
   results: AthleteStageResult[];
 }
 
+interface RankingCalculation {
+  athlete: Athlete;
+  position: number;
+  points: number;
+  results: AthleteStageResult[];
+  wins: number;
+  seconds: number;
+  thirds: number;
+  latestPlacement: number;
+}
+
 export function getChampionshipRanking(
   athletes: Athlete[],
   championshipSlug: string,
   season: number,
 ): ChampionshipRankingEntry[] {
   const ranking = athletes
-    .map((athlete) => {
+    .map((athlete): RankingCalculation => {
       const results = athlete.results.filter(
         (result) =>
           result.championshipSlug === championshipSlug &&

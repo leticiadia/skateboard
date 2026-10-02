@@ -6,10 +6,8 @@ import type { Athlete } from "../../../features/athletes/types/athlete";
 
 import { championships } from "../data/championships";
 
-import {
-  getAvailableSeasons,
-  getChampionshipRanking,
-} from "../helpers/globalRanking";
+import { getAvailableSeasons } from "../helpers/getAvailableSeasons";
+import { getChampionshipRanking } from "../helpers/getChampionshipRanking";
 
 interface GlobalRankingProps {
   athletes: Athlete[];
@@ -34,12 +32,13 @@ export function GlobalRanking({
     availableSeasons.includes(seasonYear) ? seasonYear : availableSeasons[0],
   );
 
-  const displayedRanking = getChampionshipRanking(
+  const ranking = getChampionshipRanking(
     athletes,
     championshipSlug,
     selectedSeason,
-    limit,
   );
+
+  const displayedRanking = limit ? ranking.slice(0, limit) : ranking;
 
   const championship = championships.find(
     (championship) => championship.slug === championshipSlug,
@@ -185,13 +184,13 @@ export function GlobalRanking({
                   </td>
                 </tr>
               ) : (
-                displayedRanking.map(({ athlete, ranking }) => (
+                displayedRanking.map(({ athlete, position, points }) => (
                   <tr
                     key={athlete.id}
                     className="transition-colors hover:bg-zinc-200"
                   >
                     <td className="px-6 py-4 text-center font-bold">
-                      {ranking.position === 1 && (
+                      {position === 1 && (
                         <span
                           className="inline-flex items-center gap-1 
                           rounded-md border border-zinc-700 bg-zinc-900 
@@ -201,7 +200,7 @@ export function GlobalRanking({
                         </span>
                       )}
 
-                      {ranking.position === 2 && (
+                      {position === 2 && (
                         <span
                           className="inline-flex items-center gap-1 
                           rounded-md border border-zinc-700 bg-zinc-900 
@@ -211,7 +210,7 @@ export function GlobalRanking({
                         </span>
                       )}
 
-                      {ranking.position === 3 && (
+                      {position === 3 && (
                         <span
                           className="inline-flex items-center gap-1 
                           rounded-md border border-zinc-700 bg-zinc-900 
@@ -221,9 +220,9 @@ export function GlobalRanking({
                         </span>
                       )}
 
-                      {ranking.position > 3 && (
+                      {position > 3 && (
                         <span className="font-mono text-base text-zinc-500">
-                          {ranking.position}º
+                          {position}º
                         </span>
                       )}
                     </td>
@@ -270,7 +269,7 @@ export function GlobalRanking({
                       className="px-6 py-4 text-center text-sm font-mono 
                       font-black text-black"
                     >
-                      {ranking.points.toLocaleString()}
+                      {points.toLocaleString()}
                       <span className="text-xs font-bold text-zinc-500">
                         PTS
                       </span>

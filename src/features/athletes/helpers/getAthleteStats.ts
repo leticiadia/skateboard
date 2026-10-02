@@ -1,7 +1,7 @@
 import type { Athlete } from "../types/athlete";
 import type { AthleteStats } from "../types/athlete-profile";
 
-import { getChampionshipRanking } from "./getChampionshipRanking";
+import { getChampionshipRanking } from "../../championships/helpers/getChampionshipRanking";
 
 export function getAthleteStats(
   athlete: Athlete,
