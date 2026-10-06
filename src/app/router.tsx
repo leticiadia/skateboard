@@ -20,27 +20,24 @@ import { PlaylistProfile } from "../features/playlists/pages/PlaylistProfile";
 export function AppRouter() {
   return (
     <Routes>
-      <Route path="/" element={<Home />}></Route>
-      <Route path="/sobre" element={<About />}></Route>
-      <Route path="/atletas" element={<Athletes />}></Route>
-      <Route path="/atletas/:slug" element={<AthleteProfile />}></Route>
-      <Route path="/atletas/:slug/podio" element={<AthletePodiums />}></Route>
-      <Route path="/campeonatos" element={<Championships />}></Route>
-      <Route
-        path="/campeonatos/:slug"
-        element={<ChampionshipProfile />}
-      ></Route>
+      <Route path="/" element={<Home />} />
+      <Route path="/sobre" element={<About />} />
+      <Route path="/atletas" element={<Athletes />} />
+      <Route path="/atletas/:slug" element={<AthleteProfile />} />
+      <Route path="/atletas/:slug/podio" element={<AthletePodiums />} />
+      <Route path="/campeonatos" element={<Championships />} />
+      <Route path="/campeonatos/:slug" element={<ChampionshipProfile />} />
       <Route
         path="/campeonatos/:slug/ranking"
         element={<ChampionshipRanking />}
-      ></Route>
-      <Route path="/campeonatos/:slug/eventos" element={<Events />}></Route>
+      />
+      <Route path="/campeonatos/:slug/eventos" element={<Events />} />
       <Route
         path="/campeonatos/:slug/eventos/:eventSlug"
         element={<EventProfile />}
-      ></Route>
-      <Route path="/playlists" element={<Playlists />}></Route>
-      <Route path="/playlists/:slug" element={<PlaylistProfile />}></Route>
+      />
+      <Route path="/playlists" element={<Playlists />} />
+      <Route path="/playlists/:slug" element={<PlaylistProfile />} />
     </Routes>
   );
 }

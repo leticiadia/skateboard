@@ -644,10 +644,15 @@
   "footer": {
     "description": "Mais do que um esporte, o skateboard representa liberdade, criatividade e expressão em cada detalhe.",
     "copyright": "© 2026 Skateboard. Todos os direitos reservados.",
-     "navigation": {
-      "home": "Home",
+    "navigation": {
       "about": "Sobre",
-      "athletes": "Atletas"
+      "athletes": "Atletas",
+      "championships": "Campeonatos"
+    },
+    "sections": {
+      "navigation": "Navegação",
+      "contact": "Contato",
+      "social": "Redes Sociais"
     }
     
   }

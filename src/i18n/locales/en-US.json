@@ -657,9 +657,14 @@
     "description": "More than a sport, skateboarding represents freedom, creativity, and self-expression in every detail.",
     "copyright": "© 2026 Skateboard. All rights reserved.",
     "navigation": {
-      "home": "Home",
       "about": "About",
-      "athletes": "Athletes"
+      "athletes": "Athletes",
+      "championships": "Championships"
+    },
+    "sections": {
+      "navigation": "Navigation",
+      "contact": "Contact",
+      "social": "Social Media"
     }
   }
 }
