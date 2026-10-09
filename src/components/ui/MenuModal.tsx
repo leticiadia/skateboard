@@ -1,7 +1,10 @@
 import { Translate, X } from "phosphor-react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import SkateboardLogo from "../../assets/brand/skateboard-logo-black.svg";
+
+type Language = "pt-BR" | "en";
 
 interface RouteProps {
   path: string;
@@ -11,9 +14,9 @@ interface RouteProps {
 interface MenuModalProps {
   isOpen: boolean;
   routes: RouteProps[];
-  currentLanguage: string;
+  currentLanguage: Language;
   onClose: () => void;
-  onChangeLanguage: (lang: "pt" | "en") => void;
+  onChangeLanguage: (language: Language) => void;
 }
 
 export function MenuModal({
@@ -23,58 +26,97 @@ export function MenuModal({
   currentLanguage,
   onChangeLanguage,
 }: MenuModalProps) {
-  if (!isOpen) return null;
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
+  if (!isOpen) {
+    return null;
+  }
 
   function handleLanguageToggle() {
-    const nextLanguage = currentLanguage === "pt" ? "en" : "pt";
+    const nextLanguage = currentLanguage === "pt-BR" ? "en" : "pt-BR";
+
     onChangeLanguage(nextLanguage);
   }
 
+  function handleBackdropClick() {
+    onClose();
+  }
+
   return (
-    <div className="fixed top-0 left-0 w-full bg-black/30 z-40 min-h-[100vh] flex items-center justify-center md:hidden">
-      <div className="relative bg-white w-[90%] h-[96vh] rounded-2xl p-4 m-4 shadow-lg border border-white/10 animate-scale-up">
+    <div
+      className="fixed inset-0 z-40 flex min-h-screen items-center 
+      justify-center bg-black/30 md:hidden"
+      onClick={handleBackdropClick}
+    >
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="Menu de navegação"
+        className="animate-scale-up relative m-4 h-[96vh] w-[90%] rounded-2xl 
+        border border-white/10 bg-white p-4 shadow-lg"
+        onClick={(event) => event.stopPropagation()}
+      >
         <div className="flex items-center justify-between">
-          <img
-            src={SkateboardLogo}
-            className="h-8 object-cover lg:h-14"
-            alt=""
-          />
+          <img src={SkateboardLogo} className="h-8" alt="Skateboard" />
 
           <button
+            type="button"
             onClick={onClose}
-            className="cursor-pointer"
-            aria-label="Botão para fechar o menu"
+            className="cursor-pointer rounded p-1 text-black 
+            focus-visible:outline-2 focus-visible:outline-offset-2 
+            focus-visible:outline-yellow-300"
+            aria-label="Fechar menu"
           >
-            <X size={26} color="#000000" />
+            <X size={26} aria-hidden="true" />
           </button>
         </div>
 
-        <ul className="flex flex-col items-start gap-6 mt-6">
-          {routes.map(({ path, label }) => (
-            <li key={path}>
-              <Link
-                to={path}
-                onClick={onClose}
-                className="text-black text-lg font-medium"
-              >
-                {label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <nav aria-label="Navegação principal">
+          <ul className="mt-6 flex flex-col items-start gap-6">
+            {routes.map(({ path, label }) => (
+              <li key={path}>
+                <Link
+                  to={path}
+                  onClick={onClose}
+                  className="text-lg font-medium text-black"
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <div className="mt-8">
           <button
+            type="button"
             onClick={handleLanguageToggle}
-            className="flex items-center gap-2 px-4 h-11 rounded-full border 
-            border-black/20 text-black transition-all duration-300
-            hover:bg-black hover:text-white"
+            className="flex h-11 cursor-pointer items-center gap-2 rounded-full 
+            border border-black/20 px-4 text-black transition-colors 
+            duration-300 hover:bg-black hover:text-white 
+            focus-visible:outline-2 focus-visible:outline-offset-2 
+            focus-visible:outline-yellow-300"
             aria-label="Trocar idioma"
           >
-            <Translate size={20} weight="bold" />
-
+            <Translate size={20} weight="bold" aria-hidden="true" />
             <span className="text-sm font-medium uppercase">
-              {currentLanguage === "pt" ? "PT" : "EN"}
+              {currentLanguage === "pt-BR" ? "PT" : "EN"}
             </span>
           </button>
         </div>
