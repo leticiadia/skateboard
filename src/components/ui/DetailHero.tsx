@@ -24,8 +24,8 @@ export function DetailHero({
         </span>
 
         <h1
-          className="mt-3 text-4xl font-black leading-[0.95] tracking-tight 
-        text-black sm:text-5xl lg:text-7xl"
+          className="mt-3 text-4xl font-black leading-[0.95] tracking-tight
+            text-black sm:text-5xl lg:text-7xl"
         >
           {title}
         </h1>
@@ -37,8 +37,8 @@ export function DetailHero({
         />
 
         <p
-          className="mt-6 max-w-2xl text-base leading-7 text-zinc-600 
-          lg:text-lg"
+          className="mt-6 max-w-2xl text-base leading-7 text-zinc-600
+            lg:text-lg"
         >
           {description}
         </p>
