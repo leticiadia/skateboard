@@ -6,51 +6,53 @@ type ButtonLinkProps = {
   href: string;
   backgroundColor?: string;
   variant?: "outline" | "yellow" | "solid";
-  size?: "default" | "medium" | "large";
+  size?: "small" | "medium" | "large";
 };
 
 const variants = {
   outline:
-    "border-2 border-black text-black bg-transparent hover:bg-black hover:text-white",
+    "border-2 border-black bg-transparent text-black hover:bg-black hover:text-white",
   yellow:
-    "border-2 border-yellow-300 text-yellow-300 bg-transparent hover:bg-yellow-300 hover:text-black",
+    "border-2 border-yellow-300 bg-transparent text-yellow-300 hover:bg-yellow-300 hover:text-black",
   solid: "bg-black text-white hover:bg-zinc-950",
-};
+} as const;
 
 const sizes = {
-  default: "w-full lg:w-[12.5rem]",
-  medium: "w-full lg:w-[14rem]",
-  large: "w-full lg:w-[18rem]",
-};
+  small: "sm:w-36",
+  medium: "sm:w-48",
+  large: "sm:w-68",
+} as const;
 
 export function ButtonLink({
   title,
   href,
   variant,
-  size = "default",
+  size = "medium",
   backgroundColor,
 }: ButtonLinkProps) {
   return (
     <Link
       to={href}
-      className={`group relative p-4 h-12 
-      rounded-full flex items-center justify-center font-bold 
-      overflow-hidden transition-all 
-      duration-300 ${variant ? variants[variant] : ""} ${sizes[size]}`}
       style={backgroundColor ? { backgroundColor } : undefined}
+      className={`group grid w-full grid-cols-[1fr_auto_1fr] items-center gap-2
+        rounded-full px-5 py-3 text-sm font-bold leading-5 transition-colors 
+        duration-300 focus-visible:outline-2 focus-visible:outline-offset-4
+        focus-visible:outline-yellow-300 motion-reduce:transition-none
+        ${variant ? variants[variant] : ""}
+        ${sizes[size]}`}
     >
-      <span
-        className="transition-transform duration-300 
-        group-hover:-translate-x-2"
-      >
-        {title}
-      </span>
+      <span className="col-start-2 text-center">{title}</span>
 
       <ArrowRightIcon
+        aria-hidden="true"
         size={18}
         weight="bold"
-        className="absolute right-3 opacity-0 -translate-x-2 transition-all 
-        duration-400 group-hover:opacity-100 group-hover:translate-x-0"
+        className="col-start-3 justify-self-end
+          translate-x-1 opacity-0
+          transition-[transform,opacity] duration-300
+          group-hover:translate-x-0 group-hover:opacity-100
+          group-focus-visible:translate-x-0 group-focus-visible:opacity-100
+          motion-reduce:transition-none"
       />
     </Link>
   );

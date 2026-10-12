@@ -78,7 +78,7 @@ export function SectionMain() {
                 href="#"
                 title={t("home.main.button")}
                 variant="yellow"
-                size="default"
+                size="medium"
               />
             </motion.div>
           </div>

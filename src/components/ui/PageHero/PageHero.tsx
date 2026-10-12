@@ -2,6 +2,11 @@ import { Container } from "../../layout/Container";
 
 import type { PageHeroProps } from "./types";
 
+const HEIGHT_CLASSES = {
+  normal: "min-h-[80vh]",
+  full: "min-h-screen",
+} as const;
+
 export function PageHero({
   title,
   subtitle,
@@ -9,19 +14,10 @@ export function PageHero({
   backgroundColor,
   size = "normal",
 }: PageHeroProps) {
-  const heightClasses = {
-    normal: "min-h-[80vh]",
-    full: "min-h-screen",
-  };
-
   return (
     <section
-      className={`
-        relative flex w-full
-        items-center justify-center
-        bg-cover bg-center bg-no-repeat
-        ${heightClasses[size]}
-      `}
+      className={`relative flex w-full items-center justify-center bg-cover 
+      bg-center bg-no-repeat ${HEIGHT_CLASSES[size]}`}
       style={{
         backgroundImage: backgroundImage
           ? `url(${backgroundImage})`
@@ -29,15 +25,17 @@ export function PageHero({
         backgroundColor,
       }}
     >
-      <Container>
-        {backgroundImage && <div className="absolute inset-0 bg-black/80" />}
-
+      {backgroundImage && (
         <div
-          className="
-          relative z-10 mx-auto flex max-w-3xl
-          flex-col items-center gap-4
-          text-center
-        "
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-black/80"
+        />
+      )}
+
+      <Container>
+        <div
+          className="relative z-10 mx-auto flex max-w-3xl flex-col 
+          items-center gap-4 text-center"
         >
           <h1 className="text-4xl font-bold text-white lg:text-6xl">{title}</h1>
 

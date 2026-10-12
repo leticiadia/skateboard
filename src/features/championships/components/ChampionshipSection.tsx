@@ -60,7 +60,7 @@ export function ChampionshipSection({
               href={href}
               title="Explore"
               variant="solid"
-              size="default"
+              size="medium"
             />
           </motion.div>
 

@@ -47,7 +47,7 @@ export function SectionAbout() {
                 href="/sobre"
                 title={t("home.about.button")}
                 variant="outline"
-                size="default"
+                size="medium"
               />
             </motion.div>
 

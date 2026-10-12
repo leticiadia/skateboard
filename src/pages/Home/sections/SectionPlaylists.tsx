@@ -55,7 +55,7 @@ export function SectionPlaylists() {
               href="/playlists"
               title={t("home.playlists.button")}
               variant="solid"
-              size="default"
+              size="medium"
             />
           </motion.div>
         </div>
