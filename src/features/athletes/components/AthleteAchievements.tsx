@@ -1,5 +1,5 @@
-import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
+import { motion, useReducedMotion } from "motion/react";
 
 import type { AthleteProfileData } from "../types/athlete-profile";
 
@@ -10,27 +10,61 @@ type AthleteAchievementsProps = {
   accentColor: string;
 };
 
+const SCROLL_TRANSITION = {
+  duration: 0.6,
+  ease: "easeOut" as const,
+};
+
+const ITEM_TRANSITION = {
+  duration: 0.5,
+  ease: "easeOut" as const,
+};
+
+const VIEWPORT_OPTIONS = {
+  once: true,
+  amount: 0.3,
+};
+
 export function AthleteAchievements({
   achievements,
   accentColor,
 }: AthleteAchievementsProps) {
   const { t } = useTranslation();
+  const shouldReduceMotion = useReducedMotion();
 
-  const sortedTitles = [...achievements.titles].sort((a, b) => b.year - a.year);
-  const sortedAwards = [...achievements.awards].sort((a, b) => b.year - a.year);
+  const sortedTitles = [...achievements.titles].sort(
+    (titleA, titleB) => titleB.year - titleA.year,
+  );
+
+  const sortedAwards = [...achievements.awards].sort(
+    (awardA, awardB) => awardB.year - awardA.year,
+  );
+
+  function getScrollTransition(delay = 0) {
+    return shouldReduceMotion
+      ? { duration: 0 }
+      : { ...SCROLL_TRANSITION, delay };
+  }
+
+  function getItemTransition(index: number) {
+    return shouldReduceMotion
+      ? { duration: 0 }
+      : { ...ITEM_TRANSITION, delay: index * 0.1 };
+  }
+
+  const initialAnimation = shouldReduceMotion ? false : { opacity: 0, y: 25 };
+
+  const visibleAnimation = { opacity: 1, y: 0 };
 
   return (
-    <section className="w-full my-10">
+    <section className="my-10 w-full">
       <Container>
         <motion.div
           className="max-w-2xl"
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{
-            duration: 0.6,
-            ease: "easeOut",
-          }}
+          initial={initialAnimation}
+          whileInView={visibleAnimation}
+          viewport={VIEWPORT_OPTIONS}
+          transition={getScrollTransition()}
         >
           <span
             className="text-sm font-bold uppercase tracking-widest"
@@ -47,36 +81,29 @@ export function AthleteAchievements({
           </h2>
         </motion.div>
 
-        <div className="mt-8">
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{
-              duration: 0.6,
-              ease: "easeOut",
-            }}
+        <section className="mt-8" aria-labelledby="athlete-titles-heading">
+          <motion.h3
+            id="athlete-titles-heading"
+            className="text-sm font-bold uppercase tracking-widest"
+            initial={initialAnimation}
+            whileInView={visibleAnimation}
+            viewport={VIEWPORT_OPTIONS}
+            transition={getScrollTransition()}
           >
-            <span className="text-sm font-bold uppercase tracking-widest">
-              {t("athlete-achievements.titles")}
-            </span>
-          </motion.div>
+            {t("athlete-achievements.titles")}
+          </motion.h3>
 
           <div className="mt-8 border-t border-gray-200">
             {sortedTitles.length > 0 ? (
               sortedTitles.map((achievement, index) => (
                 <motion.div
                   key={`${achievement.championship.slug}-${achievement.year}`}
-                  className="flex flex-col gap-4 border-b border-gray-200 
-                  py-8 sm:flex-row sm:items-center sm:justify-between"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  className="flex flex-col gap-4 border-b border-gray-200 py-8 
+                  sm:flex-row sm:items-center sm:justify-between"
+                  initial={initialAnimation}
+                  whileInView={visibleAnimation}
                   viewport={{ once: true, amount: 0.5 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.1,
-                    ease: "easeOut",
-                  }}
+                  transition={getItemTransition(index)}
                 >
                   <div className="flex items-center gap-5">
                     <span
@@ -86,14 +113,14 @@ export function AthleteAchievements({
                       {achievement.year}
                     </span>
 
-                    <h3 className="text-xl font-bold sm:text-2xl">
+                    <h4 className="text-xl font-bold sm:text-2xl">
                       {t(achievement.championship.title)}
-                    </h3>
+                    </h4>
                   </div>
 
                   <span
-                    className="text-xs font-bold text-black text-center uppercase 
-                    tracking-widest py-1 px-2 w-24 rounded-full"
+                    className="w-24 rounded-full px-2 py-1 text-center text-xs 
+                    font-bold uppercase tracking-widest text-black"
                     style={{ backgroundColor: accentColor }}
                   >
                     {t("athlete-achievements.champion")}
@@ -108,35 +135,31 @@ export function AthleteAchievements({
               </div>
             )}
           </div>
-        </div>
+        </section>
 
-        <div className="mt-8">
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+        <section className="mt-8" aria-labelledby="athlete-awards-heading">
+          <motion.h3
+            id="athlete-awards-heading"
+            className="text-sm font-bold uppercase tracking-widest"
+            initial={initialAnimation}
+            whileInView={visibleAnimation}
+            viewport={VIEWPORT_OPTIONS}
+            transition={getScrollTransition()}
           >
-            <span className="text-sm font-bold uppercase tracking-widest">
-              {t("athlete-achievements.awards")}
-            </span>
-          </motion.div>
+            {t("athlete-achievements.awards")}
+          </motion.h3>
 
           <div className="mt-8 border-t border-gray-200">
             {sortedAwards.length > 0 ? (
               sortedAwards.map((award, index) => (
                 <motion.div
                   key={`${award.name}-${award.year}`}
-                  className="flex flex-col items-start  gap-4 border-b 
+                  className="flex flex-col items-start gap-4 border-b 
                   border-gray-200 py-8 sm:flex-row sm:items-center"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={initialAnimation}
+                  whileInView={visibleAnimation}
                   viewport={{ once: true, amount: 0.5 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.1,
-                    ease: "easeOut",
-                  }}
+                  transition={getItemTransition(index)}
                 >
                   <span
                     className="text-sm font-bold"
@@ -145,11 +168,9 @@ export function AthleteAchievements({
                     {award.year}
                   </span>
 
-                  <div>
-                    <h3 className="text-xl font-bold sm:text-2xl">
-                      {t(award.name)}
-                    </h3>
-                  </div>
+                  <h4 className="text-xl font-bold sm:text-2xl">
+                    {t(award.name)}
+                  </h4>
                 </motion.div>
               ))
             ) : (
@@ -160,7 +181,7 @@ export function AthleteAchievements({
               </div>
             )}
           </div>
-        </div>
+        </section>
       </Container>
     </section>
   );

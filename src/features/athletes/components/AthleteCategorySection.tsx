@@ -1,5 +1,4 @@
 import type { Athlete } from "../types/athlete";
-
 import {
   EntityCard,
   type EntityCardColor,
@@ -21,8 +20,8 @@ export function AthleteCategorySection({
       <h3 className="mb-6 text-3xl font-bold">{title}</h3>
 
       <div
-        className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 
-        lg:grid-cols-4"
+        className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 
+        md:grid-cols-3 lg:grid-cols-4"
       >
         {athletes.map((athlete) => (
           <EntityCard
