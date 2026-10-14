@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 
 import type { AthleteProfileData } from "../types/athlete-profile";
 
@@ -11,21 +11,38 @@ type AthleteGalleryProps = {
   accentColor: string;
 };
 
+const HIDDEN_STATE = { opacity: 0, y: 25 };
+const VISIBLE_STATE = { opacity: 1, y: 0 };
+
+const VIEWPORT_OPTIONS = {
+  once: true,
+  amount: 0.3,
+} as const;
+
+const SECTION_TRANSITION = {
+  duration: 0.6,
+  ease: "easeOut" as const,
+};
+
 export function AthleteGallery({ gallery, accentColor }: AthleteGalleryProps) {
   const { t } = useTranslation();
+  const shouldReduceMotion = useReducedMotion();
+
+  const initialAnimation = shouldReduceMotion ? false : HIDDEN_STATE;
+
+  const animationTransition = shouldReduceMotion
+    ? { duration: 0 }
+    : SECTION_TRANSITION;
 
   return (
-    <section className="w-full my-10">
+    <section className="my-10 w-full">
       <Container>
         <motion.div
           className="max-w-2xl"
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{
-            duration: 0.6,
-            ease: "easeOut",
-          }}
+          initial={initialAnimation}
+          whileInView={VISIBLE_STATE}
+          viewport={VIEWPORT_OPTIONS}
+          transition={animationTransition}
         >
           <span
             className="text-sm font-bold uppercase tracking-widest"
@@ -42,11 +59,11 @@ export function AthleteGallery({ gallery, accentColor }: AthleteGalleryProps) {
           </h2>
         </motion.div>
 
-        <div className="mt-8 grid gap-16 md:grid-cols-2 md:gap-x-10 md:gap-y-24">
-          {gallery.map((item, index) => (
+        <div className="mt-8 grid gap-16 md:grid-cols-2 md:gap-x-10 md:gap-y-20">
+          {gallery.map((galleryItem, index) => (
             <GalleryItem
-              key={`${item.image}-${index}`}
-              item={item}
+              key={`${galleryItem.image}-${index}`}
+              item={galleryItem}
               index={index}
               accentColor={accentColor}
             />

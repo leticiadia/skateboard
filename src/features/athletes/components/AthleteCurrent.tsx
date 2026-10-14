@@ -1,7 +1,7 @@
-import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { ArrowRightIcon } from "@phosphor-icons/react";
+import { motion, useReducedMotion } from "motion/react";
 
 import type { Athlete } from "../types/athlete";
 import type { AthleteProfileData } from "../types/athlete-profile";
@@ -19,28 +19,53 @@ type AthleteCurrentProps = {
   accentColor: string;
 };
 
+const HIDDEN_STATE = { opacity: 0, y: 25 };
+const VISIBLE_STATE = { opacity: 1, y: 0 };
+
+const VIEWPORT_OPTIONS = {
+  once: true,
+  amount: 0.3,
+} as const;
+
+const SECTION_TRANSITION = {
+  duration: 0.6,
+  ease: "easeOut" as const,
+};
+
 export function AthleteCurrent({
   athlete,
   current,
   accentColor,
 }: AthleteCurrentProps) {
   const { t, i18n } = useTranslation();
+  const shouldReduceMotion = useReducedMotion();
 
   const nextEvent = getAthleteNextEvent(athlete);
 
-  const nextEventChampionship = championships.find(
-    (championship) => championship.slug === nextEvent?.championshipSlug,
-  );
+  const nextEventChampionship = nextEvent
+    ? championships.find(
+        (championship) => championship.slug === nextEvent.championshipSlug,
+      )
+    : undefined;
+
+  const nextEventDate = nextEvent
+    ? new Date(`${nextEvent.date}T00:00:00`)
+    : undefined;
+
+  const initialAnimation = shouldReduceMotion ? false : HIDDEN_STATE;
+  const animationTransition = shouldReduceMotion
+    ? { duration: 0 }
+    : SECTION_TRANSITION;
 
   return (
-    <section className="w-full my-10">
+    <section className="my-10 w-full">
       <Container>
         <motion.div
           className="max-w-2xl"
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          initial={initialAnimation}
+          whileInView={VISIBLE_STATE}
+          viewport={VIEWPORT_OPTIONS}
+          transition={animationTransition}
         >
           <span
             className="text-sm font-bold uppercase tracking-widest"
@@ -59,10 +84,10 @@ export function AthleteCurrent({
 
         <motion.div
           className="mt-8"
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          initial={initialAnimation}
+          whileInView={VISIBLE_STATE}
+          viewport={VIEWPORT_OPTIONS}
+          transition={animationTransition}
         >
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-sm font-bold uppercase tracking-widest">
@@ -78,9 +103,9 @@ export function AthleteCurrent({
           </div>
 
           {current.rankings.length > 0 ? (
-            <div className="mt-8 border-t border-gray-200">
+            <ol className="mt-8 border-t border-gray-200">
               {current.rankings.map((ranking) => (
-                <div
+                <li
                   key={ranking.championship.slug}
                   className="grid grid-cols-[1fr_auto] items-center gap-6 
                   border-b border-gray-200 py-6"
@@ -101,9 +126,9 @@ export function AthleteCurrent({
                   >
                     #{ranking.position}
                   </strong>
-                </div>
+                </li>
               ))}
-            </div>
+            </ol>
           ) : (
             <div className="mt-8 border-y border-gray-200 py-10">
               <p className="max-w-xl text-lg leading-7 text-gray-500">
@@ -113,19 +138,18 @@ export function AthleteCurrent({
           )}
         </motion.div>
 
-        {nextEvent && nextEventChampionship && (
+        {nextEvent && nextEventChampionship && nextEventDate && (
           <motion.div
             className="mt-8 overflow-hidden rounded-2xl border border-gray-200 
             bg-white"
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            initial={initialAnimation}
+            whileInView={VISIBLE_STATE}
+            viewport={VIEWPORT_OPTIONS}
+            transition={animationTransition}
           >
             <div className="flex flex-col lg:flex-row">
               <div
-                className="flex shrink-0 flex-col justify-center p-6 sm:p-8 
-                lg:w-48"
+                className="flex shrink-0 flex-col justify-center p-6 sm:p-8 lg:w-48"
                 style={{ backgroundColor: accentColor }}
               >
                 <span className="text-xs font-black uppercase tracking-widest">
@@ -136,16 +160,16 @@ export function AthleteCurrent({
                   className="mt-2 text-5xl font-black leading-none 
                   sm:text-6xl"
                 >
-                  {new Date(`${nextEvent.date}T00:00:00`).getDate()}
+                  {nextEventDate.getDate()}
                 </strong>
 
-                <span className="mt-1 text-sm font-black uppercase tracking-widest">
-                  {new Date(`${nextEvent.date}T00:00:00`).toLocaleDateString(
-                    i18n.language,
-                    {
-                      month: "short",
-                    },
-                  )}
+                <span
+                  className="mt-1 text-sm font-black uppercase 
+                  tracking-widest"
+                >
+                  {nextEventDate.toLocaleDateString(i18n.language, {
+                    month: "short",
+                  })}
                 </span>
               </div>
 
@@ -168,8 +192,8 @@ export function AthleteCurrent({
 
                 <div
                   className="mt-6 flex flex-col gap-3 border-t 
-                border-gray-200 pt-5 sm:flex-row sm:flex-wrap sm:items-center 
-                  sm:gap-x-6 sm:gap-y-3"
+                border-gray-200 pt-5 sm:flex-row sm:flex-wrap 
+                  sm:items-center sm:gap-x-6 sm:gap-y-3"
                 >
                   <span className="text-sm font-bold text-gray-700">
                     {formatEventDate(nextEvent.date, i18n.language)}
@@ -185,22 +209,24 @@ export function AthleteCurrent({
                 </div>
 
                 <div
-                  className="mt-6 flex justify-start border-t border-gray-200 
-                  pt-5 sm:justify-end"
+                  className="mt-6 flex justify-start border-t 
+                border-gray-200 pt-5 sm:justify-end"
                 >
                   <Link
                     to={`/campeonatos/${nextEvent.championshipSlug}/eventos/${nextEvent.slug}`}
                     className="group flex items-center gap-2 text-sm font-bold 
-                    hover:underline"
+                    hover:underline focus-visible:outline-2 
+                    focus-visible:outline-offset-4"
                     style={{ color: accentColor }}
                   >
                     <span>{t("athlete-current.viewEvent")}</span>
 
                     <ArrowRightIcon
                       size={16}
-                      className="transition-transform duration-200 
-                      group-hover:translate-x-1"
                       weight="bold"
+                      aria-hidden="true"
+                      className="transition-transform duration-200 
+                      group-hover:translate-x-1 motion-reduce:transition-none"
                     />
                   </Link>
                 </div>
