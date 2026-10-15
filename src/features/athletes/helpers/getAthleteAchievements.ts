@@ -14,26 +14,23 @@ export function getAthleteAchievements(
 ): AthleteAchievements {
   const titles: AthleteAchievement[] = [];
 
-  const seasons = athlete.results.reduce<
-    { championshipSlug: string; season: number }[]
-  >((accumulator, result) => {
-    const alreadyExists = accumulator.some(
-      (item) =>
-        item.championshipSlug === result.championshipSlug &&
-        item.season === result.season,
-    );
+  const uniqueSeasons = new Map<
+    string,
+    { championshipSlug: string; season: number }
+  >();
 
-    if (!alreadyExists) {
-      accumulator.push({
+  athlete.results.forEach((result) => {
+    const seasonKey = JSON.stringify([result.championshipSlug, result.season]);
+
+    if (!uniqueSeasons.has(seasonKey)) {
+      uniqueSeasons.set(seasonKey, {
         championshipSlug: result.championshipSlug,
         season: result.season,
       });
     }
+  });
 
-    return accumulator;
-  }, []);
-
-  seasons.forEach(({ championshipSlug, season }) => {
+  for (const { championshipSlug, season } of uniqueSeasons.values()) {
     const ranking = getChampionshipRanking(athletes, championshipSlug, season);
 
     const athleteRanking = ranking.find(
@@ -41,15 +38,15 @@ export function getAthleteAchievements(
     );
 
     if (athleteRanking?.position !== 1) {
-      return;
+      continue;
     }
 
     const championship = championships.find(
-      ({ slug }) => slug === championshipSlug,
+      (championship) => championship.slug === championshipSlug,
     );
 
     if (!championship) {
-      return;
+      continue;
     }
 
     titles.push({
@@ -57,7 +54,7 @@ export function getAthleteAchievements(
       year: season,
       placement: 1,
     });
-  });
+  }
 
   return {
     titles,
