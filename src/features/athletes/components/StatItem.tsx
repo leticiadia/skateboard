@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 
 type StatItemProps = {
   value: number;
@@ -8,6 +8,14 @@ type StatItemProps = {
   bordered?: boolean;
 };
 
+const HIDDEN_STATE = { opacity: 0, y: 20 } as const;
+const VISIBLE_STATE = { opacity: 1, y: 0 } as const;
+
+const VIEWPORT_CONFIG = {
+  once: true,
+  amount: 0.5,
+} as const;
+
 export function StatItem({
   value,
   label,
@@ -15,16 +23,21 @@ export function StatItem({
   delay,
   bordered = false,
 }: StatItemProps) {
+  const shouldReduceMotion = useReducedMotion();
+
+  const containerClasses = [
+    "px-6 py-10 lg:px-10 lg:py-12",
+    bordered ? "border-t border-gray-200 md:border-l md:border-t-0" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+
   return (
     <motion.div
-      className={`
-        px-6 py-10
-        lg:px-10 lg:py-12
-        ${bordered ? "border-t border-gray-200 md:border-l md:border-t-0" : ""}
-      `}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.5 }}
+      className={containerClasses}
+      initial={shouldReduceMotion ? false : HIDDEN_STATE}
+      whileInView={VISIBLE_STATE}
+      viewport={VIEWPORT_CONFIG}
       transition={{
         duration: 0.5,
         delay,

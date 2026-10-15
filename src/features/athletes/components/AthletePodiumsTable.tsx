@@ -1,5 +1,5 @@
-import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
+import { motion, useReducedMotion } from "motion/react";
 
 import type { AthletePodium } from "../types/athlete-profile";
 
@@ -8,26 +8,40 @@ type AthletePodiumsTableProps = {
   accentColor: string;
 };
 
-const medalData = {
+const MEDAL_CONFIG = {
   gold: {
-    number: "01",
     label: "athlete-podiums.medals.gold",
   },
   silver: {
-    number: "02",
     label: "athlete-podiums.medals.silver",
   },
   bronze: {
-    number: "03",
     label: "athlete-podiums.medals.bronze",
   },
 } as const;
 
+const HIDDEN_STATE = { opacity: 0, y: 15 };
+const VISIBLE_STATE = { opacity: 1, y: 0 };
+
+const TABLE_TRANSITION = {
+  duration: 0.6,
+  delay: 0.15,
+  ease: "easeOut" as const,
+};
+
+const ROW_TRANSITION = {
+  duration: 0.4,
+  ease: "easeOut" as const,
+};
+
 function getPodiumStage(podium: AthletePodium) {
-  const season = podium.championship.seasons.find(
-    ({ year }) => year === podium.year,
+  const championshipSeason = podium.championship.seasons.find(
+    (season) => season.year === podium.year,
   );
-  return season?.stages.find(({ id }) => id === podium.stageId);
+
+  return championshipSeason?.stages.find(
+    (championshipStage) => championshipStage.id === podium.stageId,
+  );
 }
 
 export function AthletePodiumsTable({
@@ -35,6 +49,13 @@ export function AthletePodiumsTable({
   accentColor,
 }: AthletePodiumsTableProps) {
   const { t } = useTranslation();
+  const shouldReduceMotion = useReducedMotion();
+
+  const initialAnimation = shouldReduceMotion ? false : HIDDEN_STATE;
+
+  const tableTransition = shouldReduceMotion
+    ? { duration: 0 }
+    : TABLE_TRANSITION;
 
   if (podiums.length === 0) {
     return (
@@ -49,24 +70,21 @@ export function AthletePodiumsTable({
   return (
     <motion.div
       className="mt-8 w-full overflow-x-auto"
-      initial={{ opacity: 0, y: 25 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        duration: 0.6,
-        delay: 0.15,
-        ease: "easeOut",
-      }}
+      initial={initialAnimation}
+      animate={VISIBLE_STATE}
+      transition={tableTransition}
     >
       <table className="w-full min-w-[500px] border-collapse text-left">
         <thead>
           <tr className="border-b border-gray-200">
             <th
               scope="col"
-              className="pb-4 text-xs font-bold uppercase tracking-widest 
-              text-gray-400 w-28"
+              className="w-28 pb-4 text-xs font-bold uppercase tracking-widest 
+              text-gray-400"
             >
               {t("athlete-podiums.table.year")}
             </th>
+
             <th
               scope="col"
               className="pb-4 text-xs font-bold uppercase tracking-widest 
@@ -74,10 +92,11 @@ export function AthletePodiumsTable({
             >
               {t("athlete-podiums.table.championship")}
             </th>
+
             <th
               scope="col"
-              className="pb-4 text-right text-xs font-bold uppercase 
-              tracking-widest text-gray-400 w-40"
+              className="w-40 pb-4 text-right text-xs font-bold uppercase 
+              tracking-widest text-gray-400"
             >
               {t("athlete-podiums.table.result")}
             </th>
@@ -85,59 +104,63 @@ export function AthletePodiumsTable({
         </thead>
 
         <tbody className="divide-y divide-gray-200 border-b border-gray-200">
-          {podiums.map((podium, index) => {
-            const medal = medalData[podium.medal];
-            const stage = getPodiumStage(podium);
+          {podiums.map((podiumEntry, index) => {
+            const medal = MEDAL_CONFIG[podiumEntry.medal];
+            const stage = getPodiumStage(podiumEntry);
+
+            const rowTransition = shouldReduceMotion
+              ? { duration: 0 }
+              : {
+                  ...ROW_TRANSITION,
+                  delay: 0.2 + index * 0.08,
+                };
 
             return (
               <motion.tr
-                key={`${podium.championship.slug}-${podium.year}-${index}`}
+                key={`${podiumEntry.championship.slug}-${podiumEntry.year}-${index}`}
                 className="group relative transition-colors duration-200 
                 hover:bg-gray-50/50"
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.4,
-                  delay: 0.2 + index * 0.08,
-                  ease: "easeOut",
-                }}
+                initial={initialAnimation}
+                animate={VISIBLE_STATE}
+                transition={rowTransition}
               >
                 <td className="relative px-2 py-6 align-middle">
                   <span
+                    aria-hidden="true"
                     className="absolute left-0 top-0 h-full w-1 opacity-0 
-                    transition-opacity duration-300 group-hover:opacity-100"
+                    transition-opacity duration-300 group-hover:opacity-100 
+                    motion-reduce:transition-none"
                     style={{ backgroundColor: accentColor }}
                   />
+
                   <span
                     className="text-3xl font-black leading-none sm:text-4xl"
                     style={{ color: accentColor }}
                   >
-                    {podium.year}
+                    {podiumEntry.year}
                   </span>
                 </td>
 
                 <td className="px-2 py-6 align-middle">
-                  <div className="flex flex-col gap-2">
-                    <span className="text-lg font-bold sm:text-xl block">
-                      {t(podium.championship.title)}
+                  <span className="block text-lg font-bold sm:text-xl">
+                    {t(podiumEntry.championship.title)}
+                  </span>
+
+                  {stage && (
+                    <span
+                      className="mt-2 block text-xs font-bold uppercase 
+                      tracking-widest text-gray-400"
+                    >
+                      {t("athlete-podiums.table.stage")} {stage.number} -{" "}
+                      {stage.name}
                     </span>
-                    {stage && (
-                      <span
-                        className="mt-1 block text-xs font-bold uppercase 
-                        tracking-widest text-gray-400"
-                      >
-                        {t("athlete-podiums.table.stage")} {stage.number} -{" "}
-                        {stage.name}
-                      </span>
-                    )}
-                  </div>
+                  )}
                 </td>
+
                 <td className="px-2 py-6 text-right align-middle">
-                  <div className="flex items-center justify-end gap-3">
-                    <span className="text-xs font-bold uppercase tracking-widest">
-                      {t(medal.label)}
-                    </span>
-                  </div>
+                  <span className="text-xs font-bold uppercase tracking-widest">
+                    {t(medal.label)}
+                  </span>
                 </td>
               </motion.tr>
             );
