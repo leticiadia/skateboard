@@ -6,13 +6,13 @@ import { championships } from "../../championships/data/championships";
 export function getAthletePodiums(athlete: Athlete): AthletePodium[] {
   return athlete.results
     .filter((result) => result.placement <= 3)
-    .map((result) => {
+    .flatMap((result): AthletePodium[] => {
       const championship = championships.find(
         (championship) => championship.slug === result.championshipSlug,
       );
 
       if (!championship) {
-        return null;
+        return [];
       }
 
       const medal =
@@ -22,12 +22,13 @@ export function getAthletePodiums(athlete: Athlete): AthletePodium[] {
             ? "silver"
             : "bronze";
 
-      return {
-        year: result.season,
-        stageId: result.stageId,
-        championship,
-        medal,
-      };
-    })
-    .filter((podium): podium is AthletePodium => podium !== null);
+      return [
+        {
+          year: result.season,
+          stageId: result.stageId,
+          championship,
+          medal,
+        },
+      ];
+    });
 }
