@@ -14,31 +14,31 @@ export function getAthleteCurrentData(
 ): AthleteCurrentData {
   const currentSeason = new Date().getFullYear();
 
-  const currentResults = athlete.results.filter(
+  const currentSeasonResults = athlete.results.filter(
     (result) => result.season === currentSeason,
   );
 
   const championshipSlugs = [
-    ...new Set(currentResults.map((result) => result.championshipSlug)),
+    ...new Set(currentSeasonResults.map((result) => result.championshipSlug)),
   ];
 
   const rankings = championshipSlugs
     .map((championshipSlug) => {
       const championship = championships.find(
-        ({ slug }) => slug === championshipSlug,
+        (championship) => championship.slug === championshipSlug,
       );
 
       if (!championship) {
         return null;
       }
 
-      const ranking = getChampionshipRanking(
+      const championshipRanking = getChampionshipRanking(
         athletes,
         championshipSlug,
         currentSeason,
       );
 
-      const athleteRanking = ranking.find(
+      const athleteRanking = championshipRanking.find(
         ({ athlete: rankedAthlete }) => rankedAthlete.id === athlete.id,
       );
 
@@ -53,15 +53,6 @@ export function getAthleteCurrentData(
       };
     })
     .filter((ranking): ranking is AthleteCurrentRanking => ranking !== null);
-
-  const nextEventData = athlete.nextEvent;
-
-  if (!nextEventData) {
-    return {
-      season: currentSeason,
-      rankings,
-    };
-  }
 
   return {
     season: currentSeason,
