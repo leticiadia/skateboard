@@ -29,14 +29,13 @@ export function AthletePodiums() {
   }
 
   const color = athleteColors[athlete.category];
-
   const podiums = getAthletePodiums(athlete);
 
   return (
-    <section className="w-full pt-28 pb-10 lg:pt-28">
+    <section className="w-full pt-28 pb-10">
       <Container>
         <motion.div
-          className="w-full flex flex-col gap-8"
+          className="flex w-full flex-col gap-8"
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{
@@ -47,12 +46,12 @@ export function AthletePodiums() {
           <Link
             to={`/atletas/${athlete.slug}`}
             className="group flex items-center gap-2 text-sm font-bold 
-              text-zinc-700 transition-colors hover:text-black"
+            text-zinc-700 transition-colors hover:text-black"
           >
             <ArrowLeftIcon
               size={14}
               className="transition-transform duration-200 
-                group-hover:-translate-x-1"
+              group-hover:-translate-x-1"
             />
 
             <span>{t("athlete-podiums.backToProfile")}</span>
