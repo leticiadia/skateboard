@@ -15,6 +15,10 @@ interface ChampionshipEventsProps {
   events: Event[];
 }
 
+function getEventDate(date: string): Date {
+  return new Date(`${date}T00:00:00`);
+}
+
 export function ChampionshipEvents({ events }: ChampionshipEventsProps) {
   const { t, i18n } = useTranslation();
 
@@ -22,14 +26,11 @@ export function ChampionshipEvents({ events }: ChampionshipEventsProps) {
   today.setHours(0, 0, 0, 0);
 
   const nextEvent = events
-    .filter(
-      (event) =>
-        new Date(`${event.date}T00:00:00`).getTime() >= today.getTime(),
-    )
+    .filter((event) => getEventDate(event.date).getTime() >= today.getTime())
     .sort(
-      (a, b) =>
-        new Date(`${a.date}T00:00:00`).getTime() -
-        new Date(`${b.date}T00:00:00`).getTime(),
+      (firstEvent, secondEvent) =>
+        getEventDate(firstEvent.date).getTime() -
+        getEventDate(secondEvent.date).getTime(),
     )[0];
 
   return (
@@ -40,7 +41,7 @@ export function ChampionshipEvents({ events }: ChampionshipEventsProps) {
           sm:text-3xl lg:text-4xl"
         >
           <CalendarDotsIcon
-            className="shrink-0 text-yellow-300 size-7 sm:size-9 lg:size-10"
+            className="size-7 shrink-0 text-yellow-300 sm:size-9 lg:size-10"
             weight="fill"
           />
           <span>{t("championship-events.sections.upcoming-events.title")}</span>
@@ -54,14 +55,14 @@ export function ChampionshipEvents({ events }: ChampionshipEventsProps) {
       <div className="mt-5">
         {nextEvent ? (
           <article
-            className="group flex flex-col overflow-hidden rounded-2xl border 
-            border-zinc-800 bg-gradient-to-br from-zinc-900 via-zinc-900 
-            to-zinc-950 shadow-lg transition-all duration-300 
+            className="group flex flex-col overflow-hidden rounded-2xl 
+            border border-zinc-800 bg-gradient-to-br from-zinc-900 
+            via-zinc-900 to-zinc-950 shadow-lg transition-all duration-300 
             hover:-translate-y-1 hover:shadow-xl md:flex-row"
           >
             <div
-              className="flex shrink-0 flex-col justify-center bg-yellow-300 
-              p-6 text-black md:w-56 md:p-8"
+              className="flex shrink-0 flex-col justify-center 
+            bg-yellow-300 p-6 text-black md:w-56 md:p-8"
             >
               <span
                 className="flex items-center gap-1.5 text-xs font-black 
@@ -72,10 +73,10 @@ export function ChampionshipEvents({ events }: ChampionshipEventsProps) {
               </span>
 
               <p
-                className="mt-2 text-3xl font-black leading-tight sm:text-4xl 
-                md:text-3xl"
+                className="mt-2 text-3xl font-black leading-tight 
+                sm:text-4xl md:text-3xl"
               >
-                {formatEventDate(t(nextEvent.date), i18n.language)}
+                {formatEventDate(nextEvent.date, i18n.language)}
               </p>
             </div>
 
@@ -83,10 +84,10 @@ export function ChampionshipEvents({ events }: ChampionshipEventsProps) {
               <div className="space-y-3">
                 <span
                   className="text-xs font-extrabold uppercase tracking-widest 
-                text-yellow-300"
+                  text-yellow-300"
                 >
                   {t("championship-events.sections.upcoming-events.season", {
-                    year: new Date(`${nextEvent.date}T00:00:00`).getFullYear(),
+                    year: getEventDate(nextEvent.date).getFullYear(),
                   })}
                 </span>
 
@@ -107,8 +108,8 @@ export function ChampionshipEvents({ events }: ChampionshipEventsProps) {
               </div>
 
               <div
-                className="mt-6 flex items-center justify-between border-t 
-              border-zinc-300/20 pt-4"
+                className="mt-6 flex items-center justify-between 
+                border-t border-zinc-300/20 pt-4"
               >
                 <span className="text-xs font-bold text-zinc-500">
                   {t(
@@ -118,9 +119,9 @@ export function ChampionshipEvents({ events }: ChampionshipEventsProps) {
 
                 <Link
                   to={`/campeonatos/${nextEvent.championshipSlug}/eventos/${nextEvent.slug}`}
-                  className="inline-flex items-center gap-2 text-sm font-black 
-                  text-yellow-300 transition-all 
-                  group-hover:translate-x-1 hover:underline"
+                  className="inline-flex items-center gap-2 text-sm 
+                  font-black text-yellow-300 transition-all hover:underline 
+                  group-hover:translate-x-1"
                 >
                   <span>
                     {t(
