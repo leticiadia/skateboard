@@ -5,7 +5,7 @@ import type { AthleteCategory } from "../types/athlete";
 import { athletes } from "../data/athletes";
 import { championships } from "../../championships/data/championships";
 
-import { AthleteHero } from "../components/ AthleteHero";
+import { AthleteHero } from "../components/AthleteHero";
 import { AthleteGallery } from "../components/AthleteGallery";
 import { AthleteStats } from "../components/AthleteStats";
 import { AthleteCurrent } from "../components/AthleteCurrent";
@@ -29,7 +29,6 @@ export function AthleteProfile() {
   }
 
   const profile = getAthleteProfileData(athlete, athletes, championships);
-
   const color = categoryColors[athlete.category];
 
   return (
