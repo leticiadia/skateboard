@@ -35,16 +35,16 @@ export function ChampionshipRegistration({
           type="email"
           placeholder={t("championship-registration.emailPlaceholder")}
           className="min-w-0 flex-1 rounded-lg border border-zinc-800 
-          bg-zinc-950 px-4 py-3 text-sm text-zinc-100 transition-colors
+          bg-zinc-950 px-4 py-3 text-sm text-zinc-100 transition-colors 
           focus:border-yellow-300 focus:outline-none focus:ring-2 
           focus:ring-yellow-300/20"
         />
 
         <button
           type="button"
-          className="w-full shrink-0 cursor-pointer rounded-lg bg-yellow-300
-          px-6 py-3 text-sm font-semibold text-zinc-950 transition-all 
-          hover:brightness-90 focus:outline-none focus:ring-2 
+          className="w-full shrink-0 cursor-pointer rounded-lg 
+          bg-yellow-300 px-6 py-3 text-sm font-semibold text-zinc-950 
+          transition-all hover:brightness-90 focus:outline-none focus:ring-2 
           focus:ring-yellow-300/40 sm:w-auto"
         >
           {t("championship-registration.submit")}
