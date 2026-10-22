@@ -33,16 +33,16 @@ export function ChampionshipSection({
 
   const isZincBackground = backgroundColor === "zinc300";
 
+  const sectionClassName = `flex min-h-[80vh] w-full flex-col items-center justify-center py-4 ${colorClasses[backgroundColor]}`;
+
+  const contentClassName = `flex w-full flex-col items-center justify-between gap-8 lg:flex-row ${
+    isZincBackground ? "" : "lg:flex-row-reverse"
+  }`;
+
   return (
-    <section
-      className={`w-full min-h-[80vh] ${colorClasses[backgroundColor]} flex 
-      flex-col items-center justify-center py-4`}
-    >
+    <section className={sectionClassName}>
       <Container>
-        <div
-          className={`flex w-full flex-col items-center justify-between gap-8 
-          lg:flex-row ${!isZincBackground ? "lg:flex-row-reverse" : ""}`}
-        >
+        <div className={contentClassName}>
           <motion.div
             className="flex flex-col items-start gap-4 lg:w-1/2"
             initial={{ opacity: 0, y: 30 }}
@@ -50,11 +50,11 @@ export function ChampionshipSection({
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <h2 className="text-3xl text-black font-bold">{t(title)}</h2>
+            <h2 className="text-3xl font-bold text-black">{t(title)}</h2>
 
-            <p className="text-2xl text-black font-semibold">{t(subtitle)}</p>
+            <p className="text-2xl font-semibold text-black">{t(subtitle)}</p>
 
-            <p className="text-base text-black font-medium">{t(description)}</p>
+            <p className="text-base font-medium text-black">{t(description)}</p>
 
             <ButtonLink
               href={href}
@@ -71,10 +71,7 @@ export function ChampionshipSection({
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{
-              duration: 0.8,
-              ease: "easeOut",
-            }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           />
         </div>
       </Container>
