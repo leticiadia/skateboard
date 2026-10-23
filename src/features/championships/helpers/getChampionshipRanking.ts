@@ -1,5 +1,4 @@
 import type { Athlete, AthleteStageResult } from "../../athletes/types/athlete";
-
 import { getPointsByPlacement } from "../../championships/data/scoring";
 
 export interface ChampionshipRankingEntry {
@@ -38,11 +37,16 @@ export function getChampionshipRanking(
         0,
       );
 
-      const wins = results.filter((result) => result.placement === 1).length;
+      const { wins, seconds, thirds } = results.reduce(
+        (placements, result) => {
+          if (result.placement === 1) placements.wins += 1;
+          if (result.placement === 2) placements.seconds += 1;
+          if (result.placement === 3) placements.thirds += 1;
 
-      const seconds = results.filter((result) => result.placement === 2).length;
-
-      const thirds = results.filter((result) => result.placement === 3).length;
+          return placements;
+        },
+        { wins: 0, seconds: 0, thirds: 0 },
+      );
 
       const latestResult = results.at(-1);
 
@@ -58,24 +62,24 @@ export function getChampionshipRanking(
       };
     })
     .filter((entry) => entry.points > 0)
-    .sort((a, b) => {
-      if (a.points !== b.points) {
-        return b.points - a.points;
+    .sort((rankingEntryA, rankingEntryB) => {
+      if (rankingEntryA.points !== rankingEntryB.points) {
+        return rankingEntryB.points - rankingEntryA.points;
       }
 
-      if (a.wins !== b.wins) {
-        return b.wins - a.wins;
+      if (rankingEntryA.wins !== rankingEntryB.wins) {
+        return rankingEntryB.wins - rankingEntryA.wins;
       }
 
-      if (a.seconds !== b.seconds) {
-        return b.seconds - a.seconds;
+      if (rankingEntryA.seconds !== rankingEntryB.seconds) {
+        return rankingEntryB.seconds - rankingEntryA.seconds;
       }
 
-      if (a.thirds !== b.thirds) {
-        return b.thirds - a.thirds;
+      if (rankingEntryA.thirds !== rankingEntryB.thirds) {
+        return rankingEntryB.thirds - rankingEntryA.thirds;
       }
 
-      return a.latestPlacement - b.latestPlacement;
+      return rankingEntryA.latestPlacement - rankingEntryB.latestPlacement;
     });
 
   return ranking.map((entry, index) => ({
