@@ -5,15 +5,12 @@ import { CalendarBlankIcon, CaretDownIcon } from "@phosphor-icons/react";
 import type { Athlete } from "../../../features/athletes/types/athlete";
 
 import { championships } from "../data/championships";
-
 import { getAvailableSeasons } from "../helpers/getAvailableSeasons";
 import { getChampionshipRanking } from "../helpers/getChampionshipRanking";
 
 interface GlobalRankingProps {
   athletes: Athlete[];
   championshipSlug: string;
-  title?: string;
-  subtitle?: string;
   seasonYear?: number;
   limit?: number;
 }
@@ -28,9 +25,11 @@ export function GlobalRanking({
 
   const availableSeasons = getAvailableSeasons(athletes, championshipSlug);
 
-  const [selectedSeason, setSelectedSeason] = useState<number>(
-    availableSeasons.includes(seasonYear) ? seasonYear : availableSeasons[0],
-  );
+  const initialSeason = availableSeasons.includes(seasonYear)
+    ? seasonYear
+    : (availableSeasons[0] ?? seasonYear);
+
+  const [selectedSeason, setSelectedSeason] = useState<number>(initialSeason);
 
   const ranking = getChampionshipRanking(
     athletes,
@@ -38,30 +37,32 @@ export function GlobalRanking({
     selectedSeason,
   );
 
-  const displayedRanking = limit ? ranking.slice(0, limit) : ranking;
+  const displayedRanking =
+    limit !== undefined ? ranking.slice(0, limit) : ranking;
 
   const championship = championships.find(
-    (championship) => championship.slug === championshipSlug,
+    (item) => item.slug === championshipSlug,
   );
 
-  const season = championship?.seasons.find(
-    (season) => season.year === selectedSeason,
+  const selectedChampionshipSeason = championship?.seasons.find(
+    (item) => item.year === selectedSeason,
   );
 
-  const stages = season?.stages ?? [];
+  const stages = selectedChampionshipSeason?.stages ?? [];
 
   function getStagePlacement(athlete: Athlete, stageId: string) {
     const result = athlete.results.find(
-      (result) =>
-        result.championshipSlug === championshipSlug &&
-        result.season === selectedSeason &&
-        result.stageId === stageId,
+      (item) =>
+        item.championshipSlug === championshipSlug &&
+        item.season === selectedSeason &&
+        item.stageId === stageId,
     );
+
     return result?.placement;
   }
 
   return (
-    <section className="w-full">
+    <section className="w-full" aria-labelledby="ranking-section-title">
       <div
         className="overflow-hidden rounded-2xl border-2 border-zinc-900 
       bg-zinc-950"
@@ -69,7 +70,7 @@ export function GlobalRanking({
         <header
           className="flex flex-col gap-4 border-b-2 border-zinc-900 
         bg-zinc-900/90 p-5 sm:flex-row sm:items-center sm:justify-between 
-        sm:p-6"
+          sm:p-6"
         >
           <div className="flex items-center gap-3">
             <span
@@ -77,12 +78,14 @@ export function GlobalRanking({
               className="h-3 w-3 shrink-0 animate-pulse rounded-full 
               bg-yellow-300"
             />
+
             <span
               className="text-xs font-black uppercase tracking-widest 
-            text-zinc-400"
+              text-zinc-400"
             >
               {t("global-ranking.displayedSeason")}:
             </span>
+
             <span
               className="rounded-lg border border-zinc-700 bg-zinc-950 
               px-3 py-1 font-mono text-sm font-black text-white"
@@ -193,8 +196,8 @@ export function GlobalRanking({
                       {position === 1 && (
                         <span
                           className="inline-flex items-center gap-1 
-                          rounded-md border border-zinc-700 bg-zinc-900 
-                          px-2 py-1 text-sm font-bold text-amber-400"
+                          rounded-md border border-zinc-700 bg-zinc-900 px-2 
+                          py-1 text-sm font-bold text-amber-400"
                         >
                           🥇 1º
                         </span>
@@ -203,8 +206,8 @@ export function GlobalRanking({
                       {position === 2 && (
                         <span
                           className="inline-flex items-center gap-1 
-                          rounded-md border border-zinc-700 bg-zinc-900 
-                          px-2 py-1 text-sm font-bold text-zinc-300"
+                          rounded-md border border-zinc-700 bg-zinc-900 px-2 
+                          py-1 text-sm font-bold text-zinc-300"
                         >
                           🥈 2º
                         </span>
@@ -213,8 +216,8 @@ export function GlobalRanking({
                       {position === 3 && (
                         <span
                           className="inline-flex items-center gap-1 
-                          rounded-md border border-zinc-700 bg-zinc-900 
-                          px-2 py-1 text-sm font-bold text-amber-600"
+                          rounded-md border border-zinc-700 bg-zinc-900 px-2 
+                          py-1 text-sm font-bold text-amber-600"
                         >
                           🥉 3º
                         </span>
@@ -244,9 +247,10 @@ export function GlobalRanking({
 
                     {stages.map((stage) => {
                       const placement = getStagePlacement(athlete, stage.id);
+
                       return (
                         <td key={stage.id} className="px-6 py-4 text-center">
-                          {placement ? (
+                          {placement != null ? (
                             <span
                               className="font-mono text-sm font-bold 
                             text-black"
@@ -266,11 +270,13 @@ export function GlobalRanking({
                     })}
 
                     <td
-                      className="px-6 py-4 text-center text-sm font-mono 
+                      className="px-6 py-4 text-center font-mono text-sm 
                       font-black text-black"
                     >
                       {points.toLocaleString()}
+
                       <span className="text-xs font-bold text-zinc-500">
+                        {" "}
                         PTS
                       </span>
                     </td>

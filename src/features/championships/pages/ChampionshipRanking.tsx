@@ -70,14 +70,10 @@ export function ChampionshipRanking() {
             <div className="border-b border-zinc-200"></div>
           </div>
 
-          <section aria-labelledby="ranking-section-title">
-            <GlobalRanking
-              athletes={athletes}
-              championshipSlug={championship.slug}
-              title={t("championship-ranking.complete")}
-              subtitle={t("championship-ranking.season")}
-            />
-          </section>
+          <GlobalRanking
+            athletes={athletes}
+            championshipSlug={championship.slug}
+          />
         </div>
       </Container>
     </main>
