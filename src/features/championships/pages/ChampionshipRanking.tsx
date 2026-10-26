@@ -1,6 +1,6 @@
-import { Link, useParams } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { ArrowLeftIcon } from "@phosphor-icons/react";
+import { useTranslation } from "react-i18next";
+import { Link, useParams } from "react-router-dom";
 
 import type { BackgroundColor } from "../components/ChampionshipSection";
 
@@ -22,7 +22,7 @@ export function ChampionshipRanking() {
   const { t } = useTranslation();
 
   const championship = championships.find(
-    (championship) => championship.slug === slug,
+    (championshipData) => championshipData.slug === slug,
   );
 
   if (!championship) {
@@ -67,7 +67,7 @@ export function ChampionshipRanking() {
               accentColor={accentColor}
             />
 
-            <div className="border-b border-zinc-200"></div>
+            <div className="border-b border-zinc-200" />
           </div>
 
           <GlobalRanking
