@@ -1,6 +1,6 @@
-import { Link, useParams } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { ArrowLeftIcon } from "@phosphor-icons/react";
+import { useTranslation } from "react-i18next";
+import { Link, useParams } from "react-router-dom";
 
 import type { BackgroundColor } from "../../championships/components/ChampionshipSection";
 
@@ -24,7 +24,8 @@ export function EventProfile() {
   const { t, i18n } = useTranslation();
 
   const event = events.find(
-    (event) => event.slug === eventSlug && event.championshipSlug === slug,
+    (eventData) =>
+      eventData.slug === eventSlug && eventData.championshipSlug === slug,
   );
 
   if (!event) {
@@ -32,7 +33,7 @@ export function EventProfile() {
   }
 
   const championship = championships.find(
-    (championship) => championship.slug === event.championshipSlug,
+    (championshipData) => championshipData.slug === event.championshipSlug,
   );
 
   if (!championship) {
@@ -47,7 +48,7 @@ export function EventProfile() {
 
   const accentColor = colorClasses[championship.backgroundColor];
 
-  const participants = athletes.filter((athlete) =>
+  const eventParticipants = athletes.filter((athlete) =>
     event.participantAthleteSlugs.includes(athlete.slug),
   );
 
@@ -58,36 +59,34 @@ export function EventProfile() {
           <div>
             <Link
               to={`/campeonatos/${event.championshipSlug}/eventos`}
-              className="group flex items-center gap-2 text-sm font-bold 
-              text-zinc-700 transition-colors hover:text-black"
+              className="group flex items-center gap-2 text-sm font-bold
+                text-zinc-700 transition-colors hover:text-black"
             >
               <ArrowLeftIcon
                 size={14}
-                className="transition-transform duration-200 
-                group-hover:-translate-x-1"
+                className="transition-transform duration-200
+                  group-hover:-translate-x-1"
               />
 
               <span>{t("event-profile.back-to-schedule")}</span>
             </Link>
           </div>
 
-          {championship && (
-            <DetailHero
-              label={t(championship.title)}
-              title={t(event.title)}
-              description={t(event.description)}
-              accentColor={accentColor}
-            />
-          )}
+          <DetailHero
+            label={t(championship.title)}
+            title={t(event.title)}
+            description={t(event.description)}
+            accentColor={accentColor}
+          />
 
           <section
-            className="grid gap-4 border-y border-gray-200 py-8 
-            sm:grid-cols-3"
+            className="grid gap-4 border-y border-gray-200 py-8
+              sm:grid-cols-3"
           >
             <div>
               <span
-                className="text-xs font-bold uppercase tracking-widest 
-              text-gray-400"
+                className="text-xs font-bold uppercase tracking-widest
+                  text-gray-400"
               >
                 {t("event-profile.details.date")}
               </span>
@@ -99,8 +98,8 @@ export function EventProfile() {
 
             <div>
               <span
-                className="text-xs font-bold uppercase tracking-widest 
-              text-gray-400"
+                className="text-xs font-bold uppercase tracking-widest
+                  text-gray-400"
               >
                 {t("event-profile.details.time")}
               </span>
@@ -110,8 +109,8 @@ export function EventProfile() {
 
             <div>
               <span
-                className="text-xs font-bold uppercase tracking-widest 
-              text-gray-400"
+                className="text-xs font-bold uppercase tracking-widest
+                  text-gray-400"
               >
                 {t("event-profile.details.location")}
               </span>
@@ -123,8 +122,8 @@ export function EventProfile() {
           <section>
             <header>
               <span
-                className="text-sm font-bold uppercase tracking-widest 
-              text-yellow-500"
+                className="text-sm font-bold uppercase tracking-widest
+                  text-yellow-500"
               >
                 {t("event-profile.participants.tag")}
               </span>
@@ -134,15 +133,15 @@ export function EventProfile() {
               </h2>
             </header>
 
-            {participants.length > 0 ? (
+            {eventParticipants.length > 0 ? (
               <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {participants.map((athlete) => (
+                {eventParticipants.map((athlete) => (
                   <Link
                     key={athlete.id}
                     to={`/atletas/${athlete.slug}`}
-                    className="group flex items-center gap-4 rounded-xl border-2 
-                    border-zinc-200 p-4 transition-colors 
-                    hover:border-yellow-300"
+                    className="group flex items-center gap-4 rounded-xl
+                      border-2 border-zinc-200 p-4 transition-colors
+                      hover:border-yellow-300"
                   >
                     <img
                       src={athlete.image}
@@ -154,15 +153,15 @@ export function EventProfile() {
 
                     <div>
                       <h3
-                        className="font-bold transition-colors 
-                      group-hover:text-yellow-600"
+                        className="font-bold transition-colors
+                          group-hover:text-yellow-600"
                       >
                         {athlete.name}
                       </h3>
 
                       <span
-                        className="mt-1 block text-xs font-bold uppercase 
-                        tracking-widest text-gray-400"
+                        className="mt-1 block text-xs font-bold
+                          uppercase tracking-widest text-gray-400"
                       >
                         {t("event-profile.participants.view-profile")}
                       </span>
@@ -172,8 +171,8 @@ export function EventProfile() {
               </div>
             ) : (
               <p
-                className="mt-8 border-y border-gray-200 py-10 
-              text-gray-500"
+                className="mt-8 border-y border-gray-200 py-10
+                  text-gray-500"
               >
                 {t("event-profile.participants.empty-state")}
               </p>
