@@ -1,33 +1,26 @@
+import { TrophyIcon } from "@phosphor-icons/react";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
-import { TrophyIcon } from "@phosphor-icons/react";
 
 import { athletes } from "../../athletes/data/athletes";
-import { championships } from "../data/championships";
 import { events } from "../../events/data/events";
+import { championships } from "../data/championships";
 
-import { PageHero } from "../../../components/ui/PageHero/PageHero";
-import { ButtonLink } from "../../../components/ui/ButtonLink";
 import { Container } from "../../../components/layout/Container";
+import { ButtonLink } from "../../../components/ui/ButtonLink";
+import { PageHero } from "../../../components/ui/PageHero/PageHero";
 
-import { ChampionshipRegistration } from "../components/ChampionshipRegistration";
 import { ChampionshipEvents } from "../components/ChampionshipEvents";
+import { ChampionshipRegistration } from "../components/ChampionshipRegistration";
 import { GlobalRanking } from "../components/GlobalRanking";
 
 export function ChampionshipProfile() {
   const { slug } = useParams();
-
   const { t } = useTranslation();
 
   const championship = championships.find(
-    (championship) => championship.slug === slug,
+    (championshipData) => championshipData.slug === slug,
   );
-
-  const championshipEvents = events.filter(
-    (event) => event.championshipSlug === slug,
-  );
-
-  const upcomingChampionshipEvents = championshipEvents.slice(0, 2);
 
   if (!championship) {
     return (
@@ -39,10 +32,24 @@ export function ChampionshipProfile() {
     );
   }
 
+  const championshipTitle = t(championship.title);
+
+  const championshipEvents = events.filter(
+    (championshipEvent) =>
+      championshipEvent.championshipSlug === championship.slug,
+  );
+
+  const championshipProfileSections = [
+    {
+      title: "championship-profile.sections.about.title",
+      id: "about-championship",
+    },
+  ];
+
   return (
     <>
       <PageHero
-        title={t(championship.title)}
+        title={championshipTitle}
         subtitle={t(championship.subtitle)}
         backgroundImage={championship.imageThumbnail}
         size="full"
@@ -50,11 +57,14 @@ export function ChampionshipProfile() {
 
       <Container>
         <section
-          aria-labelledby="about-championship"
+          aria-labelledby={championshipProfileSections[0].id}
           className="mt-8 flex flex-col gap-4"
         >
-          <h2 id="about-championship" className="text-4xl font-bold text-black">
-            {t("championship-profile.sections.about.title")}
+          <h2
+            id={championshipProfileSections[0].id}
+            className="text-4xl font-bold text-black"
+          >
+            {t(championshipProfileSections[0].title)}
           </h2>
 
           {championship.about.map((paragraph) => (
@@ -67,12 +77,12 @@ export function ChampionshipProfile() {
           ))}
         </section>
 
-        <section className="flex flex-col gap-8 mt-8">
+        <section className="mt-8 flex flex-col gap-8">
           <div className="flex flex-col gap-4">
             <header className="flex flex-col gap-3 sm:gap-4">
               <h2
-                className="flex items-center gap-2 text-2xl font-bold 
-                text-black sm:text-3xl lg:text-4xl bg-y"
+                className="flex items-center gap-2 bg-y text-2xl font-bold 
+              text-black sm:text-3xl lg:text-4xl"
               >
                 <TrophyIcon
                   color="#ffc857"
@@ -104,24 +114,22 @@ export function ChampionshipProfile() {
           />
         </section>
 
-        <section>
-          {championshipEvents && (
-            <div className="flex flex-col gap-8">
-              <ChampionshipEvents events={upcomingChampionshipEvents} />
+        {championshipEvents.length > 0 && (
+          <section className="flex flex-col gap-8">
+            <ChampionshipEvents events={championshipEvents} />
 
-              <ButtonLink
-                title={t(
-                  "championship-profile.sections.upcoming-events.view-full",
-                )}
-                href={`/campeonatos/${championship.slug}/eventos`}
-                variant="outline"
-                size="large"
-              />
-            </div>
-          )}
-        </section>
+            <ButtonLink
+              title={t(
+                "championship-profile.sections.upcoming-events.view-full",
+              )}
+              href={`/campeonatos/${championship.slug}/eventos`}
+              variant="outline"
+              size="large"
+            />
+          </section>
+        )}
 
-        <ChampionshipRegistration championshipTitle={t(championship.title)} />
+        <ChampionshipRegistration championshipTitle={championshipTitle} />
       </Container>
     </>
   );
