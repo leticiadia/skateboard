@@ -1,31 +1,41 @@
-import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 
 import { championships } from "../../../features/championships/data/championships";
 
 import { Container } from "../../../components/layout/Container";
-import { EntityCard } from "../../../components/ui/EntityCard";
 import { ButtonLink } from "../../../components/ui/ButtonLink";
+import { EntityCard } from "../../../components/ui/EntityCard";
 
-import BannerLiveYourDreamsPT from "../../../assets/images/banner-live-your-dreams.png";
 import BannerLiveYourDreamsEN from "../../../assets/images/banner-live-your-dreams-en.png";
+import BannerLiveYourDreamsPT from "../../../assets/images/banner-live-your-dreams.png";
+
+const viewportSettings = {
+  once: true,
+  amount: 0.3,
+};
+
+const fadeUpAnimation = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+};
 
 export function SectionChampionships() {
   const { t, i18n } = useTranslation();
 
-  const bannerImage =
+  const dreamsBannerImage =
     i18n.language === "en" ? BannerLiveYourDreamsEN : BannerLiveYourDreamsPT;
 
   return (
     <>
-      <section className="w-full mt-10">
+      <section className="mt-10 w-full">
         <Container>
           <div className="flex flex-col items-start gap-8">
             <motion.h2
-              className="text-2xl text-black font-bold md:text-4xl"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              className="text-2xl font-bold text-black md:text-4xl"
+              initial={fadeUpAnimation.initial}
+              whileInView={fadeUpAnimation.whileInView}
+              viewport={viewportSettings}
               transition={{
                 duration: 0.6,
                 ease: "easeOut",
@@ -35,23 +45,23 @@ export function SectionChampionships() {
             </motion.h2>
 
             <motion.div
-              className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 
-              xl:grid-cols-4 gap-8 w-full"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              className="grid w-full grid-cols-1 gap-8 sm:grid-cols-3 
+              md:grid-cols-4"
+              initial={fadeUpAnimation.initial}
+              whileInView={fadeUpAnimation.whileInView}
+              viewport={{ ...viewportSettings, amount: 0.2 }}
               transition={{
                 duration: 0.6,
                 delay: 0.1,
                 ease: "easeOut",
               }}
             >
-              {championships.map((championship) => (
+              {championships.map((championshipData) => (
                 <EntityCard
-                  key={championship.id}
-                  href={`/campeonatos/${championship.slug}`}
-                  name={championship.abbreviation}
-                  image={championship.imageThumbnail}
+                  key={championshipData.id}
+                  href={`/campeonatos/${championshipData.slug}`}
+                  name={championshipData.abbreviation}
+                  image={championshipData.imageThumbnail}
                   color="blue"
                 />
               ))}
@@ -59,9 +69,9 @@ export function SectionChampionships() {
 
             <motion.div
               className="w-full"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              initial={fadeUpAnimation.initial}
+              whileInView={fadeUpAnimation.whileInView}
+              viewport={viewportSettings}
               transition={{
                 duration: 0.6,
                 delay: 0.2,
@@ -82,12 +92,12 @@ export function SectionChampionships() {
       <section className="my-10">
         <Container>
           <motion.img
-            src={bannerImage}
+            src={dreamsBannerImage}
             className="h-full object-cover"
             alt=""
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            initial={fadeUpAnimation.initial}
+            whileInView={fadeUpAnimation.whileInView}
+            viewport={viewportSettings}
             transition={{
               duration: 0.8,
               ease: "easeOut",
