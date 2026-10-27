@@ -1,9 +1,7 @@
-import { Link } from "react-router-dom";
 import { ArrowRightIcon } from "@phosphor-icons/react";
+import { Link } from "react-router-dom";
 
 import type { Playlist } from "../types/playlist";
-
-import { Container } from "../../../components/layout/Container";
 
 export type BackgroundColor =
   | "zinc300"
@@ -12,10 +10,10 @@ export type BackgroundColor =
   | "lime300"
   | "orange300";
 
-type PlaylistCardProps = {
+interface PlaylistCardProps {
   playlist: Playlist;
   backgroundColor: BackgroundColor;
-};
+}
 
 const colorClasses: Record<BackgroundColor, string> = {
   zinc300: "bg-[#e4e4e7]",
@@ -27,68 +25,46 @@ const colorClasses: Record<BackgroundColor, string> = {
 
 export function PlaylistCard({ playlist, backgroundColor }: PlaylistCardProps) {
   return (
-    <Container>
-      <article
-        className={`
-          group overflow-hidden rounded-sm
-          ${colorClasses[backgroundColor]} p-4
-          transition-transform duration-200
-          hover:-translate-y-1`}
+    <article
+      className={`group overflow-hidden rounded-sm
+      ${colorClasses[backgroundColor]} p-4
+      transition-transform duration-200 hover:-translate-y-1`}
+    >
+      <Link
+        to={`/playlists/${playlist.slug}`}
+        className="flex flex-col focus-visible:rounded-sm
+        focus-visible:outline-2 focus-visible:outline-black
+        focus-visible:outline-offset-4
+        sm:flex-row sm:items-center sm:gap-6"
       >
-        <Link
-          to={`/playlists/${playlist.slug}`}
-          className="
-            flex flex-col
-            focus-visible:rounded-sm
-            focus-visible:outline-2
-            focus-visible:outline-black
-            focus-visible:outline-offset-4
-            sm:flex-row sm:items-center sm:gap-6
-          "
-        >
-          <div className="w-full shrink-0 sm:w-48">
-            <img
-              src={playlist.image}
-              alt={`Capa da playlist ${playlist.title}`}
-              className="
-                h-48 w-full rounded-sm
-                object-cover
-                sm:h-40
-              "
-            />
-          </div>
+        <div className="w-full shrink-0 sm:w-48">
+          <img
+            src={playlist.image}
+            alt={`Capa da playlist ${playlist.title}`}
+            className="h-48 w-full rounded-sm object-cover sm:h-40"
+          />
+        </div>
 
-          <div
-            className="
-              flex flex-1 flex-col items-start
-              gap-2 pt-4
-              sm:pt-0
-            "
+        <div className="flex flex-1 flex-col items-start gap-2 pt-4 sm:pt-0">
+          <h3 className="text-2xl font-bold text-black">{playlist.title}</h3>
+
+          <p className="text-base font-medium text-black/75">
+            {playlist.subtitle}
+          </p>
+
+          <span
+            className="mt-2 flex items-center gap-2 font-semibold 
+            text-black"
           >
-            <h3 className="text-2xl font-bold text-black">{playlist.title}</h3>
-
-            <p className="text-base font-medium text-black/75">
-              {playlist.subtitle}
-            </p>
-
-            <span
-              className="
-                mt-2 flex items-center gap-2
-                font-semibold text-black
-              "
-            >
-              Ver playlist
-              <ArrowRightIcon
-                size={18}
-                className="
-                  transition-transform duration-200
-                  group-hover:translate-x-1
-                "
-              />
-            </span>
-          </div>
-        </Link>
-      </article>
-    </Container>
+            Ver playlist
+            <ArrowRightIcon
+              size={18}
+              className="transition-transform duration-200
+              group-hover:translate-x-1"
+            />
+          </span>
+        </div>
+      </Link>
+    </article>
   );
 }

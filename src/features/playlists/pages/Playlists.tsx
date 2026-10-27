@@ -1,3 +1,4 @@
+import { Container } from "../../../components/layout/Container";
 import { PageHero } from "../../../components/ui/PageHero/PageHero";
 import { PlaylistCard } from "../components/PlaylistCard";
 
@@ -12,15 +13,17 @@ export function Playlists() {
         backgroundColor="#101828"
       />
 
-      <div className="flex w-full flex-col gap-6 my-8">
-        {playlists.map((playlist) => (
-          <PlaylistCard
-            key={playlist.id}
-            playlist={playlist}
-            backgroundColor={playlist.backgroundColor}
-          />
-        ))}
-      </div>
+      <Container>
+        <div className="flex w-full flex-col gap-6 my-8">
+          {playlists.map((playlist) => (
+            <PlaylistCard
+              key={playlist.id}
+              playlist={playlist}
+              backgroundColor={playlist.backgroundColor}
+            />
+          ))}
+        </div>
+      </Container>
     </>
   );
 }
