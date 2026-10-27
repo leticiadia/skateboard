@@ -1,45 +1,63 @@
-import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 
 import { Container } from "../../../components/layout/Container";
 import { ButtonLink } from "../../../components/ui/ButtonLink";
 
 import SkateboardPhoto from "../../../assets/images/skateboard.png";
 
+const viewportSettings = {
+  once: true,
+  amount: 0.3,
+};
+
+const fadeUpAnimation = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+};
+
+const fadeInFromRightAnimation = {
+  initial: { opacity: 0, x: 40 },
+  whileInView: { opacity: 1, x: 0 },
+};
+
 export function SectionMain() {
   const { t } = useTranslation();
 
   return (
-    <section className="bg-black-700 w-full min-h-[80vh] pt-16 lg:pt-8">
+    <section className="min-h-[80vh] w-full bg-black-700 pt-16 lg:pt-8">
       <Container>
         <div
-          className="flex flex-col gap-8 my-8 lg:flex-row lg:items-center 
+          className="my-8 flex flex-col gap-8 lg:flex-row lg:items-center 
           lg:justify-between"
         >
           <div>
             <div className="flex flex-col gap-4">
               <motion.div
                 className="flex items-center gap-4"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
+                initial={fadeUpAnimation.initial}
+                whileInView={fadeUpAnimation.whileInView}
+                viewport={viewportSettings}
+                transition={{
+                  duration: 0.6,
+                  ease: "easeOut",
+                }}
               >
                 <p
-                  className="text-5xl text-white font-bold md:text-6xl 
+                  className="text-5xl font-bold text-white md:text-6xl 
                   lg:text-8xl"
                 >
                   Skate
                 </p>
 
-                <span className="border-b-4 border-b-white w-[7rem] rounded-full" />
+                <span className="w-[7rem] rounded-full border-b-4 border-b-white" />
               </motion.div>
 
               <motion.p
-                className="text-5xl text-white font-bold md:text-6xl lg:text-8xl"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.3 }}
+                className="text-5xl font-bold text-white md:text-6xl lg:text-8xl"
+                initial={fadeUpAnimation.initial}
+                whileInView={fadeUpAnimation.whileInView}
+                viewport={viewportSettings}
                 transition={{
                   duration: 0.6,
                   delay: 0.1,
@@ -51,10 +69,10 @@ export function SectionMain() {
             </div>
 
             <motion.p
-              className="text-base text-white w-full my-8"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              className="my-8 w-full text-base text-white"
+              initial={fadeUpAnimation.initial}
+              whileInView={fadeUpAnimation.whileInView}
+              viewport={viewportSettings}
               transition={{
                 duration: 0.6,
                 delay: 0.2,
@@ -65,9 +83,9 @@ export function SectionMain() {
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              initial={fadeUpAnimation.initial}
+              whileInView={fadeUpAnimation.whileInView}
+              viewport={viewportSettings}
               transition={{
                 duration: 0.6,
                 delay: 0.3,
@@ -87,9 +105,9 @@ export function SectionMain() {
             src={SkateboardPhoto}
             className="lg:h-[400px] xl:h-full"
             alt=""
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            initial={fadeInFromRightAnimation.initial}
+            whileInView={fadeInFromRightAnimation.whileInView}
+            viewport={viewportSettings}
             transition={{
               duration: 0.8,
               ease: "easeOut",
