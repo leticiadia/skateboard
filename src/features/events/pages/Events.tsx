@@ -1,11 +1,11 @@
-import { Link, useParams } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import {
   ArrowLeftIcon,
   CalendarDotsIcon,
   CheckCircleIcon,
   ClockIcon,
 } from "@phosphor-icons/react";
+import { useTranslation } from "react-i18next";
+import { Link, useParams } from "react-router-dom";
 
 import type { BackgroundColor } from "../../championships/components/ChampionshipSection";
 
@@ -22,12 +22,16 @@ const colorClasses = {
   yellow300: "#ffc857",
 } satisfies Record<BackgroundColor, string>;
 
+function getEventTimestamp(date: string) {
+  return new Date(`${date}T00:00:00`).getTime();
+}
+
 export function Events() {
   const { slug: championshipSlug } = useParams();
   const { t } = useTranslation();
 
   const championship = championships.find(
-    (championship) => championship.slug === championshipSlug,
+    (championshipData) => championshipData.slug === championshipSlug,
   );
 
   if (!championship) {
@@ -45,19 +49,21 @@ export function Events() {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  const getEventTimestamp = (date: string) =>
-    new Date(`${date}T00:00:00`).getTime();
+  const todayTimestamp = today.getTime();
 
   const championshipEvents = events
-    .filter((event) => event.championshipSlug === championshipSlug)
-    .sort((a, b) => getEventTimestamp(a.date) - getEventTimestamp(b.date));
+    .filter((eventData) => eventData.championshipSlug === championshipSlug)
+    .sort(
+      (eventA, eventB) =>
+        getEventTimestamp(eventA.date) - getEventTimestamp(eventB.date),
+    );
 
   const upcomingEvents = championshipEvents.filter(
-    (event) => getEventTimestamp(event.date) >= today.getTime(),
+    (eventData) => getEventTimestamp(eventData.date) >= todayTimestamp,
   );
 
   const completedEvents = championshipEvents
-    .filter((event) => getEventTimestamp(event.date) < today.getTime())
+    .filter((eventData) => getEventTimestamp(eventData.date) < todayTimestamp)
     .reverse();
 
   const nextEvent = upcomingEvents[0];
@@ -68,48 +74,44 @@ export function Events() {
       <Container>
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-8">
-            {championship && (
-              <Link
-                to={`/campeonatos/${championship.slug}`}
-                className="group flex w-fit items-center gap-2 text-sm font-bold 
-                text-zinc-700 transition-colors hover:text-black"
-              >
-                <ArrowLeftIcon
-                  size={14}
-                  className="transition-transform duration-200 
-                  group-hover:-translate-x-1"
-                />
+            <Link
+              to={`/campeonatos/${championship.slug}`}
+              className="group flex w-fit items-center gap-2 text-sm font-bold
+              text-zinc-700 transition-colors hover:text-black"
+            >
+              <ArrowLeftIcon
+                size={14}
+                className="transition-transform duration-200
+                group-hover:-translate-x-1"
+              />
 
-                <span>{t("events.back-to-championship")}</span>
-              </Link>
-            )}
+              <span>{t("events.back-to-championship")}</span>
+            </Link>
 
-            {championship && (
-              <div>
-                <DetailHero
-                  label={t("events.schedule-prefix")}
-                  title={t(championship.title)}
-                  description={t("events.subtitle")}
-                  accentColor={accentColor}
-                />
+            <div>
+              <DetailHero
+                label={t("events.schedule-prefix")}
+                title={t(championship.title)}
+                description={t("events.subtitle")}
+                accentColor={accentColor}
+              />
 
-                <div className="border-b border-zinc-200"></div>
-              </div>
-            )}
+              <div className="border-b border-zinc-200" />
+            </div>
           </div>
 
           {championshipEvents.length > 0 ? (
             <div className="flex flex-col gap-8">
               {nextEvent && (
                 <section
-                  className="overflow-hidden rounded-2xl border-2 
+                  className="overflow-hidden rounded-2xl border-2
                   border-black bg-emerald-400 p-5 sm:p-6"
                 >
                   <div className="mb-5 flex items-center gap-2">
                     <ClockIcon size={22} weight="bold" className="text-black" />
 
                     <span
-                      className="text-sm font-black uppercase 
+                      className="text-sm font-black uppercase
                       tracking-widest text-black"
                     >
                       {t("events.sections.next-stage")}
@@ -122,12 +124,12 @@ export function Events() {
 
               {remainingEvents.length > 0 && (
                 <section
-                  className="flex flex-col gap-6 border-t 
+                  className="flex flex-col gap-6 border-t
                   border-gray-200 pt-10"
                 >
                   <h2
-                    className="flex items-center gap-2 text-2xl font-bold 
-                    text-black"
+                    className="flex items-center gap-2 text-2xl
+                    font-bold text-black"
                   >
                     <CalendarDotsIcon
                       size={24}
@@ -139,8 +141,8 @@ export function Events() {
                   </h2>
 
                   <div className="flex flex-col gap-4">
-                    {remainingEvents.map((event) => (
-                      <EventCard key={event.id} event={event} />
+                    {remainingEvents.map((eventData) => (
+                      <EventCard key={eventData.id} event={eventData} />
                     ))}
                   </div>
                 </section>
@@ -148,13 +150,13 @@ export function Events() {
 
               {completedEvents.length > 0 && (
                 <section
-                  className="flex flex-col gap-6 border-t 
+                  className="flex flex-col gap-6 border-t
                   border-gray-200 pt-10"
                 >
                   <div className="flex items-center justify-between">
                     <h2
-                      className="flex items-center gap-2 text-2xl font-bold 
-                      text-black"
+                      className="flex items-center gap-2 text-2xl
+                      font-bold text-black"
                     >
                       <CheckCircleIcon
                         size={24}
@@ -173,11 +175,11 @@ export function Events() {
                   </div>
 
                   <div
-                    className="flex flex-col gap-4 opacity-70 grayscale-0 
+                    className="flex flex-col gap-4 opacity-70 grayscale-0
                     transition-opacity hover:opacity-100"
                   >
-                    {completedEvents.map((event) => (
-                      <EventCard key={event.id} event={event} />
+                    {completedEvents.map((eventData) => (
+                      <EventCard key={eventData.id} event={eventData} />
                     ))}
                   </div>
                 </section>
