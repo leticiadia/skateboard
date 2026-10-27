@@ -1,28 +1,42 @@
-import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 
 import { Container } from "../../../components/layout/Container";
 import { ButtonLink } from "../../../components/ui/ButtonLink";
 
 import ImagePeopleWithSkateboard from "../../../assets/images/people-with-skateboard.png";
 
+const viewportSettings = {
+  once: true,
+  amount: 0.3,
+};
+
+const fadeInFromLeftAnimation = {
+  initial: { opacity: 0, x: -40 },
+  whileInView: { opacity: 1, x: 0 },
+};
+
+const fadeUpAnimation = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+};
+
 export function SectionPlaylists() {
   const { t } = useTranslation();
 
   return (
-    <section className="bg-yellow-300 w-full mt-10">
+    <section className="mt-10 w-full bg-yellow-300">
       <Container>
         <div
-          className="flex flex-col items-center justify-evenly gap-8 mb-8 
+          className="mb-8 flex flex-col items-center justify-evenly gap-8 
           lg:mb-0 lg:flex-row lg:justify-between"
         >
           <motion.img
             src={ImagePeopleWithSkateboard}
             className="h-[600px] object-cover lg:mb-0"
             alt=""
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            {...fadeInFromLeftAnimation}
+            viewport={viewportSettings}
             transition={{
               duration: 0.8,
               ease: "easeOut",
@@ -31,9 +45,8 @@ export function SectionPlaylists() {
 
           <motion.div
             className="flex flex-col gap-4"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            {...fadeUpAnimation}
+            viewport={viewportSettings}
             transition={{
               duration: 0.6,
               ease: "easeOut",
@@ -46,7 +59,7 @@ export function SectionPlaylists() {
                 {t("home.playlists.description.paragraph1")}
               </p>
 
-              <p className="text-base mt-4">
+              <p className="mt-4 text-base">
                 {t("home.playlists.description.paragraph2")}
               </p>
             </div>
