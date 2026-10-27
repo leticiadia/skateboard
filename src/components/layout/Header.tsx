@@ -35,7 +35,7 @@ export function Header() {
       <Container>
         <div className="flex items-center justify-between">
           <Link to="/" aria-label="Página inicial do Skateboard">
-            <img src={SkateboardLogo} className="h-8 lg:h-12" alt="" />
+            <img src={SkateboardLogo} className="h-6" alt="" />
           </Link>
 
           <Navbar />

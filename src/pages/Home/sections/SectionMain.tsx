@@ -44,28 +44,12 @@ export function SectionMain() {
                 }}
               >
                 <p
-                  className="text-5xl font-bold text-white md:text-6xl 
-                  lg:text-8xl"
+                  className="text-4xl font-rock-salt text-white 
+                  md:text-6xl lg:text-7xl"
                 >
-                  Skate
+                  Skateboard!
                 </p>
-
-                <span className="w-[7rem] rounded-full border-b-4 border-b-white" />
               </motion.div>
-
-              <motion.p
-                className="text-5xl font-bold text-white md:text-6xl lg:text-8xl"
-                initial={fadeUpAnimation.initial}
-                whileInView={fadeUpAnimation.whileInView}
-                viewport={viewportSettings}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.1,
-                  ease: "easeOut",
-                }}
-              >
-                boarding
-              </motion.p>
             </div>
 
             <motion.p
