@@ -1,17 +1,32 @@
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 
 import type { Athlete } from "../../../features/athletes/types/athlete";
 
 import { Container } from "../../../components/layout/Container";
 
-import { CurrentAthlete } from "./SectionAthletes/CurrentAthlete";
-import { AthleteContent } from "./SectionAthletes/AthleteContent";
 import { AthleteCarousel } from "./SectionAthletes/AthleteCarousel";
+import { AthleteContent } from "./SectionAthletes/AthleteContent";
+import { CurrentAthlete } from "./SectionAthletes/CurrentAthlete";
 
 type SectionAthletesProps = {
   athletes: Athlete[];
+};
+
+const viewportSettings = {
+  once: true,
+  amount: 0.3,
+};
+
+const fadeInFromLeftAnimation = {
+  initial: { opacity: 0, x: -40 },
+  whileInView: { opacity: 1, x: 0 },
+};
+
+const fadeInFromBottomAnimation = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
 };
 
 export function SectionAthletes({ athletes }: SectionAthletesProps) {
@@ -21,32 +36,34 @@ export function SectionAthletes({ athletes }: SectionAthletesProps) {
 
   const displayedAthletes = athletes.slice(0, 4);
 
-  const rotatedAthletes = [
+  const carouselAthletes = [
     ...displayedAthletes.slice(currentIndex + 1),
     ...displayedAthletes.slice(0, currentIndex),
   ];
 
-  if (!displayedAthletes.length) return null;
+  if (!displayedAthletes.length) {
+    return null;
+  }
 
   const currentAthlete = displayedAthletes[currentIndex];
 
   function handleNextAthlete() {
-    setCurrentIndex((prev) =>
-      prev === displayedAthletes.length - 1 ? 0 : prev + 1,
+    setCurrentIndex((previousIndex) =>
+      previousIndex === displayedAthletes.length - 1 ? 0 : previousIndex + 1,
     );
   }
 
   return (
-    <section className="w-full mt-10">
+    <section className="mt-10 w-full">
       <Container>
         <div
           className="flex flex-col gap-8 lg:flex-row lg:items-center 
           lg:justify-between"
         >
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            initial={fadeInFromLeftAnimation.initial}
+            whileInView={fadeInFromLeftAnimation.whileInView}
+            viewport={viewportSettings}
             transition={{
               duration: 0.8,
               ease: "easeOut",
@@ -57,9 +74,9 @@ export function SectionAthletes({ athletes }: SectionAthletesProps) {
 
           <motion.div
             className="flex flex-col"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            initial={fadeInFromBottomAnimation.initial}
+            whileInView={fadeInFromBottomAnimation.whileInView}
+            viewport={viewportSettings}
             transition={{
               duration: 0.6,
               ease: "easeOut",
@@ -73,7 +90,7 @@ export function SectionAthletes({ athletes }: SectionAthletesProps) {
               </p>
             </div>
 
-            <AthleteCarousel athletes={rotatedAthletes} />
+            <AthleteCarousel athletes={carouselAthletes} />
 
             <AthleteContent onNext={handleNextAthlete} />
           </motion.div>
