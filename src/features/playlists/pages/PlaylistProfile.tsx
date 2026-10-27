@@ -1,14 +1,13 @@
 import { useParams } from "react-router-dom";
 
+import { playlists } from "../data/playlists";
 import type { BackgroundColor } from "../components/PlaylistCard";
 
-import { playlists } from "../data/playlists";
-
 import { Container } from "../../../components/layout/Container";
-import { ProfileImage } from "../../../components/ui/ProfileImage";
 import { ButtonLink } from "../../../components/ui/ButtonLink";
+import { ProfileImage } from "../../../components/ui/ProfileImage";
 
-const colorClasses: Record<BackgroundColor, string> = {
+const accentColors: Record<BackgroundColor, string> = {
   zinc300: "#e4e4e7",
   emerald400: "#2ab7ca",
   yellow300: "#ffc857",
@@ -19,9 +18,11 @@ const colorClasses: Record<BackgroundColor, string> = {
 export function PlaylistProfile() {
   const { slug } = useParams();
 
-  const playlist = playlists.find((playlist) => playlist.slug === slug);
+  const playlistData = playlists.find(
+    (currentPlaylist) => currentPlaylist.slug === slug,
+  );
 
-  if (!playlist) {
+  if (!playlistData) {
     return (
       <section className="flex min-h-screen items-center justify-center">
         <p className="text-xl font-medium">Playlist não encontrada.</p>
@@ -29,48 +30,48 @@ export function PlaylistProfile() {
     );
   }
 
-  const color = colorClasses[playlist.backgroundColor];
+  const accentColor = accentColors[playlistData.backgroundColor];
 
   return (
-    <section className="w-full pt-24 my-8">
+    <section className="my-8 w-full pt-24">
       <Container>
         <div
           className="flex flex-col items-center justify-between gap-8 
-              lg:flex-row"
+          lg:flex-row"
         >
           <div className="flex flex-col gap-6">
             <div>
               <span
-                className="text-sm font-bold uppercase tracking-widest"
-                style={{ color }}
+                className="text-sm font-bold tracking-widest uppercase"
+                style={{ color: accentColor }}
               >
                 Playlist
               </span>
 
               <h1 className="mt-2 text-4xl font-bold lg:text-6xl">
-                {playlist.title}
+                {playlistData.title}
               </h1>
             </div>
 
             <p
               className="max-w-xl text-base leading-7 text-gray-600 
-                  lg:text-lg"
+              lg:text-lg"
             >
-              {playlist.description}
+              {playlistData.description}
             </p>
 
             <ButtonLink
               title="Ouvir playlist"
               href="#"
-              backgroundColor={color}
+              backgroundColor={accentColor}
               size="medium"
             />
           </div>
 
           <ProfileImage
-            image={playlist.image}
-            altText={`Capa da playlist ${playlist.title}`}
-            accentColor={color}
+            image={playlistData.image}
+            altText={`Capa da playlist ${playlistData.title}`}
+            accentColor={accentColor}
           />
         </div>
       </Container>
