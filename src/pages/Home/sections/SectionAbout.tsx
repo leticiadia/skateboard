@@ -1,39 +1,54 @@
-import { useTranslation } from "react-i18next";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 
 import { Container } from "../../../components/layout/Container";
 import { ButtonLink } from "../../../components/ui/ButtonLink";
 
-import TonyHawk from "../../../assets/images/tony-hawk.png";
-import BannerLiveYourExperiencePT from "../../../assets/images/banner-live-your-experience.png";
 import BannerLiveYourExperienceEN from "../../../assets/images/banner-live-your-experience-en.png";
+import BannerLiveYourExperiencePT from "../../../assets/images/banner-live-your-experience.png";
+import TonyHawk from "../../../assets/images/tony-hawk.png";
+
+const viewportSettings = {
+  once: true,
+  amount: 0.3,
+};
+
+const fadeUpAnimation = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 1, y: 0 },
+};
+
+const fadeInFromRightAnimation = {
+  initial: { opacity: 0, x: 40 },
+  whileInView: { opacity: 1, x: 0 },
+};
 
 export function SectionAbout() {
   const { t, i18n } = useTranslation();
 
-  const bannerImage =
+  const experienceBannerImage =
     i18n.language === "en"
       ? BannerLiveYourExperienceEN
       : BannerLiveYourExperiencePT;
 
   return (
     <>
-      <section className="w-full mt-10">
+      <section className="mt-10 w-full">
         <Container>
           <div
             className="flex flex-col gap-8 lg:flex-row lg:items-center 
             lg:justify-between"
           >
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              initial={fadeUpAnimation.initial}
+              whileInView={fadeUpAnimation.whileInView}
+              viewport={viewportSettings}
               transition={{
                 duration: 0.6,
                 ease: "easeOut",
               }}
             >
-              <h2 className="text-2xl text-black font-bold md:text-4xl">
+              <h2 className="text-2xl font-bold text-black md:text-4xl">
                 {t("home.about.title")}
               </h2>
 
@@ -54,9 +69,9 @@ export function SectionAbout() {
             <motion.img
               src={TonyHawk}
               alt=""
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
+              initial={fadeInFromRightAnimation.initial}
+              whileInView={fadeInFromRightAnimation.whileInView}
+              viewport={viewportSettings}
               transition={{
                 duration: 0.8,
                 ease: "easeOut",
@@ -69,12 +84,12 @@ export function SectionAbout() {
       <section className="mt-10">
         <Container>
           <motion.img
-            src={bannerImage}
+            src={experienceBannerImage}
             className="h-full object-cover"
             alt=""
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
+            initial={fadeUpAnimation.initial}
+            whileInView={fadeUpAnimation.whileInView}
+            viewport={viewportSettings}
             transition={{
               duration: 0.8,
               ease: "easeOut",
