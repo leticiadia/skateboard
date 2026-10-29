@@ -36,7 +36,7 @@ export function AthleteContent({ onNext }: AthleteContentProps) {
           href="/atletas"
           title={t("home.athletes.button")}
           variant="outline"
-          size="medium"
+          size="large"
         />
       </div>
     </>

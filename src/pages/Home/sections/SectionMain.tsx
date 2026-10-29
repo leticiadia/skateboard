@@ -2,7 +2,6 @@ import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 
 import { Container } from "../../../components/layout/Container";
-import { ButtonLink } from "../../../components/ui/ButtonLink";
 
 import SkateboardPhoto from "../../../assets/images/skateboard.png";
 
@@ -32,30 +31,22 @@ export function SectionMain() {
           lg:justify-between"
         >
           <div>
-            <div className="flex flex-col gap-4">
-              <motion.div
-                className="flex items-center gap-4"
-                initial={fadeUpAnimation.initial}
-                whileInView={fadeUpAnimation.whileInView}
-                viewport={viewportSettings}
-                transition={{
-                  duration: 0.6,
-                  ease: "easeOut",
-                }}
-              >
-                <p
-                  className="text-4xl font-rock-salt text-white 
-                  md:text-6xl lg:text-7xl"
-                >
-                  Skateboard!
-                </p>
-              </motion.div>
-            </div>
+            <motion.h1
+              className="text-4xl font-rock-salt text-white md:text-6xl 
+              lg:text-7xl"
+              {...fadeUpAnimation}
+              viewport={viewportSettings}
+              transition={{
+                duration: 0.6,
+                ease: "easeOut",
+              }}
+            >
+              Skateboard!
+            </motion.h1>
 
-            <motion.p
-              className="my-8 w-full text-base text-white"
-              initial={fadeUpAnimation.initial}
-              whileInView={fadeUpAnimation.whileInView}
+            <motion.div
+              className="mt-8 flex flex-col gap-2"
+              {...fadeUpAnimation}
               viewport={viewportSettings}
               transition={{
                 duration: 0.6,
@@ -63,25 +54,13 @@ export function SectionMain() {
                 ease: "easeOut",
               }}
             >
-              {t("home.main.description")}
-            </motion.p>
+              <p className="w-full text-xl font-bold text-yellow-300">
+                {t("home.main.title")}
+              </p>
 
-            <motion.div
-              initial={fadeUpAnimation.initial}
-              whileInView={fadeUpAnimation.whileInView}
-              viewport={viewportSettings}
-              transition={{
-                duration: 0.6,
-                delay: 0.3,
-                ease: "easeOut",
-              }}
-            >
-              <ButtonLink
-                href="#"
-                title={t("home.main.button")}
-                variant="yellow"
-                size="medium"
-              />
+              <p className="w-full text-base text-white">
+                {t("home.main.description")}
+              </p>
             </motion.div>
           </div>
 
@@ -89,8 +68,7 @@ export function SectionMain() {
             src={SkateboardPhoto}
             className="lg:h-[400px] xl:h-full"
             alt=""
-            initial={fadeInFromRightAnimation.initial}
-            whileInView={fadeInFromRightAnimation.whileInView}
+            {...fadeInFromRightAnimation}
             viewport={viewportSettings}
             transition={{
               duration: 0.8,

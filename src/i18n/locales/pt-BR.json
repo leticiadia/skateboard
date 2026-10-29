@@ -7,8 +7,8 @@
   
   "home": {
     "main": {
-      "description": "Descubra como é viver uma vida sobre as rodas e venha fazer parte dessa história ao lado dos melhores competidores do mundo.",
-      "button": "Descubra"
+      "title": "Tudo sobre o skate, em um só lugar.",
+      "description": "Acompanhe atletas, explore campeonatos e descubra o que movimenta o universo do skate. Um espaço para quem acompanha, vive e ama o esporte."
     },
     "about": {
         "title": "A História do Skate",
@@ -24,7 +24,7 @@
           "subtitle": "Vem conhecer os atletas que têm feito história no skate.",
           "paragraph": "Conheça a trajetória dos atletas que vêm deixando sua marca no skate, com talento, atitude e evolução constante. Descubra suas conquistas, estilos únicos e o impacto dentro e fora das pistas."
         },
-        "button": "Ver Atletas"
+        "button": "Conheça os atletas"
     },
     "playlists": {
         "title": "Playlists",
@@ -36,7 +36,7 @@
     },
     "championships": {
       "title": "Campeonatos",
-      "button": "Ver Campeonatos"
+      "button": "Explorar campeonatos"
     }
   },
 

@@ -7,8 +7,8 @@
 
   "home": {
     "main": {
-      "description": "Discover what it's like to live life on wheels and become part of this story alongside the best competitors in the world.",
-      "button": "Discover"
+      "title": "Everything about skateboarding, in one place.",
+      "description": "Follow athletes, explore championships, and discover what drives the skateboarding universe. A space for those who follow, live, and love the sport."
     },
     "about": {
         "title": "The History of Skateboarding",
@@ -24,7 +24,7 @@
           "subtitle": "Meet the athletes who have been making history in skateboarding.",
           "paragraph": "Discover the journeys of the athletes who are leaving their mark on the sport through talent, attitude, and constant growth. Explore their achievements, unique styles, and the impact they have both on and off the skatepark."
         },
-        "button": "See Athletes"
+        "button": "Meet the athletes"
     },
     "playlists": {
         "title": "Playlists",
@@ -36,7 +36,7 @@
     },
     "championships": {
       "title": "Championships",
-      "button": "See Championships"
+      "button": "Explore championships"
     }
   },
   
