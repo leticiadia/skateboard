@@ -1,33 +1,33 @@
-import { useTranslation } from "react-i18next";
 import { ArrowCircleRightIcon } from "@phosphor-icons/react";
+import { useTranslation } from "react-i18next";
 
 import { ButtonLink } from "../../../../components/ui/ButtonLink";
 
-type Props = {
+interface AthleteContentProps {
   onNext: () => void;
-};
+}
 
-export function AthleteContent({ onNext }: Props) {
+export function AthleteContent({ onNext }: AthleteContentProps) {
   const { t } = useTranslation();
 
   return (
     <>
       <div
-        className="flex flex-col items-start gap-4 justify-between mt-4 
-      lg:flex-row lg:items-center"
+        className="mt-4 flex flex-col items-start justify-between gap-4 
+        lg:flex-row lg:items-center"
       >
         <p className="w-full lg:w-[34rem]">
           {t("home.athletes.description.paragraph")}
         </p>
 
         <button
+          type="button"
           onClick={onNext}
           aria-label="Próximo atleta"
-          className="cursor-pointer"
+          className="cursor-pointer transition-transform hover:scale-110 
+          active:scale-95"
         >
-          <div className="transition-transform hover:scale-110 active:scale-95">
-            <ArrowCircleRightIcon size={32} />
-          </div>
+          <ArrowCircleRightIcon size={32} />
         </button>
       </div>
 
