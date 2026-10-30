@@ -653,6 +653,40 @@
     "submit": "Secure your spot"
   },
 
+  "playlists": {
+    "saturdaySkateSession": {
+      "title": "Saturday Skate Session",
+      "subtitle": "The perfect soundtrack for a Saturday morning skate session with friends.",
+      "description": "Saturday Skate Session brings together songs to kick off the weekend the best way possible: meeting up with friends, picking a spot, and spending hours skating. It's a laid-back, upbeat playlist full of energy, made for those Saturday mornings when there's nothing to worry about except landing new tricks, sharing good stories, and enjoying the moment with the crew."
+    },
+    "sunsetRide": {
+      "title": "Sunset Ride",
+      "subtitle": "Music to soundtrack your skate sessions as the sun goes down.",
+      "description": "Sunset Ride was created for those late afternoons when the sky starts changing colors, the city slows down, and there's still time for a few more skate sessions. Its selection blends energy and relaxation, perfectly capturing the feeling of meeting up with friends after a long day to skate, hang out, and enjoy the last hours of daylight."
+    },
+    "competitionMode": {
+      "title": "Competition Mode",
+      "subtitle": "Focus, energy, and intensity for competition days.",
+      "description": "Competition Mode is a playlist designed to get you in the competitive mindset. Packed with intense, high-energy tracks, it's made to accompany you before a heat, during warm-ups, and while preparing to take on new challenges. It's the soundtrack for anyone who needs focus, confidence, and that extra motivation before hitting the course."
+    },
+    "retroRide": {
+      "title": "Retro Ride",
+      "subtitle": "A musical journey through the classic and nostalgic vibes of skateboarding.",
+      "description": "Retro Ride brings an atmosphere inspired by the different eras that helped shape skateboarding culture. With a nostalgic, fun, and distinctive feel, this playlist is perfect for those who enjoy revisiting classic influences, remembering old skate sessions, and experiencing that unique blend of music, style, and skateboarding history."
+    },
+    "soloSession": {
+      "title": "Solo Session",
+      "subtitle": "A collection of tracks to enjoy skateboarding at your own pace.",
+      "description": "Solo Session was made for those days when you just want to grab your board and head out alone, with no schedule and no rush. This playlist accompanies more personal moments, whether you're exploring new spots, practicing the same trick over and over, or simply enjoying a relaxed session. It's a soundtrack for focusing, taking a breath, and enjoying skateboarding at your own pace."
+    },
+    "buttonViewPlaylist": {
+      "name": "View playlist"
+    },
+    "buttonPlayPlaylist": {
+      "name": "Play playlist"
+    }
+  },
+
   "footer": {
     "description": "More than a sport, skateboarding represents freedom, creativity, and self-expression in every detail.",
     "copyright": "© 2026 Skateboard. All rights reserved.",

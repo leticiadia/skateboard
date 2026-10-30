@@ -1,5 +1,6 @@
 import { ArrowRightIcon } from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import type { Playlist } from "../types/playlist";
 
@@ -24,6 +25,8 @@ const colorClasses: Record<BackgroundColor, string> = {
 };
 
 export function PlaylistCard({ playlist, backgroundColor }: PlaylistCardProps) {
+  const { t } = useTranslation();
+
   return (
     <article
       className={`group overflow-hidden rounded-sm
@@ -40,23 +43,23 @@ export function PlaylistCard({ playlist, backgroundColor }: PlaylistCardProps) {
         <div className="w-full shrink-0 sm:w-48">
           <img
             src={playlist.image}
-            alt={`Capa da playlist ${playlist.title}`}
+            alt={`Capa da playlist ${t(playlist.title)}`}
             className="h-48 w-full rounded-sm object-cover sm:h-40"
           />
         </div>
 
         <div className="flex flex-1 flex-col items-start gap-2 pt-4 sm:pt-0">
-          <h3 className="text-2xl font-bold text-black">{playlist.title}</h3>
+          <h3 className="text-2xl font-bold text-black">{t(playlist.title)}</h3>
 
           <p className="text-base font-medium text-black/75">
-            {playlist.subtitle}
+            {t(playlist.subtitle)}
           </p>
 
           <span
             className="mt-2 flex items-center gap-2 font-semibold 
             text-black"
           >
-            Ver playlist
+            {t("playlists.buttonViewPlaylist.name")}
             <ArrowRightIcon
               size={18}
               className="transition-transform duration-200

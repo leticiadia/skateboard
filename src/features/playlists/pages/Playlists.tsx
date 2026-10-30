@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Container } from "../../../components/layout/Container";
 import { PageHero } from "../../../components/ui/PageHero/PageHero";
 import { PlaylistCard } from "../components/PlaylistCard";
@@ -5,11 +6,13 @@ import { PlaylistCard } from "../components/PlaylistCard";
 import { playlists } from "../data/playlists";
 
 export function Playlists() {
+  const { t } = useTranslation();
+
   return (
     <>
       <PageHero
-        title="Playlists"
-        subtitle="Uma seleção de músicas para entrar no ritmo do skate com batidas intensas e muita energia, tudo feito para quem vive o skate."
+        title={t("home.playlists.title")}
+        subtitle={t("home.playlists.description.paragraph2")}
         backgroundColor="#101828"
       />
 

@@ -6,6 +6,7 @@ import type { BackgroundColor } from "../components/PlaylistCard";
 import { Container } from "../../../components/layout/Container";
 import { ButtonLink } from "../../../components/ui/ButtonLink";
 import { ProfileImage } from "../../../components/ui/ProfileImage";
+import { useTranslation } from "react-i18next";
 
 const accentColors: Record<BackgroundColor, string> = {
   zinc300: "#e4e4e7",
@@ -17,6 +18,7 @@ const accentColors: Record<BackgroundColor, string> = {
 
 export function PlaylistProfile() {
   const { slug } = useParams();
+  const { t } = useTranslation();
 
   const playlistData = playlists.find(
     (currentPlaylist) => currentPlaylist.slug === slug,
@@ -33,7 +35,7 @@ export function PlaylistProfile() {
   const accentColor = accentColors[playlistData.backgroundColor];
 
   return (
-    <section className="my-8 w-full pt-24">
+    <section className="my-8 w-full pt-18">
       <Container>
         <div
           className="flex flex-col items-center justify-between gap-8 
@@ -49,7 +51,7 @@ export function PlaylistProfile() {
               </span>
 
               <h1 className="mt-2 text-4xl font-bold lg:text-6xl">
-                {playlistData.title}
+                {t(playlistData.title)}
               </h1>
             </div>
 
@@ -57,14 +59,14 @@ export function PlaylistProfile() {
               className="max-w-xl text-base leading-7 text-gray-600 
               lg:text-lg"
             >
-              {playlistData.description}
+              {t(playlistData.description)}
             </p>
 
             <ButtonLink
-              title="Ouvir playlist"
+              title={t("playlists.buttonPlayPlaylist.name")}
               href="#"
               backgroundColor={accentColor}
-              size="medium"
+              size="large"
             />
           </div>
 
