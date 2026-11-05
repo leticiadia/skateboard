@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import type { Playlist } from "../types/playlist";
+import { useLocalizedPath } from "../../../app/router/hooks/useLocalizedPath";
 
 export type BackgroundColor =
   | "zinc300"
@@ -26,6 +27,7 @@ const colorClasses: Record<BackgroundColor, string> = {
 
 export function PlaylistCard({ playlist, backgroundColor }: PlaylistCardProps) {
   const { t } = useTranslation();
+  const getLocalizedPath = useLocalizedPath();
 
   return (
     <article
@@ -34,7 +36,7 @@ export function PlaylistCard({ playlist, backgroundColor }: PlaylistCardProps) {
       transition-transform duration-200 hover:-translate-y-1`}
     >
       <Link
-        to={`/playlists/${playlist.slug}`}
+        to={getLocalizedPath(`/playlists/${playlist.slug}`)}
         className="flex flex-col focus-visible:rounded-sm
         focus-visible:outline-2 focus-visible:outline-black
         focus-visible:outline-offset-4

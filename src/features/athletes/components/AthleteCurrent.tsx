@@ -12,6 +12,7 @@ import { getAthleteNextEvent } from "../helpers/getAthleteNextEvent";
 import { formatEventDate } from "../../../utils/formatEventDate";
 
 import { Container } from "../../../components/layout/Container";
+import { useLocalizedPath } from "../../../app/router/hooks/useLocalizedPath";
 
 type AthleteCurrentProps = {
   athlete: Athlete;
@@ -39,6 +40,7 @@ export function AthleteCurrent({
 }: AthleteCurrentProps) {
   const { t, i18n } = useTranslation();
   const shouldReduceMotion = useReducedMotion();
+  const getLocalizedPath = useLocalizedPath();
 
   const nextEvent = getAthleteNextEvent(athlete);
 
@@ -213,7 +215,9 @@ export function AthleteCurrent({
                 border-gray-200 pt-5 sm:justify-end"
                 >
                   <Link
-                    to={`/campeonatos/${nextEvent.championshipSlug}/eventos/${nextEvent.slug}`}
+                    to={getLocalizedPath(
+                      `/campeonatos/${nextEvent.championshipSlug}/eventos/${nextEvent.slug}`,
+                    )}
                     className="group flex items-center gap-2 text-sm font-bold 
                     hover:underline focus-visible:outline-2 
                     focus-visible:outline-offset-4"

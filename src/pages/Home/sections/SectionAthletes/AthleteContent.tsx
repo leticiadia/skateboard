@@ -2,6 +2,7 @@ import { ArrowCircleRightIcon } from "@phosphor-icons/react";
 import { useTranslation } from "react-i18next";
 
 import { ButtonLink } from "../../../../components/ui/ButtonLink";
+import { useLocalizedPath } from "../../../../app/router/hooks/useLocalizedPath";
 
 interface AthleteContentProps {
   onNext: () => void;
@@ -9,6 +10,7 @@ interface AthleteContentProps {
 
 export function AthleteContent({ onNext }: AthleteContentProps) {
   const { t } = useTranslation();
+  const getLocalizedPath = useLocalizedPath();
 
   return (
     <>
@@ -33,7 +35,7 @@ export function AthleteContent({ onNext }: AthleteContentProps) {
 
       <div className="mt-4">
         <ButtonLink
-          href="/atletas"
+          href={getLocalizedPath("/atletas")}
           title={t("home.athletes.button")}
           variant="outline"
           size="large"

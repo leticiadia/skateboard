@@ -8,6 +8,7 @@ import type { AthleteProfileData } from "../types/athlete-profile";
 import { Container } from "../../../components/layout/Container";
 import { PodiumItem } from "./PodiumItem";
 import { StatItem } from "./StatItem";
+import { useLocalizedPath } from "../../../app/router/hooks/useLocalizedPath";
 
 type AthleteStatsProps = {
   stats: AthleteProfileData["stats"];
@@ -36,6 +37,8 @@ export function AthleteStats({
 }: AthleteStatsProps) {
   const { t } = useTranslation();
   const shouldReduceMotion = useReducedMotion();
+
+  const getLocalizedPath = useLocalizedPath();
 
   const totalPodiums = stats.podiums.total;
   const initialHeadingAnimation = shouldReduceMotion ? false : HIDDEN_HEADING;
@@ -185,7 +188,7 @@ export function AthleteStats({
 
               <div className="relative z-10 mt-8">
                 <Link
-                  to={`/atletas/${athleteSlug}/podio`}
+                  to={getLocalizedPath(`/atletas/${athleteSlug}/podio`)}
                   className="group inline-flex items-center gap-2 text-sm 
                   font-bold text-zinc-700 focus-visible:outline-2 
                   focus-visible:outline-offset-4"

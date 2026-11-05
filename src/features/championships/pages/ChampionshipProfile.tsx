@@ -13,10 +13,12 @@ import { PageHero } from "../../../components/ui/PageHero/PageHero";
 import { ChampionshipEvents } from "../components/ChampionshipEvents";
 import { ChampionshipRegistration } from "../components/ChampionshipRegistration";
 import { GlobalRanking } from "../components/GlobalRanking";
+import { useLocalizedPath } from "../../../app/router/hooks/useLocalizedPath";
 
 export function ChampionshipProfile() {
   const { slug } = useParams();
   const { t } = useTranslation();
+  const getLocalizedPath = useLocalizedPath();
 
   const championship = championships.find(
     (championshipData) => championshipData.slug === slug,
@@ -108,7 +110,7 @@ export function ChampionshipProfile() {
 
           <ButtonLink
             title={t("championship-profile.sections.global-ranking.view-full")}
-            href={`/campeonatos/${championship.slug}/ranking`}
+            href={getLocalizedPath(`/campeonatos/${championship.slug}/ranking`)}
             variant="outline"
             size="large"
           />
@@ -122,7 +124,9 @@ export function ChampionshipProfile() {
               title={t(
                 "championship-profile.sections.upcoming-events.view-full",
               )}
-              href={`/campeonatos/${championship.slug}/eventos`}
+              href={getLocalizedPath(
+                `/campeonatos/${championship.slug}/eventos`,
+              )}
               variant="outline"
               size="large"
             />

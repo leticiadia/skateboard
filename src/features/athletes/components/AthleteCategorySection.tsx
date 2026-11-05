@@ -3,6 +3,7 @@ import {
   EntityCard,
   type EntityCardColor,
 } from "../../../components/ui/EntityCard";
+import { useLocalizedPath } from "../../../app/router/hooks/useLocalizedPath";
 
 interface AthleteCategorySectionProps {
   title: string;
@@ -15,6 +16,8 @@ export function AthleteCategorySection({
   athletes,
   color,
 }: AthleteCategorySectionProps) {
+  const getLocalizedPath = useLocalizedPath();
+
   return (
     <section>
       <h3 className="mb-6 text-3xl font-bold">{title}</h3>
@@ -26,7 +29,7 @@ export function AthleteCategorySection({
         {athletes.map((athlete) => (
           <EntityCard
             key={athlete.id}
-            href={`/atletas/${athlete.slug}`}
+            href={getLocalizedPath(`/atletas/${athlete.slug}`)}
             name={athlete.name}
             image={athlete.image}
             color={color}

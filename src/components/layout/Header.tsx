@@ -4,11 +4,14 @@ import { Link } from "react-router-dom";
 import SkateboardLogo from "../../assets/brand/skateboard-logo.svg";
 import { Container } from "./Container";
 import { Navbar } from "./Navbar";
+import { useLocalizedPath } from "../../app/router/hooks/useLocalizedPath";
 
 const SCROLL_THRESHOLD = 20;
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const getLocalizedPath = useLocalizedPath();
 
   useEffect(() => {
     function handleScroll() {
@@ -34,7 +37,10 @@ export function Header() {
     >
       <Container>
         <div className="flex items-center justify-between">
-          <Link to="/" aria-label="Página inicial do Skateboard">
+          <Link
+            to={getLocalizedPath("/")}
+            aria-label="Página inicial do Skateboard"
+          >
             <img src={SkateboardLogo} className="h-6" alt="" />
           </Link>
 

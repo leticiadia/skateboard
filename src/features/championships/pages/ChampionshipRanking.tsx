@@ -10,6 +10,7 @@ import { championships } from "../data/championships";
 import { Container } from "../../../components/layout/Container";
 import { DetailHero } from "../../../components/ui/DetailHero";
 import { GlobalRanking } from "../components/GlobalRanking";
+import { useLocalizedPath } from "../../../app/router/hooks/useLocalizedPath";
 
 const colorClasses = {
   zinc300: "#e4e4e7",
@@ -20,6 +21,7 @@ const colorClasses = {
 export function ChampionshipRanking() {
   const { slug } = useParams();
   const { t } = useTranslation();
+  const getLocalizedPath = useLocalizedPath();
 
   const championship = championships.find(
     (championshipData) => championshipData.slug === slug,
@@ -44,7 +46,7 @@ export function ChampionshipRanking() {
         <div className="flex flex-col gap-10">
           <div>
             <Link
-              to={`/campeonatos/${championship.slug}`}
+              to={getLocalizedPath(`/campeonatos/${championship.slug}`)}
               className="group inline-flex items-center gap-2 text-sm font-bold 
               text-zinc-700 transition-colors hover:text-black"
             >

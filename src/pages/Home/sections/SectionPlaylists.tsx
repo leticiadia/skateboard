@@ -5,6 +5,7 @@ import { Container } from "../../../components/layout/Container";
 import { ButtonLink } from "../../../components/ui/ButtonLink";
 
 import ImagePeopleWithSkateboard from "../../../assets/images/people-with-skateboard.png";
+import { useLocalizedPath } from "../../../app/router/hooks/useLocalizedPath";
 
 const viewportSettings = {
   once: true,
@@ -23,6 +24,7 @@ const fadeUpAnimation = {
 
 export function SectionPlaylists() {
   const { t } = useTranslation();
+  const getLocalizedPath = useLocalizedPath();
 
   return (
     <section className="mt-10 w-full bg-yellow-300">
@@ -65,7 +67,7 @@ export function SectionPlaylists() {
             </div>
 
             <ButtonLink
-              href="/playlists"
+              href={getLocalizedPath("/playlists")}
               title={t("home.playlists.button")}
               variant="solid"
               size="medium"

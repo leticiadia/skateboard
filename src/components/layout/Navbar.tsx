@@ -1,7 +1,10 @@
 import { List } from "phosphor-react";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+
+import { enPaths, ptPaths } from "../../app/router/paths";
+import { translateRoute } from "../../app/router/route-translations";
 
 import { Dropdown } from "../ui/Dropdown/Dropdown";
 import { MenuModal } from "../ui/MenuModal";
@@ -21,17 +24,30 @@ const languageOptions: { label: string; value: Language }[] = [
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const { t, i18n } = useTranslation();
 
-  const routes = [
-    { path: "/sobre", label: t("navbar.about") },
-    { path: "/atletas", label: t("navbar.athletes") },
-    { path: "/campeonatos", label: t("navbar.championships") },
-  ];
+  const { pathname, search, hash } = useLocation();
+  const navigate = useNavigate();
 
-  const currentLanguage: Language = i18n.language.toLowerCase().startsWith("en")
-    ? "en"
-    : "pt-BR";
+  const currentLanguage: Language = pathname.startsWith("/en") ? "en" : "pt-BR";
+
+  const routePaths = currentLanguage === "en" ? enPaths : ptPaths;
+
+  const routes = [
+    {
+      path: routePaths.about,
+      label: t("navbar.about"),
+    },
+    {
+      path: routePaths.athletes,
+      label: t("navbar.athletes"),
+    },
+    {
+      path: routePaths.championships,
+      label: t("navbar.championships"),
+    },
+  ];
 
   function handleLanguageChange(language: string) {
     const isSupportedLanguage = languageOptions.some(
@@ -42,8 +58,13 @@ export function Navbar() {
       return;
     }
 
+    const nextPath = translateRoute(pathname, language as Language);
+
     void i18n.changeLanguage(language);
+
     localStorage.setItem("language", language);
+
+    navigate(`${nextPath}${search}${hash}`);
   }
 
   function handleMenuToggle() {

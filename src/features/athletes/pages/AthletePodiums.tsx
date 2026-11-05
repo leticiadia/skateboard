@@ -11,6 +11,7 @@ import { DetailHero } from "../../../components/ui/DetailHero";
 import { AthletePodiumsTable } from "../components/AthletePodiumsTable";
 
 import { getAthletePodiums } from "../helpers/getAthletePodiums";
+import { useLocalizedPath } from "../../../app/router/hooks/useLocalizedPath";
 
 const athleteColors: Record<AthleteCategory, string> = {
   female: "#2ab7ca",
@@ -21,6 +22,7 @@ const athleteColors: Record<AthleteCategory, string> = {
 export function AthletePodiums() {
   const { slug } = useParams();
   const { t } = useTranslation();
+  const getLocalizedPath = useLocalizedPath();
 
   const athlete = athletes.find((athlete) => athlete.slug === slug);
 
@@ -44,7 +46,7 @@ export function AthletePodiums() {
           }}
         >
           <Link
-            to={`/atletas/${athlete.slug}`}
+            to={getLocalizedPath(`/atletas/${athlete.slug}`)}
             className="group flex items-center gap-2 text-sm font-bold 
             text-zinc-700 transition-colors hover:text-black"
           >

@@ -4,7 +4,11 @@ import { initReactI18next } from "react-i18next";
 import ptBR from "./locales/pt-BR.json";
 import enUS from "./locales/en-US.json";
 
-const savedLanguage = localStorage.getItem("language") || "pt";
+const isEnglishRoute =
+  window.location.pathname === "/en" ||
+  window.location.pathname.startsWith("/en/");
+
+const initialLanguage = isEnglishRoute ? "en" : "pt";
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -16,7 +20,7 @@ i18n.use(initReactI18next).init({
     },
   },
 
-  lng: savedLanguage,
+  lng: initialLanguage,
   fallbackLng: "pt",
 
   interpolation: {

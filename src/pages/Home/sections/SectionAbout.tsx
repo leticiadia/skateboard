@@ -7,6 +7,7 @@ import { ButtonLink } from "../../../components/ui/ButtonLink";
 import BannerLiveYourExperienceEN from "../../../assets/images/banner-live-your-experience-en.png";
 import BannerLiveYourExperiencePT from "../../../assets/images/banner-live-your-experience.png";
 import TonyHawk from "../../../assets/images/tony-hawk.png";
+import { useLocalizedPath } from "../../../app/router/hooks/useLocalizedPath";
 
 const viewportSettings = {
   once: true,
@@ -25,6 +26,7 @@ const fadeInFromRightAnimation = {
 
 export function SectionAbout() {
   const { t, i18n } = useTranslation();
+  const getLocalizedPath = useLocalizedPath();
 
   const experienceBannerImage =
     i18n.language === "en"
@@ -59,7 +61,7 @@ export function SectionAbout() {
               </div>
 
               <ButtonLink
-                href="/sobre"
+                href={getLocalizedPath("/sobre")}
                 title={t("home.about.button")}
                 variant="outline"
                 size="medium"

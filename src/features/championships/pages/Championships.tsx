@@ -4,9 +4,11 @@ import { championships } from "../data/championships";
 
 import { PageHero } from "../../../components/ui/PageHero/PageHero";
 import { ChampionshipSection } from "../components/ChampionshipSection";
+import { useLocalizedPath } from "../../../app/router/hooks/useLocalizedPath";
 
 export function Championships() {
   const { t } = useTranslation();
+  const getLocalizedPath = useLocalizedPath();
 
   return (
     <>
@@ -23,7 +25,7 @@ export function Championships() {
             title={championship.title}
             subtitle={championship.subtitle}
             description={championship.description}
-            href={`/campeonatos/${championship.slug}`}
+            href={getLocalizedPath(`/campeonatos/${championship.slug}`)}
             backgroundColor={championship.backgroundColor}
             image={championship.imageSection}
           />

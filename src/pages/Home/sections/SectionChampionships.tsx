@@ -9,6 +9,7 @@ import { EntityCard } from "../../../components/ui/EntityCard";
 
 import BannerLiveYourDreamsEN from "../../../assets/images/banner-live-your-dreams-en.png";
 import BannerLiveYourDreamsPT from "../../../assets/images/banner-live-your-dreams.png";
+import { useLocalizedPath } from "../../../app/router/hooks/useLocalizedPath";
 
 const viewportSettings = {
   once: true,
@@ -22,6 +23,7 @@ const fadeUpAnimation = {
 
 export function SectionChampionships() {
   const { t, i18n } = useTranslation();
+  const getLocalizedPath = useLocalizedPath();
 
   const dreamsBannerImage =
     i18n.language === "en" ? BannerLiveYourDreamsEN : BannerLiveYourDreamsPT;
@@ -59,7 +61,9 @@ export function SectionChampionships() {
               {championships.map((championshipData) => (
                 <EntityCard
                   key={championshipData.id}
-                  href={`/campeonatos/${championshipData.slug}`}
+                  href={getLocalizedPath(
+                    `/campeonatos/${championshipData.slug}`,
+                  )}
                   name={championshipData.abbreviation}
                   image={championshipData.imageThumbnail}
                   color="blue"
@@ -79,7 +83,7 @@ export function SectionChampionships() {
               }}
             >
               <ButtonLink
-                href="/campeonatos"
+                href={getLocalizedPath("/campeonatos")}
                 title={t("home.championships.button")}
                 variant="outline"
                 size="large"

@@ -10,6 +10,7 @@ import {
 import type { Event } from "../../events/types/event";
 
 import { formatEventDate } from "../../../utils/formatEventDate";
+import { useLocalizedPath } from "../../../app/router/hooks/useLocalizedPath";
 
 interface ChampionshipEventsProps {
   events: Event[];
@@ -21,6 +22,7 @@ function getEventDate(date: string): Date {
 
 export function ChampionshipEvents({ events }: ChampionshipEventsProps) {
   const { t, i18n } = useTranslation();
+  const getLocalizedPath = useLocalizedPath();
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -118,7 +120,9 @@ export function ChampionshipEvents({ events }: ChampionshipEventsProps) {
                 </span>
 
                 <Link
-                  to={`/campeonatos/${nextEvent.championshipSlug}/eventos/${nextEvent.slug}`}
+                  to={getLocalizedPath(
+                    `/campeonatos/${nextEvent.championshipSlug}/eventos/${nextEvent.slug}`,
+                  )}
                   className="inline-flex items-center gap-2 text-sm 
                   font-black text-yellow-300 transition-all hover:underline 
                   group-hover:translate-x-1"

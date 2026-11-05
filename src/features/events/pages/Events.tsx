@@ -15,6 +15,7 @@ import { events } from "../data/events";
 import { Container } from "../../../components/layout/Container";
 import { DetailHero } from "../../../components/ui/DetailHero";
 import { EventCard } from "../components/EventCard";
+import { useLocalizedPath } from "../../../app/router/hooks/useLocalizedPath";
 
 const colorClasses = {
   zinc300: "#e4e4e7",
@@ -29,6 +30,7 @@ function getEventTimestamp(date: string) {
 export function Events() {
   const { slug: championshipSlug } = useParams();
   const { t } = useTranslation();
+  const getLocalizedPath = useLocalizedPath();
 
   const championship = championships.find(
     (championshipData) => championshipData.slug === championshipSlug,
@@ -75,7 +77,7 @@ export function Events() {
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-8">
             <Link
-              to={`/campeonatos/${championship.slug}`}
+              to={getLocalizedPath(`/campeonatos/${championship.slug}`)}
               className="group flex w-fit items-center gap-2 text-sm font-bold
               text-zinc-700 transition-colors hover:text-black"
             >

@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import type { Event } from "../types/event";
 import { championships } from "../../championships/data/championships";
 import { formatEventDate } from "../../../utils/formatEventDate";
+import { useLocalizedPath } from "../../../app/router/hooks/useLocalizedPath";
 
 export interface EventCardProps {
   event: Event;
@@ -17,6 +18,7 @@ export interface EventCardProps {
 
 export function EventCard({ event }: EventCardProps) {
   const { t, i18n } = useTranslation();
+  const getLocalizedPath = useLocalizedPath();
 
   const championship = championships.find(
     (championshipData) => championshipData.slug === event.championshipSlug,
@@ -102,7 +104,9 @@ export function EventCard({ event }: EventCardProps) {
           </span>
 
           <Link
-            to={`/campeonatos/${event.championshipSlug}/eventos/${event.slug}`}
+            to={getLocalizedPath(
+              `/campeonatos/${event.championshipSlug}/eventos/${event.slug}`,
+            )}
             className="inline-flex items-center gap-2 text-sm font-black
               text-yellow-300 transition-all
               group-hover:translate-x-1 hover:underline"
