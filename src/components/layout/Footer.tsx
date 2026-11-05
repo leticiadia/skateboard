@@ -86,7 +86,7 @@ export function Footer() {
           <div className="max-w-sm space-y-4">
             <img
               src={SkateboardLogo}
-              className="h-10"
+              className="h-6"
               alt={t("footer.logoAlt")}
             />
 

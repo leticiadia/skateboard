@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Container } from "../../../components/layout/Container";
 
 import SkateboardPhoto from "../../../assets/images/skateboard.png";
+import SkateboardLine from "../../../assets/images/skateboard-line.svg";
 
 const viewportSettings = {
   once: true,
@@ -30,9 +31,9 @@ export function SectionMain() {
           className="my-8 flex flex-col gap-8 lg:flex-row lg:items-center 
           lg:justify-between"
         >
-          <div>
+          <div className="flex flex-col items-start">
             <motion.h1
-              className="text-4xl font-rock-salt text-white md:text-6xl 
+              className="flex flex-col items-center gap-2 text-4xl font-rock-salt text-white md:text-6xl 
               lg:text-7xl"
               {...fadeUpAnimation}
               viewport={viewportSettings}
@@ -42,6 +43,11 @@ export function SectionMain() {
               }}
             >
               Skateboard!
+              <img
+                src={SkateboardLine}
+                className="h-2 md:h-3 lg:h-full"
+                alt="Linha curvada na cor amarela"
+              />
             </motion.h1>
 
             <motion.div
