@@ -73,25 +73,27 @@ export function AthleteStats({
             </h2>
           </motion.div>
 
-          <motion.div
-            className="flex flex-col items-center gap-2"
-            initial={initialContentAnimation}
-            whileInView={VISIBLE_STATE}
-            viewport={VIEWPORT_CONFIG}
-            transition={{ ...DEFAULT_TRANSITION, duration: 0.7, delay: 0.1 }}
-          >
-            <strong
-              className="text-[12rem] font-black leading-none tracking-tight 
-              lg:text-[16rem]"
-              style={{ color: accentColor }}
+          {stats.totalTitles > 0 && (
+            <motion.div
+              className="flex flex-col items-center gap-2"
+              initial={initialContentAnimation}
+              whileInView={VISIBLE_STATE}
+              viewport={VIEWPORT_CONFIG}
+              transition={{ ...DEFAULT_TRANSITION, duration: 0.7, delay: 0.1 }}
             >
-              {stats.totalTitles}
-            </strong>
+              <strong
+                className="text-[12rem] font-black leading-none tracking-tight 
+              lg:text-[16rem]"
+                style={{ color: accentColor }}
+              >
+                {stats.totalTitles}
+              </strong>
 
-            <span className="text-base font-bold uppercase tracking-widest">
-              {t("athlete-stats.titles")}
-            </span>
-          </motion.div>
+              <span className="text-base font-bold uppercase tracking-widest">
+                {t("athlete-stats.titles")}
+              </span>
+            </motion.div>
+          )}
         </div>
 
         <div className="mt-8 border-y border-gray-200">
