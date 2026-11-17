@@ -11,12 +11,15 @@ type AthletePodiumsTableProps = {
 const MEDAL_CONFIG = {
   gold: {
     label: "athlete-podiums.medals.gold",
+    className: "bg-[#D4AF37] text-[#241A00]",
   },
   silver: {
     label: "athlete-podiums.medals.silver",
+    className: "bg-[#C0C0C0] text-[#242424]",
   },
   bronze: {
     label: "athlete-podiums.medals.bronze",
+    className: "bg-[#CD7F32] text-white",
   },
 } as const;
 
@@ -158,7 +161,11 @@ export function AthletePodiumsTable({
                 </td>
 
                 <td className="px-2 py-6 text-right align-middle">
-                  <span className="text-xs font-bold uppercase tracking-widest">
+                  <span
+                    className={`inline-flex items-center rounded-md px-3 py-1.5 
+                    text-xs font-bold uppercase tracking-widest 
+                    ${medal.className}`}
+                  >
                     {t(medal.label)}
                   </span>
                 </td>
