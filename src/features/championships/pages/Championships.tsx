@@ -6,6 +6,8 @@ import { PageHero } from "../../../components/ui/PageHero/PageHero";
 import { ChampionshipSection } from "../components/ChampionshipSection";
 import { useLocalizedPath } from "../../../app/router/hooks/useLocalizedPath";
 
+import thumbChampioships from "../../../assets/images/thumbnail-championships.jpg";
+
 export function Championships() {
   const { t } = useTranslation();
   const getLocalizedPath = useLocalizedPath();
@@ -15,7 +17,7 @@ export function Championships() {
       <PageHero
         title={t("championships.title")}
         subtitle={t("championships.description")}
-        backgroundColor="#101828"
+        backgroundImage={thumbChampioships}
       />
 
       <section className="w-full">

@@ -7,6 +7,8 @@ import { Container } from "../../../components/layout/Container";
 import { PageHero } from "../../../components/ui/PageHero/PageHero";
 import { AthleteCategorySection } from "../components/AthleteCategorySection";
 
+import thumbAthletes from "../../../assets/images/thumbnail-athletes.jpg";
+
 const sectionAnimation = {
   initial: { opacity: 0, y: 16 },
   whileInView: { opacity: 1, y: 0 },
@@ -37,7 +39,7 @@ export function Athletes() {
       <PageHero
         title={t("athletes.title")}
         subtitle={t("athletes.description")}
-        backgroundColor="#101828"
+        backgroundImage={thumbAthletes}
       />
 
       <section className="my-10 w-full">
