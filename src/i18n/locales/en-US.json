@@ -11,12 +11,13 @@
       "description": "Follow athletes, explore championships, and discover what drives the skateboarding universe. A space for those who follow, live, and love the sport."
     },
     "about": {
-        "title": "The History of Skateboarding",
-        "description": {
-          "paragraph1": "Skateboarding was born as a creative alternative for surfers looking for new ways to experience freedom on wheels. Every trick, every street, and every generation has helped shape the story of this ever-evolving culture.",
-          "paragraph2": "Discover how skateboarding began, evolved, and became a global cultural movement. Click to explore the complete journey that transformed skateboarding into a worldwide icon."
-        },
-        "button": "Read Story" 
+      "title": "About Skateboard",
+      "subtitle": "Way beyond the tricks",
+      "description": {
+        "paragraph1": "More than just tracking athletes, championships, and events, the Skateboard celebrates a lifestyle in constant motion.",
+        "paragraph2": "Discover our vision and the purpose behind the platform."
+      },
+      "button": "Learn more" 
     },
     "athletes": {
         "title": "Athletes",
@@ -41,33 +42,48 @@
   },
   
   "about": {
-    "title": "About",
-    "description": "Discover the history of skateboarding, its evolution, and how it became a cultural movement that inspires generations.",
-
-    "history": {
-      "origin": {
-        "paragraph1": "Skateboarding originated in California, United States, during the 1960s. It was invented by surfers as a way to have fun on days when there were no waves.",
-        "paragraph2": "They used roller skate wheels.",
-        "paragraph3": "By 1965, the first skateboards were manufactured and the first competitions were held."
-      },
-
-      "tonyHawk": {
-        "paragraph1": "The sport gained worldwide popularity in the 1990s when Tony Hawk revolutionized skateboarding with his aerials and flips.",
-        "paragraph2": "Tony Hawk is still considered the greatest skateboarder of all time."
-      },
-
-      "culture": {
-        "paragraph1": "Skateboarding is practiced on streets all around the world and in dedicated places such as skate parks."
-      },
-
-      "competition": {
-        "paragraph1": "In competitions, there are two main categories: Street and Half Pipe.",
-        "paragraph2": "Tricks are judged based on difficulty, execution, and overall performance."
+    "hero": {
+      "title": "About",
+      "description": "Get to know the project and discover what drives Skateboard."
+    },
+    "project": {
+      "label": "About the project",
+      "title": "Skateboarding in motion.",
+      "paragraphs": [
+        "Skateboard is an information hub dedicated to the world of skateboarding. A platform created to bring together content about athletes, championships, events, and everything that keeps the sport moving.",
+        "Our goal is to make this information more accessible, providing a space where skateboarding enthusiasts can discover, explore, and follow different aspects of this world."
+      ]
+    },
+    "purpose": {
+      "label": "Our purpose",
+      "title": "Everything about skateboarding in one place.",
+      "description": "We believe that following skateboarding also means getting to know the people behind it, discovering new competitions, and staying up to date with what's happening. We want to bring all this information together in a simple and accessible experience."
+    },
+    "features": {
+      "label": "Explore the platform",
+      "title": "What can you find here?",
+      "items": {
+        "athletes": {
+          "title": "Athletes",
+          "description": "Get to know skateboarders, their journeys, achievements, and results."
+        },
+        "championships": {
+          "title": "Championships",
+          "description": "Explore competitions, rankings, and standings."
+        },
+        "events": {
+          "title": "Events",
+          "description": "Follow events and discover what's happening in the skateboarding scene."
+        },
+        "playlists": {
+          "title": "Playlists",
+          "description": "Discover playlists to get in the mood and enjoy the world of skateboarding."
+        }
       }
     }
   },
 
-   "athletes": {
+  "athletes": {
     "title": "Athletes",
     "description": "Meet the skaters who shaped the scene, from the legends to the new generation transforming the sport.",
 
@@ -123,7 +139,7 @@
       "lucas-martins": {
         "description": "Lucas Martins has been gaining prominence in national competitions thanks to his technical style and consistency. The skater aims to represent his generation in the country's top events.",
 
-         "awards": {
+          "awards": {
           "rookie-of-the-year": "Rookie Of The Year",
           "best-trick": "Best Trick",
           "skater-of-the-year": "Skater Of The Year"

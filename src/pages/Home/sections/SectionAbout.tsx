@@ -6,7 +6,8 @@ import { ButtonLink } from "../../../components/ui/ButtonLink";
 
 import BannerLiveYourExperienceEN from "../../../assets/images/banner-live-your-experience-en.png";
 import BannerLiveYourExperiencePT from "../../../assets/images/banner-live-your-experience.png";
-import TonyHawk from "../../../assets/images/tony-hawk.png";
+import AboutProject from "../../../assets/images/about-project.png";
+
 import { useLocalizedPath } from "../../../app/router/hooks/useLocalizedPath";
 
 const viewportSettings = {
@@ -54,10 +55,11 @@ export function SectionAbout() {
                 {t("home.about.title")}
               </h2>
 
-              <div className="my-4 w-full xl:w-[36rem]">
-                <p>{t("home.about.description.paragraph1")}</p>
+              <div className="my-4 w-full flex flex-col gap-2 xl:w-[36rem]">
+                <h3 className="font-bold">{t("home.about.subtitle")}</h3>
 
-                <p className="mt-4">{t("home.about.description.paragraph2")}</p>
+                <p>{t("home.about.description.paragraph1")}</p>
+                <p>{t("home.about.description.paragraph2")}</p>
               </div>
 
               <ButtonLink
@@ -69,7 +71,7 @@ export function SectionAbout() {
             </motion.div>
 
             <motion.img
-              src={TonyHawk}
+              src={AboutProject}
               alt=""
               initial={fadeInFromRightAnimation.initial}
               whileInView={fadeInFromRightAnimation.whileInView}

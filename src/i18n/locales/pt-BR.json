@@ -11,12 +11,13 @@
       "description": "Acompanhe atletas, explore campeonatos e descubra o que movimenta o universo do skate. Um espaço para quem acompanha, vive e ama o esporte."
     },
     "about": {
-        "title": "A História do Skate",
-        "description": {
-          "paragraph1": "O skate nasceu como uma alternativa criativa para os surfistas que buscavam novas formas de liberdade sobre rodas. Cada manobra, cada rua e cada geração ajudou a escrever a história desse universo em constante evolução.",
-          "paragraph2": "Descubra como o skate surgiu, evoluiu e se tornou um movimento cultural. Clique e conheça a trajetória completa que transformou o skate em um ícone mundial."
-        },
-        "button": "Ler História"
+      "title": "Sobre o Skateboard",
+      "subtitle": "Muito além das manobras",
+      "description": {
+        "paragraph1": "Mais do que acompanhar atletas, campeonatos e eventos, o Skateboard celebra um estilo de vida em constante movimento.",
+        "paragraph2": "Conheça a nossa visão e descubra o propósito por trás da plataforma."
+      },
+      "button": "Saiba mais"
     },
     "athletes": {
         "title": "Atletas",
@@ -41,32 +42,46 @@
   },
 
   "about": {
-    "title": "Sobre",
-    "description": "Descubra a história do skate, sua evolução e como se tornou um movimento cultural que inspira gerações.",
-
-    "history": {
-      "origin": {
-        "paragraph1": "O skate surgiu na Califórnia, Estados Unidos, nos anos 60. Foi inventado por alguns surfistas, como uma brincadeira para um dia no qual não havia ondas no mar.",
-        "paragraph2": "Eles utilizaram rodinhas de patins.",
-        "paragraph3": "Já em 1965 foram fabricados os primeiros skates e realizados os primeiros campeonatos."
-      },
-
-      "tonyHawk": {
-        "paragraph1": "Mas o esporte só ganhou o mundo nos anos 90, quando o norte-americano Tony Hawk realizou uma revolução com seus aéreos e flips.",
-        "paragraph2": "Tony Hawk é considerado, até hoje, o maior skatista de todos os tempos."
-      },
-
-      "culture": {
-        "paragraph1": "O skate é praticado pelas ruas do mundo todo, ou em lugares específicos, como os skate parks."
-      },
-
-      "competition": {
-        "paragraph1": "Nas competições, só existem duas categorias: a Street (circuito com obstáculos) e a Half Pipe (rampa em formato de U).",
-        "paragraph2": "As manobras são avaliadas por juízes que atribuem notas considerando a dificuldade e a desenvoltura das manobras realizadas."
+    "hero": {
+      "title": "Sobre",
+      "description": "Conheça o projeto e descubra o que move o Skateboard."
+    },
+    "project": {
+      "label": "Sobre o projeto",
+      "title": "O skate em movimento.",
+      "paragraphs": [
+        "O Skateboard é um hub de informações dedicado ao universo do skate. Uma plataforma criada para reunir conteúdos sobre atletas, campeonatos, eventos e tudo aquilo que movimenta o esporte.",
+        "Nosso objetivo é facilitar o acesso a essas informações, oferecendo um espaço onde os apaixonados pelo skate possam descobrir, explorar e acompanhar diferentes aspectos desse universo."
+      ]
+    },
+    "purpose": {
+      "label": "Nosso propósito",
+      "title": "Tudo sobre skate em um só lugar.",
+      "description": "Acreditamos que acompanhar o skate também é conhecer quem faz parte dele, descobrir novas competições e estar por dentro dos acontecimentos. Queremos conectar essas informações em uma experiência simples e acessível."
+    },
+    "features": {
+      "label": "Explore a plataforma",
+      "title": "O que você encontra por aqui?",
+      "items": {
+        "athletes": {
+          "title": "Atletas",
+          "description": "Conheça skatistas, suas trajetórias, conquistas e resultados."
+        },
+        "championships": {
+          "title": "Campeonatos",
+          "description": "Explore competições, rankings e classificações."
+        },
+        "events": {
+          "title": "Eventos",
+          "description": "Acompanhe eventos e descubra o que acontece no cenário do skate."
+        },
+        "playlists": {
+          "title": "Playlists",
+          "description": "Encontre playlists para entrar no clima e aproveitar o universo do skate."
+        }
       }
     }
   },
-
 
   "athletes": {
     "title": "Atletas",
