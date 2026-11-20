@@ -28,7 +28,7 @@ export function PageHero({
       {backgroundImage && (
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-black/80"
+          className="pointer-events-none absolute inset-0 bg-black/60"
         />
       )}
 
@@ -39,7 +39,7 @@ export function PageHero({
         >
           <h1 className="text-4xl font-bold text-white lg:text-6xl">{title}</h1>
 
-          <p className="text-base font-medium text-zinc-400">{subtitle}</p>
+          <p className="text-base font-medium text-zinc-300">{subtitle}</p>
         </div>
       </Container>
     </section>

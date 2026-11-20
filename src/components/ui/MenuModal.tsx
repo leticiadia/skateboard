@@ -2,7 +2,7 @@ import { Translate, X } from "phosphor-react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import SkateboardLogo from "../../assets/brand/skateboard-logo-black.svg";
+import SkateboardLogo from "../../assets/brand/skateboard-logo-black.png";
 
 type Language = "pt-BR" | "en";
 
@@ -73,7 +73,7 @@ export function MenuModal({
         onClick={(event) => event.stopPropagation()}
       >
         <div className="flex items-center justify-between">
-          <img src={SkateboardLogo} className="h-8" alt="Skateboard" />
+          <img src={SkateboardLogo} className="h-5" alt="Skateboard" />
 
           <button
             type="button"

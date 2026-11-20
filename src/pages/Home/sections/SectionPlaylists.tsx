@@ -30,12 +30,14 @@ export function SectionPlaylists() {
     <section className="mt-10 w-full bg-yellow-300">
       <Container>
         <div
-          className="mb-8 flex flex-col items-center justify-evenly gap-8 
+          className="flex flex-col items-center justify-evenly gap-8 
           lg:mb-0 lg:flex-row lg:justify-between"
         >
           <motion.img
             src={ImagePeopleWithSkateboard}
-            className="h-[600px] object-cover lg:mb-0"
+            className="aspect-[3/4] w-full  object-cover
+            md:aspect-[16/9] md:max-w-full
+            lg:aspect-[3/4] lg:w-[40%] lg:max-w-[400px]"
             alt=""
             {...fadeInFromLeftAnimation}
             viewport={viewportSettings}
@@ -66,12 +68,14 @@ export function SectionPlaylists() {
               </p>
             </div>
 
-            <ButtonLink
-              href={getLocalizedPath("/playlists")}
-              title={t("home.playlists.button")}
-              variant="solid"
-              size="medium"
-            />
+            <div className="pb-8">
+              <ButtonLink
+                href={getLocalizedPath("/playlists")}
+                title={t("home.playlists.button")}
+                variant="solid"
+                size="medium"
+              />
+            </div>
           </motion.div>
         </div>
       </Container>
