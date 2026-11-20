@@ -5,6 +5,8 @@ import { PlaylistCard } from "../components/PlaylistCard";
 
 import { playlists } from "../data/playlists";
 
+import thumbnailPlaylists from "../../../assets/images/thumbnail-playlists.jpg";
+
 export function Playlists() {
   const { t } = useTranslation();
 
@@ -13,7 +15,7 @@ export function Playlists() {
       <PageHero
         title={t("home.playlists.title")}
         subtitle={t("home.playlists.description.paragraph2")}
-        backgroundColor="#101828"
+        backgroundImage={thumbnailPlaylists}
       />
 
       <Container>
